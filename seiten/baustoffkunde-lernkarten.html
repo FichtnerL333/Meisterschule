@@ -1,0 +1,291 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>Baustoffkunde Lernkarten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: one card in the middle like a Karteikarte on the Baustellen-Tisch; topic chips above, two answer buttons below */
+:root{
+  --bg:#e7e9ea; --paper:#fbfbf9; --ink:#1e2326; --muted:#5d666b; --line:#c9ced1;
+  --accent:#f2b705; --accent-ink:#1e2326; --ok:#2f7d4f; --again:#b5442c; --chip:#d9dddf;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15191b; --paper:#20262a; --ink:#e8ecee; --muted:#9aa5ab; --line:#353d42;
+  --accent:#f2b705; --accent-ink:#15191b; --ok:#5fbf86; --again:#e8795f; --chip:#2b3236; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15191b; --paper:#20262a; --ink:#e8ecee; --muted:#9aa5ab; --line:#353d42;
+  --accent:#f2b705; --accent-ink:#15191b; --ok:#5fbf86; --again:#e8795f; --chip:#2b3236; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;padding-inline:16px;padding-block:20px 32px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:700;font-size:2rem;letter-spacing:.01em;margin:0;text-wrap:balance}
+.date{font-size:.9rem;color:var(--muted)}
+.date b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 .9rem var(--body);border:1px solid var(--line);background:var(--chip);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip:focus-visible,.btn:focus-visible,.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stats{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.stats b{color:var(--ink)}
+.bar{height:6px;background:var(--chip);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:6px;min-height:300px;padding:22px 22px 26px;cursor:pointer;display:flex;flex-direction:column;gap:14px}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent);border-radius:6px 0 0 6px}
+.meta{display:flex;justify-content:space-between;font:600 .78rem var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.q{font-family:var(--display);font-weight:600;font-size:1.65rem;line-height:1.2;text-wrap:balance}
+.a{border-top:2px solid var(--ink);padding-top:12px;white-space:pre-line}
+.a b{background:color-mix(in srgb,var(--accent) 35%,transparent);padding:0 2px}
+.hint{margin-top:auto;font-size:.88rem;color:var(--muted)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{font:700 1rem var(--body);padding:14px 10px;border-radius:6px;border:2px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.btn.again{border-color:var(--again);color:var(--again)}
+.btn.ok{border-color:var(--ok);background:var(--ok);color:var(--paper)}
+.btn.flip{grid-column:1/-1;background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.tools .btn{padding:8px 12px;font-size:.88rem;font-weight:600}
+.done{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.done h2{font-family:var(--display);font-size:1.6rem;margin:0}
+.keys{font-size:.82rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Baustoffkunde Lernkarten</h1>
+    <div class="date">Schulaufgabe <b>Mi 28.10.2026</b></div>
+  </header>
+
+  <div class="chips" id="chips" role="group" aria-label="Themen"></div>
+
+  <div>
+    <div class="stats"><span>Im Stapel: <b id="sLeft">0</b></span><span>Gewusst: <b id="sOk">0</b></span><span>Nochmal: <b id="sAgain">0</b></span></div>
+    <div class="bar" style="margin-top:6px"><i id="prog"></i></div>
+  </div>
+
+  <div id="stage"></div>
+
+  <div class="tools">
+    <button class="btn" id="shuffle" type="button">Neu mischen</button>
+    <button class="btn" id="reset" type="button">Fortschritt löschen</button>
+  </div>
+  <div class="keys">Tastatur: Leertaste = umdrehen · 1 = nochmal · 2 = gewusst</div>
+</div>
+
+<script>
+const T = {
+  sk:"Stoffkennwerte", dm:"Dämmstoffe", ks:"Kunststoffe", bi:"Bitumen", ab:"Abdichtungsbahnen"
+};
+const CARDS = [
+// Stoffkennwerte
+["sk","Welche vier Gruppen von Baustoffen gibt es?","<b>Baumetalle</b> (metallisch)\n<b>Mineralische</b> Baustoffe (nichtmetallisch-anorganisch)\n<b>Natürliche und künstliche Polymere</b> (organisch)\n<b>Verbundbaustoffe</b> (Mischung)"],
+["sk","Zu welcher Gruppe gehören Bitumen und Holz?","Organische Stoffe (natürliche und künstliche Polymere).\nHolz ist außerdem ein <b>natürlicher Verbundbaustoff</b>."],
+["sk","Nenne 4 Verbundbaustoffe.","Mörtel, Beton, Stahl- und Spannbeton, Mauerwerk, faserverstärkte Kunststoffe, Holz."],
+["sk","Drei Hauptanforderungen an Baustoffe?","<b>Technische Einsetzbarkeit</b> (mechanisch, Feuerwiderstand, physikalisch-chemisch)\n<b>Form- und Fügbarkeit</b>\n<b>Wirtschaftlichkeit</b> (auch Wiederverwertbarkeit!)"],
+["sk","Bauregelliste A, B, C: welches Zeichen?","<b>B</b> = europäisch geregelt → <b>CE-Zeichen</b>\n<b>A</b> = national geregelt → <b>Ü-Zeichen</b>\n<b>C</b> = untergeordnet → kein Nachweis, kein Ü-Zeichen"],
+["sk","Wie viel Gewichtskraft hat 1 kg?","1 kg · 9,81 m/s² = 9,81 N ≈ <b>10 N</b>"],
+["sk","Was ist die (Rein-)Dichte?","Masse durch <b>hohlraumfreies</b> Volumen.\nρ = m / V\nStoff wird dafür zermahlen."],
+["sk","Was ist die Rohdichte?","Masse durch Volumen <b>mit den Poren im Korn</b> (Korneigenporen).\nρR = m / (V + Vh)"],
+["sk","Was ist die Schüttdichte?","Masse durch Volumen mit Kornporen <b>und Hohlräumen zwischen den Körnern</b>.\nρS = m / (V + Vh + Vz)\nGemessen im Messgefäß (A · h)."],
+["sk","Reihenfolge: Dichte, Rohdichte, Schüttdichte – welche ist am größten?","<b>Dichte ≥ Rohdichte ≥ Schüttdichte</b>\nJe mehr Hohlraum mitzählt, desto kleiner."],
+["sk","Warum hat feuchter Sand eine kleinere Schüttdichte?","Das Wasser verklebt die Körner, sie liegen <b>lockerer</b>."],
+["sk","1 kg/dm³ = ? kg/m³ · 1 Liter = ?","1 kg/dm³ = g/cm³ = t/m³ = <b>1000 kg/m³</b>\n<b>1 L = 1 dm³</b>"],
+["sk","Welche drei Porenarten unterscheidet man?","<b>Geschlossene</b> Poren (nicht füllbar)\n<b>Kapillarporen</b> (offen)\n<b>Haufwerksporen</b> (zwischen Körnern)"],
+["sk","Geschlossene Poren oder offene Poren: was dämmt Wärme, was schluckt Schall?","<b>Geschlossen → Wärmedämmung</b>\n<b>Offen/kapillar → Schallschutz</b> (Schallabsorption)"],
+["sk","Was beeinflusst die Porosität? (mind. 4)","Rohdichte, Festigkeit, E-Modul, Eindringen von Wasser/Gas (kapillares Saugen), Frost-/Korrosionswiderstand, <b>Wärmeleitfähigkeit</b>, Volumenstabilität."],
+["sk","Formänderungen: umkehrbar sofort / nicht umkehrbar sofort?","Umkehrbar sofort = <b>elastisch</b>\nNicht umkehrbar sofort = <b>plastisch</b>"],
+["sk","Was heißt viskos? Beispiel?","Nicht umkehrbare, <b>zeitabhängige</b> Verformung.\nBeispiel: <b>Glas, Bitumen</b>."],
+["sk","Formel Wärmedehnung?","<b>εT = αT · ΔT</b>\nαT in 1/K (meist 10⁻⁶/K)"],
+["sk","Warum funktioniert Stahlbeton bei Wärme?","Stahl (12 · 10⁻⁶/K) und Beton (10 · 10⁻⁶/K) dehnen sich <b>fast gleich</b> aus."],
+["sk","Was ist die Wasseranomalie?","Wasser hat bei ca. <b>4 °C</b> das kleinste Volumen. Beim Gefrieren dehnt es sich aus → <b>Frostschäden</b>."],
+["sk","Schwinden und Quellen – was ist was?","<b>Schwinden</b> = kleiner beim Austrocknen\n<b>Quellen</b> = größer bei Feuchte\nv. a. Holz und mineralische Baustoffe, meist umkehrbar."],
+["sk","Was ist μ und wie rechnet man sd?","μ = Wasserdampf-Diffusionswiderstandszahl (ohne Einheit)\n<b>sd = μ · s</b> (s in m) = gleichwertige Luftschicht in m"],
+["sk","sd-Wert: 15 mm Putz (μ 15) und 0,1 mm PVC-Folie (μ 20 000)?","Putz: 15 · 0,015 = <b>0,225 m</b>\nFolie: 20 000 · 0,0001 = <b>2 m</b>\n→ die dünne Folie bremst mehr."],
+["sk","Welche Stoffe sind praktisch dampfdicht?","<b>Schaumglas</b> und <b>Alufolie</b>."],
+["sk","Was gibt die Wärmeleitfähigkeit λ an? Einheit?","Wie schnell sich Wärme durch den Stoff ausbreitet.\nEinheit <b>W/(m·K)</b>. Je kleiner, desto besser dämmt es."],
+["sk","λ-Werte: Beton, Holz, Mineralwolle, stehende Luft?","Beton 2,1 · Holz 0,13–0,18 · Mineralwolle ~0,035–0,05 · stehende Luft ~<b>0,025</b> W/(m·K)"],
+["sk","Was ist die spezifische Wärmespeicherkapazität c?","Energie, um 1 kg um <b>1 K</b> zu erwärmen, in <b>kJ/(kg·K)</b>. Maß fürs Wärmespeichern."],
+["sk","Welcher Dämmstoff speichert Wärme am besten? Wert?","<b>Holzfaser / Zellulose: c = 2,1 kJ/(kg·K)</b>\n(zum Vergleich: Mineralfaser 0,8, Beton 0,88)"],
+["sk","Welche Beständigkeiten muss ein Baustoff haben?","Witterung, Frost, Kristallisationsdruck, chemische Beständigkeit (Korrosion), Alterung."],
+// Dämmstoffe
+["dm","Wozu setzt man Dämmstoffe ein? (4 Punkte)","Wärmeverluste <b>reduzieren</b>, Wärmebrücken <b>minimieren</b>, Schall <b>bremsen</b>/Raumakustik verbessern, Brandschutz <b>sicherstellen</b>."],
+["dm","Ab welchem λ ist ein Stoff ein Wärmedämmstoff?","<b>λ ≤ 0,1 W/(m·K)</b>"],
+["dm","Welche Normen regeln Dämmstoffe – DE und EU?","DIN V 4108-4 → <b>Deutschland</b>\nDIN EN ISO 10456 → <b>EU</b>"],
+["dm","Worauf beruht die Wärmedämmwirkung?","Auf der <b>eingeschlossenen Luft in den Poren</b>."],
+["dm","Ziele des winterlichen Wärmeschutzes?","Heizenergie begrenzen, Energietransfer durch Bauteile minimieren, gesundes Wohnklima / kein Schimmel, Konstruktion vor <b>Durchfeuchtung</b> schützen."],
+["dm","Ziele des sommerlichen Wärmeschutzes?","Sonnenwärme draußen halten, keine Überhitzung, Wärme ca. <b>12 Stunden verzögern</b>.\nDafür: hohe Wärmespeicherkapazität (Holzfaser)."],
+["dm","Welche Gesetze sind überholt, welches gilt?","EnEV und EEG sind <b>überholt</b>, zusammengefasst im <b>GEG</b> (Gebäudeenergiegesetz).\n(Im Heft steht zusätzlich „GMG – aktuell“.)"],
+["dm","Nenne 3 anorganische Dämmstoffe.","z. B. <b>Mineralwolle, Schaumglas, Kalziumsilikat</b>, Perlite, Blähton, Vermiculite"],
+["dm","Nenne 3 organisch-synthetische Dämmstoffe.","<b>EPS, XPS, PUR</b>, Phenolharz-Hartschaum, Polyesterfasern"],
+["dm","Nenne 5 nachwachsende Dämmstoffe (Holzständerwand).","<b>Holzfaser, Schafwolle, Kork, Stroh, Zellulose</b> (auch Flachs, Hanf)"],
+["dm","Welche Dämmstoffe unter die Bodenplatte?","<b>Schaumglasschotter, Schaumglasplatten, XPS</b>"],
+["dm","EPS unverputzt gegen Erdreich – geht das?","<b>Nein.</b> EPS zieht Wasser (offen/kapillar laut Unterricht).\nBesser <b>XPS</b>, weil geschlossenporig."],
+["dm","Wofür ist XPS typisch?","<b>Perimeterdämmung</b> (gegen Erdreich) und Umkehrdach – druckfest, geschlossenporig."],
+["dm","Welcher Dämmstoff hat das kleinste λ der Hartschäume?","<b>PUR/PIR</b>: 0,024–0,028 W/(m·K)"],
+["dm","Schaumglas: Brandklasse und Besonderheit?","<b>A1</b> nichtbrennbar, <b>praktisch dampfdicht</b>, druckfest. Aus Recyclingglas."],
+["dm","Was bedeutet DAD?","<b>Dach außen</b>, vor Bewitterung geschützt, Dämmung <b>unter Deckung</b>."],
+["dm","Was bedeutet DUK?","<b>Umkehrdach</b>: Dämmung über der Abdichtung, der Bewitterung ausgesetzt."],
+["dm","Was bedeutet DZ?","<b>Zwischensparrendämmung</b>, nicht begehbar.\nz. B. Mineralwolle, Zellulose, Holzfaser"],
+["dm","DEO und DES – Unterschied?","Beide: oben auf Decke/Bodenplatte <b>unter Estrich</b>.\nDEO = <b>ohne</b> Schallschutz\nDES = <b>mit</b> Schallschutz (Trittschall)"],
+["dm","Was bedeutet WAP?","<b>Wand außen unter Putz</b> (WDVS).\nz. B. EPS, Mineralwolle, Holzweichfaser"],
+["dm","Was bedeuten WI, WZ, WH?","WI = <b>Innendämmung</b> Wand\nWZ = <b>Kerndämmung</b> zweischalig\nWH = <b>Holzrahmen</b>-/Holztafelbau"],
+["dm","PW und PB?","Perimeter (unter Gelände), außerhalb der Abdichtung:\nPW = <b>Wand</b> gegen Erdreich\nPB = <b>unter der Bodenplatte</b>"],
+["dm","Baustoffklassen DIN 4102: A1, A2, B1, B2, B3?","A1 nichtbrennbar · A2 nichtbrennbar mit brennbaren Teilen · B1 <b>schwer</b> entflammbar · B2 <b>normal</b> entflammbar · B3 <b>leicht</b> entflammbar"],
+["dm","Welche Klasse ist nach BayBO verboten?","<b>B3</b> (leicht entflammbar, EN-Klasse F)"],
+["dm","Was heißen s und d in der EN-Klasse (z. B. A2-s1,d0)?","<b>s = smoke</b> (Rauch) 1–3\n<b>d = drop</b> (brennendes Abtropfen) 0–2\nJe kleiner, desto besser."],
+["dm","Beispiele A1, A2, B2, B3?","A1: Mauerwerk, Beton, Glas, Mineralwolle, Metall\nA2: Gipskarton\nB2: Fichte, Tanne, Kiefer, EPS, Holzfaser\nB3: Papier, Pappe"],
+["dm","EPS, XPS, Holzfaser: Brandklasse?","<b>B2 / E</b> – normal entflammbar"],
+["dm","Wovon hängt die Luft- und Trittschalldämmung ab?","Von <b>Masse</b> und <b>Biegesteifigkeit</b>.\nFugen als <b>Schallbrücken vermeiden</b>!"],
+["dm","Was passiert bei Schallabsorption?","Schall wird durch <b>Reibung in Wärme</b> umgewandelt.\nOffenporig schluckt mehr als geschlossenporig. Frequenzabhängig."],
+// Kunststoffe
+["ks","Aus welchen Rohstoffen werden Kunststoffe gemacht?","<b>Erdöl, Kohle, Erdgas</b>, dazu Kalk, Kochsalz, Wasser.\nAuch aus Naturstoffen: Zellulose, Naturkautschuk, Eiweiß."],
+["ks","Wichtigstes Element der Kunststoffe?","<b>Kohlenstoff (C)</b>"],
+["ks","Was ist organische Chemie?","Chemie der <b>Kohlenstoffverbindungen</b> (außer reinem C, Carbonaten, CO, CO₂)."],
+["ks","Welche Elemente kommen außer C in organischen Verbindungen vor?","<b>H, O, N, S, P</b>"],
+["ks","Monomer und Polymer?","Monomer = <b>kleines Einzelmolekül</b>\nPolymer = <b>langkettiges Makromolekül</b>"],
+["ks","Gemeinsame Merkmale von Kunststoffen (Vorteile)?","Geringe Dichte und Wärmeleitfähigkeit, <b>große Zugfestigkeit</b>, <b>dampfdicht</b> und chemisch beständig, <b>elektrisch isolierend</b>, gut einfärbbar."],
+["ks","Nachteile von Kunststoffen?","Stark temperaturabhängig, brennbar, niedrige Gebrauchstemperatur, <b>eingeschränkt UV-beständig</b>."],
+["ks","Welche drei Herstellungsverfahren gibt es?","<b>Polymerisation, Polykondensation, Polyaddition</b>"],
+["ks","Polymerisation?","<b>Viele kleine gleichartige</b> Moleküle → sehr große.\nKettenreaktion, Startenergie von außen. Keine Abspaltung. Umkehrbar.\nBeispiel: Polyethylen."],
+["ks","Polykondensation?","Mind. zwei gleiche oder verschiedene Monomere verbinden sich, dabei wird <b>Wasser, Ammoniak oder Gas abgespalten</b>.\n<b>Nicht umkehrbar</b>. Beispiel: PET, Duroplaste."],
+["ks","Polyaddition?","Monomere von <b>zwei verschiedenen Stoffen</b> verbinden sich, Atome wechseln den Platz, <b>nichts wird abgespalten</b>.\nBeispiel: Kontaktkleber."],
+["ks","Die vier Kunststoffgruppen?","<b>Thermoplaste, Duroplaste, Elastomere, Silikone</b>"],
+["ks","Thermoplaste: Eigenschaften?","Nicht vernetzt, werden bei Wärme <b>weich und schmelzbar</b>, wieder formbar. <b>Schweißbar</b> und klebbar."],
+["ks","Duroplaste: Eigenschaften?","<b>Engmaschig/raumnetzartig vernetzt</b> („Hart“-Kunststoffe). Nach dem Aushärten <b>nicht mehr schmelzbar</b>. Spanbar, klebbar, <b>nicht schweißbar</b>."],
+["ks","Elastomere?","Weitmaschig vernetzt, <b>gummielastisch</b>.\nz. B. Silikonkautschuk, EPDM, Butyl"],
+["ks","Silikone: was ist besonders?","<b>Silizium statt Kohlenstoff</b>. Ölig bis gummiartig, wasserabweisend, einfärbbar.\n<b>Nicht überstreichbar!</b>"],
+["ks","Wofür nimmt man Silikone am Bau?","Silikonkautschuk für <b>wasserdichte Fugen</b>, Silikonharz als <b>wasserabweisender Anstrich</b> auf Beton/Mauerwerk/Putz, Silikonschaum in Montageschaum."],
+["ks","Hart-PVC (PVC-U): wofür?","<b>Rohre, Dränrohre, Dachrinnen, Fenster</b>. Nicht beständig gegen Lösemittel."],
+["ks","Weich-PVC (PVC-P): wofür?","Bodenbeläge, Folien, <b>Dichtungsbahnen</b>, Fugenbänder. Bis 50 % Weichmacher, versprödet mit der Zeit."],
+["ks","Was ist PVAC und wofür?","Polyvinylacetat: <b>Weißleim/Kaltleim</b> (Holzleim), Haftbrücken, Zusatz für Putz, Beton, Estrich."],
+["ks","Woraus sind EPS und XPS?","Aus <b>Polystyrol (PS)</b>, geschäumt – ca. 95 % Luft."],
+["ks","PE (Polyethylen) am Bau?","<b>PE-Folie / Bautenschutzfolie</b> (z. B. 0,2 mm, Dampfsperre), Rohre. Schweißbar, <b>nicht klebbar</b>."],
+["ks","Epoxidharz (EP): was beachten?","Duroplast. Kleber, Zusatz für Mörtel/Beton. <b>Flüssig giftig, giftige Dämpfe</b>. Klebbar, nicht schweißbar."],
+["ks","PUR: Brandklasse?","Normal <b>B2</b>, PUR-Hartschaum <b>B1</b> (schwer entflammbar)."],
+// Bitumen
+["bi","Was ist Bitumen?","Dunkles, halbfestes bis hartes <b>Kohlenwasserstoffgemisch</b>, <b>Rückstand bei der Destillation von Erdöl</b>."],
+["bi","Was ist Asphalt?","<b>Gesteinskörnung + Bitumen</b> als Bindemittel."],
+["bi","Woraus wird Teerpech gemacht?","Aus <b>trockener Destillation von Stein- und Braunkohle</b>."],
+["bi","Was ist Naturasphalt?","<b>Erdölhaltiges Gestein</b>, aus dem die leichten Bestandteile verdunstet sind."],
+["bi","Welche Eigenschaften zählen bei Bitumen?","Nicht Festigkeit, sondern <b>Klebefähigkeit, Dichtigkeit, Verformbarkeit</b>."],
+["bi","Ist Bitumen organisch oder anorganisch? Thermo-/Duroplast?","<b>Organisch</b> (Kohlenstoff, aus Rohöl). Bitumen ist ein <b>Thermoplast</b>."],
+["bi","Aus welchen zwei Phasen besteht Bitumen?","Ölige Phase: <b>Maltene</b>\nFeste Phase: <b>Asphaltene</b> (mit Schutzschicht aus Asphaltharzen = <b>Mizelle</b>)"],
+["bi","Hat Bitumen einen Schmelzpunkt?","Nein, einen <b>Erweichungspunkt</b>. Darunter spröde, darüber verformbar.\nBei Normaltemperatur eine <b>hochviskose (zähe) Flüssigkeit</b>."],
+["bi","Wie wird Bitumen hergestellt?","Rohöl → Röhrenofen <b>350–400 °C</b> → <b>atmosphärische Destillation</b> → Rückstand → <b>Vakuumdestillation (~50 mbar)</b> → Bitumen"],
+["bi","Welche Bitumenarten entstehen in der Raffinerie?","<b>Straßenbaubitumen</b> (+ Sand/Kies = Asphalt), <b>Destillationsbitumen</b>, <b>Oxidationsbitumen</b> (mit Luft geblasen)"],
+["bi","Teer oder Bitumen: was ist Gefahrstoff und warum?","<b>Teer</b>: sehr viel krebserregende PAK (Benzo(a)pyren 5000–10 000 ppm), keine Heißverarbeitung, kein Recycling.\nBitumen: 1–5 ppm, kein Gefahrstoff, WGK 0."],
+["bi","Wie werden Bitumenbahnen verarbeitet?","Meist <b>thermisch</b>: Gieß- und Bürstenstreichverfahren mit heißer Masse oder <b>Schweißverfahren</b> (Gasbrenner, Bahn einrollen)."],
+["bi","Worauf achten bei der Bauwerksabdichtung?","<b>Vollflächig verkleben</b> und genug <b>Anpressdruck</b> – gegen Hinterläufigkeit von Wasser."],
+["bi","Wie schließt man Durchdringungen an?","Mit <b>Klebeflansch, Dichtungsmanschette oder Klemmflansch</b>."],
+["bi","Leichter und schwerer Oberflächenschutz?","Leicht = <b>Beschieferung</b>\nSchwer = <b>Bekiesung</b> (Schutz + Auflast)"],
+["bi","Was braucht eine Bitumenbahn unter einer Dachbegrünung?","<b>Durchwurzelungsschutz</b>"],
+["bi","Lastfälle bei der Bauwerksabdichtung (DIN 18195)?","<b>Bodenfeuchte</b>, <b>nicht drückendes Wasser</b>, <b>drückendes Wasser</b> (von außen / innen)"],
+// Abdichtungsbahnen
+["ab","Bitumenbahn-Kürzel: R, G, V, PV?","R = <b>Rohfilzpappe</b>\nG = <b>Glasgewebe</b>\nV = <b>Glasvlies</b>\nPV = <b>Polyestervlies</b>"],
+["ab","Bitumenbahn-Kürzel: N, D, DD, S5?","N = <b>nackt</b> (ohne Beschieferung)\nD = <b>Dichtungsbahn</b>\nDD = <b>Dachdichtungsbahn</b>\nS5 = <b>Schweißbahn, 5 mm</b> dick"],
+["ab","Was heißt die Zahl in G 200 D?","<b>Gewicht der Trägereinlage: 200 g/m²</b>"],
+["ab","R 500 N – was ist das, wofür?","<b>Nackte Bitumenbahn</b>, Rohfilzpappe 500 g/m².\nEinfache Abdichtung, Feuchtigkeitssperre, <b>Mauersperrbahn</b>. Geringe Zugfestigkeit."],
+["ab","G 200 D – was ist das, wofür?","<b>Bitumen-Dichtungsbahn</b>, Glasgewebe 200 g/m².\n<b>Trennlage</b>, <b>untere Lage</b> mehrlagiger Abdichtung, einfache <b>Dampfsperre</b>."],
+["ab","PV 220 DD – was ist das, wofür?","<b>Bitumen-Dachdichtungsbahn</b>, Polyestervlies 220 g/m².\nStrapazierfähige Dachabdichtung, über Aufenthaltsräumen."],
+["ab","Warum meist Elastomerbitumen bei Dachdichtungsbahnen?","Für <b>höhere Zugfestigkeit</b> und mechanische Belastbarkeit."],
+["ab","Was ist besonders an V 13 DD?","Glasvlies, Dachdichtungsbahn – die 13 steht für <b>1300 g/m² Bitumen + Träger</b> (nicht nur Träger!). Außerhalb DIN 20000-201."],
+["ab","PV 250 S5 – was ist das, wofür?","<b>Bitumen-Schweißbahn</b>, Polyestervlies 250 g/m², 5 mm dick.\nHochwertig, <b>obere Lage</b> (beschiefert = UV-Schutz), Dampfsperre, drückendes Wasser → <b>„schwarze Wanne“</b>."],
+["ab","DO, DZ, DU, DE?","DO = <b>Oberlage</b>\nDZ = <b>Zwischenlage</b>\nDU = <b>Unterlage</b>\nDE = <b>Einzellage</b> (einlagig)"],
+["ab","Eigenschaftsklassen E1 bis E4?","E1: thermisch <b>hoch</b> / mechanisch <b>hoch</b>\nE2: thermisch mäßig / mechanisch hoch\nE3: thermisch hoch / mechanisch mäßig\nE4: beides mäßig"],
+["ab","Was ist thermische und mechanische Beanspruchung?","Thermisch = <b>Sonne</b>, Temperaturwechsel (ca. +40 °C bis −10 °C)\nMechanisch = <b>Druck/Last</b> auf die Bahn über weicher Dämmung"],
+["ab","DO/E1 G 300 S6?","<b>Oberlage</b> mehrlagig, <b>E1</b> (hoch/hoch), <b>Glasgewebe 300 g/m²</b>, <b>Schweißbahn 6 mm</b>"],
+["ab","Was heißt PYE?","<b>Polymerbitumen mit Elastomeren</b>"],
+["ab","Wie sind Kunststoffbahnen aufgebaut?","<b>Trägermaterial mit Kunststoffumhüllung</b>"],
+["ab","Welche Kunststoffbahn-Gruppen gibt es?","<b>PVC-P</b> (EVA/EVAC), <b>FPO</b> (ECB), <b>PIB</b>, Elastomerbahn <b>EPDM</b>"],
+["ab","PVC-Bahn: Vor- und Nachteile?","+ schweißbar heiß/kalt, <b>günstig</b>\n− <b>nicht UV-beständig</b>, <b>spröde bei Kälte</b>, chlorhaltig, B2"],
+["ab","FPO-Bahn: Eigenschaften?","Flexibles Polyolefin (PP/PE, thermoplastisch): schweißbar heiß/kalt, <b>UV-beständig</b>, <b>schlagzäh bei Kälte</b>, B2"],
+["ab","Kunststoffbahn-Kürzel: BV, NB, GV, SK?","BV = <b>bitumenverträglich</b>\nNB = <b>nicht</b> bitumenverträglich\nGV = <b>Glasvlies</b>\nSK = <b>Selbstklebeschicht</b>"],
+["ab","DE/E1-FPO-BV-GV-1,5?","<b>Einlagige</b> Dachabdichtung, <b>E1</b>, <b>FPO</b>, <b>bitumenverträglich</b>, <b>Glasvlies</b>, <b>1,5 mm</b> dick"],
+["ab","DE/E3-FPO-BV-GV-1,6?","Einlagig, <b>E3</b> (thermisch hoch / mechanisch mäßig), FPO, bitumenverträglich, Glasvlies, 1,6 mm."]
+];
+
+const KEY="bsk-lernkarten-v1";
+let known=new Set(), again=new Set(), active=new Set(Object.keys(T)), deck=[], pos=0, flipped=false;
+try{const s=JSON.parse(localStorage.getItem(KEY)||"{}"); if(s.k) known=new Set(s.k); if(s.a) again=new Set(s.a); if(s.t&&s.t.length) active=new Set(s.t);}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({k:[...known],a:[...again],t:[...active]}))}catch(e){}}
+
+const chips=document.getElementById("chips");
+function renderChips(){
+  chips.innerHTML="";
+  const all=document.createElement("button");all.className="chip";all.type="button";all.textContent="Alle";
+  all.setAttribute("aria-pressed",active.size===Object.keys(T).length);
+  all.onclick=()=>{active=new Set(Object.keys(T));build();};
+  chips.appendChild(all);
+  for(const [k,v] of Object.entries(T)){
+    const n=CARDS.filter(c=>c[0]===k).length;
+    const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v+" ("+n+")";
+    b.setAttribute("aria-pressed",active.has(k)&&active.size!==Object.keys(T).length);
+    b.onclick=()=>{active=new Set([k]);build();};
+    chips.appendChild(b);
+  }
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function build(){
+  renderChips();
+  const ids=CARDS.map((c,i)=>i).filter(i=>active.has(CARDS[i][0]));
+  const open=ids.filter(i=>!known.has(i));
+  // cards marked "nochmal" first, then the rest
+  deck=[...shuffle(open.filter(i=>again.has(i))),...shuffle(open.filter(i=>!again.has(i)))];
+  pos=0;flipped=false;save();render();
+}
+function stats(){
+  const ids=CARDS.map((c,i)=>i).filter(i=>active.has(CARDS[i][0]));
+  const ok=ids.filter(i=>known.has(i)).length;
+  document.getElementById("sLeft").textContent=Math.max(deck.length-pos,0);
+  document.getElementById("sOk").textContent=ok+" / "+ids.length;
+  document.getElementById("sAgain").textContent=ids.filter(i=>again.has(i)&&!known.has(i)).length;
+  document.getElementById("prog").style.width=(ids.length?ok/ids.length*100:0)+"%";
+}
+const stage=document.getElementById("stage");
+function render(){
+  stats();
+  if(pos>=deck.length){
+    const ids=CARDS.map((c,i)=>i).filter(i=>active.has(CARDS[i][0]));
+    const left=ids.filter(i=>!known.has(i)).length;
+    stage.innerHTML='<div class="done"><h2>'+(left?"Runde durch":"Alles gewusst")+'</h2><p>'+(left?left+" Karten noch nicht sicher. Die kommen in der nächsten Runde zuerst.":"Alle Karten in diesem Thema sitzen. Nimm dir ein anderes Thema vor oder fang von vorn an.")+'</p><div class="row"><button class="btn flip" id="next" type="button">'+(left?"Nächste Runde":"Nochmal alle")+'</button></div></div>';
+    document.getElementById("next").onclick=()=>{ if(!left){ids.forEach(i=>{known.delete(i);again.delete(i)})} build(); };
+    return;
+  }
+  const i=deck[pos], c=CARDS[i];
+  stage.innerHTML='<div class="card" id="card" tabindex="0" role="button" aria-label="Karte umdrehen">'+
+    '<div class="meta"><span>'+T[c[0]]+'</span><span>'+(pos+1)+' / '+deck.length+(again.has(i)?' · nochmal':'')+'</span></div>'+
+    '<div class="q">'+c[1]+'</div>'+
+    (flipped?'<div class="a">'+c[2]+'</div>':'<div class="hint">Antwort überlegen, dann umdrehen.</div>')+
+    '</div>'+
+    '<div class="row" style="margin-top:12px">'+(flipped?
+      '<button class="btn again" id="bAgain" type="button">Nochmal</button><button class="btn ok" id="bOk" type="button">Gewusst</button>':
+      '<button class="btn flip" id="bFlip" type="button">Antwort zeigen</button>')+'</div>';
+  document.getElementById("card").onclick=flip;
+  if(flipped){document.getElementById("bAgain").onclick=()=>answer(false);document.getElementById("bOk").onclick=()=>answer(true);}
+  else document.getElementById("bFlip").onclick=flip;
+}
+function flip(){ if(pos<deck.length){flipped=!flipped;render();} }
+function answer(ok){
+  const i=deck[pos];
+  if(ok){known.add(i);again.delete(i);} else {again.add(i);known.delete(i);}
+  pos++;flipped=false;save();render();
+}
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="BUTTON"&&(e.key===" "||e.key==="Enter"))return;
+  if(e.key===" "){e.preventDefault();flip();}
+  else if(flipped&&e.key==="1")answer(false);
+  else if(flipped&&e.key==="2")answer(true);
+});
+document.getElementById("shuffle").onclick=build;
+document.getElementById("reset").onclick=()=>{known.clear();again.clear();build();};
+build();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

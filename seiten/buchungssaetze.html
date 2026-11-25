@@ -1,0 +1,193 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>Buchungssatz-Training</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f1f4f2;--paper:#fff;--ink:#18211d;--muted:#5a665f;--line:#d5ddd8;--accent:#0f766e;--accent-soft:#dff1ee;--soll:#1d4ed8;--haben:#b45309;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9;--field:#fafcfb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#131816;--paper:#1c2320;--ink:#e5ece8;--muted:#9aa8a0;--line:#313b36;--accent:#5eead4;--accent-soft:#173430;--soll:#93b4ff;--haben:#f5b562;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320;--field:#161c19}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#131816;--paper:#1c2320;--ink:#e5ece8;--muted:#9aa8a0;--line:#313b36;--accent:#5eead4;--accent-soft:#173430;--soll:#93b4ff;--haben:#f5b562;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320;--field:#161c19}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 14px;max-width:64ch}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:16px}
+.rule{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px}
+.rule b{display:block;font-family:Archivo,sans-serif;font-size:14px;margin-bottom:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+button{font:600 14px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"],button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"],:root:not([data-theme="light"]) button.primary{color:#0d1a17}}
+:root[data-theme="dark"] .tabs button[aria-pressed="true"],:root[data-theme="dark"] button.primary{color:#0d1a17}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:12px}
+.card.ok{border-color:var(--ok)} .card.bad{border-color:var(--bad)}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.amount{font:500 14px "JetBrains Mono",monospace;color:var(--muted)}
+.tkonto{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.side{padding:10px;display:grid;gap:8px;align-content:start}
+.side+.side{border-left:2px solid var(--ink)}
+.side h4{margin:0;font:600 12px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+.side.s h4{color:var(--soll)} .side.h h4{color:var(--haben)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:6px}
+.row.single{grid-template-columns:minmax(0,1fr)}
+select,input{width:100%;font:15px "Source Sans 3",sans-serif;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--field);color:var(--ink)}
+input{font-family:"JetBrains Mono",monospace;font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.verdict{font-weight:600}
+.verdict.ok{color:var(--ok)} .verdict.bad{color:var(--bad)}
+.solution{border-left:3px solid var(--accent);background:var(--accent-soft);padding:10px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.solution code{font:500 14px "JetBrains Mono",monospace}
+.opts{display:grid;gap:6px}
+.opt{text-align:left;font-weight:400;padding:9px 12px}
+.opt.ok{background:var(--ok-soft);border-color:var(--ok)} .opt.bad{background:var(--bad-soft);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (max-width:520px){.row{grid-template-columns:minmax(0,1fr) 78px}.side{padding:8px}}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Rechnungswesen</div>
+  <h1>Buchungssatz-Training</h1>
+  <p class="intro">Wähle für jeden Geschäftsvorfall die Konten im Soll und im Haben. Bei zusammengesetzten Sätzen trägst du auch die Beträge ein. Schwerpunkt sind „auf Ziel“ und Soll/Haben.</p>
+  <div class="rules">
+    <div class="rule"><b>Aktivkonto (Vermögen)</b>Zugang ins Soll, Abgang ins Haben. Kasse, Bank, Postbank, BGA, Fuhrpark, Waren, FLL …</div>
+    <div class="rule"><b>Passivkonto (Schulden)</b>Zugang ins Haben, Abgang ins Soll. VLL, Darlehen, Bankverbindlichkeiten</div>
+    <div class="rule"><b>„Auf Ziel“</b>Wir kaufen auf Ziel: VLL (wir schulden). Wir verkaufen auf Ziel: FLL (Kunde schuldet).</div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar"><div class="progress" aria-hidden="true"><i id="fill"></i></div><span class="count" id="count"></span><button id="reset" type="button">Teil zurücksetzen</button></div>
+  <main id="list"></main>
+  <footer>Selbst erstellte Übungen nach dem Arbeitsblatt „Übungsaufgaben zum Thema Buchungssätze“. Die Lösungen folgen dem üblichen Lehrbuch-Schema. Dein Lehrer kann bei der Kontenwahl im Einzelfall abweichen.</footer>
+</div>
+<script>
+const KONTEN=["Kasse","Bank","Postbank","BGA","Fuhrpark","Grundstücke","Waren","FLL","VLL","Darlehen","Bankverbindlichkeiten"];
+const A=[
+ ["Wareneinkauf auf Ziel","8.400",[["Waren"]],[["VLL"]],"Waren nehmen zu (aktiv, Soll). Wir zahlen später, unsere Schuld beim Lieferer (VLL, passiv) nimmt zu, also Haben."],
+ ["Verkauf eines gebrauchten Lieferwagens auf Ziel","6.000",[["FLL"]],[["Fuhrpark"]],"Der Kunde schuldet uns Geld: FLL nimmt zu (Soll). Fuhrpark nimmt ab (Haben)."],
+ ["Wir bezahlen eine Liefererrechnung per Banküberweisung","2.300",[["VLL"]],[["Bank"]],"Unsere Schuld (VLL) nimmt ab, Abgang Passivkonto, also Soll. Bank nimmt ab, also Haben."],
+ ["Ein Kunde bezahlt seine Rechnung bar","950",[["Kasse"]],[["FLL"]],"Kasse nimmt zu (Soll). Die Forderung an den Kunden ist erledigt, FLL nimmt ab (Haben)."],
+ ["Bareinzahlung auf das Bankkonto","3.000",[["Bank"]],[["Kasse"]],"Das Geld landet auf der Bank (Zugang, Soll) und kommt aus der Kasse (Abgang, Haben)."],
+ ["Kauf eines Bürocomputers auf Ziel","1.850",[["BGA"]],[["VLL"]],"BGA nimmt zu (Soll). Auf Ziel gekauft heißt: wir schulden, also VLL im Haben."],
+ ["Tilgung eines Bankkredits durch Banküberweisung","5.000",[["Bankverbindlichkeiten"]],[["Bank"]],"Kredit zurückzahlen: Schuld nimmt ab, also Soll. Bankguthaben nimmt ab, also Haben."],
+ ["Aufnahme eines Darlehens, der Betrag wird dem Bankkonto gutgeschrieben","20.000",[["Bank"]],[["Darlehen"]],"Bank nimmt zu (Soll). Neue Schuld: Darlehen nimmt zu (Haben)."],
+ ["Überweisung vom Postbankkonto auf das Bankkonto","1.500",[["Bank"]],[["Postbank"]],"Wohin geht das Geld? Auf die Bank, also Soll. Woher kommt es? Von der Postbank, also Haben."],
+ ["Barabhebung vom Postbankkonto","400",[["Kasse"]],[["Postbank"]],"Kasse nimmt zu (Soll), Postbank nimmt ab (Haben)."],
+ ["Ein Kunde überweist auf unser Postbankkonto","2.750",[["Postbank"]],[["FLL"]],"Postbank nimmt zu (Soll), die Forderung an den Kunden nimmt ab (Haben)."],
+ ["Eine Liefererschuld wird in ein Darlehen umgewandelt","9.000",[["VLL"]],[["Darlehen"]],"Kein Geld fließt. VLL nimmt ab (Soll), Darlehen nimmt zu (Haben)."],
+ ["Kauf eines Lkw gegen Bankscheck","48.000",[["Fuhrpark"]],[["Bank"]],"Fuhrpark nimmt zu (Soll), Bank nimmt ab (Haben)."],
+ ["Verkauf von Waren gegen Banküberweisung","3.200",[["Bank"]],[["Waren"]],"Bank nimmt zu (Soll), Waren nehmen ab (Haben). So wie im Unterricht vereinfacht gebucht."]
+];
+const B=[
+ ["Kauf von Waren für 7.000 €: 1.000 € bar, Rest auf Ziel",[["Waren",7000]],[["Kasse",1000],["VLL",6000]],"Waren 7.000 an Kasse 1.000 und VLL 6.000. „Rest auf Ziel“ heißt VLL, nicht Bank!"],
+ ["Kauf eines Transporters für 32.000 €: 12.000 € per Bankscheck, der Rest wird über ein Darlehen finanziert",[["Fuhrpark",32000]],[["Bank",12000],["Darlehen",20000]],"Fuhrpark 32.000 an Bank 12.000 und Darlehen 20.000."],
+ ["Ein Kunde begleicht eine Rechnung über 4.500 €: 500 € bar, 4.000 € per Banküberweisung",[["Kasse",500],["Bank",4000]],[["FLL",4500]],"Kasse 500 und Bank 4.000 an FLL 4.500. Hier stehen zwei Konten im Soll."],
+ ["Wir begleichen eine Liefererrechnung über 3.800 €: 1.300 € per Postbank, 2.500 € per Bank",[["VLL",3800]],[["Postbank",1300],["Bank",2500]],"VLL 3.800 an Postbank 1.300 und Bank 2.500."],
+ ["Verkauf gebrauchter Büromöbel für 2.400 €: 400 € bar, Rest auf Ziel",[["Kasse",400],["FLL",2000]],[["BGA",2400]],"Kasse 400 und FLL 2.000 an BGA 2.400. Wir verkaufen auf Ziel, also FLL."],
+ ["Kauf von Lagerregalen für 5.600 €: 600 € bar, 2.000 € per Bankscheck, Rest auf Ziel",[["BGA",5600]],[["Kasse",600],["Bank",2000],["VLL",3000]],"BGA 5.600 an Kasse 600, Bank 2.000 und VLL 3.000. Summe prüfen: 600 + 2.000 + 3.000 = 5.600."],
+ ["Tilgung eines Darlehens über 6.000 €: 4.000 € per Bank, 2.000 € per Postbank",[["Darlehen",6000]],[["Bank",4000],["Postbank",2000]],"Darlehen 6.000 an Bank 4.000 und Postbank 2.000."],
+ ["Wareneinkauf für 10.000 €: 7.500 € auf Ziel, Rest per Bankscheck",[["Waren",10000]],[["VLL",7500],["Bank",2500]],"Waren 10.000 an VLL 7.500 und Bank 2.500."]
+];
+const C=[
+ ["VLL an Bank",["Ein Kunde überweist uns Geld","Wir bezahlen eine Liefererrechnung per Banküberweisung","Wir nehmen einen Kredit auf","Wareneinkauf auf Ziel"],1,"VLL nimmt ab (Soll), Bank nimmt ab (Haben): Wir zahlen eine Schuld per Überweisung."],
+ ["Bankverbindlichkeiten an Bank",["Aufnahme eines Bankkredits","Tilgung eines Bankkredits per Überweisung","Bareinzahlung auf das Bankkonto","Ein Kunde zahlt per Bank"],1,"Passivkonto im Soll heißt, die Schuld nimmt ab. Also Tilgung (Rückzahlung)."],
+ ["Bank an Postbank",["Überweisung von der Bank auf die Postbank","Überweisung von der Postbank auf das Bankkonto","Barabhebung von der Bank","Kunde zahlt auf Postbank"],1,"Bank im Soll nimmt zu, also kommt das Geld von der Postbank (Haben)."],
+ ["Waren an VLL",["Warenverkauf auf Ziel","Wareneinkauf gegen bar","Wareneinkauf auf Ziel","Rücksendung von Waren"],2,"Waren nehmen zu und wir schulden dem Lieferer: Einkauf auf Ziel."],
+ ["FLL an Waren",["Warenverkauf auf Ziel","Wareneinkauf auf Ziel","Kunde zahlt bar","Warenverkauf gegen Bankscheck"],0,"FLL nimmt zu, der Kunde schuldet uns: Verkauf auf Ziel."],
+ ["Kasse an FLL",["Wir zahlen einen Lieferer bar","Ein Kunde bezahlt seine Rechnung bar","Barverkauf von Waren","Barabhebung von der Bank"],1,"Kasse nimmt zu, die Forderung nimmt ab: Kunde zahlt bar."],
+ ["Bank an Bankverbindlichkeiten",["Tilgung eines Kredits","Aufnahme eines Kredits, Gutschrift auf dem Bankkonto","Überweisung an einen Lieferer","Umwandlung einer Liefererschuld"],1,"Bank nimmt zu, die Schuld bei der Bank nimmt zu: Kreditaufnahme."],
+ ["VLL an Darlehen",["Tilgung eines Darlehens","Aufnahme eines Darlehens auf das Bankkonto","Umwandlung einer Liefererschuld in ein Darlehen","Kauf von Waren auf Ziel"],2,"Eine Schuld wird gegen eine andere getauscht, kein Geld fließt."]
+];
+const SECS=[{t:"Einfache Buchungssätze",n:A.length},{t:"Zusammengesetzte Buchungssätze",n:B.length},{t:"Buchungssatz → Geschäftsvorfall",n:C.length}];
+const KEY="buchungssatz-v1";let st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){st={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+let sec=0;const tabs=document.getElementById("tabs"),list=document.getElementById("list");
+SECS.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.textContent=s.t;b.addEventListener("click",()=>{sec=i;render()});tabs.appendChild(b)});
+document.getElementById("reset").addEventListener("click",()=>{Object.keys(st).filter(k=>k.startsWith(sec+"-")).forEach(k=>delete st[k]);save();render()});
+const fmt=n=>n.toLocaleString("de-DE");
+function parseNum(r){let s=String(r).trim().replace(/\s|€/g,"");if(!s)return NaN;if(s.includes(","))s=s.replace(/\./g,"").replace(",",".");else if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,"");return Number(s)}
+function sel(id,val){const s=document.createElement("select");s.id=id;s.innerHTML='<option value="">Konto wählen …</option>'+KONTEN.map(k=>`<option${k===val?" selected":""}>${k}</option>`).join("");return s}
+function sameSet(given,sol,withAmt){
+  if(given.length!==sol.length)return false;
+  const key=x=>withAmt?x[0]+"|"+x[1]:x[0];
+  const a=given.map(key).sort(),b=sol.map(key).sort();return a.every((v,i)=>v===b[i]);
+}
+function bookCard(i,t,simple){
+  const [text,amtOrSoll,a2,a3,a4]=t;
+  const soll=simple?a2:amtOrSoll, haben=simple?a3:a2, expl=simple?a4:a3;
+  const k=sec+"-"+i, s=st[k]||{};
+  const c=document.createElement("section");c.className="card"+(s.r===true?" ok":s.r===false?" bad":"");
+  c.innerHTML=`<h3><span class="n">${i+1}</span>${text}${simple?` <span class="amount">· ${amtOrSoll} €</span>`:""}</h3>`;
+  const tk=document.createElement("div");tk.className="tkonto";
+  const inputs={s:[],h:[]};
+  [["s","Soll",soll],["h","Haben",haben]].forEach(([side,label,arr])=>{
+    const d=document.createElement("div");d.className="side "+side;d.innerHTML=`<h4>${label}</h4>`;
+    arr.forEach((_,r)=>{
+      const row=document.createElement("div");row.className="row"+(simple?" single":"");
+      const v=(s.v&&s.v[side]&&s.v[side][r])||[];
+      const se=sel(`${k}-${side}-${r}`,v[0]);row.appendChild(se);
+      let inp=null;if(!simple){inp=document.createElement("input");inp.id=`${k}-${side}-${r}-b`;inp.placeholder="Betrag";inp.inputMode="decimal";inp.value=v[1]||"";row.appendChild(inp)}
+      inputs[side].push([se,inp]);d.appendChild(row);
+    });tk.appendChild(d);
+  });
+  c.appendChild(tk);
+  const act=document.createElement("div");act.className="actions";
+  const chk=document.createElement("button");chk.type="button";chk.className="primary";chk.textContent="Prüfen";
+  const show=document.createElement("button");show.type="button";show.textContent="Lösung zeigen";
+  const verdict=document.createElement("span");verdict.className="verdict";
+  act.append(chk,show,verdict);c.appendChild(act);
+  const sol=document.createElement("div");sol.className="solution";sol.hidden=!s.show;
+  const line=(arr,amt)=>arr.map(x=>x[0]+(simple?"":" "+fmt(x[1]))).join(" + ");
+  sol.innerHTML=`<code>${line(soll)} an ${line(haben)}${simple?" · "+amtOrSoll+" €":""}</code><br>${expl}`;
+  c.appendChild(sol);
+  if(s.r===true){verdict.textContent="✓ Richtig";verdict.classList.add("ok")}
+  else if(s.r===false){verdict.textContent=s.msg||"✗ Noch nicht";verdict.classList.add("bad")}
+  chk.addEventListener("click",()=>{
+    const g={s:inputs.s.map(([se,inp])=>[se.value,inp?parseNum(inp.value):null]),h:inputs.h.map(([se,inp])=>[se.value,inp?parseNum(inp.value):null])};
+    const ok=sameSet(g.s,soll,!simple)&&sameSet(g.h,haben,!simple);
+    let msg="✗ Noch nicht";
+    if(!ok&&!simple){const ss=g.s.reduce((a,x)=>a+(x[1]||0),0),hs=g.h.reduce((a,x)=>a+(x[1]||0),0);if(ss!==hs)msg="✗ Soll und Haben sind nicht gleich groß"}
+    if(!ok&&simple&&g.s[0][0]===haben[0][0]&&g.h[0][0]===soll[0][0])msg="✗ Soll und Haben vertauscht";
+    st[k]={v:{s:g.s.map(x=>[x[0],x[1]==null||isNaN(x[1])?"":String(x[1]).replace(".",",")]),h:g.h.map(x=>[x[0],x[1]==null||isNaN(x[1])?"":String(x[1]).replace(".",",")])},r:ok,msg,show:s.show};save();render();
+  });
+  show.addEventListener("click",()=>{st[k]=Object.assign({},st[k]||{},{show:!s.show});save();render()});
+  return c;
+}
+function mcCard(i,t){
+  const [bs,opts,a,expl]=t,k=sec+"-"+i,pick=st[k]?st[k].p:undefined;
+  const c=document.createElement("section");c.className="card"+(pick===undefined?"":pick===a?" ok":" bad");
+  c.innerHTML=`<h3><span class="n">${i+1}</span>Welcher Geschäftsvorfall steckt hinter <code>${bs}</code>?</h3>`;
+  const o=document.createElement("div");o.className="opts";
+  opts.forEach((x,j)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=x;
+    if(pick!==undefined){b.disabled=true;if(j===a)b.classList.add("ok");else if(j===pick)b.classList.add("bad")}
+    b.addEventListener("click",()=>{st[k]={p:j,r:j===a};save();render()});o.appendChild(b)});
+  c.appendChild(o);
+  if(pick!==undefined){const e=document.createElement("div");e.className="solution";e.textContent=(pick===a?"Richtig. ":"Falsch. ")+expl;c.appendChild(e);
+    const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.style.justifySelf="start";r.addEventListener("click",()=>{delete st[k];save();render()});c.appendChild(r)}
+  return c;
+}
+function render(){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  list.innerHTML="";
+  const items=[A,B,C][sec];
+  items.forEach((t,i)=>list.appendChild(sec===2?mcCard(i,t):bookCard(i,t,sec===0)));
+  const right=items.filter((_,i)=>st[sec+"-"+i]&&st[sec+"-"+i].r===true).length;
+  document.getElementById("count").textContent=`${right} / ${items.length} richtig`;
+  document.getElementById("fill").style.width=(right/items.length*100)+"%";
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

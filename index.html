@@ -1,0 +1,41 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Meisterschule Lernen</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Lernen">
+<link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#6b655c;--line:#e2ddd4}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#171513;--paper:#211f1c;--ink:#ece7df;--muted:#a59d91;--line:#38342e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:calc(24px + env(safe-area-inset-top,0px)) 16px 48px}
+.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(30px,8vw,42px);line-height:1.05;margin:6px 0 8px;font-weight:800}
+.lead{color:var(--muted);margin:0 0 20px}
+.fach{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--f);border-radius:14px;padding:14px;margin-bottom:14px;display:grid;gap:8px}
+.fach h2{margin:0 0 2px;font-size:20px}
+.eintrag{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none}
+.eintrag:hover,.eintrag:focus-visible{border-color:var(--f);outline:none}
+.eintrag span{font-size:14px;color:var(--muted);white-space:nowrap}
+.install{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:15px;color:var(--muted);margin-bottom:18px}
+.install button{font:600 15px system-ui,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;margin-top:8px;cursor:pointer}
+footer{color:var(--muted);font-size:13px;margin-top:24px}
+</style></head><body><div class="wrap">
+<div class="eyebrow">Meisterschule Landshut · Maurer</div>
+<h1>Lernen für die Meisterschule</h1>
+<p class="lead">Quizze, Abfragen und Lernblätter. Funktioniert auch ohne Internet. Dein Fortschritt bleibt auf deinem Handy gespeichert.</p>
+<div class="install" id="install"><b>App aufs Handy holen:</b><br>
+iPhone: in Safari unten auf <b>Teilen</b> tippen, dann <b>„Zum Home-Bildschirm“</b>.<br>
+Android: im Chrome-Menü (⋮) <b>„App installieren“</b> oder „Zum Startbildschirm hinzufügen“.
+<div><button id="installBtn" hidden>Jetzt installieren</button></div></div>
+<section class="fach" style="--f:#b4532a"><h2>Treppe</h2><a class="eintrag" href="seiten/treppe-lernblatt.html"><b>Lernblatt</b><span>Zum Lesen</span></a><a class="eintrag" href="seiten/treppe-quiz.html"><b>Quiz (39 Fragen)</b><span>Ankreuzen</span></a><a class="eintrag" href="seiten/treppe-abfrage.html"><b>Abfrage ohne Antworten</b><span>Selbst abfragen</span></a></section><section class="fach" style="--f:#2f4fb5"><h2>Baustoffkunde</h2><a class="eintrag" href="seiten/baustoffkunde-quiz.html"><b>Quiz (55 Fragen)</b><span>Ankreuzen</span></a><a class="eintrag" href="seiten/baustoffkunde-abfrage.html"><b>Abfrage ohne Antworten</b><span>Selbst abfragen</span></a><a class="eintrag" href="seiten/baustoffkunde-lernkarten.html"><b>Lernkarten</b><span>Karteikarten</span></a></section><section class="fach" style="--f:#a3342a"><h2>Politik und Gesellschaft</h2><a class="eintrag" href="seiten/pug-schulaufgabe.html"><b>Schulaufgabe-Übung (46 Fragen)</b><span>Ankreuzen</span></a><a class="eintrag" href="seiten/pug-lernkarten.html"><b>Lernkarten (60 Fragen)</b><span>Ankreuzen</span></a><a class="eintrag" href="seiten/arbeitsrecht.html"><b>Arbeitsrecht im Baubetrieb</b><span>Übung</span></a></section><section class="fach" style="--f:#0f766e"><h2>Rechnungswesen</h2><a class="eintrag" href="seiten/buchungssaetze.html"><b>Buchungssatz-Training</b><span>Konten wählen</span></a><a class="eintrag" href="seiten/buchungssaetze-steuer.html"><b>Buchungssätze mit Umsatzsteuer</b><span>25 Aufgaben</span></a></section><section class="fach" style="--f:#f08a1c"><h2>Physik</h2><a class="eintrag" href="seiten/physik.html"><b>18 gemischte Aufgaben</b><span>Rechnen</span></a></section>
+<footer>Selbst erstellt aus Unterrichtsmitschriften. Nicht vom Lehrer, ohne Gewähr. Stand 25.11.2026.</footer>
+</div>
+<script>
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+if(window.matchMedia("(display-mode: standalone)").matches||navigator.standalone)document.getElementById("install").hidden=true;
+let p;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();p=e;document.getElementById("installBtn").hidden=false});
+document.getElementById("installBtn").onclick=()=>{if(p){p.prompt();p=null}};
+</script></body></html>

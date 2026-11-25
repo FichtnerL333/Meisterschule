@@ -1,0 +1,147 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>PuG Schulaufgabe Übung</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: eine Frage pro Karte, schmale Spalte, Fortschrittsleiste oben; Ton: Kammer-Formular, Stempel-Rot als Akzent */
+:root{
+  --bg:#f3f4f1; --paper:#ffffff; --fg:#1f2421; --muted:#5f6862; --line:#d7dbd5;
+  --accent:#a3342a; --ok:#2f7a45; --ok-bg:#e3f1e6; --bad:#b3261e; --bad-bg:#f8e3e1;
+  --display:"Archivo",system-ui,sans-serif; --body:"Source Sans 3",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161917; --paper:#1f2320; --fg:#e8ebe7; --muted:#9aa39c; --line:#353b37;
+  --accent:#e0786c; --ok:#7cc792; --ok-bg:#1d3324; --bad:#ef8a80; --bad-bg:#3a1f1d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161917; --paper:#1f2320; --fg:#e8ebe7; --muted:#9aa39c; --line:#353b37;
+  --accent:#e0786c; --ok:#7cc792; --ok-bg:#1d3324; --bad:#ef8a80; --bad-bg:#3a1f1d; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5}
+.wrap{max-width:680px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:18px}
+header{display:grid;gap:4px}
+.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(24px,5vw,32px);line-height:1.15;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:0}
+.bar{display:flex;align-items:center;gap:12px;font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted)}
+.track{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.fill{height:100%;background:var(--accent);width:0;transition:width .25s}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:14px}
+.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.topic{font-family:var(--display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px}
+.q{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.3;margin:0;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:var(--fg);background:transparent;border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.opt .k{font-family:var(--display);font-weight:800;min-width:1.2em}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.fb{border-left:3px solid var(--ok);padding:4px 0 4px 12px;margin:0}
+.fb.no{border-color:var(--bad)}
+.fb b{display:block}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.btn{font-family:var(--display);font-weight:700;font-size:15px;border-radius:8px;padding:11px 18px;cursor:pointer;border:1.5px solid var(--accent);background:var(--accent);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.score{font-family:var(--display);font-weight:800;font-size:48px;line-height:1;font-variant-numeric:tabular-nums}
+.list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.list li{border-top:1px solid var(--line);padding-top:8px;font-size:15px}
+.list .a{color:var(--ok);font-weight:600}
+.note{font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Meisterschule Landshut · WiPoG 1. Semester</div>
+    <h1>Schulaufgabe Politik und Gesellschaft</h1>
+    <p class="sub">46 Fragen, je eine Antwort richtig. Antippen, Erklärung lesen, weiter.</p>
+  </header>
+  <div class="bar"><div class="track"><div class="fill" id="fill"></div></div><span id="count">1 / 46</span><span id="pts">0 richtig</span></div>
+  <section class="card" id="card"></section>
+  <p class="note">Die Lösungen sind aus dem PuG-Infotext abgeleitet, auf dem Blatt selbst waren keine Kreuze. Bei Zweifel im Infotext nachsehen.</p>
+</div>
+
+<script>
+const T={hw:"Handwerks- und Gewerberecht",hr:"Handelsrecht und Rechtsform",wb:"Werbung und Prüfschema",kw:"Kartell- und Wettbewerbsrecht",pa:"Preise, Ladenschluss, Urheberrecht",uw:"UWG und Kartellrecht",ds:"Datenschutz",pv:"Persönliche Voraussetzungen"};
+const Q=[
+["hw","Welche Aussage beschreibt ein Gewerbe laut Text typischerweise?",["Eine ausschließlich private Tätigkeit ohne Gewinnerzielungsabsicht","Eine selbstständige, erlaubte und dauerhaft angelegte Tätigkeit mit Gewinnerzielungsabsicht","Jede gelegentliche Tätigkeit im Haushalt","Eine Tätigkeit, die nur von einer juristischen Person ausgeübt werden darf"],1,"Gewerbe = selbstständig, erlaubt, auf Dauer angelegt und mit dem Ziel, Gewinn zu machen."],
+["hw","Was ist grundsätzlich erforderlich, um ein zulassungspflichtiges Handwerk als stehendes Gewerbe selbstständig zu betreiben?",["Die Eintragung in die Handwerksrolle","Eine Mitgliedschaft in einem Berufsverband","Eine Genehmigung des Auftraggebers","Eine Eintragung in das Handelsregister"],0,"Anlage-A-Handwerke (z. B. Maurer) brauchen die Eintragung in die Handwerksrolle (§ 1 HwO)."],
+["hw","Wer führt die Handwerksrolle?",["Die zuständige Gewerbebehörde","Die zuständige Handwerkskammer","Das Bundesamt für Justiz","Die Finanzkontrolle Schwarzarbeit"],1,"Die Handwerkskammer führt die Handwerksrolle (§ 6 HwO). Die Gemeinde nimmt nur die Gewerbeanzeige entgegen."],
+["hw","Was ist ein möglicher Zugangsweg zur Eintragung in die Handwerksrolle?",["Eine bestandene Meisterprüfung im entsprechenden Handwerk","Eine Gewerbeanzeige ohne weitere Nachweise","Eine Empfehlung durch einen Kunden","Eine beliebige kaufmännische Ausbildung"],0,"Der klassische Weg ist der Meister (§ 7 HwO). Die Gewerbeanzeige ersetzt die Handwerksrolle nicht."],
+["hw","Welche Regelung wird im Text als sogenannte Altgesellenregelung bezeichnet?",["§ 7 HwO","§ 7b HwO","§ 8 HwO","§ 10 HwO"],1,"§ 7b = Altgesellenregelung. § 7 = Meister, § 7a = weiteres Handwerk, § 8 = Ausnahmebewilligung."],
+["hw","Was kann eine Ausnahmebewilligung nach § 8 HwO voraussetzen?",["Dass die Meisterprüfung grundsätzlich nie abgelegt werden kann","Dass der Betrieb bereits zehn Jahre besteht","Dass die Kenntnisse und Fertigkeiten nachgewiesen werden und die Meisterprüfung unzumutbar wäre","Dass alle Kunden der Bewilligung zustimmen"],2,"Ausnahmebewilligung: Können nachweisen und die Meisterprüfung wäre im Einzelfall nicht zumutbar."],
+["hr","Wer gilt nach § 1 HGB grundsätzlich als Kaufmann?",["Jede Person, die gelegentlich Waren verkauft","Wer ein Handelsgewerbe betreibt","Jede selbstständig tätige Handwerkerin oder jeder selbstständig tätige Handwerker","Nur wer eine GmbH gegründet hat"],1,"§ 1 HGB: Kaufmann ist, wer ein Handelsgewerbe betreibt. Kleine Betriebe sind erst einmal Kleingewerbetreibende."],
+["hr","Was kann ein zunächst kleingewerbliches Unternehmen nach § 2 HGB tun, um Handelsgewerbe zu werden?",["Seine Firma in das Handelsregister eintragen lassen","Eine Gewerbeanzeige widerrufen","Eine Marke anmelden","Eine Partnerschaftsgesellschaft gründen"],0,"Kannkaufmann (§ 2 HGB): freiwillige Eintragung ins Handelsregister."],
+["hr","Welche Rechtsform gilt laut Text unabhängig von Größe und Geschäftsumfang als Handelsgesellschaft oder unterliegt besonderen handelsrechtlichen Regeln?",["GbR","GmbH","Einzelunternehmen","Partnerschaftsgesellschaft"],1,"Kaufmann kraft Rechtsform: GmbH, UG, AG, KGaA, egal wie klein."],
+["hr","Welche Eigenschaft muss eine Firma laut Text besitzen?",["Sie muss immer den Familiennamen des Inhabers enthalten.","Sie muss mit dem Werbeslogan identisch sein.","Sie muss zur Kennzeichnung geeignet sein und Unterscheidungskraft besitzen.","Sie muss zwingend aus mehreren Wörtern bestehen."],2,"Firma = Name des Kaufmanns. Muss unterscheidbar sein, darf nicht irreführen und braucht den Rechtsformzusatz."],
+["hr","Welche Information kann im Handelsregister enthalten sein?",["Die privaten Kontaktdaten aller Kunden","Die vollständige Liste aller verkauften Produkte","Vertretungsberechtigte und Prokura","Die persönlichen Bewertungen des Unternehmens"],2,"Das Handelsregister zeigt u. a. Firma, Sitz, Rechtsform, wer vertreten darf und Prokura."],
+["hr","Welche Rechtsform ist laut Text eine vereinfachte Variante der GmbH mit geringem Stammkapital?",["OHG","UG haftungsbeschränkt","GbR","Partnerschaftsgesellschaft"],1,"UG (haftungsbeschränkt) = „Mini-GmbH“ mit wenig Kapital."],
+["hr","Welche Aussage zur Haftungsbeschränkung einer GmbH oder UG ist richtig?",["Sie schützt immer vollständig vor persönlicher Haftung.","Sie gilt nur, wenn das Unternehmen keine Beschäftigten hat.","Sie ist kein vollständiger Haftungsschutz; persönliche Haftung kann etwa bei Pflichtverletzungen entstehen.","Sie ersetzt die Pflicht zur ordnungsgemäßen Buchführung."],2,"Auch bei der GmbH haftet man persönlich, z. B. bei Insolvenzverschleppung, nicht gezahlten Steuern/Sozialbeiträgen oder Bürgschaft."],
+["wb","Was ist vor einer Werbemaßnahme per E-Mail besonders zu prüfen?",["Ob alle Wettbewerber informiert wurden","Ob eine wirksame Einwilligung vorliegt oder eine gesetzliche Ausnahme greift","Ob die E-Mail mindestens drei Anhänge enthält","Ob die Werbung an möglichst viele Personen versendet wird"],1,"Werbe-Mails nur mit Einwilligung oder wenn eine gesetzliche Ausnahme greift, sonst unzumutbare Belästigung."],
+["wb","Warum kann ein Montage- und Renovierungsservice rechtlich riskant sein?",["Weil Montagearbeiten grundsätzlich verboten sind","Weil unterschiedliche Tätigkeiten verschiedenen Handwerken zugeordnet werden können","Weil für Renovierungen immer eine GmbH erforderlich ist","Weil ein solcher Betrieb keine Angebote erstellen darf"],1,"Was zählt, ist die tatsächliche Arbeit, nicht der Name. Steckt ein Anlage-A-Handwerk drin, braucht es die Handwerksrolle."],
+["wb","Warum ist die Aussage „Wir bieten immer den günstigsten Preis der Region“ problematisch?",["Sie ist möglicherweise nicht nachweisbar und kann irreführend sein.","Sie darf nur von einem Einzelkaufmann verwendet werden.","Sie ist nur in schriftlichen Angeboten zulässig.","Sie ist ausschließlich für zulassungsfreie Handwerke verboten."],0,"Spitzenaussage ohne Beleg = Irreführung nach § 5 UWG."],
+["wb","Was ist der erste Schritt im Prüfschema für ein Unternehmenskonzept?",["Die Wahl der Rechtsform","Die Prüfung der Kundenbewertungen","Die konkrete Beschreibung der geplanten Tätigkeiten","Die Anmeldung beim Handelsregister"],2,"Schritt 1: Tätigkeiten genau beschreiben. Danach: Anlage A oder B, Zugang, Gewerbeanzeige, Rechtsform …"],
+["kw","Welche Absprache ist nach dem Text ein typisches Beispiel für ein verbotenes Verhalten?",["Eine gemeinsame Entwicklung technischer Lösungen","Eine Zusammenarbeit bei der Ausbildung","Die gemeinsame Beschaffung von Material","Eine Vereinbarung über Mindestpreise"],3,"Preisabsprachen sind nach § 1 GWB verboten, auch ohne schriftlichen Vertrag."],
+["kw","Welche Zusammenarbeit kann zulässig sein, sofern sie den Wettbewerb nicht unzulässig ausschaltet?",["Eine Absprache, wer welche Ausschreibung gewinnen soll","Eine Aufteilung von Kunden nach Regionen","Eine Kooperation bei einem größeren Bauprojekt","Eine Vereinbarung über gemeinsame Mindestpreise"],2,"ARGE, gemeinsamer Einkauf oder Maschinen sind erlaubt, solange jeder selbst kalkuliert."],
+["kw","Was ist laut Text ein Beispiel für den Missbrauch einer marktbeherrschenden Stellung?",["Die gemeinsame Nutzung von Maschinen","Eine ungerechtfertigte Geschäftsverweigerung","Die Zusammenarbeit bei der Ausbildung","Eine sachlich begrenzte Kooperation bei einem Projekt"],1,"§ 19 GWB: Wer den Markt beherrscht, darf z. B. nicht ohne Grund die Belieferung verweigern."],
+["kw","Welche Werbeaussage kann irreführend sein, wenn sie nicht zutrifft oder nicht belegt werden kann?",["„Wir bieten Leistungen im Handwerk an.“","„Kontaktieren Sie uns für weitere Informationen.“","„Wir sind der günstigste Anbieter der Region.“","„Unser Betrieb ist telefonisch erreichbar.“"],2,"Wieder die Spitzenaussage: ohne Beleg irreführend (§ 5 UWG)."],
+["kw","Was kann ein Fall von irreführendem Unterlassen sein?",["Ein Betrieb nennt seine Geschäftsadresse.","Ein Angebot nennt den Leistungsumfang.","Ein Unternehmen informiert über mögliche Zusatzkosten.","Wesentliche Informationen, die Verbraucher für eine informierte Entscheidung benötigen, fehlen."],3,"§ 5a UWG: Auch Weglassen wichtiger Infos ist irreführend."],
+["kw","Welche Folge kann ein Verstoß gegen das UWG haben?",["Eine automatische Eintragung ins Handelsregister","Eine Abmahnung oder einstweilige Verfügung","Eine Befreiung von weiteren Informationspflichten","Eine verpflichtende Umwandlung in eine GmbH"],1,"Folgen: Abmahnung (nicht ungeprüft unterschreiben!), Unterlassung, einstweilige Verfügung, Schadensersatz."],
+["pa","Welchen Zweck verfolgt die Preisangabenverordnung (PAngV)?",["Sie regelt die Zulassung von Handwerksbetrieben.","Sie legt die Öffnungszeiten von Verkaufsstellen fest.","Sie schützt kreative Werke vor unerlaubter Nutzung.","Sie soll für Preisklarheit und Preiswahrheit sorgen."],3,"PAngV = Preisklarheit und Preiswahrheit. Gegenüber Privatkunden: Gesamtpreis inkl. MwSt."],
+["pa","Was sollte ein Handwerksbetrieb bei einem Kostenvoranschlag tun?",["Ihn klar von einem verbindlichen Angebot und einer unverbindlichen Kostenschätzung unterscheiden","Immer auf die Angabe des Leistungsumfangs verzichten","Nachträge grundsätzlich ohne Rücksprache ausführen","Den voraussichtlichen Preis geheim halten"],0,"Für den Kunden muss klar sein: Ist das ein fester Preis oder eine Schätzung?"],
+["pa","Was ist für eine verkaufsoffene Veranstaltung an einem Sonn- oder Feiertag regelmäßig erforderlich?",["Eine Zustimmung sämtlicher Wettbewerber","Eine Regelung der Gemeinde, etwa durch Verordnung oder Allgemeinregelung","Eine Eintragung in die Handwerksrolle","Eine Genehmigung des Kundenverbands"],1,"Sonntags ist grundsätzlich zu. Ausnahmen regelt die Gemeinde."],
+["pa","Was schützt das Urheberrecht?",["Ausschließlich technische Geräte","Nur eingetragene Marken","Persönliche geistige Schöpfungen","Alle alltäglichen Gestaltungen ohne Ausnahme"],2,"Urheberrecht schützt persönliche geistige Schöpfungen: Fotos, Texte, Musik, Pläne."],
+["pa","Was sollte ein Handwerksbetrieb vor der Veröffentlichung von Fotos eines Kundenprojekts prüfen?",["Ob die Nutzungsrechte vorliegen und der Kunde die Veröffentlichung erlaubt hat","Ob das Foto in einer Suchmaschine gefunden werden kann","Ob ein Wettbewerber ähnliche Fotos veröffentlicht hat","Ob das Foto ohne Zustimmung bearbeitet werden kann"],0,"Referenzfotos: Rechte am Foto klären und Zustimmung des Kunden einholen."],
+["uw","Was ist das zentrale Ziel des UWG?",["Es regelt die Öffnungszeiten von Verkaufsstellen.","Es schützt vor allem kreative Werke und Software.","Es schützt Marktteilnehmer vor unlauteren geschäftlichen Handlungen.","Es legt die Rechtsform von Handwerksbetrieben fest."],2,"UWG = Gesetz gegen den unlauteren Wettbewerb. Schützt Mitbewerber, Verbraucher und andere Marktteilnehmer."],
+["uw","Was kann nach § 5a UWG unlauter sein?",["Eine wesentliche Information wegzulassen, die Verbraucher für eine informierte Entscheidung benötigen","Einen Preis im Angebot anzugeben","Auf mögliche Zusatzkosten hinzuweisen","Einen Kostenvoranschlag zu erstellen"],0,"§ 5a = Irreführung durch Unterlassen."],
+["uw","Welche Aussage über vergleichende Werbung trifft zu?",["Sie ist immer verboten.","Sie ist zulässig, wenn der Vergleich sachlich, nachprüfbar und nicht herabsetzend ist.","Sie darf nur mündlich erfolgen.","Sie darf auch falsche Angaben enthalten, wenn sie als Werbung erkennbar ist."],1,"Vergleichende Werbung ist erlaubt, wenn sie sachlich und nachprüfbar ist und den anderen nicht schlechtmacht."],
+["uw","Welchem Zweck dient die Preisangabenverordnung?",["Preisklarheit und Preiswahrheit","Der Festlegung von Mindestlöhnen","Dem Schutz von Geschäftsgeheimnissen","Der Regelung von Ladenöffnungszeiten"],0,"Gleiche Frage wie Nr. 24, nur anders gestellt."],
+["uw","Welches Rechtsgebiet ist bei Absprachen mit anderen Betrieben über Preise oder Kundengebiete besonders zu prüfen?",["Urheberrecht","Preisangabenverordnung","Ladenschlussrecht","Kartellrecht beziehungsweise GWB"],3,"Absprachen über Preise, Kunden oder Gebiete = Kartellrecht (GWB)."],
+["ds","Welche Aufgabe hat die DSGVO?",["Sie regelt ausschließlich den Datenschutz bei großen Unternehmen.","Sie ersetzt alle deutschen Datenschutzgesetze.","Sie regelt, wann und wie personenbezogene Daten verarbeitet werden dürfen.","Sie gilt nur für Daten, die auf Websites erhoben werden."],2,"Die DSGVO gilt direkt. Das BDSG ergänzt sie, wird also nicht ersetzt."],
+["ds","Welche Daten können auch im Handwerk personenbezogen sein?",["Nur Daten von Beschäftigten","Angebots-, Auftrags- und Rechnungsdaten von Kundinnen und Kunden","Ausschließlich öffentlich bekannte Firmendaten","Nur Fotos, die auf einer Website veröffentlicht werden"],1,"Kundendaten in Angebot, Auftrag, Rechnung sind personenbezogen."],
+["ds","Welche Bedingung muss eine Einwilligung erfüllen?",["Sie muss freiwillig, informiert und widerruflich sein.","Sie muss immer schriftlich erfolgen.","Sie kann nach Erteilung nicht mehr widerrufen werden.","Sie ist für jede Verarbeitung die einzige mögliche Rechtsgrundlage."],0,"Einwilligung: freiwillig, informiert, jederzeit widerrufbar. Sie ist nur eine von mehreren Rechtsgrundlagen."],
+["ds","Wie lange dürfen Kundendaten grundsätzlich aufbewahrt werden?",["Immer bis zum Ende des Geschäftsjahres","Unbegrenzt, wenn sie einmal gespeichert wurden","Genau ein Jahr","Nur so lange, wie es für festgelegte Zwecke nötig ist, vorbehaltlich gesetzlicher Aufbewahrungspflichten"],3,"Nur so lange wie nötig. Aber Rechnungen usw. müssen wegen Steuer/HGB aufbewahrt werden."],
+["ds","Wann muss ein nichtöffentlicher Betrieb grundsätzlich einen Datenschutzbeauftragten benennen?",["Sobald er eine Website betreibt","Wenn in der Regel mindestens 20 Personen ständig mit automatisierter Verarbeitung personenbezogener Daten beschäftigt sind","Sobald er Kundendaten speichert","Wenn er mindestens fünf Beschäftigte hat"],1,"Ab 20 Personen, die ständig automatisiert Daten verarbeiten (§ 38 BDSG)."],
+["ds","Was ist bei der Veröffentlichung von Fotos mit erkennbaren Personen besonders wichtig?",["Es muss eine passende Rechtsgrundlage für die Veröffentlichung vorliegen.","Es genügt, wenn das Foto mit einem Smartphone aufgenommen wurde.","Die Plattform entscheidet allein über die Rechtmäßigkeit.","Eine Prüfung ist nur bei Fotos von Beschäftigten erforderlich."],0,"Erkennbare Personen = personenbezogene Daten. Es braucht eine Rechtsgrundlage, meist die Einwilligung."],
+["ds","Welches Recht können betroffene Personen unter bestimmten Voraussetzungen ausüben?",["Die dauerhafte Speicherung ihrer Daten verlangen","Die Berichtigung unrichtiger Daten verlangen","Die Löschung aller Daten unabhängig von gesetzlichen Aufbewahrungspflichten verlangen","Die Weitergabe ihrer Daten an beliebige Personen verlangen"],1,"Rechte: Auskunft, Berichtigung, Löschung (aber nicht gegen Aufbewahrungspflichten), Widerspruch gegen Werbung."],
+["pv","Was gehört zu einem realistischen Risikobewusstsein?",["Jeden angebotenen Auftrag anzunehmen","Aufträge nur nach dem möglichen Umsatz zu beurteilen","Auch Aufträge abzulehnen, wenn sie nicht zu Leistungsvermögen, Zeit oder wirtschaftlicher Lage passen","Risiken erst nach Beginn der Arbeiten zu prüfen"],2,"Entscheidungsfähigkeit heißt auch: Nein sagen können."],
+["pv","Welche persönliche Fähigkeit unterstützt die Zusammenarbeit auf Baustellen?",["Führungs- und Kooperationsfähigkeit","Möglichst geringe Kommunikation mit anderen Gewerken","Verzicht auf klare Zuständigkeiten","Alle Entscheidungen ausschließlich an Mitarbeitende abzugeben"],0,"Führung, Kommunikation und Zusammenarbeit mit anderen Gewerken."],
+["pv","Welche kaufmännische Aufgabe sollte auch eine vorwiegend handwerklich tätige selbstständige Person zuverlässig erledigen?",["Ausschließlich die Auswahl neuer Werkzeuge","Nur die Führung von Baustellentagebüchern","Zahlungseingänge kontrollieren und Kosten sowie Liquidität überwachen","Alle Rechnungen erst am Jahresende bearbeiten"],2,"Kaufmännische Disziplin: Rechnungen nicht liegen lassen, Geld im Blick behalten."],
+["pv","Was sollte die Familie vor einer Gründung oder Übernahme möglichst konkret besprechen?",["Nur die künftige Berufsbezeichnung","Zeitliche Belastung, finanzielle Risiken und Erwartungen","Ausschließlich den Namen des Betriebs","Welche Kunden der Betrieb künftig ablehnen soll"],1,"Arbeitszeit, schwankendes Einkommen, Rücklagen, Erwartungen an Mitarbeit."],
+["pv","Was gehört zur Baustellen-, Qualitäts- und Sicherheitskompetenz?",["Gefährdungen und Mängel rechtzeitig erkennen und Abläufe vorausschauend planen","Schutzmaßnahmen nur nach einem Unfall einsetzen","Qualitätskontrollen vollständig den Kundinnen und Kunden überlassen","Arbeitsabläufe unabhängig von den Bedingungen vor Ort festlegen"],0,"Vorausschauend: Gefahren und Mängel erkennen, bevor etwas passiert."],
+["pv","Was sollte ein Betrieb tun, wenn er bestimmte Leistungen fachlich nicht sicher abdecken kann?",["Den Auftrag trotzdem ohne weitere Prüfung übernehmen","Zusätzliche Qualifikation erwerben, eine geeignete Fachkraft einbinden oder den Auftrag ablehnen","Die Verantwortung vollständig der Kundschaft übertragen","Auf eine klare Leistungsbeschreibung verzichten"],1,"Fachliche Selbstbegrenzung: nur anbieten, was man kann."]
+];
+const L="ABCD";
+let order=[],i=0,right=0,wrong=[];
+const $=id=>document.getElementById(id);
+function start(list){order=list;i=0;right=0;wrong=[];show()}
+function bar(){ $("fill").style.width=(i/order.length*100)+"%"; $("count").textContent=Math.min(i+1,order.length)+" / "+order.length; $("pts").textContent=right+" richtig"}
+function show(){
+  bar(); if(i>=order.length) return done();
+  const n=order[i],[t,q,o,c,e]=Q[n],card=$("card");
+  card.innerHTML=`<div class="meta"><span class="topic">${T[t]}</span><span>Frage ${n+1}</span></div><p class="q">${q}</p><div class="opts">${o.map((x,k)=>`<button class="opt" id="o${k}" data-k="${k}"><span class="k">${L[k]}</span><span>${x}</span></button>`).join("")}</div><div id="after"></div>`;
+  card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+}
+function pick(k){
+  const n=order[i],[, ,o,c,e]=Q[n],ok=k===c;
+  document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;const j=+b.dataset.k;if(j===c)b.classList.add("right");else if(j===k)b.classList.add("wrong")});
+  if(ok)right++;else wrong.push(n);
+  $("after").innerHTML=`<p class="fb ${ok?"":"no"}"><b>${ok?"Richtig.":"Falsch. Richtig ist "+L[c]+"."}</b>${e}</p><div class="row"><button class="btn" id="next">${i+1<order.length?"Weiter":"Auswertung"}</button></div>`;
+  $("next").onclick=()=>{i++;show()}; $("next").focus(); bar();
+}
+function done(){
+  const pct=Math.round(right/order.length*100);
+  $("card").innerHTML=`<div class="meta"><span class="topic">Auswertung</span></div><div class="score">${right} / ${order.length}</div><p class="sub">${pct} % richtig. ${wrong.length?"Diese Fragen nochmal anschauen:":"Alles richtig, stark."}</p>${wrong.length?`<ul class="list">${wrong.map(n=>`<li>${n+1}. ${Q[n][1]}<br><span class="a">${L[Q[n][3]]}) ${Q[n][2][Q[n][3]]}</span></li>`).join("")}</ul>`:""}<div class="row">${wrong.length?`<button class="btn" id="again">Nur die falschen nochmal</button>`:""}<button class="btn ghost" id="all">Alle neu, gemischt</button></div>`;
+  const w=[...wrong]; if($("again"))$("again").onclick=()=>start(w);
+  $("all").onclick=()=>start(Q.map((_,k)=>k).sort(()=>Math.random()-.5));
+}
+start(Q.map((_,k)=>k));
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

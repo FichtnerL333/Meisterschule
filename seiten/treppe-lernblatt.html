@@ -1,0 +1,131 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>Treppe Lernblatt</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#6b655c;--line:#e2ddd4;--accent:#b4532a;--accent-soft:#f7e6dc;--blue:#2f5d8a;--blue-soft:#e3ecf5;--warn:#8a5a00;--warn-soft:#fbf0d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#171513;--paper:#211f1c;--ink:#ece7df;--muted:#a59d91;--line:#38342e;--accent:#e98a5f;--accent-soft:#3a271d;--blue:#8fb6e0;--blue-soft:#1d2a38;--warn:#f0c46a;--warn-soft:#3a2f17}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#171513;--paper:#211f1c;--ink:#ece7df;--muted:#a59d91;--line:#38342e;--accent:#e98a5f;--accent-soft:#3a271d;--blue:#8fb6e0;--blue-soft:#1d2a38;--warn:#f0c46a;--warn-soft:#3a2f17}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+.eyebrow{font:600 12px "Source Sans 3",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(30px,7vw,44px)/1.05 Archivo,sans-serif;margin:6px 0 8px}
+.lead{color:var(--muted);margin:0 0 24px;max-width:60ch}
+h2{font:700 21px Archivo,sans-serif;margin:36px 0 12px;display:flex;gap:10px;align-items:center}
+h2 .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-size:15px;flex:none}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.term{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.term b{display:block;color:var(--accent);font-size:16px}
+.term span{color:var(--ink);font-size:15.5px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair .term b{color:var(--blue)}
+.big{font:800 clamp(26px,6vw,34px) Archivo,sans-serif;color:var(--accent);margin:4px 0}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums}
+th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-soft);font-weight:700;font-size:15px}
+td:not(:first-child),th:not(:first-child){text-align:center}
+td strong{font-size:18px}
+tr:last-child td{border-bottom:0}
+.merk{background:var(--blue-soft);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 16px;margin-top:12px}
+.merk b{color:var(--blue)}
+.warn{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:0 10px 10px 0;padding:12px 16px;margin-top:14px;font-size:15.5px}
+ul{margin:0;padding-left:20px}
+li{margin:4px 0}
+.measure{display:grid;gap:8px}
+.measure div{display:grid;grid-template-columns:150px 1fr;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.measure b{color:var(--accent)}
+@media (max-width:520px){.pair{grid-template-columns:1fr}.measure div{grid-template-columns:1fr;gap:2px}}
+footer{margin-top:40px;color:var(--muted);font-size:14px}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · DIN 18065</div>
+  <h1>Treppe – Lernblatt</h1>
+  <p class="lead">Alles aus deinem Heft, sortiert zum Lernen. Erst die Treppenarten, dann die Bauteile, dann wie gemessen wird, und am Ende die Zahlen, die du auswendig können musst.</p>
+
+  <h2><span class="num">1</span>Welche Treppen gibt es?</h2>
+  <div class="pair">
+    <div class="term"><b>Notwendige Treppe</b><span>Gehört zum <strong>Rettungsweg</strong> und ist vorgeschrieben (z. B. BayBO).</span></div>
+    <div class="term"><b>Nicht notwendige Treppe</b><span>Zusätzliche Treppe, kann auch der Hauptnutzung dienen.</span></div>
+    <div class="term"><b>Offene Treppe</b><span><strong>ohne</strong> Setzstufen</span></div>
+    <div class="term"><b>Geschlossene Treppe</b><span><strong>mit</strong> Setzstufen</span></div>
+  </div>
+  <div class="term" style="margin-top:10px"><b style="color:var(--blue)">Geschosstreppe</b><span>verbindet zwei Geschosse miteinander.</span></div>
+
+  <h2><span class="num">2</span>Lauf, Podest, Stufen</h2>
+  <div class="merk"><b>Merksatz:</b> Ein <b>Treppenlauf</b> hat <b>mindestens 3 Steigungen</b>. Weniger als 3 heißen <b>Ausgleichsstufen</b>.</div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="term"><b>Treppenpodest</b><span>Absatz am Anfang oder Ende eines Laufs, oft Teil der Decke.</span></div>
+    <div class="term"><b>Zwischenpodest</b><span>Zwischen zwei Läufen, zwischen den Geschossdecken.</span></div>
+    <div class="term"><b>Antrittsstufe</b><span>erste, unterste Stufe eines Laufs</span></div>
+    <div class="term"><b>Austrittsstufe</b><span>letzte, oberste Stufe eines Laufs</span></div>
+    <div class="term"><b>Trittstufe</b><span>waagrechtes Stufenteil</span></div>
+    <div class="term"><b>Setzstufe</b><span>senkrechtes Stufenteil</span></div>
+    <div class="term"><b>Gerade Stufe</b><span>Vorderkante <strong>parallel</strong> zur nächsten Stufe</span></div>
+    <div class="term"><b>Wendelstufe</b><span>Vorderkante <strong>nicht parallel</strong> zur nächsten Stufe</span></div>
+    <div class="term"><b>Wendelung</b><span>Die Laufrichtung ändert sich durch Wendelstufen.</span></div>
+    <div class="term"><b>Spickelstufe</b><span>Die Stufe mit dem <strong>kleinsten Auftritt</strong> in der Wendelung.</span></div>
+    <div class="term"><b>Trittfläche</b><span>begehbare, (fast) waagrechte Oberfläche der Stufe</span></div>
+    <div class="term"><b>Gehbereich / Lauflinie</b><span>Bereich, der normal begangen wird. Die Lauflinie liegt darin, und an ihr wird gemessen.</span></div>
+  </div>
+
+  <h2><span class="num">3</span>Tragende Teile und Drumherum</h2>
+  <div class="grid2">
+    <div class="term"><b>Treppenwange</b><span>trägt die Stufen, meist <strong>seitlich</strong></span></div>
+    <div class="term"><b>Treppenholm</b><span>trägt die Stufen <strong>von unten</strong> (Treppenbalken)</span></div>
+    <div class="term"><b>Treppenspindel</b><span>tragender Kern in der Mitte einer Spindeltreppe</span></div>
+    <div class="term"><b>Treppenauge</b><span>Freiraum zwischen Läufen, Geländern und Podesten</span></div>
+    <div class="term"><b>Treppenloch</b><span>Aussparung in der Geschossdecke</span></div>
+    <div class="term"><b>Handlauf</b><span>griffsichere Gehhilfe</span></div>
+    <div class="term"><b>Treppengeländer</b><span>Schutz gegen Absturz an Lauf und Podest</span></div>
+    <div class="term"><b>Neigungslinie</b><span>gedachte Linie über die Stufen-Vorderkanten</span></div>
+  </div>
+
+  <h2><span class="num">4</span>Wie wird gemessen?</h2>
+  <div class="merk"><b>Merksatz:</b> <b>Steigung = senkrecht</b>, <b>Auftritt = waagrecht an der Lauflinie</b>. Gemessen wird immer an der <b>Vorderkante</b>.</div>
+  <div class="measure" style="margin-top:12px">
+    <div><b>Steigung s</b><span>OK Vorderkante Stufe bis OK Vorderkante nächste Stufe, senkrecht</span></div>
+    <div><b>Auftritt a</b><span>Vorderkante bis Vorderkante nächste Stufe, waagrecht an der Lauflinie</span></div>
+    <div><b>Steigungsverhältnis</b><span>s zu a, zeigt die Neigung der Treppe, Angabe in <strong>Millimetern</strong></span></div>
+    <div><b>Unterschneidung u</b><span>so weit steht eine Stufenkante über die Trittfläche darunter vor (waagrecht)</span></div>
+    <div><b>Lauflänge</b><span>waagrecht an der Lauflinie, Vorderkante Antritt bis Vorderkante Austritt</span></div>
+    <div><b>Laufbreite</b><span>waagrechtes Konstruktionsmaß</span></div>
+    <div><b>Nutzbare Laufbreite</b><span>lichtes <strong>Fertigmaß</strong> zwischen den Bauteilen</span></div>
+    <div><b>Durchgangshöhe</b><span>senkrecht von der Neigungslinie bis zum Bauteil darüber (Fertigmaß)</span></div>
+    <div><b>Lichter Stufenabstand</b><span>senkrecht von OK Auftritt bis UK nächste Stufe</span></div>
+    <div><b>Seitenabstand</b><span>lichter Abstand zwischen Treppe und Wand (Fertigmaß)</span></div>
+    <div><b>Geländerhöhe</b><span>senkrecht über der Vorderkante der fertigen Stufe</span></div>
+  </div>
+
+  <h2><span class="num">5</span>Die Zahlen zum Auswendiglernen</h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th></th><th>Gebäude allgemein</th><th>Wohngebäude bis 3 WE</th></tr>
+    <tr><td>Steigungsverhältnis max.</td><td><strong>19 / 26</strong></td><td><strong>20 / 23</strong></td></tr>
+    <tr><td>Nutzbare Laufbreite mind.</td><td><strong>100 cm</strong></td><td><strong>80 cm</strong></td></tr>
+    <tr><td>Spickelstufe mind.</td><td><strong>10 cm</strong></td><td><strong>5 cm</strong></td></tr>
+    <tr><td>Podestlänge mind.</td><td><strong>3 × a</strong></td><td><strong>2,5 × a</strong></td></tr>
+    <tr><td>Geländerhöhe mind.</td><td colspan="2"><strong>90 cm</strong></td></tr>
+  </table>
+  </div>
+  <div class="merk"><b>Eselsbrücke:</b> Beim kleinen Wohnhaus ist alles <b>etwas lockerer</b>: steiler (20 statt 19), schmaler (80 statt 100), kleinere Spickelstufe (5 statt 10), kürzeres Podest (2,5 statt 3).</div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="eyebrow">Schrittmaßregel</div>
+    <div class="big">2 s + a = 63 cm</div>
+    <div>Das ist <strong>optimal</strong>. Erlaubt ist <strong>59 bis 65 cm</strong>. Zwei Steigungen plus ein Auftritt entsprechen etwa einem normalen Schritt.</div>
+  </div>
+
+  <div class="merk"><b>Für die Ex gilt dein Hefteintrag:</b> „Kleines Wohnhaus“ heißt <b>Wohngebäude bis 3 Wohneinheiten</b>.</div>
+
+  <footer>Zusammengestellt aus deinen 4 Heftseiten „Treppe“ und „DIN 18065 (Treppe)“, Stand 26.10.2026.</footer>
+</div>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

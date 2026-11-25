@@ -1,0 +1,295 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>Arbeitsrecht-Training</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Frage pro Karte, oben Themen-Leiste und Fortschritt, unten Auswertung */
+:root{
+  --bg:#eef0f2; --card:#ffffff; --fg:#1d2430; --muted:#5d6675; --line:#d4d9e0;
+  --accent:#1f4fa3; --accent-soft:#e3ebf8;
+  --ok:#1d7a4a; --ok-soft:#e2f3ea; --bad:#b3362c; --bad-soft:#fbe7e4;
+  --display:"Archivo",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14181f; --card:#1d222b; --fg:#e6e9ee; --muted:#9aa3b2; --line:#323946;
+  --accent:#7ea6ec; --accent-soft:#22314d; --ok:#5ec48f; --ok-soft:#183427; --bad:#ef8a80; --bad-soft:#3d2120; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14181f; --card:#1d222b; --fg:#e6e9ee; --muted:#9aa3b2; --line:#323946;
+  --accent:#7ea6ec; --accent-soft:#22314d; --ok:#5ec48f; --ok-soft:#183427; --bad:#ef8a80; --bad-soft:#3d2120; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+header h1{font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1.1;margin:0;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .85rem var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.chip:focus-visible,.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.track{flex:1;min-width:140px;height:8px;background:var(--line);border-radius:4px;overflow:hidden;display:flex}
+.track i{display:block;height:100%}
+.track .g{background:var(--ok)} .track .r{background:var(--bad)}
+.tally{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.qhead{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--muted)}
+.qnum{font-family:var(--mono);color:var(--accent)}
+.q{font-family:var(--display);font-weight:600;font-size:1.25rem;line-height:1.3;margin:0;text-wrap:balance}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;font:inherit;color:var(--fg);background:var(--card);
+  border:1px solid var(--line);border-radius:8px;padding:11px 14px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt b{font-family:var(--mono);font-weight:500;min-width:1.2em;color:var(--muted)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)} .opt.right b{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)} .opt.wrong b{color:var(--bad)}
+.explain{border-left:3px solid var(--line);padding:4px 0 4px 14px;font-size:.95rem}
+.explain strong{display:block;margin-bottom:2px}
+.explain.ok{border-color:var(--ok)} .explain.ok strong{color:var(--ok)}
+.explain.no{border-color:var(--bad)} .explain.no strong{color:var(--bad)}
+.law{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.nav{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.btn{font:600 .95rem var(--body);padding:10px 18px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.btn:disabled{opacity:.4;cursor:default}
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.done h2{font-family:var(--display);font-size:1.5rem;margin:0}
+.big{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}
+td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.hint{font-size:.8rem;color:var(--muted)}
+@media (max-width:480px){.q{font-size:1.1rem}.card{padding:16px}header h1{font-size:1.55rem}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Politik und Gesellschaft · Übung 1</div>
+    <h1>Arbeitsrecht im Baubetrieb</h1>
+    <p>90 Fragen, je eine Antwort richtig. Antippen, Erklärung lesen, weiter.</p>
+  </header>
+
+  <div class="chips" id="chips" aria-label="Themen auswählen"></div>
+
+  <div class="bar">
+    <div class="track" aria-hidden="true"><i class="g" id="tg"></i><i class="r" id="tr"></i></div>
+    <span class="tally" id="tally"></span>
+  </div>
+
+  <section class="card" id="card" aria-live="polite"></section>
+
+  <div class="tools">
+    <button class="btn" id="shuffle" type="button">Reihenfolge mischen</button>
+    <button class="btn" id="wrongOnly" type="button">Nur meine Fehler üben</button>
+    <button class="btn" id="reset" type="button">Alles zurücksetzen</button>
+  </div>
+  <p class="hint">Tastatur: A–E wählt eine Antwort, Enter geht weiter. Dein Stand bleibt in diesem Browser gespeichert.</p>
+</div>
+
+<script>
+const T=["Ausbildung","Jugendschutz","Arbeitszeit","Kündigung","Betriebsrat","Lohnfortzahlung & Mutterschutz","Urlaub & AGG"];
+// [Thema, Frage, Antworten, richtig (0=A), Erklärung, Gesetz]
+const Q=[
+[0,"Wie lange dauert die Ausbildung zum/zur Maurer/in laut Text?",["Zwei Jahre","Drei Jahre","Dreieinhalb Jahre","Vier Jahre","Fünf Jahre"],1,"Maurer lernt man drei Jahre lang.","Ausbildungsordnung"],
+[0,"Seit wann gelten die modernisierten Ausbildungsordnungen laut Text?",["1. Januar 2025","1. Januar 2026","1. Juli 2026","1. August 2026","1. September 2026"],3,"Stichtag ist der 1. August 2026, also zum normalen Ausbildungsstart.","laut Infotext"],
+[0,"Was beschreibt der Ausbildungsrahmenplan?",["Die betriebliche Ausbildung","Ausschließlich den Berufsschulunterricht","Die tarifliche Vergütung","Die Urlaubsplanung","Die gesetzlichen Kündigungsfristen"],0,"Rahmenplan = was im Betrieb gelernt wird. Die Schule hat ihren eigenen Rahmenlehrplan.","§ 5 BBiG"],
+[0,"Welche Fähigkeit soll durch die Ausbildung besonders entwickelt werden?",["Ausschließlich theoretisches Wissen","Selbstständige Baustellenleitung ab dem ersten Tag","Berufliche Handlungsfähigkeit","Tarifverhandlungen zu führen","Personalentscheidungen des Betriebs zu treffen"],2,"Ziel jeder Ausbildung ist die berufliche Handlungsfähigkeit: können, wissen und selbst handeln.","§ 1 Abs. 3 BBiG"],
+[0,"Welche Aufgabe gehört laut Text zur Ausbildung von Maurer/innen?",["Schiffsbauteile montieren","Textilien industriell verarbeiten","Straßenbahnnetze planen","Mauerwerk herstellen","Elektronische Steuerungen programmieren"],3,"Mauerwerk herstellen ist der Kern des Berufs.",""],
+[0,"Was ist ein typischer Ausbildungsinhalt für Zimmerer/innen?",["Holzkonstruktionen herstellen","Metallguss durchführen","Lebensmittel prüfen","Straßenfahrzeuge warten","Medizinische Geräte bedienen"],0,"Zimmerer bauen Holzkonstruktionen, z. B. Dachstühle.",""],
+[0,"Wann findet Teil 1 der gestreckten Abschlussprüfung grundsätzlich statt?",["Im ersten Ausbildungshalbjahr","Am Ende der Ausbildung","Im vierten Ausbildungshalbjahr","Erst nach der Gesellenprüfung","Nach sechs Monaten Berufstätigkeit"],2,"Teil 1 liegt im 4. Halbjahr, also gegen Ende des 2. Lehrjahrs. Er ersetzt die alte Zwischenprüfung.","Ausbildungsordnung"],
+[0,"Wie stark zählt Teil 1 laut Text zur Gesamtnote?",["10 %","20 %","25 %","30 %","40 %"],4,"Teil 1 zählt 40 %. Darum ist er keine bloße Probe, sondern schon echte Prüfung.","laut Infotext"],
+[0,"Wie viel zählt der zentrale Herstellungsbereich in Teil 2 zur Gesamtnote?",["10 %","30 %","40 %","50 %","60 %"],1,"Der Herstellungsbereich in Teil 2 zählt 30 %.","laut Infotext"],
+[0,"Welche Aufgabe hat der Ausbildungsbetrieb bei Ausbildungsmitteln?",["Er stellt sie nur gegen Gebühr bereit","Auszubildende müssen alle Mittel selbst kaufen","Er stellt erforderliche Ausbildungsmittel kostenlos bereit","Er muss nur Lehrbücher bereitstellen","Er stellt Mittel nur für die Abschlussprüfung bereit"],2,"Werkzeug und Material für die Ausbildung bekommt der Azubi kostenlos vom Betrieb.","§ 14 Abs. 1 Nr. 3 BBiG"],
+[0,"Welche Tätigkeit darf der Betrieb Auszubildenden übertragen?",["Ausschließlich Aufgaben, die dem Ausbildungszweck dienen und angemessen sind","Beliebige Aufgaben, wenn gerade viel Arbeit anfällt","Dauerhafte Vertretung regulärer Arbeitskräfte","Aufgaben ohne Bezug zur Ausbildung","Arbeiten ohne Anleitung oder Schutzmaßnahmen"],0,"Ein Azubi ist keine billige Arbeitskraft. Nur Aufgaben, bei denen er etwas lernt und die zu seinen Kräften passen.","§ 14 Abs. 3 BBiG"],
+[0,"Welche Mindestvergütung nennt der Text für das erste Ausbildungsjahr bei Ausbildungsbeginn 2026?",["620 Euro monatlich","680 Euro monatlich","700 Euro monatlich","724 Euro monatlich","800 Euro monatlich"],3,"724 € im Monat (Stand laut Text). Der Betrag wird jedes Jahr angepasst.","§ 17 BBiG"],
+[0,"Wie lange muss die Probezeit in einem Berufsausbildungsverhältnis mindestens dauern?",["Zwei Wochen","Einen Monat","Drei Monate","Vier Monate","Sechs Monate"],1,"Mindestens 1 Monat, höchstens 4 Monate. Die 4 Monate sind die Obergrenze, nicht die Untergrenze.","§ 20 BBiG"],
+[0,"Welche Stelle ist im Handwerk regelmäßig für die Berufsausbildung zuständig?",["Die Agentur für Arbeit","Die Krankenkasse","Das Integrationsamt","Das Arbeitsgericht","Die Handwerkskammer"],4,"Die HWK führt das Lehrlingsverzeichnis, berät und nimmt die Prüfungen ab.","§ 71 BBiG, HwO"],
+[1,"Für wen gilt das Jugendarbeitsschutzgesetz grundsätzlich?",["Nur für Beschäftigte unter 15 Jahren","Für alle Beschäftigten unabhängig vom Alter","Für Beschäftigte und Auszubildende unter 18 Jahren","Nur für Schüler/innen in Ferienjobs","Nur für Auszubildende im Baugewerbe"],2,"Alle unter 18, egal ob Azubi oder Aushilfe.","§ 1 JArbSchG"],
+[1,"Wie werden vollzeitschulpflichtige Jugendliche grundsätzlich behandelt?",["Wie Erwachsene","Wie Kinder","Wie Ausbilder/innen","Wie Teilzeitkräfte","Wie Selbstständige"],1,"Wer noch voll schulpflichtig ist, gilt im Gesetz als Kind. Kinderarbeit ist grundsätzlich verboten.","§ 2 Abs. 3 JArbSchG"],
+[1,"Wie viele Stunden dürfen Jugendliche grundsätzlich höchstens pro Woche arbeiten?",["35","36","38","40","48"],3,"40 Stunden pro Woche und 8 Stunden am Tag.","§ 8 JArbSchG"],
+[1,"Welche Pause ist bei mehr als 6 Stunden Arbeitszeit für Jugendliche mindestens vorgeschrieben?",["15 Min","30 Min","45 Min","50 Min","60 Min"],4,"Jugendliche: 30 Min ab 4,5 Std, 60 Min ab 6 Std. Erwachsene brauchen weniger.","§ 11 JArbSchG"],
+[1,"Wie lange dürfen Jugendliche höchstens ohne Pause am Stück arbeiten?",["3 Std","4 Std","4,5 Std","5 Std","6 Std"],2,"Nach spätestens 4,5 Stunden muss eine Pause kommen.","§ 11 JArbSchG"],
+[1,"Wie lang muss die ununterbrochene Freizeit zwischen zwei Arbeitstagen für Jugendliche mindestens sein?",["8 Std","9 Std","10 Std","11 Std","12 Std"],4,"Jugendliche 12 Stunden, Erwachsene 11 Stunden. Leicht zu verwechseln.","§ 13 JArbSchG"],
+[1,"Wie viele Tage pro Woche dürfen Jugendliche grundsätzlich beschäftigt werden?",["Höchstens fünf","Höchstens sechs","Höchstens sieben","Unbegrenzt, wenn Pausen gewährt werden","Nur drei"],0,"Fünf-Tage-Woche ist für Jugendliche Pflicht.","§ 15 JArbSchG"],
+[1,"Wie viel Mindesturlaub haben Jugendliche, die zu Jahresbeginn noch keine 16 Jahre alt sind?",["20 Werktage","22 Werktage","25 Werktage","27 Werktage","30 Werktage"],4,"Unter 16: 30, unter 17: 27, unter 18: 25 Werktage.","§ 19 JArbSchG"],
+[1,"Wann ist eine ärztliche Erstuntersuchung für Jugendliche grundsätzlich erforderlich?",["Erst nach einem Jahr Beschäftigung","Vor der Beschäftigung, sofern die gesetzlichen Voraussetzungen vorliegen","Nur nach einem Arbeitsunfall","Erst bei Vollendung des 18. Lebensjahres","Nur vor der Abschlussprüfung"],1,"Ohne Bescheinigung der Erstuntersuchung darf ein Jugendlicher gar nicht anfangen.","§ 32 JArbSchG"],
+[1,"Unter welcher Voraussetzung kann eine gefährdende Tätigkeit ausnahmsweise Teil der Ausbildung sein?",["Wenn der Betrieb Personalmangel hat","Wenn die Tätigkeit besonders schnell erledigt werden muss","Wenn sie für das Ausbildungsziel erforderlich ist und fachkundig beaufsichtigt wird","Wenn die Eltern schriftlich zustimmen","Wenn die Tätigkeit nur an einem Freitag ausgeführt wird"],2,"Gefährliche Arbeiten nur, wenn sie zum Lernziel gehören und ein Fachkundiger dabei aufpasst.","§ 22 JArbSchG"],
+[1,"Wie häufig muss eine Unterweisung zu Gefahren und Schutzmaßnahmen mindestens wiederholt werden?",["Jährlich","Alle zwei Jahre","Alle drei Monate","Halbjährlich","Nur bei Ausbildungsbeginn"],3,"Bei Jugendlichen mindestens alle sechs Monate. Bei Erwachsenen reicht meist einmal im Jahr.","§ 29 JArbSchG"],
+[1,"Was gilt für den Besuch der Berufsschule?",["Der Betrieb muss ihn ermöglichen und Jugendliche dafür freistellen","Er ist nur nach Ende des Arbeitstags erlaubt","Er ist nur für volljährige Auszubildende vorgesehen","Die Unterrichtszeit muss immer nachgearbeitet werden","Der Betrieb kann ihn nach eigenem Ermessen verbieten"],0,"Berufsschule geht vor. Der Betrieb muss freistellen, nacharbeiten muss man nicht.","§ 9 JArbSchG, § 15 BBiG"],
+[1,"Wie muss ein Berufsausbildungsvertrag grundsätzlich dokumentiert werden?",["Nur mündlich","Nur nach der Probezeit","Ausschließlich durch die Berufsschule","Erst nach der Abschlussprüfung","Wesentliche Bedingungen müssen spätestens vor Beginn in Textform festgehalten und ausgehändigt werden"],4,"Das Wichtigste muss vor dem ersten Tag schriftlich (Textform) beim Azubi sein.","§ 11 BBiG"],
+[1,"Was gilt nach der Probezeit für eine Kündigung durch den Ausbildungsbetrieb grundsätzlich?",["Sie ist jederzeit ohne Grund möglich","Sie ist grundsätzlich nur aus wichtigem Grund fristlos möglich","Sie ist nur am Monatsende zulässig","Sie setzt immer eine Zustimmung der Berufsschule voraus","Sie ist nur mit vier Wochen Frist möglich"],1,"Nach der Probezeit kann der Betrieb nur noch fristlos aus wichtigem Grund kündigen. Der Azubi selbst kann mit 4 Wochen Frist aufhören, wenn er den Beruf aufgibt.","§ 22 BBiG"],
+[2,"Für wen gilt das Arbeitszeitgesetz grundsätzlich laut Text?",["Nur für Beschäftigte unter 18 Jahren","Für alle Schüler/innen","Für Arbeitnehmer/innen und volljährige Auszubildende","Nur für Angestellte im Büro","Nur für Beschäftigte mit Tarifvertrag"],2,"ArbZG für Erwachsene, JArbSchG für unter 18.","§ 2 ArbZG"],
+[2,"Wie lang ist die grundsätzlich zulässige tägliche Arbeitszeit nach dem ArbZG?",["Acht Stunden werktäglich","Sechs Stunden werktäglich","Neun Stunden werktäglich","Zehn Stunden ohne Ausgleich","Zwölf Stunden werktäglich"],0,"8 Stunden pro Werktag. Werktag heißt Montag bis Samstag.","§ 3 ArbZG"],
+[2,"Wann darf die tägliche Arbeitszeit auf bis zu zehn Stunden verlängert werden?",["Wenn der Arbeitgeber die Verlängerung schriftlich bestätigt","Wenn es im Baugewerbe üblich ist","Wenn die Beschäftigten darauf verzichten","Wenn der Durchschnitt innerhalb des gesetzlichen Bezugszeitraums wieder höchstens acht Stunden werktäglich beträgt","Wenn keine Überstunden bezahlt werden"],3,"Bis 10 Stunden geht, wenn man im Schnitt über 6 Monate bzw. 24 Wochen wieder auf 8 Stunden kommt.","§ 3 ArbZG"],
+[2,"Welche Pause ist bei mehr als neun Stunden Arbeit mindestens erforderlich?",["15 Min","30 Min","40 Min","60 Min","45 Min"],4,"Erwachsene: 30 Min ab 6 Std, 45 Min ab 9 Std. Aufteilen in Blöcke von mind. 15 Min ist erlaubt.","§ 4 ArbZG"],
+[2,"Wie lange ist die grundsätzlich erforderliche Ruhezeit nach Ende der täglichen Arbeit?",["Acht Stunden","Elf ununterbrochene Stunden","Zwölf Stunden","24 Stunden","Mindestens 30 Minuten"],1,"11 Stunden am Stück. Bei Jugendlichen sind es 12.","§ 5 ArbZG"],
+[2,"Welche Zeitspanne gilt grundsätzlich als Nachtzeit nach dem ArbZG?",["20 bis 4 Uhr","21 bis 5 Uhr","22 bis 6 Uhr","23 bis 6 Uhr","0 bis 8 Uhr"],3,"Nachtzeit ist 23 bis 6 Uhr. Nachtarbeit heißt: mehr als 2 Stunden davon.","§ 2 Abs. 3 ArbZG"],
+[2,"Welche Aussage zur Sonntagsarbeit ist laut Text richtig?",["Sie ist grundsätzlich verboten, sofern keine Ausnahme oder behördliche Bewilligung greift","Sie ist auf Baustellen immer erlaubt","Sie ist zulässig, wenn ein Bauplan eng ist","Sie ist nur mit Zustimmung des Betriebsrats erlaubt","Sie ist grundsätzlich erlaubt, wenn ein Zuschlag gezahlt wird"],0,"Sonntag ist grundsätzlich frei. Ein enger Terminplan ist kein Ausnahmegrund.","§ 9 ArbZG"],
+[2,"Wie viele Sonntage im Jahr müssen bei rechtmäßiger Sonntagsbeschäftigung mindestens frei bleiben?",["8","10","12","14","15"],4,"Mindestens 15 freie Sonntage im Jahr.","§ 11 ArbZG"],
+[2,"Welche Angaben sollen nach dem Text bei der Arbeitszeiterfassung mindestens festgehalten werden?",["Nur die geleisteten Überstunden","Beginn, Ende und Dauer der täglichen Arbeitszeit","Nur der Name der Baustelle","Nur die Pausenzeiten","Ausschließlich die vertraglich geplante Arbeitszeit"],1,"Anfang, Ende und Dauer. Auf dem Bau gilt dafür zusätzlich das Mindestlohn- und Schwarzarbeitsgesetz.","§ 16 ArbZG, BAG-Urteil 2022"],
+[2,"Wer bleibt für ein geeignetes Arbeitszeiterfassungssystem verantwortlich, auch wenn Beschäftigte ihre Zeiten selbst eintragen?",["Die Berufsschule","Der Betriebsrat","Der Arbeitgeber","Die Krankenkasse","Die Aufsichtsbehörde"],2,"Eintragen darf der Mitarbeiter, verantwortlich bleibt der Chef.",""],
+[2,"Welche Aussage zu Pausen auf Baustellen trifft zu?",["Jede im Dienstplan eingetragene Pause zählt automatisch","Eine Pause zählt auch dann, wenn währenddessen weitergearbeitet wird","Pausen sind nur bei Büroarbeit erforderlich","Eine Pause zählt nur, wenn Beschäftigte tatsächlich zur Erholung freigestellt sind","Pausen zählen immer als Arbeitszeit"],3,"Wer in der Pause doch den Lkw abladen muss, hatte keine Pause.",""],
+[2,"Welches Gesetz gilt laut Text für Beschäftigte unter 18 Jahren statt des ArbZG?",["Jugendarbeitsschutzgesetz","Bundesurlaubsgesetz","Mutterschutzgesetz","Betriebsverfassungsgesetz","Kündigungsschutzgesetz"],0,"Unter 18 gilt das JArbSchG mit strengeren Regeln.","§ 18 ArbZG"],
+[3,"Welche zwei Voraussetzungen gelten grundsätzlich für den allgemeinen Kündigungsschutz nach dem KSchG?",["Ein Jahr Beschäftigung und mindestens fünf Beschäftigte","Sechs Monate Beschäftigung und regelmäßig mehr als zehn Arbeitnehmer/innen","Zwei Jahre Beschäftigung und ein Betriebsrat","Drei Monate Beschäftigung und mindestens 20 Beschäftigte","Eine abgeschlossene Berufsausbildung und mehr als zehn Beschäftigte"],1,"Mehr als 6 Monate im Betrieb und mehr als 10 Arbeitnehmer. Teilzeitkräfte zählen anteilig.","§§ 1, 23 KSchG"],
+[3,"Wer zählt laut Text bei der Betriebsgröße für den allgemeinen Kündigungsschutz nicht mit?",["Teilzeitbeschäftigte","Beschäftigte in der Probezeit","Beschäftigte mit befristetem Vertrag","Auszubildende","Beschäftigte im Urlaub"],3,"Azubis zählen nicht mit. Teilzeitkräfte zählen mit 0,5 oder 0,75.","§ 23 KSchG"],
+[3,"Welche Form ist für eine Kündigung erforderlich?",["Schriftform mit eigenhändiger Unterschrift","E-Mail mit Lesebestätigung","Mündliche Erklärung vor Zeug/innen","Messenger-Nachricht","Telefonische Mitteilung"],0,"Nur auf Papier mit echter Unterschrift. WhatsApp oder E-Mail sind unwirksam.","§ 623 BGB"],
+[3,"In welcher Frist muss eine Kündigungsschutzklage grundsätzlich erhoben werden?",["Innerhalb einer Woche","Innerhalb von zwei Wochen","Innerhalb von drei Wochen","Innerhalb von sechs Wochen","Innerhalb von drei Monaten"],2,"3 Wochen nach Zugang. Danach gilt die Kündigung als wirksam.","§ 4 KSchG"],
+[3,"Welcher Grund gehört zu den möglichen Kündigungsgründen bei anwendbarem KSchG?",["Persönliche Abneigung der Bauleitung","Einmalige Verspätung ohne weitere Umstände","Ein bloßer Wechsel der Baustelle","Wunsch nach einer anderen Arbeitskleidung","Dringende betriebliche Erfordernisse"],4,"Es gibt drei Gründe: Person, Verhalten, Betrieb.","§ 1 Abs. 2 KSchG"],
+[3,"Welche Prüfung gehört bei einer betriebsbedingten Kündigung grundsätzlich dazu?",["Ob die beschäftigte Person Urlaub genommen hat","Ob der Betrieb einen Parkplatz anbietet","Ob die Beschäftigten einer Kündigung zustimmen","Ob eine Weiterbeschäftigung möglich ist und gegebenenfalls eine Sozialauswahl erfolgen muss","Ob die Berufsschule informiert wurde"],3,"Erst prüfen, ob es einen anderen Platz gibt. Dann Sozialauswahl: Betriebszugehörigkeit, Alter, Unterhaltspflichten, Schwerbehinderung.","§ 1 Abs. 3 KSchG"],
+[3,"Welche Aussage zur fristlosen Kündigung trifft zu?",["Sie ist immer ohne Begründung möglich","Sie setzt einen wichtigen Grund voraus","Sie ist nur bei mehr als zehn Beschäftigten zulässig","Sie benötigt stets eine Zustimmung der Handwerkskammer","Sie kann nur zum Monatsende erfolgen"],1,"Nur aus wichtigem Grund und innerhalb von 2 Wochen, nachdem man davon erfahren hat.","§ 626 BGB"],
+[3,"Wie lange beträgt die Grundkündigungsfrist laut Text grundsätzlich für Arbeitnehmer/innen?",["Eine Woche zum Monatsende","Zwei Wochen zum 15.","Vier Wochen zum 15. oder zum Monatsende","Sechs Wochen zum Quartalsende","Drei Monate zum Jahresende"],2,"4 Wochen zum 15. oder zum Monatsende. Für den Arbeitgeber wird sie mit den Jahren länger.","§ 622 BGB"],
+[3,"Was muss ein Arbeitgeber tun, wenn im Betrieb ein Betriebsrat besteht und eine Kündigung geplant ist?",["Den Betriebsrat vor der Kündigung anhören","Die Kündigung vom Betriebsrat unterschreiben lassen","Die Zustimmung der Berufsschule einholen","Nur die Belegschaft informieren","Die Kündigung zunächst beim Arbeitsgericht beantragen"],0,"Anhören heißt: informieren und Stellung nehmen lassen. Zustimmen muss er nicht.","§ 102 BetrVG"],
+[3,"Welche Aussage über eine Abfindung ist richtig?",["Jede Kündigung löst automatisch eine Abfindung aus","Eine Abfindung wird immer von der Agentur für Arbeit gezahlt","Beschäftigte haben stets Anspruch auf sechs Monatsgehälter","Eine Abfindung entsteht nicht automatisch durch eine Kündigung","Eine Abfindung gibt es ausschließlich im Kleinbetrieb"],3,"Einen automatischen Anspruch gibt es nicht. Meist wird sie im Vergleich vor Gericht ausgehandelt.","§ 1a KSchG als Ausnahme"],
+[3,"Welche Kündigungsregel gilt nach der Probezeit für den Ausbildungsbetrieb grundsätzlich?",["Kündigung jederzeit mit zwei Wochen Frist","Kündigung nur zum Ende des Kalenderjahres","Kündigung nur mit Zustimmung der Eltern","Kündigung ausschließlich nach einer Abmahnung","Grundsätzlich nur fristlose Kündigung aus wichtigem Grund"],4,"Gleiche Regel wie Frage 28: Nach der Probezeit kann der Betrieb nur fristlos aus wichtigem Grund kündigen.","§ 22 BBiG"],
+[3,"Wann kann für gewerbliche Beschäftigte im Bauhauptgewerbe eine besondere Kündigungsfrist gelten?",["Immer allein wegen der Berufsbezeichnung","Wenn der BRTV auf das Arbeitsverhältnis anwendbar ist","Nur wenn die Beschäftigten auf Urlaub verzichten","Nur bei einer Betriebsgröße von mehr als 50 Personen","Ausschließlich bei einer außerordentlichen Kündigung"],1,"Der Bundesrahmentarifvertrag Bau hat eigene Fristen, aber nur wenn er gilt (Tarifbindung oder allgemeinverbindlich).","BRTV Bau"],
+[3,"Welcher Personengruppe kann besonderer Kündigungsschutz zustehen?",["Allen Beschäftigten mit mehr als einer Baustelle","Ausschließlich Beschäftigten in der Probezeit","Schwangeren","Nur befristet Beschäftigten","Nur Beschäftigten mit weniger als sechs Monaten Betriebszugehörigkeit"],2,"Besonders geschützt sind u. a. Schwangere, Eltern in Elternzeit, Schwerbehinderte und Betriebsräte.","§ 17 MuSchG"],
+[4,"Ab wann kann in einem Betrieb grundsätzlich ein Betriebsrat gewählt werden?",["Ab fünf ständig Wahlberechtigten, wenn mindestens drei wählbar sind","Ab zwei Beschäftigten","Ab zehn Auszubildenden","Ab 20 Beschäftigten ohne weitere Voraussetzungen","Nur ab 50 Beschäftigten"],0,"5 Wahlberechtigte, davon 3 wählbar. Das kann also schon einen kleinen Baubetrieb betreffen.","§ 1 BetrVG"],
+[4,"Ab welchem Alter sind Beschäftigte laut Text grundsätzlich wahlberechtigt?",["Ab 14","Ab 15","Ab 16","Ab 18","Ab 21"],2,"Wählen darf man ab 16, gewählt werden ab 18.","§ 7 BetrVG"],
+[4,"Welche Aussage zu Baustellen als Betriebseinheit trifft zu?",["Jede Baustelle ist zwingend ein eigener Betrieb","Baustellen können zu einem gemeinsamen Betrieb gehören","Nur die Baustelle mit der größten Belegschaft zählt","Jede Baustelle muss einen eigenen Betriebsrat haben","Baustellen sind vom BetrVG grundsätzlich ausgenommen"],1,"Baustellen werden meist vom Hauptbetrieb aus gesteuert und gehören dann zu diesem Betrieb.","§ 4 BetrVG"],
+[4,"Was bedeutet „Information“ als Beteiligungsebene?",["Der Betriebsrat entscheidet allein","Beschäftigte stimmen über jede Maßnahme ab","Der Arbeitgeber muss den Betriebsrat rechtzeitig und ausreichend unterrichten","Der Betriebsrat kann jede Maßnahme verhindern","Die Einigungsstelle entscheidet automatisch"],2,"Stufen von schwach nach stark: Information, Anhörung, Beratung, Mitbestimmung.","§ 80 BetrVG"],
+[4,"Bei welchem Thema hat der Betriebsrat nach dem Text grundsätzlich ein Mitbestimmungsrecht?",["Auswahl der privaten Urlaubsziele","Festlegung der gesetzlichen Mindestvergütung","Entscheidung über die Berufswahl","Beginn und Ende der Arbeitszeit sowie Pausen","Ausstellung eines Reisepasses"],3,"Arbeitszeit-Lage und Pausen gehören zu den sozialen Angelegenheiten, da redet der BR mit.","§ 87 Abs. 1 Nr. 2 BetrVG"],
+[4,"Wann kann ein digitales Zeiterfassungssystem mitbestimmungspflichtig sein?",["Wenn es Verhalten oder Leistung überwachen kann","Wenn es ausschließlich mit Papier arbeitet","Wenn es nur von der Berufsschule genutzt wird","Wenn es keine Beschäftigtendaten enthält","Nur wenn der Betriebsrat das System selbst kauft"],0,"Schon die Möglichkeit, Mitarbeiter zu überwachen, reicht. Wichtig beim Modernisieren der Firma (Zeiterfassungs-App, GPS).","§ 87 Abs. 1 Nr. 6 BetrVG"],
+[4,"Welche personelle Maßnahme kann ab der gesetzlichen Schwelle der Beteiligung des Betriebsrats unterliegen?",["Private Urlaubsreise","Wahl der Berufsschule","Kauf eines privaten Werkzeugs","Änderung der Wohnadresse","Versetzung"],4,"Einstellung, Eingruppierung, Umgruppierung, Versetzung – ab mehr als 20 Wahlberechtigten.","§ 99 BetrVG"],
+[4,"Was gilt für eine Kündigung ohne ordnungsgemäße Anhörung des bestehenden Betriebsrats?",["Sie ist automatisch eine fristlose Kündigung","Sie ist unwirksam","Sie wird nach drei Monaten wirksam","Sie gilt nur für Auszubildende","Sie kann durch die Berufsschule bestätigt werden"],1,"Ohne Anhörung ist die Kündigung unwirksam, egal wie gut der Grund ist.","§ 102 Abs. 1 BetrVG"],
+[4,"Was kann bei einer größeren Betriebsänderung relevant werden?",["Ein privater Mietvertrag","Eine schulische Prüfungsordnung","Ein Interessenausgleich und ein Sozialplan","Eine ärztliche Erstuntersuchung","Eine neue Urlaubsbescheinigung"],2,"Interessenausgleich = ob und wie; Sozialplan = Ausgleich der Nachteile für die Leute.","§§ 111, 112 BetrVG"],
+[4,"Welche Aufgabe hat die Jugend- und Auszubildendenvertretung (JAV)?",["Sie ersetzt die Handwerkskammer","Sie führt Tarifverhandlungen für alle Beschäftigten","Sie entscheidet über Kündigungen","Sie vertritt besondere Belange junger Beschäftigter und Auszubildender","Sie überwacht ausschließlich die Lohnabrechnung"],3,"Die JAV kümmert sich um Jugendliche und Azubis unter 25, zusammen mit dem Betriebsrat.","§ 60 BetrVG"],
+[5,"Wie lange wird bei unverschuldeter krankheitsbedingter Arbeitsunfähigkeit grundsätzlich Entgeltfortzahlung geleistet?",["Zwei Wochen","Vier Wochen","Bis zu sechs Wochen","Zwölf Wochen","Ein Jahr"],2,"6 Wochen zahlt der Chef, danach zahlt die Krankenkasse Krankengeld.","§ 3 EFZG"],
+[5,"Wann entsteht der Anspruch auf Entgeltfortzahlung bei Krankheit grundsätzlich?",["Nach vier Wochen ununterbrochenem Bestehen des Arbeitsverhältnisses","Ab dem ersten Arbeitstag in jedem Fall","Nach sechs Monaten","Nach einem Jahr","Erst nach der Probezeit"],0,"Wartezeit 4 Wochen. Wer in Woche 2 krank wird, bekommt Krankengeld statt Lohn.","§ 3 Abs. 3 EFZG"],
+[5,"Wann müssen Beschäftigte ihre Arbeitsunfähigkeit dem Arbeitgeber mitteilen?",["Erst nach Ende der Krankheit","Innerhalb von drei Wochen","Nur auf Nachfrage","Unverzüglich","Erst bei der nächsten Lohnabrechnung"],3,"Unverzüglich heißt: sofort, meist am ersten Morgen vor Arbeitsbeginn.","§ 5 EFZG"],
+[5,"Wann muss eine Krankheit laut Text ärztlich festgestellt werden, wenn sie länger dauert?",["Erst nach zehn Kalendertagen","Wenn sie länger als drei Kalendertage dauert","Erst nach sechs Wochen","Nur bei einem Arbeitsunfall","Nur wenn der Arbeitgeber schriftlich zustimmt"],1,"Ab Tag 4 braucht es ein Attest (heute meist elektronisch, eAU). Der Chef darf es auch früher verlangen.","§ 5 EFZG"],
+[5,"Wann wird Feiertagsentgelt grundsätzlich gezahlt?",["Immer an jedem gesetzlichen Feiertag, unabhängig vom Arbeitsplan","Nur wenn der Feiertag auf einen Montag fällt","Wenn wegen des Feiertags geplante Arbeitszeit ausfällt","Nur bei Vollzeitbeschäftigung","Nur wenn der Feiertag außerhalb des Urlaubs liegt"],2,"Bezahlt wird, was wegen des Feiertags ausfällt. Ein Feiertag am freien Tag bringt nichts extra.","§ 2 EFZG"],
+[5,"Was gilt nach dem Text bei Schlechtwetter im Baugewerbe?",["Es ist automatisch Krankheit","Es begründet immer Entgeltfortzahlung","Es zählt stets als Urlaub","Es kann unter Voraussetzungen Saison-Kurzarbeitergeld infrage kommen","Es führt automatisch zu einer Kündigung"],3,"In der Schlechtwetterzeit (Dez.–März) gibt es unter Bedingungen Saison-Kurzarbeitergeld von der Arbeitsagentur.","§ 101 SGB III"],
+[5,"Wie lange ist die Schutzfrist vor dem voraussichtlichen Entbindungstermin grundsätzlich?",["Vier Wochen","Sechs Wochen","Acht Wochen","Zehn Wochen","Zwölf Wochen"],1,"6 Wochen vorher. Die Frau darf auf eigenen Wunsch weiterarbeiten.","§ 3 MuSchG"],
+[5,"Wie lange dauert die Schutzfrist nach der Geburt grundsätzlich?",["Vier Wochen","Sechs Wochen","Acht Wochen","Zehn Wochen","Vierzehn Wochen"],2,"8 Wochen nach der Geburt, bei Früh- oder Mehrlingsgeburt 12 Wochen. Danach darf sie nicht arbeiten, auch nicht freiwillig.","§ 3 MuSchG"],
+[5,"In welcher Reihenfolge soll der Arbeitgeber Gefährdungen bei Schwangerschaft oder Stillzeit vermeiden?",["Beschäftigungsverbot, Kündigung, Versetzung","Versetzung, Kündigung, Arbeitsanpassung","Ärztliches Attest, Urlaub, Kündigung","Arbeitsbedingungen anpassen, geeigneten anderen Arbeitsplatz prüfen, dann gegebenenfalls Beschäftigungsverbot","Zuerst unbezahlten Urlaub anordnen"],3,"Erst Arbeitsplatz anpassen, dann umsetzen, erst zuletzt Beschäftigungsverbot. Kündigung ist nie der Weg.","§ 13 MuSchG"],
+[5,"Welche tägliche Mehrarbeitsgrenze nennt der Text für Schwangere ab 18 Jahren?",["7 Std","7,5 Std","8 Std","8,5 Std","10 Std"],3,"Höchstens 8,5 Stunden am Tag (unter 18: 8 Stunden).","§ 4 MuSchG"],
+[5,"Wie lange müssen stillende Frauen grundsätzlich mindestens für Stillzeiten freigestellt werden, wenn sie dies verlangen?",["Einmal täglich 15 Minuten","Zweimal täglich 30 Minuten oder einmal täglich eine Stunde","Einmal pro Woche zwei Stunden","Nur während der Mittagspause","Ausschließlich in den ersten sechs Wochen nach der Geburt"],1,"2 × 30 Minuten oder 1 × 1 Stunde, in den ersten 12 Monaten.","§ 7 MuSchG"],
+[5,"Welcher Kündigungsschutz gilt grundsätzlich während der Schwangerschaft?",["Kündigung ist nur mit Zustimmung des Betriebsrats zulässig","Kündigung ist nur in Kleinbetrieben ausgeschlossen","Kündigung ist grundsätzlich unzulässig, vorbehaltlich gesetzlicher Ausnahmen","Kündigung ist immer zum Monatsende zulässig","Es gilt kein besonderer Schutz während der Probezeit"],2,"Ab Schwangerschaft bis 4 Monate nach der Geburt praktisch unkündbar. Ausnahme nur mit Zustimmung der Behörde.","§ 17 MuSchG"],
+[6,"Wie viele Werktage Mindesturlaub sichert das BUrlG bei einer Sechs-Tage-Woche?",["18","20","22","24","30"],3,"24 Werktage, weil das Gesetz mit Montag bis Samstag rechnet.","§ 3 BUrlG"],
+[6,"Wie viele Arbeitstage Mindesturlaub entsprechen dem gesetzlichen Mindesturlaub bei einer Fünf-Tage-Woche?",["15","18","20","24","30"],2,"24 ÷ 6 × 5 = 20 Arbeitstage. Also vier Wochen Urlaub.","§ 3 BUrlG"],
+[6,"Wann entsteht der volle Jahresurlaub erstmals grundsätzlich?",["Nach einem Monat Beschäftigung","Nach sechs Monaten Beschäftigung","Nach einem Jahr Beschäftigung","Nach der Probezeit, unabhängig von ihrer Dauer","Erst nach der Abschlussprüfung"],1,"Wartezeit 6 Monate. Vorher gibt es Teilurlaub: 1/12 pro vollem Monat.","§§ 4, 5 BUrlG"],
+[6,"Wann darf der Arbeitgeber einen beantragten Urlaubszeitraum grundsätzlich ablehnen?",["Immer, wenn ein Antrag gestellt wird","Wenn Beschäftigte keinen Grund für den Urlaub nennen","Nur wenn Beschäftigte im ersten Ausbildungsjahr sind","Wenn dringende betriebliche Belange oder sozial vorrangige Urlaubswünsche anderer entgegenstehen","Nur wenn der Urlaub mehr als fünf Tage dauert"],3,"Nur bei dringenden Gründen im Betrieb oder wenn andere sozial Vorrang haben (z. B. Eltern in den Schulferien).","§ 7 Abs. 1 BUrlG"],
+[6,"Was gilt für Krankheitstage während des Urlaubs, wenn die Arbeitsunfähigkeit ärztlich nachgewiesen ist?",["Sie werden nicht auf den Urlaub angerechnet","Sie werden doppelt angerechnet","Sie zählen automatisch als unbezahlter Urlaub","Sie verlängern immer das Arbeitsverhältnis","Sie zählen nur bei Teilzeit nicht als Urlaub"],0,"Mit Attest bekommt man die Krankheitstage als Urlaub zurück.","§ 9 BUrlG"],
+[6,"Wann wird nicht genommener Urlaub grundsätzlich abgegolten?",["Immer am Jahresende","Nach jedem Arbeitgeberwechsel","Bei Beendigung des Arbeitsverhältnisses, wenn Urlaub nicht mehr genommen werden kann","Sobald die Beschäftigten eine Auszahlung verlangen","Nach jeder Erkrankung"],2,"Ausbezahlt wird nur, wenn das Arbeitsverhältnis endet. Sonst muss Urlaub genommen werden.","§ 7 Abs. 4 BUrlG"],
+[6,"Welche Aussage zum tariflichen SOKA-BAU-Urlaub trifft laut Text zu?",["Er gilt automatisch für alle, die auf einer Baustelle arbeiten","Er beträgt für alle Beschäftigten stets 24 Werktage","Er gilt nur für Auszubildende","Er ist ein allgemeiner Anspruch aus dem BUrlG","Für gewerbliche Beschäftigte kann grundsätzlich ein tariflicher Anspruch von 30 Arbeitstagen gelten"],4,"Bau-Arbeiter haben tariflich 30 Arbeitstage. Die Urlaubskasse SOKA-BAU sorgt dafür, dass der Anspruch beim Firmenwechsel mitwandert.","BRTV Bau, VTV"],
+[6,"Welche Merkmale sind durch das AGG geschützt?",["Wohnort, Hobby und Familienstand","Geschlecht, Alter und Behinderung","Berufserfahrung, Wohnungsgröße und Schulabschluss","Betriebszugehörigkeit, Nationalität des Arbeitgebers und Arbeitsweg","Körpergröße, Lieblingsfarbe und Führerscheinbesitz"],1,"Sechs Merkmale: ethnische Herkunft, Geschlecht, Religion/Weltanschauung, Behinderung, Alter, sexuelle Identität.","§ 1 AGG"],
+[6,"Was ist eine mittelbare Benachteiligung?",["Jede unterschiedliche Bezahlung unabhängig vom Grund","Eine Kündigung während des Urlaubs","Eine scheinbar neutrale Regel benachteiligt eine geschützte Gruppe besonders und ist nicht sachlich gerechtfertigt","Jede Beschwerde bei der Personalabteilung","Eine Maßnahme, die für alle Beschäftigten gleich gilt und niemanden betrifft"],2,"Beispiel: „Nur Bewerber mit Deutsch als Muttersprache“ für einen Job, bei dem gutes Deutsch reicht.","§ 3 Abs. 2 AGG"],
+[6,"Innerhalb welcher Frist müssen Ansprüche nach § 15 AGG grundsätzlich schriftlich beim Arbeitgeber geltend gemacht werden?",["Zwei Wochen","Ein Monat","Zwei Monate","Drei Monate","Sechs Monate"],2,"2 Monate schriftlich. Für die Klage danach gibt es weitere 3 Monate.","§ 15 Abs. 4 AGG"],
+[6,"Was müssen Betroffene zunächst vorlegen, damit die Beweisregel des AGG greift?",["Indizien, die eine Benachteiligung vermuten lassen","Eine schriftliche Zustimmung aller Zeug/innen","Eine Kündigung des Arbeitgebers","Einen Tarifvertrag","Einen Nachweis über mindestens sechs Monate Beschäftigung"],0,"Es reichen Hinweise. Dann muss der Arbeitgeber beweisen, dass er nicht benachteiligt hat.","§ 22 AGG"],
+[6,"Was muss der Arbeitgeber bei einer Beschwerde wegen Benachteiligung tun?",["Die Beschwerde grundsätzlich ignorieren","Die beschwerdeführende Person sofort versetzen","Nur den Betriebsrat informieren","Die Beschwerde prüfen und das Ergebnis mitteilen","Eine Kündigung aussprechen"],3,"Prüfen und Ergebnis mitteilen. Wer sich beschwert, darf dafür nicht bestraft werden.","§§ 13, 16 AGG"],
+[6,"Welche Aussage zu Mobbing und AGG trifft laut Text zu?",["Jedes Mobbing ist automatisch ein AGG-Verstoß","Mobbing ist nur in Großbetrieben verboten","Mobbing betrifft ausschließlich Auszubildende","Das AGG erfasst Mobbing grundsätzlich nie","Mobbing ist nicht automatisch ein AGG-Verstoß; ein Zusammenhang mit einem geschützten Merkmal ist wichtig"],4,"Unter das AGG fällt Mobbing nur, wenn es wegen eines geschützten Merkmals passiert. Verboten ist es trotzdem.","§ 3 Abs. 3 AGG"],
+[6,"Was gilt für Urlaubsgeld nach dem BUrlG?",["Es ist immer gesetzlich vorgeschrieben","Ein allgemeiner gesetzlicher Anspruch besteht nicht","Es wird ausschließlich von der Krankenkasse gezahlt","Es ersetzt den Mindesturlaub","Es wird nur nach 20 Jahren Betriebszugehörigkeit gezahlt"],1,"Urlaubsgeld kommt aus Tarif- oder Arbeitsvertrag, nicht aus dem Gesetz. Nicht verwechseln mit Urlaubsentgelt (normaler Lohn im Urlaub).","§ 11 BUrlG"],
+[6,"Wann kann eine unterschiedliche Behandlung nach dem AGG zulässig sein?",["Immer, wenn der Arbeitgeber dies wünscht","Nur bei Beschäftigten in Teilzeit","Wenn eine wesentliche berufliche Anforderung oder eine andere gesetzliche Rechtfertigung vorliegt","Ausschließlich bei einer Betriebsgröße unter zehn Personen","Nur nach Zustimmung der Berufsschule"],2,"Erlaubt, wenn die Arbeit es wirklich verlangt oder das Gesetz es erlaubt, z. B. Jugendschutz beim Alter.","§§ 8–10 AGG"]
+];
+const L="ABCDE";
+const KEY="arbeitsrecht-uebung-v1";
+let st={ans:{},topics:T.map((_,i)=>i),order:null,pos:0,retry:null};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&s.ans)st=Object.assign(st,s);}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+
+function pool(){
+  let ids=(st.order||Q.map((_,i)=>i)).filter(i=>st.topics.includes(Q[i][0]));
+  if(st.retry) ids=ids.filter(i=>st.retry.includes(i));
+  return ids;
+}
+const $=id=>document.getElementById(id);
+
+function renderChips(){
+  const c=$("chips");c.innerHTML="";
+  const all=document.createElement("button");all.className="chip";all.type="button";
+  all.textContent="Alle Themen";all.setAttribute("aria-pressed",st.topics.length===T.length);
+  all.onclick=()=>{st.topics=T.map((_,i)=>i);st.pos=0;save();render();};c.appendChild(all);
+  T.forEach((t,i)=>{
+    const n=Q.filter(q=>q[0]===i).length;
+    const b=document.createElement("button");b.className="chip";b.type="button";
+    b.textContent=t+" ("+n+")";
+    b.setAttribute("aria-pressed",st.topics.length!==T.length&&st.topics.includes(i));
+    b.onclick=()=>{st.topics=[i];st.pos=0;save();render();};c.appendChild(b);
+  });
+}
+
+function renderBar(ids){
+  let g=0,r=0;ids.forEach(i=>{if(st.ans[i]===undefined)return;st.ans[i]===Q[i][3]?g++:r++;});
+  const n=ids.length||1;
+  $("tg").style.width=(g/n*100)+"%";$("tr").style.width=(r/n*100)+"%";
+  $("tally").textContent=g+" richtig · "+r+" falsch · "+(ids.length-g-r)+" offen";
+  $("wrongOnly").textContent=st.retry?"Wieder alle Fragen zeigen":"Nur meine Fehler üben";
+}
+
+function renderCard(ids){
+  const card=$("card");
+  if(!ids.length){
+    card.innerHTML='<div class="done"><h2>Keine Fehler zum Üben</h2><p>In dieser Auswahl hast du noch nichts falsch beantwortet. Tippe auf „Wieder alle Fragen zeigen“.</p></div>';return;
+  }
+  if(st.pos>=ids.length){renderDone(ids);return;}
+  const i=ids[st.pos],q=Q[i],a=st.ans[i];
+  let h='<div class="qhead"><span class="qnum">Frage '+(i+1)+' · '+(st.pos+1)+' von '+ids.length+'</span><span>'+T[q[0]]+'</span></div>';
+  h+='<p class="q">'+q[1]+'</p><div class="opts">';
+  q[2].forEach((o,k)=>{
+    let cls="opt";if(a!==undefined){if(k===q[3])cls+=" right";else if(k===a)cls+=" wrong";}
+    h+='<button class="'+cls+'" type="button" data-k="'+k+'"'+(a!==undefined?" disabled":"")+'><b>'+L[k]+'</b><span>'+o+'</span></button>';
+  });
+  h+='</div>';
+  if(a!==undefined){
+    const ok=a===q[3];
+    h+='<div class="explain '+(ok?"ok":"no")+'"><strong>'+(ok?"Richtig":"Falsch – richtig ist "+L[q[3]])+'</strong>'+q[4]+(q[5]?'<div class="law">'+q[5]+'</div>':'')+'</div>';
+  }
+  h+='<div class="nav"><button class="btn" id="prev" type="button"'+(st.pos===0?" disabled":"")+'>Zurück</button>'+
+     '<button class="btn primary" id="next" type="button">'+(st.pos===ids.length-1?"Auswertung":"Weiter")+'</button></div>';
+  card.innerHTML=h;
+  card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pick(i,+b.dataset.k));
+  $("prev").onclick=()=>{st.pos--;save();render();};
+  $("next").onclick=()=>{st.pos++;save();render();};
+}
+
+function renderDone(ids){
+  let g=0,r=0;ids.forEach(i=>{if(st.ans[i]===undefined)return;st.ans[i]===Q[i][3]?g++:r++;});
+  let rows="";
+  T.forEach((t,ti)=>{
+    const tids=ids.filter(i=>Q[i][0]===ti);if(!tids.length)return;
+    const tg=tids.filter(i=>st.ans[i]===Q[i][3]).length;
+    rows+='<tr><td>'+t+'</td><td class="n">'+tg+' / '+tids.length+'</td></tr>';
+  });
+  const pct=ids.length?Math.round(g/ids.length*100):0;
+  $("card").innerHTML='<div class="done"><span class="eyebrow">Auswertung</span><div class="big">'+pct+' %</div>'+
+    '<p>'+g+' von '+ids.length+' richtig'+(r?', '+r+' falsch.':'.')+'</p>'+
+    '<table><thead><tr><th>Thema</th><th class="n">richtig</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+    '<div class="nav"><button class="btn" id="back" type="button">Zur letzten Frage</button>'+
+    (r?'<button class="btn primary" id="fix" type="button">Fehler nochmal üben</button>':'<button class="btn primary" id="again" type="button">Von vorn</button>')+'</div>';
+  $("back").onclick=()=>{st.pos=ids.length-1;save();render();};
+  if($("fix"))$("fix").onclick=()=>startRetry(ids);
+  if($("again"))$("again").onclick=()=>{ids.forEach(i=>delete st.ans[i]);st.pos=0;save();render();};
+}
+
+function startRetry(ids){
+  const w=ids.filter(i=>st.ans[i]!==undefined&&st.ans[i]!==Q[i][3]);
+  w.forEach(i=>delete st.ans[i]);st.retry=w;st.pos=0;save();render();
+}
+function pick(i,k){if(st.ans[i]!==undefined)return;st.ans[i]=k;save();render();}
+
+function render(){const ids=pool();if(st.pos>ids.length)st.pos=0;renderChips();renderBar(ids);renderCard(ids);}
+
+$("shuffle").onclick=()=>{const a=Q.map((_,i)=>i);for(let j=a.length-1;j>0;j--){const r=Math.floor(Math.random()*(j+1));[a[j],a[r]]=[a[r],a[j]];}
+  st.order=a;st.pos=0;save();render();};
+$("wrongOnly").onclick=()=>{if(st.retry){st.retry=null;st.pos=0;save();render();}else startRetry(pool());};
+$("reset").onclick=()=>{st={ans:{},topics:T.map((_,i)=>i),order:null,pos:0,retry:null};save();render();};
+
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT")return;
+  const ids=pool();if(st.pos>=ids.length)return;
+  const k=L.indexOf(e.key.toUpperCase());
+  if(k>=0&&k<5){pick(ids[st.pos],k);}
+  else if(e.key==="Enter"&&st.ans[ids[st.pos]]!==undefined){e.preventDefault();st.pos++;save();render();}
+});
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

@@ -1,0 +1,111 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>Baustoffkunde-Quiz Meisterschule</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f2f3f6;--paper:#fff;--ink:#1b1f2a;--muted:#5b6274;--line:#d8dbe3;--accent:#2f4fb5;--accent-soft:#e3e8f8;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#14161c;--paper:#1d2029;--ink:#e6e8ee;--muted:#9ba2b3;--line:#323747;--accent:#8ea6ff;--accent-soft:#252d4a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#14161c;--paper:#1d2029;--ink:#e6e8ee;--muted:#9ba2b3;--line:#323747;--accent:#8ea6ff;--accent-soft:#252d4a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 18px;max-width:62ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+button{font:600 14px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .tabs button[aria-pressed="true"]{color:#10131c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#10131c}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:10px}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.opts{display:grid;gap:6px}
+.opt{text-align:left;font-weight:400;display:flex;gap:10px;align-items:flex-start;padding:9px 12px;line-height:1.4}
+.opt b{font-family:"JetBrains Mono",monospace;font-weight:500;color:var(--muted)}
+.opt.ok{background:var(--ok-soft);border-color:var(--ok)}
+.opt.bad{background:var(--bad-soft);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+.expl{border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.empty{color:var(--muted);padding:20px 0}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Baustoffkunde · Schulaufgabe 28.10.2026</div>
+  <h1>Baustoffkunde-Quiz: 55 Fragen</h1>
+  <p class="intro">Quer durch Stoffkennwerte, Dämmstoffe, Kunststoffe, Bitumen und Abdichtungsbahnen. Antippen, und du siehst sofort, ob es stimmt, mit kurzer Begründung. Dein Fortschritt bleibt in diesem Browser gespeichert.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar">
+    <div class="progress" aria-hidden="true"><i id="fill"></i></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tools">
+    <button id="onlyWrong" type="button" aria-pressed="false">Nur falsche zeigen</button>
+    <button id="shuffle" type="button">Mischen</button>
+    <button id="reset" type="button">Diesen Teil zurücksetzen</button>
+  </div>
+  <main id="list"></main>
+  <footer>Selbst erstellt aus deinen Baustoffkunde-Skripten und Heftmitschrieben (Stand 26.10.2026). Die Fragen stammen nicht vom Lehrer.</footer>
+</div>
+<script>
+const DATA = [{"t": "Stoffkennwerte", "q": [{"q": "Welche Dichte bezieht sich auf das Volumen OHNE jede Pore (Stoff zermahlen)?", "o": ["Rohdichte", "Schüttdichte", "(Rein-)Dichte", "Wichte"], "a": 2, "e": "Reindichte ρ = m / V, nur der feste Stoff ohne Poren."}, {"q": "Bei welcher Dichte zählen auch die Hohlräume ZWISCHEN den Körnern mit?", "o": ["Reindichte", "Rohdichte", "Schüttdichte", "Trockendichte"], "a": 2, "e": "Schüttdichte ρS = m / (V + Vh + Vz), Vz = Haufwerksporen zwischen den Körnern."}, {"q": "Welche Reihenfolge stimmt immer?", "o": ["Rohdichte ≥ Dichte ≥ Schüttdichte", "Dichte ≥ Rohdichte ≥ Schüttdichte", "Schüttdichte ≥ Rohdichte ≥ Dichte", "Alle sind gleich groß"], "a": 1, "e": "Je mehr Hohlräume mitzählen, desto kleiner der Wert."}, {"q": "Feuchter Sand im Messgefäß hat im Vergleich zu trockenem Sand …", "o": ["eine größere Schüttdichte", "eine kleinere Schüttdichte", "die gleiche Schüttdichte", "keine Schüttdichte"], "a": 1, "e": "Das Wasser verklebt die Körner, sie liegen lockerer, die Schüttdichte wird kleiner."}, {"q": "Welche Poren sorgen für bessere WÄRMEdämmung?", "o": ["Kapillarporen", "Haufwerksporen", "Geschlossene Poren", "Durchgehende Poren"], "a": 2, "e": "Geschlossene Poren → bessere Wärmedämmung, offene/kapillare → besserer Schallschutz."}, {"q": "Kapillarporen haben einen Durchmesser von …", "o": ["< 10⁻⁷ m", "10⁻⁷ bis 10⁻³ m", "≥ 10⁻³ m", "genau 1 mm"], "a": 1, "e": "Mikroporen < 10⁻⁷ m, Kapillarporen 10⁻⁷ bis 10⁻³ m, Makroporen ≥ 10⁻³ m."}, {"q": "Welche Formänderung ist nicht umkehrbar und tritt sofort auf?", "o": ["elastisch", "plastisch", "viskos", "Wärmedehnung"], "a": 1, "e": "Umkehrbar + sofort = elastisch, nicht umkehrbar + sofort = plastisch, nicht umkehrbar + zeitabhängig = viskos."}, {"q": "Warum funktioniert Stahlbeton trotz Temperaturschwankungen?", "o": ["Stahl dehnt sich gar nicht", "Beton und Stahl haben fast die gleiche Wärmedehnzahl (ca. 10 bzw. 12 · 10⁻⁶/K)", "Beton isoliert den Stahl komplett", "Stahl ist leichter als Beton"], "a": 1, "e": "Rechenwerte: Beton 10, Stahl 12 · 10⁻⁶/K, also fast gleich."}, {"q": "Wie heißt die Volumenverkleinerung beim Austrocknen?", "o": ["Quellen", "Kriechen", "Schwinden", "Treiben"], "a": 2, "e": "Schwinden = kleiner beim Austrocknen, Quellen = größer bei Nässe."}, {"q": "Bei welcher Temperatur hat Wasser das kleinste Volumen (Wasseranomalie)?", "o": ["0 °C", "ca. 4 °C", "−10 °C", "100 °C"], "a": 1, "e": "Lehrbuchwert 4 °C. Beim Gefrieren dehnt sich Wasser aus, daher Frostschäden."}, {"q": "Putz 15 mm mit μ = 15: Wie groß ist der sd-Wert?", "o": ["0,225 m", "2 m", "15 m", "0,015 m"], "a": 0, "e": "sd = μ · s = 15 · 0,015 m = 0,225 m."}, {"q": "Ab welcher Wärmeleitfähigkeit gilt ein Stoff als Wärmedämmstoff?", "o": ["λ ≤ 0,1 W/(m·K)", "λ ≥ 1 W/(m·K)", "λ ≤ 2,1 W/(m·K)", "λ = 0"], "a": 0, "e": "Dämmstoffe für den Wärmeschutz haben λ ≤ 0,1 W/(m·K)."}, {"q": "Welcher Baustoff hat die höchste Wärmespeicherkapazität?", "o": ["Beton (0,88)", "Mineralfaser (0,8)", "Holzfaser/Zellulose (2,1)", "Polystyrol (1,4)"], "a": 2, "e": "Holzfaser 2,1 kJ/(kg·K), deshalb gut für den sommerlichen Wärmeschutz."}, {"q": "Welches Zeichen tragen Produkte der Bauregelliste B (europäisch geregelt)?", "o": ["Ü-Zeichen", "CE-Zeichen", "kein Zeichen", "GS-Zeichen"], "a": 1, "e": "Liste B = CE, Liste A = Ü-Zeichen, Liste C = kein Nachweis, kein Ü-Zeichen."}, {"q": "Holz gehört bei der Einteilung der Baustoffe zu …", "o": ["den Baumetallen", "den mineralischen Baustoffen", "den organischen Stoffen (und ist ein natürlicher Verbundbaustoff)", "den anorganischen Stoffen"], "a": 2, "e": "Holz ist organisch und gilt zusätzlich als natürlicher Verbundbaustoff."}]}, {"t": "Dämmstoffe", "q": [{"q": "Welcher Dämmstoff eignet sich gegen Erdreich (Perimeter)?", "o": ["EPS", "XPS", "Zellulose", "Holzweichfaser"], "a": 1, "e": "XPS (oder Schaumglas): druckfest, nimmt kaum Wasser auf. EPS nicht gegen Erdreich."}, {"q": "Welche Dämmung passt UNTER eine Bodenplatte?", "o": ["Mineralwolle-Matte", "Schaumglasschotter", "Zellulose", "Schafwolle"], "a": 1, "e": "Unter die Bodenplatte: Schaumglasschotter, Schaumglasplatten oder XPS, also druckfest."}, {"q": "Was bedeutet DES nach DIN 4108-10?", "o": ["Dach außen unter Deckung", "Decke/Bodenplatte oben, unter Estrich MIT Schallschutz", "Dämmung zwischen Sparren", "Wand außen unter Putz"], "a": 1, "e": "DES = mit Schallschutz (Trittschall), DEO = ohne Schallschutz."}, {"q": "Was bedeutet WAP?", "o": ["Wand innen", "Wand außen unter Putz (WDVS)", "Kerndämmung zweischalige Wand", "Haustrennwand"], "a": 1, "e": "WAP = Außendämmung der Wand unter Putz."}, {"q": "Was bedeutet DUK?", "o": ["Dämmung unter der Kellerdecke", "Umkehrdach: Dämmung über der Abdichtung, bewittert", "Dachzwischensparren", "Dach innen"], "a": 1, "e": "DUK = Außendämmung des Daches, der Bewitterung ausgesetzt (Umkehrdach)."}, {"q": "Was bedeutet PB?", "o": ["Perimeterdämmung unter der Bodenplatte", "Putzbekleidung", "Parkettboden", "Polystyrol-Brandschutz"], "a": 0, "e": "PW = Wand gegen Erdreich, PB = unter der Bodenplatte, jeweils außerhalb der Abdichtung."}, {"q": "Welcher Dämmstoff ist ANORGANISCH?", "o": ["Holzfaser", "XPS", "Perlite", "Flachs"], "a": 2, "e": "Anorganisch: Mineralfaser, Schaumglas, Kalziumsilikat, Perlite, Blähton … XPS ist organisch (Kunststoff)."}, {"q": "Welcher Dämmstoff hat die niedrigste Wärmeleitfähigkeit (dämmt am besten)?", "o": ["Holzfaser 0,038–0,045", "PUR 0,024–0,028", "Stroh 0,050–0,055", "Schaumglas 0,040–0,055"], "a": 1, "e": "PUR/PIR-Hartschaum dämmt am besten, gut bei wenig Platz."}, {"q": "Ein Bauherr will nur nachwachsende Rohstoffe für die Zwischensparrendämmung. Was passt NICHT?", "o": ["Holzfaser", "Zellulose", "Schafwolle", "EPS"], "a": 3, "e": "EPS ist ein Kunststoff aus Erdöl, nicht nachwachsend."}, {"q": "Was soll der sommerliche Wärmeschutz erreichen?", "o": ["Hitze ca. 12 Stunden verzögern", "Heizkosten im Winter senken", "Schall dämpfen", "Feuchte nach innen leiten"], "a": 0, "e": "Die Hitze von 15 Uhr soll erst nachts innen ankommen. Dafür braucht man eine hohe Wärmespeicherkapazität."}, {"q": "Welches Gesetz fasst EnEV und EEG zusammen?", "o": ["BayBO", "GEG (Gebäudeenergiegesetz)", "HwO", "DIN 4108"], "a": 1, "e": "EnEV und EEG sind überholt und im GEG zusammengefasst."}, {"q": "Welche Baustoffklasse ist nach BayBO verboten?", "o": ["A1", "B1", "B2", "B3"], "a": 3, "e": "B3 = leicht entflammbar (Papier, Pappe) ist im Bau nicht zulässig."}, {"q": "Was bedeutet B2 nach DIN 4102?", "o": ["nichtbrennbar", "schwer entflammbar", "normal entflammbar", "leicht entflammbar"], "a": 2, "e": "A1/A2 nichtbrennbar, B1 schwer, B2 normal, B3 leicht entflammbar."}, {"q": "Wofür steht „d“ in A2-s1,d0?", "o": ["Dichte", "drop: brennendes Abtropfen", "Dämmdicke", "Diffusion"], "a": 1, "e": "s = smoke (Rauch 1–3), d = drop (Abtropfen 0–2). Je kleiner, desto besser."}, {"q": "Welche Dämmstoffe schlucken Schall im selben Raum besser?", "o": ["geschlossenporige", "offenporige", "gar keine", "nur Metalle"], "a": 1, "e": "Offenporige Stoffe wandeln Schall durch Reibung in Wärme um."}]}, {"t": "Kunststoffe & Bitumen", "q": [{"q": "Was ist das wichtigste Element der organischen Chemie?", "o": ["Silizium", "Sauerstoff", "Kohlenstoff", "Wasserstoff"], "a": 2, "e": "Organische Chemie ist die Chemie der Kohlenstoffverbindungen."}, {"q": "Bei welchem Verfahren wird Wasser oder Ammoniak abgespalten?", "o": ["Polymerisation", "Polykondensation", "Polyaddition", "Destillation"], "a": 1, "e": "Polykondensation spaltet Wasser, Ammoniak oder Gase ab und ist nicht umkehrbar."}, {"q": "Kontaktkleber entsteht durch …", "o": ["Polyaddition", "Polykondensation", "Polymerisation", "Oxidation"], "a": 0, "e": "Polyaddition: Monomere zweier verschiedener Stoffe verbinden sich, nichts wird abgespalten."}, {"q": "Welche Kunststoffe kann man NICHT schweißen?", "o": ["Thermoplaste", "Duroplaste", "PVC", "PE"], "a": 1, "e": "Duroplaste sind engmaschig vernetzt und lassen sich nicht mehr erweichen. Man kann sie nur spanen oder kleben."}, {"q": "Was ist typisch für Elastomere?", "o": ["engmaschig vernetzt, hart", "weitmaschig vernetzt, gummielastisch", "unvernetzt, schmelzbar", "Silizium statt Kohlenstoff"], "a": 1, "e": "Elastomere gehen nach der Belastung in ihre Form zurück (Rückstellvermögen)."}, {"q": "Was darf man bei Silikon NICHT?", "o": ["einfärben", "überstreichen", "für Fugen verwenden", "als Wasserschutz verwenden"], "a": 1, "e": "Silikon ist nicht überstreichbar!"}, {"q": "Welcher Kunststoff wird als Bautenschutzfolie (PE-Folie 0,2 mm) verwendet?", "o": ["PVC hart", "Polyethylen (PE)", "Epoxidharz", "PMMA"], "a": 1, "e": "PE ist schweißbar, aber nicht klebbar."}, {"q": "„Weißleim/Kaltleim“ für Holz ist …", "o": ["PVAC", "PUR", "PIB", "EPDM"], "a": 0, "e": "Polyvinylacetat (PVAC) als Dispersion."}, {"q": "Woraus wird Bitumen gewonnen?", "o": ["trockene Destillation von Steinkohle", "Rückstand der Erdöl-Destillation", "Kalkstein brennen", "Holz verkohlen"], "a": 1, "e": "Bitumen = Rückstand aus atmosphärischer und Vakuumdestillation von Rohöl. Teer kommt dagegen aus Kohle."}, {"q": "Was ist Asphalt?", "o": ["reines Bitumen", "Gesteinskörnung + Bitumen als Bindemittel", "Teer + Sand", "ein Kunststoff"], "a": 1, "e": "Straßenbaubitumen + Sand/Kies = Asphalt."}, {"q": "Bitumen hat statt eines Schmelzpunkts …", "o": ["einen Siedepunkt", "einen Erweichungspunkt", "einen Gefrierpunkt", "keine Temperaturabhängigkeit"], "a": 1, "e": "Darunter ist Bitumen spröde, darüber verformbar. Bitumen ist ein Thermoplast."}, {"q": "Welche Aussage zu Teer stimmt?", "o": ["Teer ist kein Gefahrstoff", "Teer enthält sehr viel krebserregendes Benzo(a)pyren und ist ein Gefahrstoff", "Teer lässt sich gut recyceln", "Teer wird aus Erdöl gewonnen"], "a": 1, "e": "Teer: 5000–10 000 ppm Benzo(a)pyren, Gefahrstoff. Bitumen: 1–5 ppm, kein Gefahrstoff."}, {"q": "Was braucht eine Bitumenbahn bei einer Dachbegrünung?", "o": ["Beschieferung", "Durchwurzelungsschutz", "Aluminiumeinlage", "nichts Besonderes"], "a": 1, "e": "Bei Dachbegrünung muss die Bahn einen Durchwurzelungsschutz haben."}]}, {"t": "Abdichtungsbahnen", "q": [{"q": "Was bedeutet R 500 N?", "o": ["Rohfilzpappe 500 g/m², nackte Bitumenbahn", "Rolle 500 m, normal", "Rohfilz 500 mm dick", "Recyclingbahn 500 N/mm²"], "a": 0, "e": "R = Rohfilzpappe, 500 = g/m², N = nackt (ohne Beschieferung). Verwendung z. B. als Mauersperrbahn."}, {"q": "Was bedeutet G 200 D?", "o": ["Glasvlies 200 g/m², Dachdichtungsbahn", "Glasgewebe 200 g/m², Dichtungsbahn", "Gummi 200 mm, Dampfsperre", "Glasgewebe 2 mm, Schweißbahn"], "a": 1, "e": "G = Glasgewebe, 200 g/m², D = Dichtungsbahn → Trennlage, untere Lage, einfache Dampfsperre."}, {"q": "Was bedeutet PV 250 S5?", "o": ["Polyestervlies 250 g/m², Schweißbahn 5 mm", "PVC 250 mm, 5 Lagen", "Polyestervlies 250 g/m², Dichtungsbahn 5 kg", "Pappe 250, Stufe 5"], "a": 0, "e": "S5 = Schweißbahn mit 5 mm Dicke bei Auslieferung. Hochwertig, obere Lage."}, {"q": "Welche Bitumenbahn kommt als OBERE Lage eines mehrlagigen Dachs (beschiefert, UV-Schutz)?", "o": ["nackte Bitumenbahn", "Bitumen-Dichtungsbahn", "Bitumen-Schweißbahn", "Rohfilzpappe"], "a": 2, "e": "Schweißbahn, beschiefert, auch für drückendes Wasser (schwarze Wanne)."}, {"q": "Was bedeutet DO?", "o": ["Dachoberfläche", "Oberlage eines mehrlagigen Aufbaus", "Dampfsperre oben", "Dichtung ohne Einlage"], "a": 1, "e": "DO = Oberlage, DZ = Zwischenlage, DU = Unterlage, DE = Einzellage (einlagig)."}, {"q": "Eigenschaftsklasse E1 bedeutet …", "o": ["thermisch mäßig, mechanisch mäßig", "thermisch hoch, mechanisch hoch", "thermisch hoch, mechanisch mäßig", "thermisch mäßig, mechanisch hoch"], "a": 1, "e": "E1 hoch/hoch, E2 mäßig/hoch, E3 hoch/mäßig, E4 mäßig/mäßig."}, {"q": "Eigenschaftsklasse E3 bedeutet …", "o": ["thermisch hoch, mechanisch mäßig", "thermisch mäßig, mechanisch hoch", "beides hoch", "beides mäßig"], "a": 0, "e": "E3 = hohe thermische, mäßige mechanische Beanspruchung."}, {"q": "Was bedeutet BV bei einer Kunststoffbahn?", "o": ["bitumenverträglich", "Bahn verstärkt", "Brandverhalten", "beidseitig verklebt"], "a": 0, "e": "BV = bitumenverträglich, NB = nicht bitumenverträglich."}, {"q": "DE/E3-FPO-BV-GV-1,6 heißt …", "o": ["zweilagig, PVC, Glasgewebe, 16 mm", "einlagig, E3, FPO, bitumenverträglich, Glasvlies, 1,6 mm dick", "Oberlage, E1, FPO, verstärkt, 1,6 kg", "einlagig, EPDM, 1,6 m breit"], "a": 1, "e": "Die Zahl am Ende ist die Bahndicke in mm."}, {"q": "Welcher Nachteil gilt für PVC-Bahnen im Vergleich zu FPO?", "o": ["nicht schweißbar", "nicht UV-beständig und spröde bei Kälte", "sehr teuer", "nicht brennbar"], "a": 1, "e": "PVC ist günstig, aber nicht UV-beständig, bei Kälte spröde und chlorhaltig. FPO ist UV-beständig und schlagzäh."}, {"q": "Welche Lastfälle unterscheidet die Bauwerksabdichtung nach DIN 18195?", "o": ["Regen, Schnee, Hagel", "Bodenfeuchte, nicht drückendes Wasser, drückendes Wasser", "Sommer, Winter", "Innen, außen, oben"], "a": 1, "e": "Drückendes Wasser von außen oder innen, dafür z. B. die schwarze Wanne."}, {"q": "Leichter Oberflächenschutz einer Bitumenbahn ist …", "o": ["Bekiesung", "Beschieferung", "Betonplatten", "Gründach"], "a": 1, "e": "Leicht = Beschieferung, schwer = Bekiesung (Schutz + Auflast)."}]}];
+const KEY="bsk-quiz-v1";
+let st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){st={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+let sec=0, onlyWrong=false, order=null;
+const tabs=document.getElementById("tabs"), list=document.getElementById("list");
+DATA.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.textContent=s.t;b.addEventListener("click",()=>{sec=i;order=null;render()});tabs.appendChild(b)});
+document.getElementById("onlyWrong").addEventListener("click",e=>{onlyWrong=!onlyWrong;e.currentTarget.setAttribute("aria-pressed",onlyWrong);e.currentTarget.textContent=onlyWrong?"Alle zeigen":"Nur falsche zeigen";render()});
+document.getElementById("shuffle").addEventListener("click",()=>{order=DATA[sec].q.map((_,i)=>i).sort(()=>Math.random()-.5);render()});
+document.getElementById("reset").addEventListener("click",()=>{DATA[sec].q.forEach((_,i)=>delete st[sec+"-"+i]);save();render()});
+function render(){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  const s=DATA[sec]; list.innerHTML="";
+  const idx=order||s.q.map((_,i)=>i);
+  let shown=0;
+  idx.forEach(i=>{
+    const q=s.q[i], k=sec+"-"+i, pick=st[k];
+    if(onlyWrong && !(pick!==undefined && pick!==q.a)) return;
+    shown++;
+    const c=document.createElement("section");c.className="card";
+    c.innerHTML=`<h3><span class="n">${i+1}</span>${q.q}</h3>`;
+    const opts=document.createElement("div");opts.className="opts";
+    q.o.forEach((o,j)=>{
+      const b=document.createElement("button");b.type="button";b.className="opt";
+      b.innerHTML=`<b>${"abcd"[j]})</b><span>${o}</span>`;
+      if(pick!==undefined){b.disabled=true; if(j===q.a)b.classList.add("ok"); else if(j===pick)b.classList.add("bad");}
+      b.addEventListener("click",()=>{st[k]=j;save();render()});
+      opts.appendChild(b);
+    });
+    c.appendChild(opts);
+    if(pick!==undefined){
+      const e=document.createElement("div");e.className="expl";
+      e.innerHTML=(pick===q.a?"<b>Richtig.</b> ":"<b>Falsch, richtig ist "+"abcd"[q.a]+").</b> ")+q.e;
+      c.appendChild(e);
+      const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.style.justifySelf="start";
+      r.addEventListener("click",()=>{delete st[k];save();render()});c.appendChild(r);
+    }
+    list.appendChild(c);
+  });
+  if(!shown){const p=document.createElement("p");p.className="empty";p.textContent=onlyWrong?"Keine falsch beantworteten Fragen in diesem Teil.":"Keine Fragen.";list.appendChild(p)}
+  const done=s.q.filter((_,i)=>st[sec+"-"+i]!==undefined).length, right=s.q.filter((q,i)=>st[sec+"-"+i]===q.a).length;
+  document.getElementById("count").textContent=`${right} richtig · ${done}/${s.q.length} beantwortet`;
+  document.getElementById("fill").style.width=(right/s.q.length*100)+"%";
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

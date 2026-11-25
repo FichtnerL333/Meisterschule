@@ -1,0 +1,253 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>Buchungssätze mit Steuer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: eine ruhige Spalte wie ein Übungsheft, jede Aufgabe eine Zeile, Lösung klappt als Soll/Haben-Tabelle auf */
+:root{
+  --bg:#f3f5f8; --paper:#ffffff; --fg:#1b2430; --muted:#5d6a7b; --line:#d7dde6;
+  --accent:#1f4e8c; --accent-soft:#e3ebf7; --ok:#1e7a4c; --ok-soft:#e1f2e8; --warn:#a4561a; --warn-soft:#fbeadb;
+  --f-display:"Archivo",system-ui,sans-serif; --f-body:"IBM Plex Sans",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12161c; --paper:#1a2029; --fg:#e4e9f0; --muted:#9aa7b8; --line:#2c3542;
+  --accent:#7fa8e6; --accent-soft:#1f2c40; --ok:#6cc896; --ok-soft:#173326; --warn:#e8a46d; --warn-soft:#3a2617; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161c; --paper:#1a2029; --fg:#e4e9f0; --muted:#9aa7b8; --line:#2c3542;
+  --accent:#7fa8e6; --accent-soft:#1f2c40; --ok:#6cc896; --ok-soft:#173326; --warn:#e8a46d; --warn-soft:#3a2617; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:820px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(1.7rem,4.5vw,2.4rem);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:1.15rem;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:8px 0 0;max-width:62ch}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.rules li{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.9rem}
+.rules b{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.score{font-family:var(--f-mono);font-size:.9rem;font-variant-numeric:tabular-nums}
+.score .g{color:var(--ok)} .score .n{color:var(--warn)}
+.prog{flex:1;min-width:120px;height:6px;background:var(--line);border-radius:3px;overflow:hidden;display:flex}
+.prog i{display:block;height:100%}
+.prog .pg{background:var(--ok)} .prog .pn{background:var(--warn)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--fg);border-radius:999px;padding:4px 12px;font-size:.85rem}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.chip:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section{display:flex;flex-direction:column;gap:10px}
+.sec-head{display:flex;align-items:baseline;gap:10px}
+.sec-head span{color:var(--muted);font-size:.85rem}
+.task{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.task[data-state="gut"]{border-left:4px solid var(--ok)}
+.task[data-state="nochmal"]{border-left:4px solid var(--warn)}
+.q{display:flex;gap:12px}
+.num{font-family:var(--f-mono);font-weight:500;color:var(--accent);min-width:2ch;text-align:right}
+.q p{margin:0;min-width:0}
+.knobel{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+.actions{display:flex;gap:8px;flex-wrap:wrap;padding-left:calc(2ch + 12px)}
+.btn{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:6px;padding:5px 12px;font-size:.88rem}
+.btn.primary{background:var(--accent-soft);border-color:transparent;color:var(--accent);font-weight:600}
+.btn.good{color:var(--ok)} .btn.again{color:var(--warn)}
+.btn.good[aria-pressed="true"]{background:var(--ok-soft);border-color:var(--ok)}
+.btn.again[aria-pressed="true"]{background:var(--warn-soft);border-color:var(--warn)}
+.tip{margin:0 0 0 calc(2ch + 12px);font-size:.9rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px}
+.sol{margin-left:calc(2ch + 12px);display:flex;flex-direction:column;gap:6px;min-width:0}
+.calc{font-size:.88rem;color:var(--muted);margin:0}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:420px}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;padding:4px 8px;border-bottom:2px solid var(--fg)}
+th.r,td.r{text-align:right}
+td{padding:4px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.nr{font-family:var(--f-mono);font-weight:500;color:var(--accent);white-space:nowrap}
+td.r{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.mid{border-left:2px solid var(--fg)}
+.note{font-size:.88rem;margin:0;background:var(--accent-soft);border-radius:6px;padding:6px 10px}
+footer{color:var(--muted);font-size:.82rem}
+@media (max-width:520px){.actions,.tip,.sol{margin-left:0;padding-left:0}}
+@media (prefers-reduced-motion:no-preference){.task{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Buchungssätze mit Umsatzsteuer</h1>
+    <p class="lead">25 Aufgaben aus einem Maurerbetrieb. Die Kontonummern stehen nicht dabei: such sie im Kontenplan der Schule (SKR 03). Erst selbst auf Papier buchen, dann Lösung aufklappen und ehrlich abhaken.</p>
+  </header>
+
+  <ul class="rules">
+    <li><b>Steuersatz</b>19 % auf alles, was Steuer hat</li>
+    <li><b>Brutto → netto</b>Brutto ÷ 1,19</li>
+    <li><b>Einkauf</b>Vorsteuer steht im Soll</li>
+    <li><b>Verkauf</b>Umsatzsteuer steht im Haben</li>
+  </ul>
+
+  <div class="bar" role="region" aria-label="Fortschritt">
+    <div class="score" id="score"></div>
+    <div class="prog" aria-hidden="true"><i class="pg" id="pg"></i><i class="pn" id="pn"></i></div>
+    <div class="filters">
+      <button class="chip" id="f-alle" aria-pressed="true">Alle</button>
+      <button class="chip" id="f-offen" aria-pressed="false">Offen</button>
+      <button class="chip" id="f-nochmal" aria-pressed="false">Nochmal</button>
+      <button class="chip" id="reset" aria-pressed="false">Neu anfangen</button>
+    </div>
+  </div>
+
+  <main id="list"></main>
+
+  <footer>Kontonummern nach dem Kontenplan der Meisterschule Landshut (SKR 03, Stand 11.11.2026). Die GWG-Grenze von 800 € steht so im Kontenplan und kann sich ändern.</footer>
+</div>
+
+<script>
+const SECTIONS = {
+  A:"Einkauf", B:"Verkauf", C:"Anlagen kaufen", D:"Laufende Kosten", E:"Privat", F:"Monatsende"
+};
+// s = Soll, h = Haben: [Nr, Konto, Betrag]
+const T = [
+ {sec:"A",q:"Wir kaufen Zement und Sand (Rohstoffe) auf Ziel, netto 4.800 €.",tip:"Rohstoffe + Vorsteuer an … wem schulden wir jetzt Geld?",
+  s:[["4000","Rohstoffe",4800],["1575","Vorsteuer",912]],h:[["1600","Verbindlichkeiten aLL",5712]]},
+ {sec:"A",q:"Wir kaufen Ziegel (Rohstoffe) für netto 2.500 € plus Fracht netto 150 €. Bezahlt per Sparkasse.",tip:"Die Fracht kommt auf ein eigenes Konto: Bezugskosten.",
+  calc:"Vorsteuer: (2.500 + 150) × 19 % = 503,50",
+  s:[["4000","Rohstoffe",2500],["4001","Bezugskosten Rohstoffe",150],["1575","Vorsteuer",503.5]],h:[["1210","Sparkasse",3153.5]]},
+ {sec:"A",q:"Aus Aufgabe 1 schicken wir beschädigte Ware für netto 300 € zurück.",tip:"Genau umgekehrt zum Einkauf. Auch die Vorsteuer wird zurückgebucht.",
+  s:[["1600","Verbindlichkeiten aLL",357]],h:[["4000","Rohstoffe",300],["1575","Vorsteuer",57]]},
+ {sec:"A",q:"Wir zahlen den Rest der Rechnung aus Aufgabe 1 (nach der Rücksendung) mit 2 % Skonto per Volksbank.",tip:"Rest = 5.712 − 357. Skonto wird in netto und Steuer aufgeteilt.",
+  calc:"Rest 5.355,00 · Skonto 2 % = 107,10 → netto 90,00 + Vorsteuer 17,10 · überwiesen 5.247,90",
+  s:[["1600","Verbindlichkeiten aLL",5355]],h:[["1220","Volksbank",5247.9],["4002","Nachlässe Rohstoffe",90],["1575","Vorsteuer",17.1]]},
+ {sec:"A",q:"Schalöl und Bindedraht (Hilfsstoffe) bar bezahlt, brutto 238,00 €.",tip:"Erst netto ausrechnen: brutto ÷ 1,19.",
+  calc:"238 ÷ 1,19 = 200,00 netto · Vorsteuer 38,00",
+  s:[["4020","Hilfs- und Betriebsstoffe",200],["1575","Vorsteuer",38]],h:[["1000","Kasse",238]]},
+ {sec:"A",q:"Der Zement-Lieferant schreibt uns einen Jahresbonus von brutto 595,00 € gut. Er wird mit unserer offenen Rechnung verrechnet.",tip:"Ein Bonus ist ein nachträglicher Nachlass, wie Skonto.",
+  calc:"595 ÷ 1,19 = 500,00 netto · Vorsteuer 95,00",
+  s:[["1600","Verbindlichkeiten aLL",595]],h:[["4002","Nachlässe Rohstoffe",500],["1575","Vorsteuer",95]]},
+
+ {sec:"B",q:"Ausgangsrechnung für Mauerarbeiten an einem Einfamilienhaus, netto 18.500 €, auf Ziel.",tip:"Der Kunde schuldet uns Geld. Erlöse + Umsatzsteuer stehen im Haben.",
+  s:[["1400","Forderungen aLL",22015]],h:[["8000","Erlöse",18500],["1775","Umsatzsteuer",3515]]},
+ {sec:"B",q:"Der Kunde aus Aufgabe 7 zahlt mit 3 % Skonto auf die Sparkasse.",tip:"Skonto beim Verkauf mindert die Erlöse: Erlösschmälerungen.",
+  calc:"Skonto 3 % von 22.015 = 660,45 → netto 555,00 + Umsatzsteuer 105,45 · Eingang 21.354,55",
+  s:[["1210","Sparkasse",21354.55],["8720","Erlösschmälerungen",555],["1775","Umsatzsteuer",105.45]],h:[["1400","Forderungen aLL",22015]]},
+ {sec:"B",q:"Kleinauftrag (Gartenmauer) netto 1.200 €, der Kunde zahlt bar.",tip:"Wie Aufgabe 7, nur kommt das Geld gleich in die Kasse.",
+  s:[["1000","Kasse",1428]],h:[["8000","Erlöse",1200],["1775","Umsatzsteuer",228]]},
+ {sec:"B",q:"Ein Kunde reklamiert. Wir geben ihm eine Gutschrift (Preisnachlass) über netto 250 €. Seine Rechnung ist noch offen.",tip:"Seine Schuld bei uns wird kleiner.",
+  s:[["8720","Erlösschmälerungen",250],["1775","Umsatzsteuer",47.5]],h:[["1400","Forderungen aLL",297.5]]},
+ {sec:"B",q:"Ein Kunde überweist eine offene Rechnung über 3.570 € ohne Abzug auf die Volksbank.",tip:"Muss hier Steuer gebucht werden?",
+  s:[["1220","Volksbank",3570]],h:[["1400","Forderungen aLL",3570]],note:"Keine Steuer: Die wurde schon beim Schreiben der Rechnung gebucht."},
+
+ {sec:"C",q:"Kauf eines Kippers (Lkw), netto 65.000 €. 20.000 € zahlen wir per Volksbank, der Rest ist auf Ziel.",tip:"Zusammengesetzter Buchungssatz: zwei Konten im Haben.",
+  calc:"Brutto 77.350 · Rest auf Ziel 57.350",
+  s:[["0340","Lkw",65000],["1575","Vorsteuer",12350]],h:[["1220","Volksbank",20000],["1600","Verbindlichkeiten aLL",57350]]},
+ {sec:"C",q:"Kauf einer Rüttelplatte (Maschine), netto 3.400 €, auf Ziel.",tip:"Anlagevermögen, Klasse 0.",
+  s:[["0210","Maschinen",3400],["1575","Vorsteuer",646]],h:[["1600","Verbindlichkeiten aLL",4046]]},
+ {sec:"C",q:"Kauf eines Bürostuhls, netto 420 €, per Sparkasse.",tip:"Unter 800 € netto: geringwertiges Wirtschaftsgut.",
+  s:[["0480","GWG (bis 800 €)",420],["1575","Vorsteuer",79.8]],h:[["1210","Sparkasse",499.8]]},
+
+ {sec:"D",q:"Diesel für den Lkw an der Tankstelle bar bezahlt, brutto 178,50 €.",tip:"Brutto ÷ 1,19. Konto für alles rund ums Fahrzeug.",
+  calc:"178,50 ÷ 1,19 = 150,00 netto · Vorsteuer 28,50",
+  s:[["4500","Fahrzeugkosten",150],["1575","Vorsteuer",28.5]],h:[["1000","Kasse",178.5]]},
+ {sec:"D",q:"Reparatur des Betonmischers, netto 640 €, per Sparkasse.",tip:"Reparatur an Maschinen hat ein eigenes Konto.",
+  s:[["4800","Reparatur/Instandhaltung Maschinen",640],["1575","Vorsteuer",121.6]],h:[["1210","Sparkasse",761.6]]},
+ {sec:"D",q:"Kfz-Steuer für den Lkw, 556 €, wird von der Sparkasse abgebucht.",tip:"Gibt es Umsatzsteuer auf eine Steuer?",
+  s:[["4510","Kfz-Steuer",556]],h:[["1210","Sparkasse",556]],note:"Keine Vorsteuer: Auf Steuern gibt es keine Umsatzsteuer."},
+ {sec:"D",q:"Briefmarken bar gekauft, 34 €.",tip:"Briefmarken sind steuerfrei.",
+  s:[["4910","Porto",34]],h:[["1000","Kasse",34]],note:"Keine Vorsteuer: Briefmarken der Post sind steuerfrei."},
+ {sec:"D",q:"Telefonrechnung, brutto 95,20 €, wird von der Volksbank abgebucht.",tip:"Brutto ÷ 1,19.",
+  calc:"95,20 ÷ 1,19 = 80,00 netto · Vorsteuer 15,20",
+  s:[["4920","Telefon",80],["1575","Vorsteuer",15.2]],h:[["1220","Volksbank",95.2]]},
+ {sec:"D",q:"Bauschild mit Firmenwerbung, netto 380 €, auf Ziel.",tip:"Werbung.",
+  s:[["4600","Werbe- und Reisekosten",380],["1575","Vorsteuer",72.2]],h:[["1600","Verbindlichkeiten aLL",452.2]]},
+
+ {sec:"E",q:"Der Chef nimmt Pflastersteine aus dem Lager für seinen privaten Garten, Wert netto 900 €.",tip:"Eigenverbrauch ist umsatzsteuerpflichtig.",
+  s:[["1800","Privat",1071]],h:[["8900","Eigenverbrauch",900],["1775","Umsatzsteuer",171]]},
+ {sec:"E",q:"Der Firmen-Pkw wird zu 25 % privat genutzt. Die Pkw-Kosten (mit Vorsteuer) waren 8.000 € netto.",tip:"Erst den privaten Anteil ausrechnen.",
+  calc:"25 % von 8.000 = 2.000 · Umsatzsteuer 380",
+  s:[["1800","Privat",2380]],h:[["8900","Eigenverbrauch",2000],["1775","Umsatzsteuer",380]]},
+ {sec:"E",q:"Der Chef überweist seine private Einkommensteuer, 1.850 €, vom Sparkassenkonto.",tip:"Privat ist privat.",
+  s:[["1800","Privat",1850]],h:[["1210","Sparkasse",1850]],note:"Keine Steuer, ist eine reine Privatentnahme."},
+
+ {sec:"F",q:"Auf dem Umsatzsteuerkonto stehen 7.420 €, auf dem Vorsteuerkonto 4.980 €. Buche die Umbuchung und überweise die Zahllast per Sparkasse.",tip:"Zwei Buchungen. Zuerst kommt die Vorsteuer aufs Umsatzsteuerkonto.",
+  calc:"Zahllast = 7.420 − 4.980 = 2.440",
+  s:[["1775","Umsatzsteuer",4980],["1775","Umsatzsteuer",2440]],h:[["1575","Vorsteuer",4980],["1210","Sparkasse",2440]],pairs:true},
+ {sec:"F",knobel:true,q:"Umsatzsteuer 3.100 €, Vorsteuer 4.250 €. Was passiert jetzt? Buche Umbuchung und Erstattung (Geld kommt auf die Sparkasse).",tip:"Mehr Vorsteuer als Umsatzsteuer: Wer zahlt jetzt wem?",
+  calc:"Vorsteuerüberhang 4.250 − 3.100 = 1.150 → das Finanzamt zahlt zurück",
+  s:[["1775","Umsatzsteuer",3100],["1210","Sparkasse",1150]],h:[["1575","Vorsteuer",3100],["1575","Vorsteuer",1150]],pairs:true}
+];
+
+const KEY="rw-ust-uebung-v1";
+let state={}; try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){state={}}
+let filter="alle";
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+const eur=n=>n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function table(t){
+  const rows=[];
+  if(t.pairs){
+    for(let i=0;i<t.s.length;i++) rows.push([t.s[i],t.h[i],i>0]);
+  } else {
+    const n=Math.max(t.s.length,t.h.length);
+    for(let i=0;i<n;i++) rows.push([t.s[i],t.h[i],false]);
+  }
+  const cell=a=>a?`<td class="nr">${a[0]}</td><td>${esc(a[1])}</td><td class="r">${eur(a[2])}</td>`:`<td></td><td></td><td></td>`;
+  return `<div class="tbl"><table><thead><tr><th>Soll</th><th>Konto</th><th class="r">€</th><th class="mid">Haben</th><th>Konto</th><th class="r">€</th></tr></thead><tbody>${
+    rows.map(([s,h,sep])=>`<tr${sep?' style="border-top:2px solid var(--line)"':''}>${cell(s)}${cell(h).replace('<td','<td class="mid"')}</tr>`).join("")
+  }</tbody></table></div>`;
+}
+
+function render(){
+  const list=document.getElementById("list"); list.innerHTML="";
+  let n=0;
+  Object.keys(SECTIONS).forEach(k=>{
+    const items=T.map((t,i)=>({t,i})).filter(o=>o.t.sec===k).filter(({i})=>{
+      const st=state[i]; return filter==="alle"||(filter==="offen"&&!st)||(filter==="nochmal"&&st==="nochmal");
+    });
+    if(!items.length) return;
+    const sec=document.createElement("section");
+    sec.innerHTML=`<div class="sec-head"><h2>${SECTIONS[k]}</h2><span>${items.length} Aufgabe${items.length>1?"n":""}</span></div>`;
+    items.forEach(({t,i})=>{
+      n++;
+      const d=document.createElement("article"); d.className="task"; if(state[i]) d.dataset.state=state[i];
+      d.innerHTML=`<div class="q"><span class="num">${i+1}</span><p>${esc(t.q)}${t.knobel?'<span class="knobel">Knobel</span>':""}</p></div>
+      <div class="actions">
+        <button class="btn" id="tip-${i}" aria-expanded="false">Tipp</button>
+        <button class="btn primary" id="show-${i}" aria-expanded="false">Lösung zeigen</button>
+        <button class="btn good" id="good-${i}" aria-pressed="${state[i]==="gut"}">Hatte ich richtig</button>
+        <button class="btn again" id="again-${i}" aria-pressed="${state[i]==="nochmal"}">Nochmal üben</button>
+      </div>
+      <p class="tip" hidden>${esc(t.tip)}</p>
+      <div class="sol" hidden>${t.calc?`<p class="calc">${esc(t.calc)}</p>`:""}${table(t)}${t.note?`<p class="note">${esc(t.note)}</p>`:""}</div>`;
+      const tip=d.querySelector(".tip"), sol=d.querySelector(".sol");
+      d.querySelector(`#tip-${i}`).onclick=e=>{tip.hidden=!tip.hidden;e.target.setAttribute("aria-expanded",!tip.hidden)};
+      d.querySelector(`#show-${i}`).onclick=e=>{sol.hidden=!sol.hidden;e.target.setAttribute("aria-expanded",!sol.hidden);e.target.textContent=sol.hidden?"Lösung zeigen":"Lösung verbergen"};
+      const mark=v=>{state[i]=state[i]===v?undefined:v;if(!state[i])delete state[i];save();
+        d.dataset.state=state[i]||"";d.querySelector(`#good-${i}`).setAttribute("aria-pressed",state[i]==="gut");d.querySelector(`#again-${i}`).setAttribute("aria-pressed",state[i]==="nochmal");score();};
+      d.querySelector(`#good-${i}`).onclick=()=>mark("gut");
+      d.querySelector(`#again-${i}`).onclick=()=>mark("nochmal");
+      sec.appendChild(d);
+    });
+    list.appendChild(sec);
+  });
+  if(!n) list.innerHTML=`<p class="lead">${filter==="nochmal"?"Nichts zum Wiederholen markiert.":"Alle Aufgaben sind abgehakt."}</p>`;
+  score();
+}
+function score(){
+  const g=Object.values(state).filter(v=>v==="gut").length, a=Object.values(state).filter(v=>v==="nochmal").length;
+  document.getElementById("score").innerHTML=`<span class="g">${g} richtig</span> · <span class="n">${a} nochmal</span> · ${T.length-g-a} offen`;
+  document.getElementById("pg").style.width=(g/T.length*100)+"%";
+  document.getElementById("pn").style.width=(a/T.length*100)+"%";
+}
+["alle","offen","nochmal"].forEach(f=>document.getElementById("f-"+f).onclick=()=>{
+  filter=f;["alle","offen","nochmal"].forEach(x=>document.getElementById("f-"+x).setAttribute("aria-pressed",x===f));render();});
+let armed=false;
+document.getElementById("reset").onclick=e=>{
+  if(!armed){armed=true;e.target.textContent="Wirklich alles löschen?";setTimeout(()=>{armed=false;e.target.textContent="Neu anfangen"},3000);return;}
+  armed=false;e.target.textContent="Neu anfangen";state={};save();render();};
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>
