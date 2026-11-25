@@ -1,4 +1,4 @@
-const VERSION = "v20261125-151413";
+const VERSION = "v20261125-151926";
 const DATEIEN = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-180.png", "seiten/arbeitsrecht.html", "seiten/baustoffkunde-abfrage.html", "seiten/baustoffkunde-lernkarten.html", "seiten/baustoffkunde-quiz.html", "seiten/bgb-abfrage.html", "seiten/buchungssaetze-steuer.html", "seiten/buchungssaetze.html", "seiten/physik.html", "seiten/pug-lernkarten.html", "seiten/pug-schulaufgabe.html", "seiten/treppe-abfrage.html", "seiten/treppe-lernblatt.html", "seiten/treppe-quiz.html"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(DATEIEN)));
