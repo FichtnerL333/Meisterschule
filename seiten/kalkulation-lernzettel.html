@@ -1,0 +1,186 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lernzettel Kalkulation</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#475569;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Kalkulation">‹ Kalkulation</a>
+  <div class="fach"><i></i>Kalkulation, Lernzettel</div>
+  <h1>Lernzettel Kalkulation</h1>
+  <p class="lead">Kostenarten, Kalkulationsschema, Vertragsarten und Zuschlagssätze mit nachgerechneten Übungen.</p>
+</div></header>
+<main><div class="in">
+<h2>Kostenarten: EKT, BGK, AGK (Exkurs)</h2>
+<p><strong>Einzelkosten der Teilleistungen (EKT)</strong> – lassen sich einer Position im LV direkt zuordnen:
+- Lohnkosten (Tariflohn, Lohnzusatzkosten, Lohnnebenkosten)
+- Gerätekosten (Abschreibung und Verzinsung = A+V, Reparatur, Fremdmiete, Betriebsstoffe für positionsbezogene Geräte)
+- Baustoff-/Materialkosten
+- Rüst-, Schal- und Verbaumaterial
+- Nachunternehmerleistung / Fremdarbeitskosten</p>
+<p><strong>Baustellengemeinkosten (BGK)</strong> – gehören zur Baustelle, aber zu keiner einzelnen Position:
+- <em>zeitunabhängig:</em> Baustelleneinrichtung (An-/Abtransport, Auf-/Abladen, Auf-/Abbau), Gebühren für die Baustelle, Baustoffprüfung, Hilfsstoffe (Nägel, Draht, Schalöl, Kleineisenzeug, Trennscheiben), Kleingeräte und Werkzeuge
+- <em>zeitabhängig:</em> Vorhaltekosten der Baustelleneinrichtung (Geräte, Bürocontainer, Bauwagen), Bauleitung, Betriebsstoffe der Baustelleneinrichtung (Heizöl, Gas, Strom)
+- Die BGK sind grundsätzlich <strong>„Nebenleistungen“ nach VOB/C</strong>.</p>
+<p><strong>Allgemeine Geschäftskosten (AGK)</strong> – Kosten des ganzen Betriebs, nicht einer Baustelle:
+- Unternehmerlohn (kalkulatorisch, für den mitarbeitenden Chef ohne festes Gehalt)
+- Gehälter der Verwaltung (Geschäftsleitung, kaufmännische Verwaltung), Löhne des Hilfspersonals (Büro, Lager, Telefon), Sozial- und Lohnnebenkosten dafür
+- Sachkosten der Verwaltung (Büromiete, Telefon, Büromaterial, EDV, Werbung)
+- Beiträge, Gebühren, Versicherungen, Kosten für Bauhof/Werkstatt/Lager, Fuhrpark
+- <strong>Berechnung:</strong> AGK in % = Allgemeine Geschäftskosten × 100 / Jahresgesamtumsatz netto</p>
+<h2>Kalkulationsgliederung (Wiederholung 21.09.2026)</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Einzelkosten der Teilleistungen (EKT): Lohn, Material/Stoff, Geräte, Fremdleistungen</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>+ Baustellengemeinkosten (BGK)</strong></td>
+<td>= <strong>Herstellkosten (HK)</strong></td>
+</tr>
+<tr>
+<td><strong>+ Allgemeine Geschäftskosten (AGK)</strong></td>
+<td>= <strong>Selbstkosten (SK)</strong></td>
+</tr>
+<tr>
+<td><strong>+ Wagnis und Gewinn (WuG)</strong></td>
+<td>= <strong>Angebotssumme netto</strong> (= Umsatz netto)</td>
+</tr>
+<tr>
+<td>+ Mehrwertsteuer</td>
+<td>= Angebotssumme brutto</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>BGK + AGK + WuG = Umlagekosten</strong> (auch Schlüsselkosten). Anders gerechnet: <strong>Angebotssumme − EKT = Umlagekosten</strong>.</li>
+<li>EKT heißen auch <strong>direkte Kosten</strong>, weil man sie direkt einer Position zuordnen kann.</li>
+<li><strong>Lohn</strong> = nach Stunden, <strong>Gehalt</strong> = Festgehalt. <strong>Gehaltskosten immer AGK.</strong> Lohnnebenkosten/-zusatzkosten → BGK (bzw. als Zuschlag in den EKT). <strong>Gewinn</strong> lässt sich keiner Kostenart zuordnen (Fangfrage).</li>
+<li>Unterschied Fremdleistung / Nachunternehmer im Unterricht besprochen.</li>
+</ul>
+<h2>Preis- und Vertragsarten (§ 4 VOB/A, Skript 1.6)</h2>
+<ul>
+<li><strong>Einheitspreisvertrag</strong> (Regelfall nach VOB): Preis je Teilleistung aus dem LV. Abgerechnet wird nach der <strong>tatsächlich ausgeführten Menge</strong>. Der Gesamtpreis spielt keine primäre Rolle.</li>
+<li><strong>Pauschalpreisvertrag:</strong> wenn die Leistung genau feststeht (Qualität und Menge) und kaum Änderungen zu erwarten sind. Es zählt nur der Pauschalpreis, kein Aufmaß nötig („Vertragsmengen gelten als gestrichen“).</li>
+<li><strong>Stundenlohnvertrag:</strong> Bezahlung nach geleisteten Stunden zum vereinbarten Stundensatz. Für kleine oder unklare Arbeiten (Sanierung, Bauen im Bestand). Bei VOB/B-Vertrag § 15 VOB/B beachten.</li>
+<li>Ablauf der Angebotskalkulation (Skript 1.7): Kalkulation vorbereiten, über die Angebotssumme (Umlage) oder mit vorberechneten Zuschlägen durchführen, Preise festlegen.</li>
+<li><strong>Baustelleneinrichtung:</strong> entweder als eigene LV-Positionen („Besondere Leistungen“, dann als EKT kalkuliert) oder als Nebenleistung in den BGK.</li>
+</ul>
+<h2>Kalkulationsverfahren (28.09.2026)</h2>
+<p>Beides ist <strong>Vollkostenrechnung</strong> (= Selbstkostenrechnung):
+- <strong>Umlageverfahren</strong> (Kalkulation über die Angebotsendsumme): für <strong>große Firmen</strong> mit unterschiedlichen Baustellen. BGK werden für jedes Bauvorhaben extra ermittelt. Aufwendig, aber sehr genau.
+- <strong>Zuschlagsverfahren</strong> (vorausberechnete Zuschläge): im <strong>kleinen Handwerksbetrieb</strong> üblich, wenn die Baustellen ähnlich sind und eine Trennung von BGK und AGK nicht nötig ist.</p>
+<h2>Zuschlagssätze ermitteln</h2>
+<p><strong>Variante I – Verteilungsschlüssel gegeben</strong> (Beispiel aus dem Heft): EKT Lohn 300.000 €, Material 150.000 €, Geräte 30.000 €, Fremdleistung 20.000 € (Summe 500.000 €). Umlagekosten BGK 90.000 + AGK 50.000 + WuG 64.000 = <strong>204.000 €</strong>. Schlüssel: 80 % Lohn, 10 % Material, 5 % Geräte, 5 % Fremdleistung. <em>(Korrigiert am 25.11.2026: Hier stand vorher BGK 80.000 €, im Heft steht 90.000 €. Nur damit ergibt die Summe 204.000 €.)</em>
+- Lohn: 204.000 · 0,8 = 163.200 € → 163.200 / 300.000 = <strong>54,4 %</strong>
+- Material: 20.400 / 150.000 = <strong>13,6 %</strong> · Geräte: 10.200 / 30.000 = <strong>34 %</strong> · Fremdleistung: 10.200 / 20.000 = <strong>51 %</strong>
+- Im neuen Jahr wird jede Teilleistung mit ihrem Zuschlag beaufschlagt (z. B. Material + 13,6 %).</p>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> Im Heft steht beim Lohn <strong>54,33 %</strong>. Richtig ist 163.200 / 300.000 = <strong>54,4 %</strong> (so steht es auch bei Variante II).</p>
+</div>
+<p><strong>Variante II – nur einige Zuschläge gegeben, fehlender (meist Lohn) gesucht:</strong> Beträge der bekannten Zuschläge ausrechnen (20.400 + 10.200 + 10.200 = 40.800 €), von den Umlagekosten abziehen (204.000 − 40.800 = 163.200 € für Lohn) → 54,4 %.</p>
+<p><strong>Übung mit WuG in % vom Angebot:</strong> EKT 571.000 € (Lohn 300.000, Material 205.000, Geräte 60.000, FL 6.000), BGK 361.600 €, AGK 110.000 €, WuG 5 % vom Angebot netto → Angebot = (571.000 + 361.600 + 110.000) / 0,95, WuG = 54.873,68 €, Umlage 526.473,68 €. Mit Schlüssel 80/14/5/1 %: Lohn <strong>140,39 %</strong>, Material <strong>35,95 %</strong>, Geräte <strong>43,87 %</strong>, Fremdleistung <strong>87,75 %</strong>. ✓</p>
+<p><em>Woher die Zahlen kommen („Übung 3“, Betriebsrechnung mit Kästchen zum Ankreuzen, Heft „Kalk Notizen Ex“):</em>
+- <strong>EKT:</strong> Lohn = 15.000 Std. × 20 € Mittellohn = 300.000 · Material = Transportbeton 80.000 + Bewehrungsstahl 25.000 + Mauerziegel/Mörtel 100.000 = 205.000 · Geräte = Schalung 60.000 · Fremdleistung 6.000 → <strong>571.000 €</strong>
+- <strong>BGK:</strong> Vorarbeitergehalt 38.000 + Baustelleneinrichtung 10.000 + Kleinteile 5.000 + Lohnnebenkosten 3,8 % von 300.000 = 11.400 + Lohnzusatzkosten 94 % von 300.000 = 282.000 + Gehaltszusatzkosten 40 % von 38.000 = 15.200 → <strong>361.600 €</strong> → HK 932.600 €
+- <strong>AGK:</strong> Gehälter Verwaltung 10.000 + Mieten/Betriebshof/Versicherungen 9.000 + Fuhrpark 7.000 + Unternehmergehalt 80.000 + Gehaltszusatzkosten 40 % von 10.000 = 4.000 → <strong>110.000 €</strong> → SK 1.042.600 €
+- <strong>WuG 5 % vom Angebot:</strong> SK = 95 % → Angebot netto = 1.042.600 / 0,95 = <strong>1.097.473,68 €</strong>, brutto (+19 %) <strong>1.305.993,68 €</strong> ✓
+- <strong>Merke:</strong> WuG wird normalerweise <strong>vom Angebot</strong> gerechnet (also durch 0,95 teilen), außer es ist anders angegeben. Gehaltszusatzkosten gehen dorthin, wo das Gehalt steht: Vorarbeiter → BGK, Verwaltung → AGK.</p>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> Im Heft steht bei den BGK einmal „361.800 €“. Richtig ist <strong>361.600 €</strong>, damit geht auch die Umlage 526.473,68 € auf.</p>
+</div>
+<h2>Weitere Übungen (Video 25.11.2026, alles nachgerechnet)</h2>
+<p><strong>Betriebsabrechnung (Arbeitsblatt „1. Aufgabe“, Prozente auf 3 Stellen runden):</strong> 27.400 Std. × 40,15 €/Std. Kalkulationslohn, Material 749.200 €, Geräte 180.500 €, Fremdleistung 70.000 €, Selbstkosten 2.730.700 €, Umsatz netto 2.905.000 €, AGK 11 % vom Umsatz.
+- Lohn = 27.400 × 40,15 = <strong>1.100.110 €</strong> → EKT = <strong>2.099.810 €</strong>
+- AGK = 2.905.000 × 0,11 = <strong>319.550 €</strong>
+- BGK = SK − AGK − EKT = 2.730.700 − 319.550 − 2.099.810 = <strong>311.340 €</strong> → HK = 2.411.150 €
+- WuG = Umsatz − SK = <strong>174.300 € = 6,000 %</strong>
+- Umlage = 2.905.000 − 2.099.810 = <strong>805.190 €</strong>. Schlüssel 68 % Lohn / 26 % Material / 4,5 % Geräte / 1,5 % FL → Zuschläge: Lohn 547.529,20 € = <strong>49,77 %</strong>, Material 209.349,40 € = <strong>27,94 %</strong>, Geräte 36.233,55 € = <strong>20,07 %</strong>, FL 12.077,85 € = <strong>17,25 %</strong> ✓</p>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Im Heft steht bei Fremdleistung 17,24 %. Genau gerechnet sind es 17,254 %, also <strong>17,25 %</strong>.</p>
+</div>
+<p><strong>Jahresbilanz mit HK gegeben (Arbeitsblatt „1. Aufgabe“ S. 3):</strong> Lohn inkl. Lohnzusatzkosten 9.124.000 €, Material 5.600.000 €, Geräte 2.278.000 €, Fremdleistung 850.000 €, <strong>HK 22.500.000 €</strong>, AGK 7,4 % und WuG 4,1 % vom Umsatz.
+- EKT = <strong>17.852.000 €</strong> → BGK = HK − EKT = <strong>4.648.000 €</strong>
+- AGK + WuG = 11,5 % vom Umsatz → HK sind 88,5 % → Umsatz netto = 22.500.000 / 0,885 = <strong>25.423.728,81 €</strong>
+- AGK = <strong>1.881.355,93 €</strong> → SK 24.381.355,93 € · WuG = <strong>1.042.372,88 €</strong> · MwSt 19 % = 4.830.508,47 € · brutto <strong>30.254.237,28 €</strong>
+- b) Zuschlag Lohn, wenn Material 20 %, Geräte 14 %, FL 9 %: Umlage = 4.648.000 + 1.881.355,93 + 1.042.372,88 = <strong>7.571.728,81 €</strong>. Davon gehen ab: Material 1.120.000 + Geräte 318.920 + FL 76.500 = 1.515.420 €. Rest für Lohn 6.056.308,81 € → <strong>66,377 %</strong>.</p>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> Im Heft ist die EKT-Summe mit <strong>17.832.000 €</strong> zu klein (9.124.000 + 5.600.000 + 2.278.000 + 850.000 = 17.852.000). Deshalb sind dort auch BGK (4.668.000 statt <strong>4.648.000</strong>), Umlage (7.591.728,81 statt <strong>7.571.728,81</strong>) und der Lohnzuschlag (≈ 66,6 % statt <strong>66,377 %</strong>) um 20.000 € daneben. Umsatz, AGK und WuG stimmen, weil sie nur von den HK abhängen.</p>
+</div>
+<p><strong>Fehlender Lohnzuschlag:</strong> EKT 2.882.297 € (Material 1.134.246, Geräte 353.217, FL 409.772, Lohn 985.062), Angebot 4.527.387,12 €. Zuschläge Material 16 %, Schalung/Geräte 8 %, FL 4 %.
+- Umlage = 4.527.387,12 − 2.882.297 = <strong>1.645.090,12 €</strong>
+- Material 181.479,36 + Geräte 28.257,36 + FL 16.390,88 = 226.127,60 € → Rest für Lohn <strong>1.418.962,52 €</strong>
+- Lohnzuschlag = 1.418.962,52 / 985.062 = <strong>144,05 %</strong></p>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> Im Heft steht als Ergebnis <strong>44,049 %</strong>. Der Rest für Lohn (1.418.962,52 €) ist größer als der Lohn selbst (985.062 €), also muss der Zuschlag über 100 % liegen: <strong>144,049 %</strong>. Die 1 vorne ist verloren gegangen.</p>
+</div>
+<p><strong>Kurze Übung:</strong> Lohn 680.450 + Einzelstoff 326.840 = EKT 1.007.290 € · + BGK 281.190 = HK 1.288.480 € · + AGK 283.465,60 = SK 1.571.945,60 € · Umsatz 1.738.433 € → WuG = 166.487,40 € = <strong>9,58 %</strong> ✓</p>
+<p><strong>Zimmerer-Aufgabe (Arbeitsblatt, Lösung fehlt im Heft, selbst gerechnet, bitte mit dem Lehrer vergleichen):</strong> produktive Löhne 210.000 €, Stoffkosten 200.000 €, Fremdleistung 6.250 €, BGK 184.250 €, AGK 20 % und WuG 5 % vom Netto-Umsatz, Baustellenmittellohn 13,75 €/Std. Ohne Cent:
+- a) EKT = <strong>416.250 €</strong> · b) HK = <strong>600.500 €</strong>
+- d) Umsatz netto: HK sind 75 % → 600.500 / 0,75 = <strong>800.667 €</strong> · c) SK = HK + AGK (160.133) = <strong>760.633 €</strong> (WuG 40.033 €)
+- e) brutto = <strong>952.794 €</strong>
+- f) Gesamtzuschlagssumme = Umsatz − EKT = <strong>384.417 €</strong>
+- g) Stoff 10 % = 20.000 €, FL 5 % = 313 € → Rest für Lohn 364.104 € → <strong>173,4 %</strong>
+- h) Gesamtmittellohn = 13,75 × (1 + 1,734) ≈ <strong>37,59 €/Std.</strong></p>
+<p><strong>Begriffe zuordnen (Übung 3, Ankreuzen):</strong> EKT = Transportbeton, Bewehrungsstahl, Schalung, Lohnstunden, Fremdleistungen, Mauerziegel/Mörtel. BGK = Vorarbeitergehalt, Baustelleneinrichtung, Kleinteile/Verbrauchsmaterial, Lohnneben- und Lohnzusatzkosten. AGK = Gehälter der Verwaltung, Mieten/Betriebshof/Versicherungen, Fuhrpark, Unternehmergehalt. Gehaltszusatzkosten = BGK <strong>und</strong> AGK (je nach Gehalt). WuG = 5 %.</p>
+<p><strong>Übung Jahresabschluss:</strong> Selbstkosten 3.262.584 € + WuG 118.500 € = Umsatz netto 3.381.084 €. AGK 235.367 € = <strong>6,96 %</strong>, WuG = <strong>3,5 %</strong>, BGK 267.647 € = <strong>7,92 %</strong> vom Umsatz, Lohnzusatzkosten 682.736 € von 853.420 € Lohn = <strong>80 %</strong>. ✓</p>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

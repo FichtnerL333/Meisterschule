@@ -1,4 +1,7 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}#list.nurfalsch .card:not(.bad){display:none}
+#list.nurfalsch:not(:has(.card.bad))::after{content:"Keine falschen Aufgaben in diesem Teil.";display:block;padding:20px 0;opacity:.7}
+#nurFalsch[aria-pressed="true"]{font-weight:700}
+</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="../icon-180.png">
 <style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
@@ -67,7 +70,7 @@ footer{margin-top:36px;color:var(--muted);font-size:14px}
     <div class="rule"><b>„Auf Ziel“</b>Wir kaufen auf Ziel: VLL (wir schulden). Wir verkaufen auf Ziel: FLL (Kunde schuldet).</div>
   </div>
   <div class="tabs" id="tabs"></div>
-  <div class="bar"><div class="progress" aria-hidden="true"><i id="fill"></i></div><span class="count" id="count"></span><button id="reset" type="button">Teil zurücksetzen</button></div>
+  <div class="bar"><div class="progress" aria-hidden="true"><i id="fill"></i></div><span class="count" id="count"></span><button id="nurFalsch" type="button" aria-pressed="false">Nur falsche zeigen</button><button id="reset" type="button">Teil zurücksetzen</button></div>
   <main id="list"></main>
   <footer>Selbst erstellte Übungen nach dem Arbeitsblatt „Übungsaufgaben zum Thema Buchungssätze“. Die Lösungen folgen dem üblichen Lehrbuch-Schema. Dein Lehrer kann bei der Kontenwahl im Einzelfall abweichen.</footer>
 </div>
@@ -186,6 +189,7 @@ function render(){
   document.getElementById("count").textContent=`${right} / ${items.length} richtig`;
   document.getElementById("fill").style.width=(right/items.length*100)+"%";
 }
+document.getElementById("nurFalsch").addEventListener("click",e=>{const an=list.classList.toggle("nurfalsch");e.currentTarget.setAttribute("aria-pressed",an);e.currentTarget.textContent=an?"Alle zeigen":"Nur falsche zeigen"});
 render();
 </script>
 

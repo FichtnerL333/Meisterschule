@@ -1,0 +1,244 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
+<title>Vermessung: Übungen zum Eintippen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#5f5a52;--line:#ddd7cc;--accent:#0369a1;--accent-soft:#f3e8d8;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161513;--paper:#211f1c;--ink:#ece8e1;--muted:#a59e92;--line:#38342e;--accent:#e0a45c;--accent-soft:#3a2c1a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:28px 90px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.merk{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:15px}
+.merk summary{font-weight:600;cursor:pointer}
+.merk ul{margin:8px 0 2px;padding-left:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+button{font:600 15px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:8px 13px;cursor:pointer;min-height:40px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#1a140c}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:12px}
+.card.ok{border-color:var(--ok)}.card.bad{border-color:var(--bad)}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.card h3 .t{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.feld{display:grid;gap:6px}
+.feld>label,.feld>.lab{font-size:15px;color:var(--muted)}
+.zeile{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input[type=text],textarea{font:500 17px "JetBrains Mono",monospace;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;width:11em;max-width:100%}
+input.lang{width:100%;font-family:"Source Sans 3",sans-serif}
+textarea{width:100%;min-height:90px;font:16px/1.45 "Source Sans 3",sans-serif}
+.einheit{color:var(--muted);font-size:15px}
+.wahl{display:flex;flex-wrap:wrap;gap:6px}
+.wahl button{font-weight:400;text-align:left}
+.wahl button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.feld.ok input,.feld.ok textarea{border-color:var(--ok);background:var(--ok-soft)}
+.feld.bad input,.feld.bad textarea{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button.ok{border-color:var(--ok);background:var(--ok-soft)}
+.wahl button.bad{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button[disabled]{cursor:default;color:var(--ink)}
+.richtig{font-size:15px;color:var(--ok);font-weight:600}
+.knoepfe{display:flex;gap:8px;flex-wrap:wrap}
+.pruefen{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pruefen{color:#1a140c}}
+.expl{border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.expl.gut{border-left-color:var(--ok)}
+.hinweis{color:var(--bad);font-size:14px}
+.hinweis:empty{display:none}
+.empty{color:var(--muted);padding:20px 0}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Vermessung</div>
+  <h1>Vermessung: Übungen zum Eintippen</h1>
+  <p class="intro">Antwort eintippen oder antippen, dann <b>Prüfen</b>. Kommazahlen gehen mit Komma oder Punkt. Bei Rechnungen reicht das Ergebnis, gerundet wie angegeben. Mit <b>Nur falsche zeigen</b> übst du gezielt deine Fehler. Dein Stand bleibt in diesem Browser gespeichert.</p>
+  <details class="merk"><summary>Zum Nachschauen</summary><ul>
+    <li>gon → Grad: · 0,9 · Grad → gon: : 0,9</li>
+    <li>x nach Norden, y nach Osten, Winkel im Uhrzeigersinn</li>
+    <li>1. Grundaufgabe: Δy = s · sin φ, Δx = s · cos φ</li>
+    <li>2. Grundaufgabe: s = √(Δx² + Δy²), φ = tan⁻¹(Δy / Δx)</li>
+    <li>Δx negativ → + 200 gon · Δx positiv und Δy negativ → + 400 gon</li>
+    <li>Fläche: 2F = Σ x · y(nächster) − Σ y · x(nächster)</li>
+  </ul></details>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar">
+    <div class="progress" aria-hidden="true"><i id="fill"></i></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tools">
+    <button id="onlyWrong" type="button" aria-pressed="false">Nur falsche zeigen</button>
+    <button id="reset" type="button">Diesen Teil zurücksetzen</button>
+  </div>
+  <div id="list"></div>
+  <footer>Selbst erstellt aus Hefteinträgen und Arbeitsblättern der Meisterschule, Stand 26.11.2026. Nicht vom Lehrer, ohne Gewähr. Für die SA am 11.12.2026. Taschenrechner für Winkelfunktionen auf DEG stellen und gon vorher in Grad umrechnen.</footer>
+</div>
+<script>
+const Q=[
+{t:"Winkel",q:"Umrechnen zwischen gon und Grad.",f:[{l:"60 gon in Grad",z:54,u:"°"},{l:"72° in gon",z:80,u:"gon"},{l:"100 gon in Grad",z:90,u:"°"},{l:"Vollkreis in gon",z:400,u:"gon"}],
+ e:"gon → Grad: <b>· 0,9</b>. Grad → gon: <b>: 0,9</b>. Vollkreis 400 gon = 360°."},
+{t:"Winkel",q:"<b>32°</b> in gon (2 Stellen).",f:[{l:"Ergebnis",z:35.556,tol:0.01,u:"gon"}],e:"32 : 0,9 = <b>35,56 gon</b>."},
+{t:"Winkel",q:"<b>6° 34' 47\"</b> als Dezimalgrad (4 Stellen).",f:[{l:"Ergebnis",z:6.5797,tol:0.001,u:"°"}],
+ e:"6 + 34/60 + 47/3600 = <b>6,5797°</b>."},
+{t:"Winkel",q:"<b>25,350 gon</b> in Grad.",f:[{l:"Ergebnis",z:22.815,tol:0.01,u:"°"}],e:"25,350 · 0,9 = <b>22,815°</b> (= 22° 48' 54\")."},
+{t:"Winkel",q:"Achsen und Drehsinn in der Vermessung.",f:[{l:"Die x-Achse zeigt nach …",w:["Norden","Osten"],a:0},{l:"Die y-Achse zeigt nach …",w:["Norden","Osten"],a:1},{l:"Winkel werden gezählt …",w:["im Uhrzeigersinn","gegen den Uhrzeigersinn"],a:0}],
+ e:"<b>x nach Norden</b> (Abszisse), <b>y nach Osten</b> (Ordinate), Winkel <b>im Uhrzeigersinn</b> ab x. Anders als in Mathe!"},
+{t:"1. Grundaufgabe",q:"Was macht die <b>1. geodätische Grundaufgabe</b>?",f:[{l:"Antwort",w:["aus Winkel und Strecke (polar) die Koordinaten (rechtwinklig) berechnen","aus Koordinaten Winkel und Strecke berechnen"],a:0}],
+ e:"1. Grundaufgabe = <b>polares Anhängen</b>: neue Punkte einmessen und in Koordinaten umrechnen. Formeln Δy = s · sin φ, Δx = s · cos φ."},
+{t:"1. Grundaufgabe",q:"Standpunkt (y 100,00; x 200,00), φ = <b>100 gon</b>, s = <b>50,00 m</b>.",f:[{l:"Δy",z:50,tol:0.02,u:"m"},{l:"Δx",z:0,tol:0.02,u:"m"},{l:"neuer Punkt y",z:150,tol:0.02},{l:"neuer Punkt x",z:200,tol:0.02}],
+ e:"100 gon = 90° → genau nach Osten. Δy = 50 · sin 90° = <b>50</b>, Δx = 50 · cos 90° = <b>0</b> → <b>(150,00; 200,00)</b>."},
+{t:"1. Grundaufgabe",q:"Heft-Beispiel: P1 (y 529,82; x 710,07), gemessen zu P3: φ = <b>14,7069 gon</b>, s = <b>83,55 m</b>.",f:[{l:"Δy",z:19.13,tol:0.02,u:"m"},{l:"Δx",z:81.33,tol:0.02,u:"m"},{l:"y₃",z:548.95,tol:0.02},{l:"x₃",z:791.40,tol:0.02}],
+ e:"φ = 14,7069 · 0,9 = 13,2362°. Δy = 83,55 · sin φ = <b>19,13</b>, Δx = 83,55 · cos φ = <b>81,33</b> → <b>P3 (548,95; 791,40)</b>."},
+{t:"1. Grundaufgabe",q:"Arbeitsblatt Aufg. 1: P1 (7,50; 7,50), φ = <b>55,350 gon</b>, s = <b>15,50 m</b>.",f:[{l:"Δy",z:11.84,tol:0.02,u:"m"},{l:"Δx",z:10.00,tol:0.02,u:"m"},{l:"y₂",z:19.34,tol:0.02},{l:"x₂",z:17.50,tol:0.02}],
+ e:"55,350 gon = 49,815°. Δy = 15,50 · sin = <b>11,84</b>, Δx = 15,50 · cos = <b>10,00</b> → <b>P2 (19,34; 17,50)</b>."},
+{t:"2. Grundaufgabe",q:"Arbeitsblatt Aufg. 3: P1 (7,50; 7,50), P2 (6,25; 12,30). Erst y, dann x.",f:[{l:"Δy",z:-1.25,tol:0.006},{l:"Δx",z:4.80,tol:0.006},{l:"Strecke s (3 Stellen)",z:4.960,tol:0.005,u:"m"},{l:"Richtungswinkel φ",z:383.782,tol:0.01,u:"gon"}],
+ e:"s = √(1,25² + 4,80²) = <b>4,960 m</b>. tan⁻¹(−1,25 / 4,80) = −16,218 gon. Δx positiv, Δy negativ → <b>+ 400</b> = <b>383,782 gon</b>."},
+{t:"2. Grundaufgabe",q:"Arbeitsblatt Aufg. 5: P1 (8,25; 9,05), P2 (20,51; 18,45).",f:[{l:"Strecke s (3 Stellen)",z:15.449,tol:0.005,u:"m"},{l:"Richtungswinkel φ",z:58.358,tol:0.01,u:"gon"}],
+ e:"Δy = 12,26, Δx = 9,40. s = √(12,26² + 9,40²) = <b>15,449 m</b>. φ = tan⁻¹(12,26 / 9,40) = <b>58,358 gon</b> (beide positiv, nichts addieren)."},
+{t:"2. Grundaufgabe",q:"Quadrant: <b>Δx = −20</b>, <b>Δy = −30</b>. Der Taschenrechner zeigt tan⁻¹(1,5) = 62,5666 gon.",f:[{l:"Was muss dazu?",w:["nichts","+ 200 gon","+ 400 gon"],a:1},{l:"Richtungswinkel",z:262.567,tol:0.01,u:"gon"}],
+ e:"Merke: <b>Δx negativ → immer + 200 gon</b>. 62,5666 + 200 = <b>262,567 gon</b>."},
+{t:"2. Grundaufgabe",q:"Quadrant: <b>Δx = +20</b>, <b>Δy = −30</b>. Der Taschenrechner zeigt −62,5666 gon.",f:[{l:"Was muss dazu?",w:["nichts","+ 200 gon","+ 400 gon"],a:2},{l:"Richtungswinkel",z:337.433,tol:0.01,u:"gon"}],
+ e:"Δx positiv, Δy negativ → <b>+ 400 gon</b>: −62,5666 + 400 = <b>337,433 gon</b>."},
+{t:"2. Grundaufgabe",q:"Punkt C (y 79; x 80) vom Ursprung aus.",f:[{l:"Strecke s",z:112.432,tol:0.01,u:"m"},{l:"Richtungswinkel φ",z:49.600,tol:0.01,u:"gon"}],
+ e:"s = √(79² + 80²) = <b>112,432 m</b>. φ = tan⁻¹(<b>Δy / Δx</b>) = tan⁻¹(79 / 80) = <b>49,600 gon</b>. (Im Heft wurde 80/79 gerechnet, das ist falsch herum.)"},
+{t:"Orthogonalverfahren",q:"Begriffe beim Rechtwinkelverfahren.",f:[{l:"Strecke auf der Messungslinie bis zum Lotfußpunkt",w:["Abszisse","Ordinate"],a:0},{l:"Senkrechter Abstand vom Lotfußpunkt zum Punkt",w:["Abszisse","Ordinate"],a:1}],
+ e:"<b>Abszisse</b> = x-Wert auf der Messungslinie. <b>Ordinate</b> = y-Wert, rechtwinklig dazu."},
+{t:"Orthogonalverfahren",q:"Messungslinie von P23 (0,00) nach P25 (52,48). Ein Grenzstein hat Abszisse <b>30,00 m</b> und Ordinate <b>8,00 m</b>. Wie weit ist er von P23 entfernt (Luftlinie)?",f:[{l:"Entfernung",z:31.048,tol:0.01,u:"m"}],
+ e:"Rechtwinkliges Dreieck: √(30² + 8²) = √964 = <b>31,05 m</b>."},
+{t:"Orthogonalverfahren",q:"Wofür wird das Orthogonalverfahren vor allem benutzt?",f:[{l:"Antwort",w:["klassische Katastervermessung","Höhenmessung mit dem Nivelliergerät","Winkelmessung mit dem Tachymeter"],a:0}],
+ e:"Klassische Methode der <b>Katastervermessung</b>. Geht auch umgekehrt zum Abstecken."},
+{t:"Fläche",q:"Gauß'sche Trapezformel: Viereck P1 (x 6; y 2), P2 (10; 5), P3 (7; 9), P4 (3; 6).",f:[{l:"Σ x · y(nächster)",z:168},{l:"Σ y · x(nächster)",z:118},{l:"Fläche F",z:25,u:"m²"}],
+ e:"6·5 + 10·9 + 7·6 + 3·2 = <b>168</b>. 2·10 + 5·7 + 9·3 + 6·6 = <b>118</b>. 2F = 50 → <b>F = 25 m²</b>."},
+{t:"Fläche",q:"Rechteck: P1 (x 0; y 0), P2 (0; 20), P3 (15; 20), P4 (15; 0). Du bekommst 2F = −600.",f:[{l:"Fläche F",z:300,u:"m²"},{l:"Was bedeutet das Minus?",w:["Nur andersherum gezählt, Betrag nehmen","Rechenfehler, neu rechnen"],a:0}],
+ e:"Negativ heißt nur: andersherum um die Fläche gelaufen. <b>Betrag nehmen → 300 m²</b> (Probe: 15 · 20)."},
+{t:"Fläche",q:"Wofür ist die Flächenberechnung mit Koordinaten besonders nützlich?",f:[{l:"Antwort",w:["unregelmäßige Vielecke wie Grundstücke","nur Kreise","nur Rechtecke"],a:0}],
+ e:"Für <b>unregelmäßige Vielecke</b>, besonders <b>Grundstücke</b>."}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const TEILE=["Winkel","1. Grundaufgabe","2. Grundaufgabe","Orthogonalverfahren","Fläche"];
+const AKTIV=(window.__TEIL&&__TEIL.length)?TEILE.filter(t=>__TEIL.includes(t)):TEILE;
+const SECS=AKTIV.length>1?["Alle",...AKTIV]:AKTIV;
+const KEY="vermessung-uebung-v1";
+let st={};try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const eintrag=id=>st[id]||(st[id]={v:[]});
+let sec=0,onlyWrong=false;
+const deZahl=x=>x.toLocaleString("de-DE",{maximumFractionDigits:2});
+const norm=s=>String(s||"").toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]/g,"");
+function zahl(s){
+  s=String(s||"").replace(/[−–]/g,"-").replace(/\s|m²|m³|m2|m3/gi,"");
+  if(/,/.test(s)) s=s.replace(/\./g,"").replace(",",".");
+  else if(/^[1-9]\d{0,2}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,"");
+  const m=s.match(/-?\d+(\.\d+)?/); return m?parseFloat(m[0]):NaN;
+}
+function feldOk(f,v){
+  if(f.frei) return null;
+  if("z" in f){const n=zahl(v); if(isNaN(n))return false; const tol=f.tol!=null?f.tol:(Math.abs(f.z)<10?0.006:0.5); return Math.abs(n-f.z)<=tol;}
+  if(f.w) return v===f.a;
+  if(f.k){const n=norm(v); return f.k.every(g=>g.some(a=>n.includes(norm(a))));}
+}
+const richtigText=f=>"z" in f?(f.s||deZahl(f.z))+(f.u?" "+f.u:""):f.w?f.w[f.a]:"";
+function ergebnis(q){const s=st[q.id]; if(!s||!s.done) return undefined; if(q.f.some(f=>f.frei)) return s.selbst; return s.r.every(Boolean);}
+
+const tabs=document.getElementById("tabs"), list=document.getElementById("list");
+SECS.forEach((n,i)=>{const b=document.createElement("button");b.type="button";b.textContent=n;b.addEventListener("click",()=>{sec=i;render()});tabs.appendChild(b)});
+if(SECS.length===1)tabs.style.display="none";
+document.getElementById("onlyWrong").addEventListener("click",e=>{onlyWrong=!onlyWrong;e.currentTarget.setAttribute("aria-pressed",onlyWrong);e.currentTarget.textContent=onlyWrong?"Alle zeigen":"Nur falsche zeigen";render()});
+document.getElementById("reset").addEventListener("click",()=>{if(!confirm("Alle Antworten in diesem Teil löschen?"))return;fragen().forEach(q=>delete st[q.id]);save();render()});
+const fragen=()=>{const n=SECS[sec];return Q.filter(q=>AKTIV.includes(q.t)&&(n==="Alle"||q.t===n));};
+
+function pruefe(q,card){
+  const s=eintrag(q.id);
+  const leer=q.f.some((f,j)=>!f.frei&&(s.v[j]===undefined||s.v[j]===null||String(s.v[j]).trim()===""));
+  if(leer){card.querySelector(".hinweis").textContent="Bitte erst alles ausfüllen.";return;}
+  s.r=q.f.map((f,j)=>feldOk(f,s.v[j])); s.done=true; delete s.selbst; save(); render(q.id);
+}
+
+function karte(q,nr){
+  const s=st[q.id]||{v:[]}, done=!!s.done, res=ergebnis(q);
+  const c=document.createElement("section");c.className="card"+(res===true?" ok":res===false?" bad":"");c.id="q"+q.id;
+  c.innerHTML=`<h3><span class="t">${q.t}</span><span class="n">${nr}</span>${q.q}</h3>`;
+  q.f.forEach((f,j)=>{
+    const d=document.createElement("div");d.className="feld";
+    const ok=done?s.r[j]:null; if(ok===true)d.classList.add("ok"); if(ok===false)d.classList.add("bad");
+    const fid=`q${q.id}f${j}`;
+    if(f.w){
+      d.innerHTML=`<div class="lab">${f.l}</div>`;
+      const w=document.createElement("div");w.className="wahl";w.setAttribute("role","group");
+      f.w.forEach((o,k)=>{const b=document.createElement("button");b.type="button";b.textContent=o;
+        b.setAttribute("aria-pressed",s.v[j]===k);
+        if(done){b.disabled=true;if(k===f.a&&(s.v[j]===k||!ok))b.classList.add("ok");if(k===s.v[j]&&k!==f.a)b.classList.add("bad");}
+        b.addEventListener("click",()=>{eintrag(q.id).v[j]=k;save();render(q.id);});
+        w.appendChild(b);});
+      d.appendChild(w);
+    } else {
+      d.innerHTML=`<label for="${fid}">${f.l}</label>`;
+      const z=document.createElement("div");z.className="zeile";
+      const el=f.frei?document.createElement("textarea"):document.createElement("input");
+      if(!f.frei){el.type="text";el.autocomplete="off";el.spellcheck=false;if("z" in f)el.inputMode="decimal";if(f.k)el.className="lang";if(f.ph)el.placeholder=f.ph;}
+      el.id=fid;el.value=s.v[j]||"";el.disabled=done;
+      el.addEventListener("input",()=>{eintrag(q.id).v[j]=el.value;save();c.querySelector(".hinweis").textContent="";});
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"&&!f.frei){e.preventDefault();pruefe(q,c);}});
+      z.appendChild(el);
+      if(f.u){const u=document.createElement("span");u.className="einheit";u.textContent=f.u;z.appendChild(u);}
+      d.appendChild(z);
+    }
+    if(done&&ok===false){const r=document.createElement("div");r.className="richtig";r.textContent="Richtig: "+(f.k?q.m:richtigText(f));d.appendChild(r);}
+    c.appendChild(d);
+  });
+  const h=document.createElement("div");h.className="hinweis";h.setAttribute("aria-live","polite");c.appendChild(h);
+  const k=document.createElement("div");k.className="knoepfe";
+  if(!done){
+    const p=document.createElement("button");p.type="button";p.className="pruefen";p.textContent="Prüfen";p.addEventListener("click",()=>pruefe(q,c));k.appendChild(p);
+  } else {
+    const frei=q.f.some(f=>f.frei);
+    const e=document.createElement("div");e.className="expl"+(res?" gut":"");
+    if(frei){
+      e.innerHTML="<b>Musterlösung:</b> "+q.m+"<br>"+q.e;
+      c.insertBefore(e,h);
+      if(s.selbst===undefined){
+        const a=document.createElement("button");a.type="button";a.textContent="Hatte ich richtig";a.addEventListener("click",()=>{st[q.id].selbst=true;save();render(q.id)});
+        const b=document.createElement("button");b.type="button";b.textContent="Hatte ich nicht";b.addEventListener("click",()=>{st[q.id].selbst=false;save();render(q.id)});
+        k.append(a,b);
+      }
+    } else {
+      e.innerHTML=(res?"<b>Richtig!</b> ":"<b>Noch nicht ganz.</b> ")+q.e; c.insertBefore(e,h);
+    }
+    const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.addEventListener("click",()=>{delete st[q.id];save();render(q.id)});k.appendChild(r);
+  }
+  c.appendChild(k);
+  return c;
+}
+
+function render(fokus){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  const fs=fragen(); list.innerHTML=""; let shown=0;
+  fs.forEach((q,i)=>{ if(onlyWrong&&ergebnis(q)!==false) return; shown++; list.appendChild(karte(q,i+1)); });
+  if(!shown){const p=document.createElement("p");p.className="empty";p.textContent=onlyWrong?"Keine falschen Aufgaben in diesem Teil.":"Keine Aufgaben.";list.appendChild(p);}
+  const done=fs.filter(q=>ergebnis(q)!==undefined).length, right=fs.filter(q=>ergebnis(q)===true).length;
+  document.getElementById("count").textContent=`${right} richtig · ${done}/${fs.length} geprüft`;
+  document.getElementById("fill").style.width=(fs.length?right/fs.length*100:0)+"%";
+  if(fokus!==undefined){const el=document.getElementById("q"+fokus);if(el){const r=el.getBoundingClientRect();if(r.top<60||r.bottom>innerHeight)el.scrollIntoView({block:"nearest"});}}
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

@@ -1,0 +1,220 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
+<title>Erfolgskonten und Kennzahlen: Übungen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#5f5a52;--line:#ddd7cc;--accent:#0f766e;--accent-soft:#f3e8d8;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161513;--paper:#211f1c;--ink:#ece8e1;--muted:#a59e92;--line:#38342e;--accent:#e0a45c;--accent-soft:#3a2c1a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:28px 90px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.merk{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:15px}
+.merk summary{font-weight:600;cursor:pointer}
+.merk ul{margin:8px 0 2px;padding-left:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+button{font:600 15px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:8px 13px;cursor:pointer;min-height:40px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#1a140c}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:12px}
+.card.ok{border-color:var(--ok)}.card.bad{border-color:var(--bad)}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.card h3 .t{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.feld{display:grid;gap:6px}
+.feld>label,.feld>.lab{font-size:15px;color:var(--muted)}
+.zeile{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input[type=text],textarea{font:500 17px "JetBrains Mono",monospace;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;width:11em;max-width:100%}
+input.lang{width:100%;font-family:"Source Sans 3",sans-serif}
+textarea{width:100%;min-height:90px;font:16px/1.45 "Source Sans 3",sans-serif}
+.einheit{color:var(--muted);font-size:15px}
+.wahl{display:flex;flex-wrap:wrap;gap:6px}
+.wahl button{font-weight:400;text-align:left}
+.wahl button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.feld.ok input,.feld.ok textarea{border-color:var(--ok);background:var(--ok-soft)}
+.feld.bad input,.feld.bad textarea{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button.ok{border-color:var(--ok);background:var(--ok-soft)}
+.wahl button.bad{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button[disabled]{cursor:default;color:var(--ink)}
+.richtig{font-size:15px;color:var(--ok);font-weight:600}
+.knoepfe{display:flex;gap:8px;flex-wrap:wrap}
+.pruefen{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pruefen{color:#1a140c}}
+.expl{border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.expl.gut{border-left-color:var(--ok)}
+.hinweis{color:var(--bad);font-size:14px}
+.hinweis:empty{display:none}
+.empty{color:var(--muted);padding:20px 0}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Rechnungswesen</div>
+  <h1>Erfolgskonten und Kennzahlen: Übungen</h1>
+  <p class="intro">Antwort eintippen oder antippen, dann <b>Prüfen</b>. Kommazahlen gehen mit Komma oder Punkt. Bei Rechnungen reicht das Ergebnis, gerundet wie angegeben. Mit <b>Nur falsche zeigen</b> übst du gezielt deine Fehler. Dein Stand bleibt in diesem Browser gespeichert.</p>
+  <details class="merk"><summary>Zum Nachschauen</summary><ul>
+    <li>Aufwand im Soll, Ertrag im Haben</li>
+    <li>Erfolgskonten → GuV → Gewinn ins Eigenkapital (GuV an EK)</li>
+    <li>Kennzahlen: Teil durch Ganzes × 100</li>
+  </ul></details>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar">
+    <div class="progress" aria-hidden="true"><i id="fill"></i></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tools">
+    <button id="onlyWrong" type="button" aria-pressed="false">Nur falsche zeigen</button>
+    <button id="reset" type="button">Diesen Teil zurücksetzen</button>
+  </div>
+  <div id="list"></div>
+  <footer>Selbst erstellt aus Hefteinträgen und Arbeitsblättern der Meisterschule, Stand 26.11.2026. Nicht vom Lehrer, ohne Gewähr.</footer>
+</div>
+<script>
+const AE=["Aufwand","Ertrag"];
+const Q=[
+{t:"Erfolgskonten",q:"Aufwand oder Ertrag?",f:[{l:"Löhne und Gehälter",w:AE,a:0},{l:"Zinserträge",w:AE,a:1},{l:"Miete, die wir zahlen",w:AE,a:0},{l:"Umsatzerlöse",w:AE,a:1},{l:"Büromaterial",w:AE,a:0},{l:"Mieterträge",w:AE,a:1}],
+ e:"Was Geld kostet → <b>Aufwand</b>. Was Geld bringt → <b>Ertrag</b>."},
+{t:"Erfolgskonten",q:"Wo wird gebucht?",f:[{l:"Aufwand",w:["Soll","Haben"],a:0},{l:"Ertrag",w:["Soll","Haben"],a:1}],
+ e:"Aufwand im <b>Soll</b>, Ertrag im <b>Haben</b>."},
+{t:"Erfolgskonten",q:"Abschluss der Erfolgskonten.",f:[{l:"Erfolgskonten werden abgeschlossen über das …",w:["GuV-Konto","Schlussbilanzkonto","Eröffnungsbilanzkonto"],a:0},{l:"Der Gewinn geht ins …",w:["Eigenkapital","Fremdkapital","Bank"],a:0},{l:"Buchungssatz für den Gewinn",w:["GuV an Eigenkapital","Eigenkapital an GuV","GuV an SBK"],a:0}],
+ e:"Erfolgskonten → <b>GuV</b>. Gewinn → <b>Eigenkapital</b>, Buchung <b>GuV an EK</b>. Danach Bestandskonten und EK über das SBK."},
+{t:"Erfolgskonten",q:"GuV: Erträge <b>250.000 €</b>, Aufwendungen <b>210.000 €</b>.",f:[{l:"Gewinn",z:40000,u:"€"},{l:"Das Eigenkapital …",w:["steigt","sinkt","bleibt gleich"],a:0}],
+ e:"250.000 − 210.000 = <b>40.000 € Gewinn</b> → Eigenkapital <b>steigt</b>."},
+{t:"Finanzierungsregeln",q:"Welche Regel ist gemeint?",f:[{l:"EK : FK möglichst 1 : 1",w:["Kapitalstrukturregel","Goldene Bilanzregel","Goldene Finanzierungsregel"],a:0},{l:"Anlagevermögen durch EK und langfristiges FK finanzieren",w:["Kapitalstrukturregel","Goldene Bilanzregel","Goldene Finanzierungsregel"],a:1},{l:"Kapital so lange binden, wie es zur Verfügung steht",w:["Kapitalstrukturregel","Goldene Bilanzregel","Goldene Finanzierungsregel"],a:2}],
+ e:"<b>Kapitalstrukturregel</b> (Stabilität) 1 : 1. <b>Goldene Bilanzregel</b> (Liquidität): AV langfristig finanzieren. <b>Goldene Finanzierungsregel</b>: Bindungsdauer = Fristigkeit."},
+{t:"Kennzahlen",q:"Bilanz: AV <b>300.000 €</b>, UV <b>200.000 €</b>, EK <b>200.000 €</b>, FK <b>300.000 €</b>.",f:[{l:"Anlageintensität",z:60,tol:0.05,u:"%"},{l:"Eigenkapitalquote",z:40,tol:0.05,u:"%"},{l:"Anlagendeckung (2 Stellen)",z:66.67,tol:0.05,u:"%"}],
+ e:"Anlageintensität = AV : Gesamtvermögen = 300 / 500 = <b>60 %</b>. EK-Quote = 200 / 500 = <b>40 %</b>. Anlagendeckung = EK : AV = 200 / 300 = <b>66,67 %</b>."},
+{t:"Kennzahlen",q:"Gleiche Bilanz (EK 200.000 €, Gesamtkapital 500.000 €). Gewinn <b>30.000 €</b>, Zinsen für das FK <b>15.000 €</b>.",f:[{l:"Eigenkapitalrentabilität",z:15,tol:0.05,u:"%"},{l:"Gesamtkapitalrentabilität",z:9,tol:0.05,u:"%"}],
+ e:"EK-Rentabilität = Gewinn : EK = 30 / 200 = <b>15 %</b>. Gesamtkapitalrentabilität = (Gewinn + FK-Zinsen) : Gesamtkapital = 45 / 500 = <b>9 %</b>."},
+{t:"Kennzahlen",q:"Was wird durch was geteilt?",f:[{l:"Forderungsintensität",w:["FLL : Umlaufvermögen","FLL : Gesamtvermögen","FLL : Eigenkapital"],a:0},{l:"Vorratsintensität",w:["Vorräte : Umlaufvermögen","Vorräte : Gesamtvermögen","Vorräte : Anlagevermögen"],a:0}],
+ e:"Beide beziehen sich aufs <b>Umlaufvermögen</b>. Mal 100 ergibt Prozent."}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const TEILE=["Erfolgskonten","Finanzierungsregeln","Kennzahlen"];
+const AKTIV=(window.__TEIL&&__TEIL.length)?TEILE.filter(t=>__TEIL.includes(t)):TEILE;
+const SECS=AKTIV.length>1?["Alle",...AKTIV]:AKTIV;
+const KEY="rw-erfolg-uebung-v1";
+let st={};try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const eintrag=id=>st[id]||(st[id]={v:[]});
+let sec=0,onlyWrong=false;
+const deZahl=x=>x.toLocaleString("de-DE",{maximumFractionDigits:2});
+const norm=s=>String(s||"").toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]/g,"");
+function zahl(s){
+  s=String(s||"").replace(/[−–]/g,"-").replace(/\s|m²|m³|m2|m3/gi,"");
+  if(/,/.test(s)) s=s.replace(/\./g,"").replace(",",".");
+  else if(/^[1-9]\d{0,2}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,"");
+  const m=s.match(/-?\d+(\.\d+)?/); return m?parseFloat(m[0]):NaN;
+}
+function feldOk(f,v){
+  if(f.frei) return null;
+  if("z" in f){const n=zahl(v); if(isNaN(n))return false; const tol=f.tol!=null?f.tol:(Math.abs(f.z)<10?0.006:0.5); return Math.abs(n-f.z)<=tol;}
+  if(f.w) return v===f.a;
+  if(f.k){const n=norm(v); return f.k.every(g=>g.some(a=>n.includes(norm(a))));}
+}
+const richtigText=f=>"z" in f?(f.s||deZahl(f.z))+(f.u?" "+f.u:""):f.w?f.w[f.a]:"";
+function ergebnis(q){const s=st[q.id]; if(!s||!s.done) return undefined; if(q.f.some(f=>f.frei)) return s.selbst; return s.r.every(Boolean);}
+
+const tabs=document.getElementById("tabs"), list=document.getElementById("list");
+SECS.forEach((n,i)=>{const b=document.createElement("button");b.type="button";b.textContent=n;b.addEventListener("click",()=>{sec=i;render()});tabs.appendChild(b)});
+if(SECS.length===1)tabs.style.display="none";
+document.getElementById("onlyWrong").addEventListener("click",e=>{onlyWrong=!onlyWrong;e.currentTarget.setAttribute("aria-pressed",onlyWrong);e.currentTarget.textContent=onlyWrong?"Alle zeigen":"Nur falsche zeigen";render()});
+document.getElementById("reset").addEventListener("click",()=>{if(!confirm("Alle Antworten in diesem Teil löschen?"))return;fragen().forEach(q=>delete st[q.id]);save();render()});
+const fragen=()=>{const n=SECS[sec];return Q.filter(q=>AKTIV.includes(q.t)&&(n==="Alle"||q.t===n));};
+
+function pruefe(q,card){
+  const s=eintrag(q.id);
+  const leer=q.f.some((f,j)=>!f.frei&&(s.v[j]===undefined||s.v[j]===null||String(s.v[j]).trim()===""));
+  if(leer){card.querySelector(".hinweis").textContent="Bitte erst alles ausfüllen.";return;}
+  s.r=q.f.map((f,j)=>feldOk(f,s.v[j])); s.done=true; delete s.selbst; save(); render(q.id);
+}
+
+function karte(q,nr){
+  const s=st[q.id]||{v:[]}, done=!!s.done, res=ergebnis(q);
+  const c=document.createElement("section");c.className="card"+(res===true?" ok":res===false?" bad":"");c.id="q"+q.id;
+  c.innerHTML=`<h3><span class="t">${q.t}</span><span class="n">${nr}</span>${q.q}</h3>`;
+  q.f.forEach((f,j)=>{
+    const d=document.createElement("div");d.className="feld";
+    const ok=done?s.r[j]:null; if(ok===true)d.classList.add("ok"); if(ok===false)d.classList.add("bad");
+    const fid=`q${q.id}f${j}`;
+    if(f.w){
+      d.innerHTML=`<div class="lab">${f.l}</div>`;
+      const w=document.createElement("div");w.className="wahl";w.setAttribute("role","group");
+      f.w.forEach((o,k)=>{const b=document.createElement("button");b.type="button";b.textContent=o;
+        b.setAttribute("aria-pressed",s.v[j]===k);
+        if(done){b.disabled=true;if(k===f.a&&(s.v[j]===k||!ok))b.classList.add("ok");if(k===s.v[j]&&k!==f.a)b.classList.add("bad");}
+        b.addEventListener("click",()=>{eintrag(q.id).v[j]=k;save();render(q.id);});
+        w.appendChild(b);});
+      d.appendChild(w);
+    } else {
+      d.innerHTML=`<label for="${fid}">${f.l}</label>`;
+      const z=document.createElement("div");z.className="zeile";
+      const el=f.frei?document.createElement("textarea"):document.createElement("input");
+      if(!f.frei){el.type="text";el.autocomplete="off";el.spellcheck=false;if("z" in f)el.inputMode="decimal";if(f.k)el.className="lang";if(f.ph)el.placeholder=f.ph;}
+      el.id=fid;el.value=s.v[j]||"";el.disabled=done;
+      el.addEventListener("input",()=>{eintrag(q.id).v[j]=el.value;save();c.querySelector(".hinweis").textContent="";});
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"&&!f.frei){e.preventDefault();pruefe(q,c);}});
+      z.appendChild(el);
+      if(f.u){const u=document.createElement("span");u.className="einheit";u.textContent=f.u;z.appendChild(u);}
+      d.appendChild(z);
+    }
+    if(done&&ok===false){const r=document.createElement("div");r.className="richtig";r.textContent="Richtig: "+(f.k?q.m:richtigText(f));d.appendChild(r);}
+    c.appendChild(d);
+  });
+  const h=document.createElement("div");h.className="hinweis";h.setAttribute("aria-live","polite");c.appendChild(h);
+  const k=document.createElement("div");k.className="knoepfe";
+  if(!done){
+    const p=document.createElement("button");p.type="button";p.className="pruefen";p.textContent="Prüfen";p.addEventListener("click",()=>pruefe(q,c));k.appendChild(p);
+  } else {
+    const frei=q.f.some(f=>f.frei);
+    const e=document.createElement("div");e.className="expl"+(res?" gut":"");
+    if(frei){
+      e.innerHTML="<b>Musterlösung:</b> "+q.m+"<br>"+q.e;
+      c.insertBefore(e,h);
+      if(s.selbst===undefined){
+        const a=document.createElement("button");a.type="button";a.textContent="Hatte ich richtig";a.addEventListener("click",()=>{st[q.id].selbst=true;save();render(q.id)});
+        const b=document.createElement("button");b.type="button";b.textContent="Hatte ich nicht";b.addEventListener("click",()=>{st[q.id].selbst=false;save();render(q.id)});
+        k.append(a,b);
+      }
+    } else {
+      e.innerHTML=(res?"<b>Richtig!</b> ":"<b>Noch nicht ganz.</b> ")+q.e; c.insertBefore(e,h);
+    }
+    const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.addEventListener("click",()=>{delete st[q.id];save();render(q.id)});k.appendChild(r);
+  }
+  c.appendChild(k);
+  return c;
+}
+
+function render(fokus){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  const fs=fragen(); list.innerHTML=""; let shown=0;
+  fs.forEach((q,i)=>{ if(onlyWrong&&ergebnis(q)!==false) return; shown++; list.appendChild(karte(q,i+1)); });
+  if(!shown){const p=document.createElement("p");p.className="empty";p.textContent=onlyWrong?"Keine falschen Aufgaben in diesem Teil.":"Keine Aufgaben.";list.appendChild(p);}
+  const done=fs.filter(q=>ergebnis(q)!==undefined).length, right=fs.filter(q=>ergebnis(q)===true).length;
+  document.getElementById("count").textContent=`${right} richtig · ${done}/${fs.length} geprüft`;
+  document.getElementById("fill").style.width=(fs.length?right/fs.length*100:0)+"%";
+  if(fokus!==undefined){const el=document.getElementById("q"+fokus);if(el){const r=el.getBoundingClientRect();if(r.top<60||r.bottom>innerHeight)el.scrollIntoView({block:"nearest"});}}
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

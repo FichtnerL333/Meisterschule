@@ -1,0 +1,234 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
+<title>Kalkulation: Übungen zum Eintippen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#5f5a52;--line:#ddd7cc;--accent:#475569;--accent-soft:#f3e8d8;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161513;--paper:#211f1c;--ink:#ece8e1;--muted:#a59e92;--line:#38342e;--accent:#e0a45c;--accent-soft:#3a2c1a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:28px 90px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.merk{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:15px}
+.merk summary{font-weight:600;cursor:pointer}
+.merk ul{margin:8px 0 2px;padding-left:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+button{font:600 15px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:8px 13px;cursor:pointer;min-height:40px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#1a140c}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:12px}
+.card.ok{border-color:var(--ok)}.card.bad{border-color:var(--bad)}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.card h3 .t{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.feld{display:grid;gap:6px}
+.feld>label,.feld>.lab{font-size:15px;color:var(--muted)}
+.zeile{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input[type=text],textarea{font:500 17px "JetBrains Mono",monospace;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;width:11em;max-width:100%}
+input.lang{width:100%;font-family:"Source Sans 3",sans-serif}
+textarea{width:100%;min-height:90px;font:16px/1.45 "Source Sans 3",sans-serif}
+.einheit{color:var(--muted);font-size:15px}
+.wahl{display:flex;flex-wrap:wrap;gap:6px}
+.wahl button{font-weight:400;text-align:left}
+.wahl button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.feld.ok input,.feld.ok textarea{border-color:var(--ok);background:var(--ok-soft)}
+.feld.bad input,.feld.bad textarea{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button.ok{border-color:var(--ok);background:var(--ok-soft)}
+.wahl button.bad{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button[disabled]{cursor:default;color:var(--ink)}
+.richtig{font-size:15px;color:var(--ok);font-weight:600}
+.knoepfe{display:flex;gap:8px;flex-wrap:wrap}
+.pruefen{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pruefen{color:#1a140c}}
+.expl{border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.expl.gut{border-left-color:var(--ok)}
+.hinweis{color:var(--bad);font-size:14px}
+.hinweis:empty{display:none}
+.empty{color:var(--muted);padding:20px 0}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Kalkulation</div>
+  <h1>Kalkulation: Übungen zum Eintippen</h1>
+  <p class="intro">Antwort eintippen oder antippen, dann <b>Prüfen</b>. Kommazahlen gehen mit Komma oder Punkt. Bei Rechnungen reicht das Ergebnis, gerundet wie angegeben. Mit <b>Nur falsche zeigen</b> übst du gezielt deine Fehler. Dein Stand bleibt in diesem Browser gespeichert.</p>
+  <details class="merk"><summary>Zum Nachschauen</summary><ul>
+    <li>EKT + BGK = Herstellkosten · + AGK = Selbstkosten · + WuG = Angebot netto</li>
+    <li>Umlagekosten = BGK + AGK + WuG = Angebot − EKT</li>
+    <li>WuG vom Angebot: Selbstkosten durch 0,95 teilen (bei 5 %)</li>
+    <li>Zuschlag = Anteil der Umlage ÷ Einzelkosten × 100</li>
+    <li>AGK in % = AGK × 100 / Umsatz netto</li>
+  </ul></details>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar">
+    <div class="progress" aria-hidden="true"><i id="fill"></i></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tools">
+    <button id="onlyWrong" type="button" aria-pressed="false">Nur falsche zeigen</button>
+    <button id="reset" type="button">Diesen Teil zurücksetzen</button>
+  </div>
+  <div id="list"></div>
+  <footer>Selbst erstellt aus Hefteinträgen und Arbeitsblättern der Meisterschule, Stand 26.11.2026. Nicht vom Lehrer, ohne Gewähr. Für die SA am 30.11.2026. Große Beträge gehen auch mit Tausenderpunkt (1.007.290).</footer>
+</div>
+<script>
+const KA=["EKT","BGK","AGK"];
+const Q=[
+{t:"Kostenarten",q:"Welche Kostenart? (1)",f:[{l:"Transportbeton",w:KA,a:0},{l:"Bauleitung",w:KA,a:1},{l:"Büromiete",w:KA,a:2},{l:"Schalung für eine Position",w:KA,a:0},{l:"Unternehmerlohn",w:KA,a:2}],
+ e:"<b>EKT</b> = direkt einer Position zuzuordnen. <b>BGK</b> = gehört zur Baustelle, aber zu keiner Position. <b>AGK</b> = ganzer Betrieb."},
+{t:"Kostenarten",q:"Welche Kostenart? (2)",f:[{l:"Nägel, Draht, Schalöl",w:KA,a:1},{l:"Vorarbeitergehalt",w:KA,a:1},{l:"Fuhrpark",w:KA,a:2},{l:"Lohnstunden",w:KA,a:0},{l:"Bauwagen, Bürocontainer vorhalten",w:KA,a:1}],
+ e:"Hilfsstoffe und Vorhaltung der Baustelleneinrichtung → <b>BGK</b>. Vorarbeitergehalt (Übung 3) → <b>BGK</b>. Fuhrpark → <b>AGK</b>. Lohnstunden → <b>EKT</b>."},
+{t:"Kostenarten",q:"<b>Fangfrage:</b> Zu welcher Kostenart gehört der Gewinn?",f:[{l:"Antwort",w:["EKT","BGK","AGK","zu keiner"],a:3}],
+ e:"Gewinn lässt sich <b>keiner Kostenart</b> zuordnen."},
+{t:"Kostenarten",q:"Gehaltszusatzkosten gehen dorthin, wo das Gehalt steht.",f:[{l:"Gehaltszusatzkosten Verwaltung",w:KA,a:2},{l:"Gehaltszusatzkosten Vorarbeiter",w:KA,a:1}],
+ e:"Verwaltung → <b>AGK</b>, Vorarbeiter → <b>BGK</b>."},
+{t:"Kostenarten",q:"AGK <b>319.550 €</b>, Jahresumsatz netto <b>2.905.000 €</b>. AGK in Prozent?",f:[{l:"AGK",z:11,u:"%"}],
+ e:"AGK × 100 / Umsatz netto = 319.550 · 100 / 2.905.000 = <b>11 %</b>."},
+{t:"Kalkulationsschema",q:"Das Schema der Reihe nach.",f:[{l:"EKT + BGK =",w:["Herstellkosten","Selbstkosten","Angebotssumme netto"],a:0},{l:"HK + AGK =",w:["Herstellkosten","Selbstkosten","Angebotssumme netto"],a:1},{l:"SK + Wagnis und Gewinn =",w:["Herstellkosten","Selbstkosten","Angebotssumme netto"],a:2}],
+ e:"EKT + BGK = <b>HK</b>. HK + AGK = <b>SK</b>. SK + WuG = <b>Angebotssumme netto</b>. BGK + AGK + WuG = <b>Umlagekosten</b>."},
+{t:"Kalkulationsschema",q:"Lohn <b>680.450 €</b>, Einzelstoff <b>326.840 €</b>, BGK <b>281.190 €</b>, AGK <b>283.465,60 €</b>, Umsatz <b>1.738.433 €</b>.",f:[{l:"EKT",z:1007290,u:"€"},{l:"Herstellkosten",z:1288480,u:"€"},{l:"Selbstkosten",z:1571945.6,u:"€"},{l:"Wagnis und Gewinn",z:166487.4,u:"€"},{l:"WuG in % vom Umsatz",z:9.577,s:"9,58",tol:0.01,u:"%"}],
+ e:"EKT 1.007.290 · HK 1.288.480 · SK 1.571.945,60 · WuG = 1.738.433 − 1.571.945,60 = <b>166.487,40 €</b> = <b>9,58 %</b>."},
+{t:"Kalkulationsschema",q:"Angebot netto <b>4.527.387,12 €</b>, EKT <b>2.882.297 €</b>. Wie hoch sind die Umlagekosten?",f:[{l:"Umlagekosten",z:1645090.12,tol:1,u:"€"}],
+ e:"Angebotssumme − EKT = <b>1.645.090,12 €</b>."},
+{t:"Kalkulationsschema",q:"Selbstkosten <b>1.042.600 €</b>, WuG <b>5 % vom Angebot</b>.",f:[{l:"Angebot netto",z:1097473.68,tol:1,u:"€"},{l:"Angebot brutto (19 %)",z:1305993.68,tol:1,u:"€"}],
+ e:"WuG vom Angebot → SK sind 95 % → 1.042.600 / 0,95 = <b>1.097.473,68 €</b>. Mal 1,19 = <b>1.305.993,68 €</b>. Nicht einfach mal 1,05!"},
+{t:"Verträge und Verfahren",q:"Welche Vertragsart passt?",f:[{l:"Abgerechnet wird die tatsächlich ausgeführte Menge.",w:["Einheitspreisvertrag","Pauschalpreisvertrag","Stundenlohnvertrag"],a:0},{l:"Leistung steht genau fest, kein Aufmaß nötig.",w:["Einheitspreisvertrag","Pauschalpreisvertrag","Stundenlohnvertrag"],a:1},{l:"Kleine, unklare Sanierungsarbeit.",w:["Einheitspreisvertrag","Pauschalpreisvertrag","Stundenlohnvertrag"],a:2}],
+ e:"Einheitspreis = Regelfall nach VOB. Pauschal = „Vertragsmengen gelten als gestrichen“. Stundenlohn = Bauen im Bestand, § 15 VOB/B."},
+{t:"Verträge und Verfahren",q:"Welches Kalkulationsverfahren?",f:[{l:"Großer Betrieb mit ganz unterschiedlichen Baustellen",w:["Umlageverfahren","Zuschlagsverfahren"],a:0},{l:"Kleiner Handwerksbetrieb mit ähnlichen Baustellen",w:["Umlageverfahren","Zuschlagsverfahren"],a:1},{l:"Beides ist eine …",w:["Vollkostenrechnung","Teilkostenrechnung"],a:0}],
+ e:"<b>Umlageverfahren</b> (über die Angebotsendsumme): aufwendig, genau. <b>Zuschlagsverfahren</b>: vorausberechnete Zuschläge. Beides <b>Vollkostenrechnung</b>."},
+{t:"Zuschläge",q:"Variante I: Umlage <b>204.000 €</b>, Schlüssel 80 % Lohn / 10 % Material / 5 % Geräte / 5 % Fremdleistung. EKT: Lohn 300.000, Material 150.000, Geräte 30.000, FL 20.000 €.",f:[{l:"Zuschlag Lohn",z:54.4,tol:0.05,u:"%"},{l:"Zuschlag Material",z:13.6,tol:0.05,u:"%"},{l:"Zuschlag Geräte",z:34,tol:0.05,u:"%"},{l:"Zuschlag Fremdleistung",z:51,tol:0.05,u:"%"}],
+ e:"Lohn: 204.000 · 0,8 = 163.200 / 300.000 = <b>54,4 %</b>. Material 20.400 / 150.000 = <b>13,6 %</b>. Geräte 10.200 / 30.000 = <b>34 %</b>. FL 10.200 / 20.000 = <b>51 %</b>."},
+{t:"Zuschläge",q:"Fehlender Lohnzuschlag: Umlage <b>1.645.090,12 €</b>. Material 1.134.246 € (+16 %), Geräte 353.217 € (+8 %), FL 409.772 € (+4 %), Lohn 985.062 €.",f:[{l:"Rest für Lohn",z:1418962.52,tol:1,u:"€"},{l:"Lohnzuschlag",z:144.05,tol:0.05,u:"%"}],
+ e:"Material 181.479,36 + Geräte 28.257,36 + FL 16.390,88 = 226.127,60 €. Rest <b>1.418.962,52 €</b> / 985.062 = <b>144,05 %</b>. Über 100 %, weil der Rest größer ist als der Lohn (im Heft fehlt die 1)."},
+{t:"Zuschläge",q:"Zimmerer-Aufgabe: Löhne 210.000 €, Stoff 200.000 €, FL 6.250 €, BGK 184.250 €, AGK 20 % und WuG 5 % vom Netto-Umsatz. Ohne Cent.",f:[{l:"EKT",z:416250,u:"€"},{l:"Herstellkosten",z:600500,u:"€"},{l:"Umsatz netto",z:800667,tol:1,u:"€"},{l:"Lohnzuschlag, wenn Stoff 10 % und FL 5 % (1 Stelle)",z:173.38,tol:0.1,u:"%"}],
+ e:"HK = 75 % vom Umsatz → 600.500 / 0,75 = <b>800.667 €</b>. Zuschlagssumme 384.417 € − Stoff 20.000 − FL 313 = 364.104 € → / 210.000 = <b>173,4 %</b>. (Selbst gerechnet, mit dem Lehrer vergleichen.)"}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const TEILE=["Kostenarten","Kalkulationsschema","Verträge und Verfahren","Zuschläge"];
+const AKTIV=(window.__TEIL&&__TEIL.length)?TEILE.filter(t=>__TEIL.includes(t)):TEILE;
+const SECS=AKTIV.length>1?["Alle",...AKTIV]:AKTIV;
+const KEY="kalkulation-uebung-v1";
+let st={};try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const eintrag=id=>st[id]||(st[id]={v:[]});
+let sec=0,onlyWrong=false;
+const deZahl=x=>x.toLocaleString("de-DE",{maximumFractionDigits:2});
+const norm=s=>String(s||"").toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]/g,"");
+function zahl(s){
+  s=String(s||"").replace(/[−–]/g,"-").replace(/\s|m²|m³|m2|m3/gi,"");
+  if(/,/.test(s)) s=s.replace(/\./g,"").replace(",",".");
+  else if(/^[1-9]\d{0,2}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,"");
+  const m=s.match(/-?\d+(\.\d+)?/); return m?parseFloat(m[0]):NaN;
+}
+function feldOk(f,v){
+  if(f.frei) return null;
+  if("z" in f){const n=zahl(v); if(isNaN(n))return false; const tol=f.tol!=null?f.tol:(Math.abs(f.z)<10?0.006:0.5); return Math.abs(n-f.z)<=tol;}
+  if(f.w) return v===f.a;
+  if(f.k){const n=norm(v); return f.k.every(g=>g.some(a=>n.includes(norm(a))));}
+}
+const richtigText=f=>"z" in f?(f.s||deZahl(f.z))+(f.u?" "+f.u:""):f.w?f.w[f.a]:"";
+function ergebnis(q){const s=st[q.id]; if(!s||!s.done) return undefined; if(q.f.some(f=>f.frei)) return s.selbst; return s.r.every(Boolean);}
+
+const tabs=document.getElementById("tabs"), list=document.getElementById("list");
+SECS.forEach((n,i)=>{const b=document.createElement("button");b.type="button";b.textContent=n;b.addEventListener("click",()=>{sec=i;render()});tabs.appendChild(b)});
+if(SECS.length===1)tabs.style.display="none";
+document.getElementById("onlyWrong").addEventListener("click",e=>{onlyWrong=!onlyWrong;e.currentTarget.setAttribute("aria-pressed",onlyWrong);e.currentTarget.textContent=onlyWrong?"Alle zeigen":"Nur falsche zeigen";render()});
+document.getElementById("reset").addEventListener("click",()=>{if(!confirm("Alle Antworten in diesem Teil löschen?"))return;fragen().forEach(q=>delete st[q.id]);save();render()});
+const fragen=()=>{const n=SECS[sec];return Q.filter(q=>AKTIV.includes(q.t)&&(n==="Alle"||q.t===n));};
+
+function pruefe(q,card){
+  const s=eintrag(q.id);
+  const leer=q.f.some((f,j)=>!f.frei&&(s.v[j]===undefined||s.v[j]===null||String(s.v[j]).trim()===""));
+  if(leer){card.querySelector(".hinweis").textContent="Bitte erst alles ausfüllen.";return;}
+  s.r=q.f.map((f,j)=>feldOk(f,s.v[j])); s.done=true; delete s.selbst; save(); render(q.id);
+}
+
+function karte(q,nr){
+  const s=st[q.id]||{v:[]}, done=!!s.done, res=ergebnis(q);
+  const c=document.createElement("section");c.className="card"+(res===true?" ok":res===false?" bad":"");c.id="q"+q.id;
+  c.innerHTML=`<h3><span class="t">${q.t}</span><span class="n">${nr}</span>${q.q}</h3>`;
+  q.f.forEach((f,j)=>{
+    const d=document.createElement("div");d.className="feld";
+    const ok=done?s.r[j]:null; if(ok===true)d.classList.add("ok"); if(ok===false)d.classList.add("bad");
+    const fid=`q${q.id}f${j}`;
+    if(f.w){
+      d.innerHTML=`<div class="lab">${f.l}</div>`;
+      const w=document.createElement("div");w.className="wahl";w.setAttribute("role","group");
+      f.w.forEach((o,k)=>{const b=document.createElement("button");b.type="button";b.textContent=o;
+        b.setAttribute("aria-pressed",s.v[j]===k);
+        if(done){b.disabled=true;if(k===f.a&&(s.v[j]===k||!ok))b.classList.add("ok");if(k===s.v[j]&&k!==f.a)b.classList.add("bad");}
+        b.addEventListener("click",()=>{eintrag(q.id).v[j]=k;save();render(q.id);});
+        w.appendChild(b);});
+      d.appendChild(w);
+    } else {
+      d.innerHTML=`<label for="${fid}">${f.l}</label>`;
+      const z=document.createElement("div");z.className="zeile";
+      const el=f.frei?document.createElement("textarea"):document.createElement("input");
+      if(!f.frei){el.type="text";el.autocomplete="off";el.spellcheck=false;if("z" in f)el.inputMode="decimal";if(f.k)el.className="lang";if(f.ph)el.placeholder=f.ph;}
+      el.id=fid;el.value=s.v[j]||"";el.disabled=done;
+      el.addEventListener("input",()=>{eintrag(q.id).v[j]=el.value;save();c.querySelector(".hinweis").textContent="";});
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"&&!f.frei){e.preventDefault();pruefe(q,c);}});
+      z.appendChild(el);
+      if(f.u){const u=document.createElement("span");u.className="einheit";u.textContent=f.u;z.appendChild(u);}
+      d.appendChild(z);
+    }
+    if(done&&ok===false){const r=document.createElement("div");r.className="richtig";r.textContent="Richtig: "+(f.k?q.m:richtigText(f));d.appendChild(r);}
+    c.appendChild(d);
+  });
+  const h=document.createElement("div");h.className="hinweis";h.setAttribute("aria-live","polite");c.appendChild(h);
+  const k=document.createElement("div");k.className="knoepfe";
+  if(!done){
+    const p=document.createElement("button");p.type="button";p.className="pruefen";p.textContent="Prüfen";p.addEventListener("click",()=>pruefe(q,c));k.appendChild(p);
+  } else {
+    const frei=q.f.some(f=>f.frei);
+    const e=document.createElement("div");e.className="expl"+(res?" gut":"");
+    if(frei){
+      e.innerHTML="<b>Musterlösung:</b> "+q.m+"<br>"+q.e;
+      c.insertBefore(e,h);
+      if(s.selbst===undefined){
+        const a=document.createElement("button");a.type="button";a.textContent="Hatte ich richtig";a.addEventListener("click",()=>{st[q.id].selbst=true;save();render(q.id)});
+        const b=document.createElement("button");b.type="button";b.textContent="Hatte ich nicht";b.addEventListener("click",()=>{st[q.id].selbst=false;save();render(q.id)});
+        k.append(a,b);
+      }
+    } else {
+      e.innerHTML=(res?"<b>Richtig!</b> ":"<b>Noch nicht ganz.</b> ")+q.e; c.insertBefore(e,h);
+    }
+    const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.addEventListener("click",()=>{delete st[q.id];save();render(q.id)});k.appendChild(r);
+  }
+  c.appendChild(k);
+  return c;
+}
+
+function render(fokus){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  const fs=fragen(); list.innerHTML=""; let shown=0;
+  fs.forEach((q,i)=>{ if(onlyWrong&&ergebnis(q)!==false) return; shown++; list.appendChild(karte(q,i+1)); });
+  if(!shown){const p=document.createElement("p");p.className="empty";p.textContent=onlyWrong?"Keine falschen Aufgaben in diesem Teil.":"Keine Aufgaben.";list.appendChild(p);}
+  const done=fs.filter(q=>ergebnis(q)!==undefined).length, right=fs.filter(q=>ergebnis(q)===true).length;
+  document.getElementById("count").textContent=`${right} richtig · ${done}/${fs.length} geprüft`;
+  document.getElementById("fill").style.width=(fs.length?right/fs.length*100:0)+"%";
+  if(fokus!==undefined){const el=document.getElementById("q"+fokus);if(el){const r=el.getBoundingClientRect();if(r.top<60||r.bottom>innerHeight)el.scrollIntoView({block:"nearest"});}}
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>
