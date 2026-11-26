@@ -1,0 +1,372 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kontenplan SKR 03</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#0f766e;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Rechnungswesen">‹ Rechnungswesen</a>
+  <div class="fach"><i></i>Rechnungswesen, Lernzettel</div>
+  <h1>Kontenplan SKR 03</h1>
+  <p class="lead">Der Kontenplan der Schule zum Nachschlagen. Mit diesem Plan wird im Unterricht gebucht.</p>
+</div></header>
+<main><div class="in">
+<h2>Klasse 0 – Anlage- und Kapitalkonten</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Konto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0065</td>
+<td>Unbebaute Grundstücke</td>
+</tr>
+<tr>
+<td>0090</td>
+<td>Geschäftsbauten</td>
+</tr>
+<tr>
+<td>0210</td>
+<td>Maschinen</td>
+</tr>
+<tr>
+<td>0320</td>
+<td>Pkw</td>
+</tr>
+<tr>
+<td>0340</td>
+<td>Lkw</td>
+</tr>
+<tr>
+<td>0400</td>
+<td>Betriebs- und Geschäftsausstattung (BGA)</td>
+</tr>
+<tr>
+<td>0440</td>
+<td>Werkzeuge</td>
+</tr>
+<tr>
+<td>0480</td>
+<td>Geringwertige Wirtschaftsgüter (bis 800 €)</td>
+</tr>
+<tr>
+<td>0485</td>
+<td>Geringwertige Wirtschaftsgüter (größer 250 €, kleiner 1000 €)</td>
+</tr>
+<tr>
+<td>0640</td>
+<td>Verbindlichkeiten gegenüber Kreditinstituten (1 bis 5 Jahre)</td>
+</tr>
+<tr>
+<td>0800</td>
+<td>Eigenkapital</td>
+</tr>
+<tr>
+<td>0950</td>
+<td>Rückstellungen für Pensionen u. ä.</td>
+</tr>
+<tr>
+<td>0980</td>
+<td>Aktive Rechnungsabgrenzung</td>
+</tr>
+<tr>
+<td>0990</td>
+<td>Passive Rechnungsabgrenzung</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Klasse 1 – Finanz- und Privatkonten</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Konto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1000</td>
+<td>Kasse</td>
+</tr>
+<tr>
+<td>1210</td>
+<td>Sparkasse</td>
+</tr>
+<tr>
+<td>1220</td>
+<td>Volksbank</td>
+</tr>
+<tr>
+<td>1400</td>
+<td>Forderungen aus LL</td>
+</tr>
+<tr>
+<td>1460</td>
+<td>Zweifelhafte Forderungen</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Sonstige Forderungen</td>
+</tr>
+<tr>
+<td>1530</td>
+<td>Forderungen gegen Personal aus Lohn- und Gehaltsabrechnung</td>
+</tr>
+<tr>
+<td><strong>1575</strong></td>
+<td><strong>Vorsteuer</strong></td>
+</tr>
+<tr>
+<td>1600</td>
+<td>Verbindlichkeiten aus LL</td>
+</tr>
+<tr>
+<td>1701</td>
+<td>Sonstige Verbindlichkeiten</td>
+</tr>
+<tr>
+<td>1741</td>
+<td>Verbindlichkeiten aus Lohn- und Kirchensteuer</td>
+</tr>
+<tr>
+<td>1742</td>
+<td>Verbindlichkeiten im Rahmen der sozialen Sicherheit</td>
+</tr>
+<tr>
+<td>1748</td>
+<td>Verbindlichkeiten für Einbehaltungen von Arbeitnehmern</td>
+</tr>
+<tr>
+<td><strong>1775</strong></td>
+<td><strong>Umsatzsteuer</strong></td>
+</tr>
+<tr>
+<td>1800</td>
+<td>Privatkonto (Entnahmen, Einlagen)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Klasse 2 – Abgrenzungskonten</h2>
+<p>2000 Außerordentliche Aufwendungen · 2020 Periodenfremde Aufwendungen · 2100 Zinsen und ähnliche Aufwendungen · 2310 Verluste aus Abgang von Anlagevermögen · 2500 Außerordentliche Erträge · 2520 Periodenfremde Erträge · 2650 Zinsen und ähnliche Erträge · 2750 Grundstückserträge</p>
+<h2>Klasse 3 – Bestände an Verbrauchsstoffen</h2>
+<p>3970 Bestand Rohstoffe · 3971 Bestand Hilfs- und Betriebsstoffe · 3980 Bestand Handelswaren</p>
+<h2>Klasse 4 – Betriebliche Aufwendungen</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Konto</th>
+<th>Nr.</th>
+<th>Konto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4000</td>
+<td>Rohstoffverbrauch</td>
+<td>4320</td>
+<td>Gewerbesteuer</td>
+</tr>
+<tr>
+<td>4001</td>
+<td>Bezugskosten Rohstoffe</td>
+<td>4360</td>
+<td>Geschäftsversicherungen</td>
+</tr>
+<tr>
+<td>4002</td>
+<td>Nachlässe Rohstoffe (Preisnachlässe)</td>
+<td>4380</td>
+<td>Beiträge, Gebühren</td>
+</tr>
+<tr>
+<td>4020</td>
+<td>Hilfs- und Betriebsstoffverbrauch</td>
+<td>4500</td>
+<td>Fahrzeugkosten</td>
+</tr>
+<tr>
+<td>4021</td>
+<td>Bezugskosten Hilfs- und Betriebsstoffe</td>
+<td>4510</td>
+<td>Kfz-Steuer</td>
+</tr>
+<tr>
+<td>4022</td>
+<td>Nachlässe Hilfs- und Betriebsstoffe</td>
+<td>4520</td>
+<td>Kfz-Versicherungen</td>
+</tr>
+<tr>
+<td>4050</td>
+<td>Handelswareneingang</td>
+<td>4600</td>
+<td>Werbe- und Reisekosten</td>
+</tr>
+<tr>
+<td>4051</td>
+<td>Bezugskosten Handelswaren</td>
+<td>4800</td>
+<td>Reparatur/Instandhaltung techn. Anlagen und Maschinen</td>
+</tr>
+<tr>
+<td>4052</td>
+<td>Nachlässe Handelswaren</td>
+<td>4830</td>
+<td>Abschreibungen auf Sachanlagen</td>
+</tr>
+<tr>
+<td>4100</td>
+<td>Löhne und Gehälter</td>
+<td>4855</td>
+<td>Sofortabschreibung geringwertiger Wirtschaftsgüter</td>
+</tr>
+<tr>
+<td>4130</td>
+<td>Gesetzliche soziale Aufwendungen (AG-Anteil)</td>
+<td>4862</td>
+<td>Abschreibung auf den Sammelposten GWG</td>
+</tr>
+<tr>
+<td>4138</td>
+<td>Beiträge zur Berufsgenossenschaft</td>
+<td>4880</td>
+<td>Abschreibung auf Forderungen</td>
+</tr>
+<tr>
+<td>4190</td>
+<td>Aushilfslöhne</td>
+<td>4910</td>
+<td>Porto</td>
+</tr>
+<tr>
+<td>4199</td>
+<td>Pauschale Steuer für Aushilfen</td>
+<td>4920</td>
+<td>Telefon</td>
+</tr>
+<tr>
+<td>4210</td>
+<td>Miete und Pacht</td>
+<td>4930</td>
+<td>Bürobedarf</td>
+</tr>
+<tr>
+<td>4230</td>
+<td>Heizung</td>
+<td>4950</td>
+<td>Rechts- und Beratungskosten</td>
+</tr>
+<tr>
+<td>4240</td>
+<td>Gas, Strom, Wasser</td>
+<td>4970</td>
+<td>Nebenkosten des Geldverkehrs</td>
+</tr>
+<tr>
+<td>4250</td>
+<td>Reinigung</td>
+<td>4985</td>
+<td>Werkzeuge und Kleingeräte</td>
+</tr>
+<tr>
+<td>4260</td>
+<td>Instandhaltung betrieblicher Räume</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2>Klasse 7 – Bestände an Erzeugnissen</h2>
+<p>7000 Bestand unfertige Erzeugnisse und Leistungen · 7100 Bestand fertige Erzeugnisse und Waren</p>
+<h2>Klasse 8 – Erlöskonten</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Konto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8000</td>
+<td>Erlöse</td>
+</tr>
+<tr>
+<td>8720</td>
+<td>Erlösschmälerungen (Preisnachlässe)</td>
+</tr>
+<tr>
+<td>8820</td>
+<td>Erträge aus Abgang von Anlagevermögen</td>
+</tr>
+<tr>
+<td><strong>8900</strong></td>
+<td><strong>Eigenverbrauch (unentgeltliche Wertabgaben)</strong></td>
+</tr>
+<tr>
+<td>8960</td>
+<td>Bestandsveränderungen unfertige Erzeugnisse und Leistungen</td>
+</tr>
+<tr>
+<td>8980</td>
+<td>Bestandsveränderungen fertige Erzeugnisse</td>
+</tr>
+</tbody>
+</table></div>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

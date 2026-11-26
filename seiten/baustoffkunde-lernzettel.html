@@ -1,0 +1,826 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lernzettel Baustoffkunde</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#2f4fb5;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Baustoffkunde">‹ Baustoffkunde</a>
+  <div class="fach"><i></i>Baustoffkunde, Lernzettel</div>
+  <h1>Lernzettel Baustoffkunde</h1>
+  <p class="lead">Stoffkennwerte, Dämmstoffe, Kunststoffe, Bitumen und Abdichtungsbahnen. Fett ist, was im Unterricht betont wurde.</p>
+</div></header>
+<main><div class="in">
+<h2>Kurzfassung (das Wichtigste auf einen Blick)</h2>
+<ul>
+<li><strong>Dichten:</strong> Reindichte m/V (ohne Poren) ≥ Rohdichte m/(V+Vh) (mit Kornporen) ≥ Schüttdichte m/(V+Vh+Vz) (mit Hohlräumen zwischen Körnern).</li>
+<li><strong>Poren:</strong> geschlossen → Wärmedämmung, offen/kapillar → Schallschlucken.</li>
+<li><strong>Kennwerte:</strong> λ in W/(m·K) (Dämmstoff ≤ 0,1; Luft 0,025) · μ ohne Einheit, sd = μ · s · c in kJ/(kg·K) (Holzfaser 2,1 → sommerlicher Wärmeschutz) · εT = αT · ΔT.</li>
+<li><strong>Bauregelliste:</strong> B = CE, A = Ü-Zeichen, C = kein Zeichen.</li>
+<li><strong>Brandklassen:</strong> A1/A2 nichtbrennbar, B1 schwer, B2 normal, B3 leicht entflammbar (verboten). s = Rauch, d = Abtropfen.</li>
+<li><strong>Dämmstoff-Kürzel:</strong> DAD, DUK, DZ, DEO/DES (ohne/mit Trittschall), WAP, WI, WZ, PW/PB. Gegen Erdreich XPS oder Schaumglas, nicht EPS.</li>
+<li><strong>Kunststoffe:</strong> Polymerisation (gleiche Moleküle, nichts abgespalten), Polykondensation (spaltet Wasser/Ammoniak ab, nicht umkehrbar), Polyaddition (zwei Stoffe, nichts abgespalten). Thermoplast schweißbar, Duroplast nicht, Elastomer gummielastisch, Silikon nicht überstreichbar.</li>
+<li><strong>Bitumen:</strong> Rückstand der Erdöldestillation, Thermoplast, Erweichungspunkt statt Schmelzpunkt. Teer ist Gefahrstoff (PAK), Bitumen nicht.</li>
+<li><strong>Bahnen:</strong> R/G/V/PV = Träger, Zahl = g/m², N/D/DD/S5 = Bahnart (S-Zahl = mm). DO/DZ/DU/DE = Lage, E1–E4 = Beanspruchung. PVC günstig, aber nicht UV-beständig; FPO UV-beständig.</li>
+<li><strong>Stahl:</strong> Roheisen (viel C, spröde) → Frischen mit Sauerstoff → Stahl (≤ 2 % C). C45 = 0,45 % C, S235 = Streckgrenze 235 N/mm². Cor-Ten bildet schützende Rost-Patina, Edelstahl mit bis 25 % Chrom.</li>
+</ul>
+<h2>1. Stoffkennwerte</h2>
+<h3>Einteilung der Baustoffe</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Gruppe</th>
+<th>Art</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baumetalle</td>
+<td><strong>metallisch</strong></td>
+<td>Stahl, Eisen, Aluminium, Zink, Blei, Kupfer</td>
+</tr>
+<tr>
+<td>Mineralische Baustoffe</td>
+<td><strong>nichtmetallisch-anorganisch</strong> ("unbelebte Natur")</td>
+<td>Naturstein, Ziegel, Fliesen, Kalksandstein, Glas, Zement, Kalk, Gips</td>
+</tr>
+<tr>
+<td>Natürliche und künstliche Polymere</td>
+<td><strong>organisch</strong> ("belebte Natur + Kunststoffe")</td>
+<td>Bitumen, Cellulosefasern, Kunststoffe, <strong>Holz</strong></td>
+</tr>
+<tr>
+<td><strong>Verbundbaustoffe</strong></td>
+<td>Mischung aus den drei</td>
+<td>Mörtel, Beton, Stahl-/Spannbeton, Mauerwerk, faserverstärkte Kunststoffe, Holz (natürlicher Verbundbaustoff)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Anforderungen an Baustoffe</h3>
+<ul>
+<li><strong>Technische Einsetzbarkeit:</strong> mechanisch (Festigkeit, Härte, Elastizität, Zähigkeit, Temperaturbeständigkeit, Verschleiß), <strong>Feuerwiderstand</strong> (Entflammbarkeit, Brennbarkeit, Giftigkeit, Hochtemperaturverhalten), physikalisch-chemisch (Dichte, Wärme-/Feuchte-/Schall-/Lichtverhalten, Korrosion).</li>
+<li><strong>Form- und Fügbarkeit:</strong> gießen, formen, verarbeiten, schweißen, kleben.</li>
+<li><strong>Wirtschaftlichkeit:</strong> günstig zu gewinnen und herzustellen, <strong>Wiederverwertbarkeit (!)</strong>, geringe Umweltbelastung.</li>
+</ul>
+<h3>Bauregelliste (BayBO)</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Liste</th>
+<th>Was</th>
+<th>Kennzeichen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B</strong></td>
+<td>Europäisch geregelte Produkte (Teil 1 Verwendungsbeschränkungen, Teil 2 zusätzliche Nachweise)</td>
+<td><strong>CE-Zeichen</strong></td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>National geregelt (Teil 1 technische Regeln, Teil 2 allg. bauaufsichtliche Zulassung/Prüfzeugnis, Teil 3 nicht geregelte Bauarten)</td>
+<td><strong>Ü-Zeichen</strong></td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>Untergeordnete Produkte ohne Regeln</td>
+<td><strong>kein</strong> Nachweis, <strong>kein</strong> Ü-Zeichen</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Masse und Dichten</h3>
+<ul>
+<li>1 kg wirkt auf der Erde mit ≈ <strong>10 N</strong>.</li>
+<li>Einheiten: g/cm³ = kg/dm³ = t/m³ = 1000 kg/m³; <strong>1 L = 1 dm³</strong>.</li>
+</ul>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Formel</th>
+<th>Welches Volumen?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(Rein-)Dichte</strong> ρ</td>
+<td>m / V</td>
+<td>nur der feste Stoff, <strong>ohne Poren</strong> (Stoff zermahlen)</td>
+</tr>
+<tr>
+<td><strong>Rohdichte</strong> ρR</td>
+<td>m / (V + Vh)</td>
+<td>Korn <strong>mit seinen eigenen Poren</strong></td>
+</tr>
+<tr>
+<td><strong>Schüttdichte</strong> ρS</td>
+<td>m / (V + Vh + Vz)</td>
+<td>Korn + Poren + <strong>Hohlräume zwischen den Körnern</strong> (Messgefäß A·h)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Merksatz: Dichte ≥ Rohdichte ≥ Schüttdichte. Feuchter Sand liegt lockerer → kleinere Schüttdichte.</p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Baustoff (kg/dm³)</th>
+<th>Dichte</th>
+<th>Rohdichte</th>
+<th>Schüttdichte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zement</td>
+<td>2,85–3,20</td>
+<td>–</td>
+<td>0,9–1,9</td>
+</tr>
+<tr>
+<td>Normale Gesteinskörnung</td>
+<td>2,6–3,1</td>
+<td>2,0–3,1</td>
+<td>1,1–1,6</td>
+</tr>
+<tr>
+<td>Normalbeton</td>
+<td>2,5–3,0</td>
+<td>2,0–2,8</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Stahl</td>
+<td>7,8–7,9</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Holz</td>
+<td>1,5–1,6</td>
+<td>0,10–1,23</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Porosität</h3>
+<ul>
+<li>Der Porengehalt beeinflusst Roh-/Schüttdichte und <strong>das Verhalten gegenüber Flüssigkeiten und Gasen</strong>. Wichtig sind <strong>Art, Form, Größe und Verteilung</strong> der Poren.</li>
+<li><strong>Geschlossene</strong> Poren (nicht füllbar, z. B. <strong>XPS</strong>), <strong>Kapillarporen</strong> (offen, z. B. EPS), Haufwerksporen. Offene Porenformen: Sackpore, Flaschenhalspore, durchgehende Pore.</li>
+<li>Größen: Mikroporen &lt; 10⁻⁷ m, Kapillarporen 10⁻⁷ bis 10⁻³ m, Makroporen ≥ 10⁻³ m.</li>
+<li>Porosität beeinflusst <strong>Rohdichte, Festigkeit</strong>, E-Modul, <strong>Eindringen von Wasser/Gasen (kapillares Saugen)</strong>, Frost/Korrosion, <strong>Wärmeleitfähigkeit, Volumenstabilität</strong>.</li>
+<li><strong>Geschlossene Poren → bessere Wärmedämmung. Offene/kapillare Poren → besserer Schallschutz (Schallschlucken).</strong></li>
+</ul>
+<h3>Formänderungen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th>sofort</th>
+<th>zeitabhängig</th>
+<th>ohne Last</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>umkehrbar</strong></td>
+<td><strong>elastisch</strong></td>
+<td>verzögert elastisch</td>
+<td>Wärmedehnung, Feuchtedehnung (Schwinden/Quellen)</td>
+</tr>
+<tr>
+<td><strong>nicht umkehrbar</strong></td>
+<td><strong>plastisch</strong></td>
+<td><strong>viskos</strong> (z. B. Glas, Bitumen)</td>
+<td>chemisch (Schrumpfen, Treiben)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Wärmedehnung:</strong> εT = αT · ΔT, αT in 1/K (meist 10⁻⁶/K). Stahl 12 und Beton 10 (Rechenwerte) – fast gleich, deshalb funktioniert Stahlbeton. Aluminium 23–24, Kunststoffe 10–230, Holz quer zur Faser 15–60.</li>
+<li><strong>Wasseranomalie:</strong> Wasser hat bei etwa 4 °C das kleinste Volumen, beim Gefrieren dehnt es sich aus → Frostschäden.</li>
+<li><strong>Feuchtedehnung:</strong> <strong>Schwinden</strong> = kleiner beim Austrocknen, <strong>Quellen</strong> = größer bei Nässe. Vor allem Holz ("Arbeiten") und mineralische Baustoffe, meist umkehrbar. Endschwindmaß: Beton 0,1–1,0 mm/m, Mauerwerk 0–0,6 mm/m, Holz tangential bis 130 mm/m.</li>
+</ul>
+<h3>Dampfdiffusionswiderstand</h3>
+<ul>
+<li>Kennzahl <strong>μ</strong> (ohne Einheit) nach DIN V 4108-4; <strong>sd = μ · s</strong> (s = Dicke in m) = "wie viele Meter Luft".</li>
+<li>Beispiel aus dem Skript: Putz 15 mm → 15 · 0,015 = <strong>0,225 m</strong>; PVC-Folie 0,1 mm → 20 000 · 0,0001 = <strong>2 m</strong>. Die dünne Folie bremst also viel stärker.</li>
+<li>Richtwerte μ: Mineralwolle 1, pflanzliche Dämmstoffe 2–10, Schaumkunststoffe 20–250, Normalbeton 70/150, Vollholz 40, Bitumendachbahn bis 80 000, <strong>Schaumglas und Alufolie praktisch dampfdicht</strong>.</li>
+</ul>
+<h3>Wärmeleitfähigkeit λ</h3>
+<ul>
+<li>Wie schnell sich Wärme durch einen Stoff ausbreitet, Einheit <strong>W/(m·K)</strong>, hängt von der Temperatur ab.</li>
+<li>Beton 2,1 · Kalkzementputz 1,0 · Vollziegel 0,5–1,4 · Holz 0,13–0,18 · Porenbeton 0,08–0,25 · Mineralwolle/Polystyrol ~0,035–0,05 · PUR 0,024–0,035 · <strong>stehende Luft ~0,025</strong> · Vakuumdämmplatte 0,004–0,006 · Stahl 48–58 · Kupfer 393.</li>
+</ul>
+<h3>Wärmespeicherkapazität c</h3>
+<ul>
+<li>Energie, um 1 kg um <strong>1 K</strong> zu erwärmen, in <strong>kJ/(kg·K)</strong>. Je höher, desto besser speichert der Stoff Wärme.</li>
+<li>Wasser 4,18 · <strong>Holzfaser/Zellulose 2,1</strong> · Holz ~1,7 · Polystyrol 1,4 · Beton 0,88 · Mineralfaser 0,8.</li>
+</ul>
+<h3>Beständigkeit</h3>
+<p>Forderung an Form, Festigkeit, Formänderung, Aussehen → Witterungsbeständigkeit, Frostbeständigkeit, Zerstörung durch Kristallisationsdruck, chemische Beständigkeit (Korrosion), Alterung.</p>
+<h2>2. Dämmstoffe</h2>
+<h3>Wozu?</h3>
+<p><strong>Wärmeverluste reduzieren, Wärmebrücken minimieren, Schall bremsen/Raumakustik verbessern, Brandschutz sicherstellen.</strong> Einteilung nach Zweck: Wärmeschutz, Brandschutz, Schallschutz.</p>
+<h3>Wärmeschutz</h3>
+<ul>
+<li>Normen: <strong>DIN V 4108-4 (Deutschland)</strong> und <strong>DIN EN ISO 10456 (EU)</strong>.</li>
+<li>Ein Dämmstoff hat <strong>λ ≤ 0,1 W/(m·K)</strong>. Die Dämmwirkung kommt von den <strong>eingeschlossenen Poren</strong> (Luft).</li>
+<li><strong>Winterlicher Wärmeschutz</strong> (genehmigungspflichtig): Heizenergie begrenzen, Wärmeverlust durch Bauteile klein halten, gesundes Wohnklima/kein Schimmel, Konstruktion vor Durchfeuchtung schützen (nasse Dämmung dämmt schlechter, Frost-Kristallisationsdruck).</li>
+<li><strong>Sommerlicher Wärmeschutz</strong> (genehmigungspflichtig nur bei aktiver Kühlung): Sonnenwärme draußen halten, keine Überhitzung, Hitze <strong>ca. 12 Stunden verzögern</strong> (Hitze von 15 Uhr kommt erst nachts innen an). Dafür braucht man <strong>hohe Wärmespeicherkapazität → Holzfaser</strong>.</li>
+<li>Gesetz: EnEV und EEG sind <strong>überholt</strong>, zusammengefasst im <strong>GEG</strong> (Gebäudeenergiegesetz).</li>
+</ul>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Handschriftlich steht neben dem GEG "(GMG) ← aktuell". Gemeint ist vermutlich das geplante Gebäudemodernisierungsgesetz als Nachfolger des GEG. Ob es schon gilt, ist im Brain nicht belegt – beim Lehrer nachfragen bzw. Stand prüfen.</p>
+</div>
+<h3>Übersicht Dämmstoffe</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th>synthetisch</th>
+<th>natürlich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>anorganisch</strong></td>
+<td>Blähglas, <strong>Kalziumsilikat</strong>, Keramikschaum, <strong>Mineralfaser</strong>, <strong>Schaumglas</strong></td>
+<td>Blähton, <strong>Naturbims, Perlite</strong>, Vermiculite</td>
+</tr>
+<tr>
+<td><strong>organisch</strong></td>
+<td>UF-Ortschaum, Melamin-/Phenolharz-Hartschaum, <strong>Polyesterfasern, EPS, XPS, PUR</strong></td>
+<td>Baumwolle, <strong>Flachs</strong>, Hanf, <strong>Holzfaser, Holzwolle, Kokos, Kork, Schafwolle, Schilf, Zellulose</strong>, Stroh, Torf</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Steckbriefe (Werte aus dem Buchauszug, Stand Skript)</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Dämmstoff</th>
+<th>Kürzel / Norm</th>
+<th>λ W/(m·K)</th>
+<th>μ</th>
+<th>Brand</th>
+<th>Typisch für</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mineralwolle (Stein-/Glaswolle)</td>
+<td>MW / EN 13162</td>
+<td>0,032–0,040</td>
+<td>1</td>
+<td>A1/A2 (siehe unten)</td>
+<td>fast überall</td>
+</tr>
+<tr>
+<td>EPS ("Styropor")</td>
+<td>EPS / EN 13163</td>
+<td>0,032–0,040</td>
+<td>30–70</td>
+<td>E / B2</td>
+<td>WDVS (WAP), Boden (DEO/DES), Dach</td>
+</tr>
+<tr>
+<td>XPS</td>
+<td>XPS / EN 13164</td>
+<td>0,033–0,045</td>
+<td>80–250</td>
+<td>E / B2</td>
+<td><strong>Perimeter</strong> (gegen Erdreich), Umkehrdach</td>
+</tr>
+<tr>
+<td>PUR/PIR-Hartschaum</td>
+<td>PUR / EN 13165</td>
+<td><strong>0,024–0,028</strong></td>
+<td>kaschiert 10 000–100 000</td>
+<td>E / B2</td>
+<td>Dach (Aufsparren), wenig Platz</td>
+</tr>
+<tr>
+<td>Schaumglas</td>
+<td>CG / EN 13167</td>
+<td>0,040–0,055 (Schotter 0,06–0,08)</td>
+<td>praktisch dampfdicht</td>
+<td><strong>A1</strong></td>
+<td><strong>unter Bodenplatte</strong>, Perimeter</td>
+</tr>
+<tr>
+<td>Holzweichfaser</td>
+<td>WF / EN 13171</td>
+<td>0,038–0,045</td>
+<td>5</td>
+<td>E / B2</td>
+<td>Dach, Holzbau, Putzträger; <strong>c = 2,1 → Sommer</strong></td>
+</tr>
+<tr>
+<td>Zellulose (Einblas)</td>
+<td>abZ</td>
+<td>0,040</td>
+<td>5</td>
+<td>E / B2</td>
+<td>Hohlräume einblasen (nur zertifizierte Firmen)</td>
+</tr>
+<tr>
+<td>Stroh</td>
+<td>abZ seit 2014</td>
+<td>0,050–0,055</td>
+<td>2</td>
+<td>E / B2</td>
+<td>Holzbau, Setzung beachten</td>
+</tr>
+<tr>
+<td>Calciumsilikat</td>
+<td>EN 14306</td>
+<td>0,045–0,08</td>
+<td>3–20</td>
+<td><strong>A1</strong></td>
+<td>Innendämmung, Ofenbau</td>
+</tr>
+<tr>
+<td>Elastomerschaum</td>
+<td>FEF / EN 14304</td>
+<td>0,035–0,037</td>
+<td>&gt; 7 000</td>
+<td>B2</td>
+<td>Rohre/Haustechnik</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Anwendungsgebiete nach DIN 4108-10 (Kürzel)</h3>
+<ul>
+<li><strong>Dach/Decke:</strong> <strong>DAD</strong> außen, unter Deckung · DAA außen, unter Abdichtung · <strong>DUK</strong> Umkehrdach (Dämmung über der Abdichtung, bewittert) · <strong>DZ</strong> Zwischensparren · DI innen/unterseitig · <strong>DEO</strong> oben auf Decke/Bodenplatte unter Estrich <strong>ohne</strong> Schallschutz · <strong>DES</strong> dasselbe <strong>mit</strong> Schallschutz (= Trittschalldämmung).</li>
+<li><strong>Wand:</strong> WAB außen hinter Bekleidung · WAA außen hinter Abdichtung · <strong>WAP</strong> außen unter Putz (WDVS) · WZ Kerndämmung zweischalig · WH Holzrahmenbau · <strong>WI</strong> innen · WTH Haustrennwand · WTR Raumtrennwand.</li>
+<li><strong>Perimeter (unter Gelände):</strong> <strong>PW</strong> Wand gegen Erdreich · <strong>PB</strong> unter der Bodenplatte (jeweils außerhalb der Abdichtung).</li>
+</ul>
+<h3>Brandverhalten – Baustoffklassen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>DIN 4102-1</th>
+<th>EN 13501-1</th>
+<th>Bedeutung</th>
+<th>Beispiele (Mitschrieb)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A1</strong></td>
+<td>A1</td>
+<td>nichtbrennbar, ohne brennbare Teile</td>
+<td>Mauerwerk, Beton, Glas, Mineralwolle, Metall</td>
+</tr>
+<tr>
+<td><strong>A2</strong></td>
+<td>A2-s1,d0</td>
+<td>nichtbrennbar, mit brennbaren Teilen</td>
+<td>Gipskarton</td>
+</tr>
+<tr>
+<td><strong>B1</strong></td>
+<td>B, C</td>
+<td>schwer entflammbar</td>
+<td>Hartholz, verdichtete Zellulose</td>
+</tr>
+<tr>
+<td><strong>B2</strong></td>
+<td>D, E</td>
+<td>normal entflammbar</td>
+<td>normale Hölzer (Fichte, Tanne, Kiefer), EPS, XPS, Holzfaser</td>
+</tr>
+<tr>
+<td><strong>B3</strong></td>
+<td>F</td>
+<td>leicht entflammbar – <strong>nach BayBO verboten</strong></td>
+<td>Papier, Pappe, Kunststoff</td>
+</tr>
+</tbody>
+</table></div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Im Mitschrieb steht "B1: Hartholz". Nach gängiger Lehrbuchtabelle ist auch Hartholz (z. B. Eiche) normalerweise <strong>B2</strong>; B1 wird Holz erst mit Brandschutzbehandlung. Beim Lehrer nachfragen, wie er es in der Prüfung sehen will. (Ergänzt 2026-10-26)</p>
+</div>
+<ul>
+<li>Zusatz in der EN-Klasse: <strong>s = smoke (Rauch) 1–3</strong>, <strong>d = drop (brennendes Abtropfen) 0–2</strong>. Je kleiner, desto besser.</li>
+<li>Dämmung im Brandschutz soll den Wärmestrom zur feuerabgewandten Seite bremsen. Wichtig: Baustoffklasse und Wärmekapazität. (Skizze im Heft: Stahl verliert bei ca. 700 °C seine Festigkeit.)</li>
+</ul>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> Mineralwolle: Die Tabelle im Skript (DIN 4102, Tab. 18.11) nennt <strong>A1, A2, B1</strong>, der Buchauszug (S. 185) nennt <strong>D-s2,d0 bzw. B2</strong>. Für die Prüfung gilt sicher: Mineralwolle (Steinwolle) ist typischerweise <strong>nichtbrennbar A1/A2</strong> – das ist auf dem Blatt markiert.</p>
+</div>
+<h3>Schallschutz</h3>
+<ul>
+<li><strong>Gleicher Raum → Schallabsorption:</strong> Schall wird durch Reibung zu Wärme. <strong>Offenporige Stoffe schlucken mehr Schall als geschlossenporige.</strong> Stark von der Tonhöhe abhängig.</li>
+<li><strong>Anderer Raum → Luft-/Trittschalldämmung:</strong> hängt von <strong>Masse und Biegesteifigkeit</strong> ab. <strong>Fugen als Schallbrücken vermeiden!</strong> (Skizze: schon wenige Schallbrücken kosten viel.)</li>
+</ul>
+<ol>
+<li><em>3 organische, 3 anorganische Dämmstoffe?</em> → organisch: Holzfaser, Flachs, XPS; anorganisch: Kalziumsilikat, Mineralfaser, Perlite.</li>
+<li><em>Baustoffklasse A / B?</em> → A nichtbrennbar, B brennbar.</li>
+<li><em>EPS unverputzt gegen Erdreich?</em> → <strong>Nein</strong>, offenporig/Kapillarporen, zieht Wasser. <strong>XPS</strong> nehmen, weil geschlossenporig.<blockquote>
+<p>[!offen] Genau genommen ist auch EPS geschlossenzellig. Das Wasser zieht in die Spalten <strong>zwischen den verschweißten Perlen</strong>, und EPS ist weniger druckfest. Im Unterricht heißt es "EPS = offen/kapillar", deshalb ist die Prüfungsantwort so richtig. (Ergänzt 2026-10-26)</p>
+</blockquote>
+</li>
+<li><em>Dämmung unter Bodenplatte?</em> → <strong>Schaumglasschotter, XPS, Schaumglasplatten</strong>.</li>
+<li><em>Nur nachwachsende Rohstoffe für Holzständerwand/Zwischensparren?</em> → Holzfaser, Schafwolle, Korkgranulat, Stroh, Zellulose.</li>
+<li><em>DZ, DES, WAP erklären + Beispiele?</em> → DZ Zwischensparren (Mineralwolle, Zellulose, Holzfaser); DES unter Estrich mit Trittschall (EPS, Mineralwolle, Holzfaser); WAP außen unter Putz (Holzweichfaser, EPS, Mineralwolle).</li>
+</ol>
+<h2>3. Kunststoffe</h2>
+<h3>Grundlagen</h3>
+<ul>
+<li>Ausgangsstoffe: <strong>Erdöl, Kohle, Erdgas</strong>, dazu Kalk (CaCO₃), Kochsalz (NaCl), Wasser; außerdem Naturstoffe (Zellulose, Naturkautschuk, Eiweiß). <strong>Wichtigstes Element: Kohlenstoff (C).</strong></li>
+<li><strong>Organische Chemie</strong> = Chemie der Kohlenstoffverbindungen. Weitere Elemente: <strong>H, O, N, S, P</strong>. Kohlenstoff kann sich <strong>praktisch unbegrenzt mit sich selbst verbinden</strong> (Ketten, Ringe, Netze). Kohlenwasserstoffe sind offenkettig oder ringförmig (Ringe oft in Lösemitteln).</li>
+<li>Monomere = kleine Einzelmoleküle → <strong>Polymere</strong> = lange Ketten (Makromoleküle).</li>
+<li>Gemeinsame Merkmale: geringe Dichte und Wärmeleitfähigkeit (→ <strong>Dämmstoffe</strong>), <strong>große Zugfestigkeit</strong>, <strong>große Dampfdichtheit und chemische Beständigkeit</strong> (→ <strong>Dampfsperre</strong>, z. B. PE-Folie), <strong>großes elektrisches Isoliervermögen</strong> (→ Kabelmantel), gut einfärbbar; aber stark temperaturabhängig, brennbar (wenige unbrennbar), niedrige Gebrauchstemperatur, begrenzt UV-beständig.</li>
+</ul>
+<h3>Herstellung (Synthese) – drei Wege</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Verfahren</th>
+<th>Was passiert</th>
+<th>Abspaltung?</th>
+<th>Umkehrbar?</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Polymerisation</strong></td>
+<td><strong>viele kleine gleichartige</strong> Moleküle → sehr große; Kettenreaktion, Startenergie von außen; schrumpft stark</td>
+<td>nein</td>
+<td><strong>ja</strong> (lt. Mitschrieb)</td>
+<td>Polyethylen (aus Ethen)</td>
+</tr>
+<tr>
+<td><strong>Polykondensation</strong></td>
+<td><strong>mind. zwei gleiche oder verschiedene</strong> Monomere verbinden sich</td>
+<td><strong>ja: Wasser, Ammoniak, Gase</strong></td>
+<td><strong>nein</strong></td>
+<td>PET/Polyester, Duroplaste (z. B. PF)</td>
+</tr>
+<tr>
+<td><strong>Polyaddition</strong></td>
+<td>Monomere <strong>zweier verschiedener Stoffe</strong>, Atome wechseln den Platz</td>
+<td><strong>nein</strong></td>
+<td>–</td>
+<td>z. B. <strong>Kontaktkleber</strong>, PUR, Epoxid</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Die vier Gruppen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Gruppe</th>
+<th>Aufbau</th>
+<th>Verhalten bei Wärme</th>
+<th>Bearbeitung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Thermoplaste</strong></td>
+<td>Fadenmoleküle, nicht vernetzt</td>
+<td>werden weich, schmelzbar, wieder formbar</td>
+<td>schweißbar, klebbar</td>
+</tr>
+<tr>
+<td><strong>Duroplaste</strong> ("Hart"-Kunststoffe)</td>
+<td><strong>engmaschig, raumnetzartig vernetzt</strong></td>
+<td><strong>nicht mehr erweichbar/schmelzbar</strong>, zersetzen sich</td>
+<td>spanen, kleben, <strong>nicht schweißbar</strong>; Füllstoffe möglich</td>
+</tr>
+<tr>
+<td><strong>Elastomere</strong></td>
+<td>weitmaschig vernetzt</td>
+<td>gummielastisch</td>
+<td>–</td>
+</tr>
+<tr>
+<td><strong>Silikone</strong></td>
+<td><strong>Silizium statt Kohlenstoff</strong></td>
+<td>ölig bis gummiartig, <strong>wasserabweisend</strong>, einfärbbar</td>
+<td><strong>nicht überstreichbar!</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Wichtige Thermoplaste</strong>
+- <strong>PVC hart (PVC-U):</strong> Rohre, Dränrohre, Dachrinnen, Fenster. Beständig gegen Säuren/Laugen/Öle, nicht gegen Lösemittel.
+- <strong>PVC weich (PVC-P,</strong> bis 50 % Weichmacher): Bodenbeläge, Folien, <strong>Dichtungsbahnen</strong>, Fugenbänder; versprödet mit der Zeit.
+- <strong>PVAC:</strong> Dispersion → Zusatz für Putz/Beton/Estrich, Haftbrücken, Holzleim ("<strong>Weißleim/Kaltleim</strong>").
+- <strong>PS Polystyrol</strong> → geschäumt <strong>EPS/XPS</strong> (95 % Luft); von fast allen Lösemitteln angegriffen.
+- <strong>PE Polyethylen:</strong> <strong>Bautenschutzfolie / PE-Folie 0,2 mm</strong>, Rohre; schweißbar, <strong>nicht klebbar</strong>.
+- <strong>PMMA</strong> (Acrylglas): Lichtkuppeln, Verglasung. <strong>PIB:</strong> Dichtungsbahnen, Fugenmassen.</p>
+<p><strong>Wichtige Duroplaste:</strong> Phenolharz PF (Hartschaum, Holzleim, schwer entflammbar), UF/MF (Pressplatten, Leim), UP-Harz mit Glasfaser (Industrieestrich, Wellplatten), <strong>Epoxidharz EP</strong> (Kleber, Zusatz Mörtel/Beton; flüssig giftig, giftige Dämpfe; kleben ja, schweißen nein), <strong>PUR</strong> (Hartschaum B2, als PUR-Hartschaum B1; Ortschaum, Dichtmassen).</p>
+<p><strong>Wichtige Elastomere:</strong> SBR (Reifen, Schläuche), Butyl IIR (Fugenbänder), Chloropren CR (Schwingungsdämpfer, Dichtprofile), Polysulfid SR (Bewegungsfugen), PUR-Kautschuk (Fugen im Betonbau), <strong>Silikonkautschuk SI</strong> (−90 bis +180 °C; Anschlussfugen, Versiegelung).</p>
+<p><strong>Silikone im Bau:</strong> Silikonkautschuk für <strong>wasserdichte Fugen</strong>, Silikonharz als <strong>wasserabweisender Anstrich auf Beton, Mauerwerk, Putz</strong>, Silikonschaum in Montageschaum.</p>
+<h2>4. Bitumen</h2>
+<h3>Begriffe</h3>
+<ul>
+<li><strong>Bituminöse Baustoffe</strong> sind <strong>organisch</strong> (Kohlenstoff, aus Rohöl). Wichtig ist nicht Festigkeit, sondern <strong>Kleben, Dichten, Verformbarkeit</strong>. Einsatz: Straßenbau (Bindemittel), Abdichtung im Hoch- und Wasserbau.</li>
+<li><strong>Bitumen:</strong> dunkles, halbfestes bis hartes <strong>Kohlenwasserstoffgemisch</strong>, <strong>Rückstand bei der Destillation von Erdöl</strong>.</li>
+<li><strong>Asphalt:</strong> <strong>Gesteinskörnung + Bitumen</strong> als Kleber.</li>
+<li><strong>Naturasphalt:</strong> erdölhaltiges Gestein, leichte Teile verdunstet.</li>
+<li><strong>Teerpech:</strong> aus <strong>trockener Destillation von Stein-/Braunkohle</strong>.</li>
+</ul>
+<h3>Aufbau und Verhalten</h3>
+<ul>
+<li>Vielstoffgemisch (auch Schwefel, Sauerstoff, Stickstoff). <strong>Bitumen ist ein Thermoplast.</strong></li>
+<li>Ölige Phase <strong>Maltene</strong> + feste Phase <strong>Asphaltene</strong> (mit Schutzschicht aus Asphaltharzen = <strong>Mizelle</strong>). Das Mischungsverhältnis bestimmt Festigkeit und Wärmeverhalten.</li>
+<li><strong>Kein Schmelzpunkt, sondern ein Erweichungspunkt:</strong> darunter spröde, darüber verformbar/zähflüssig. Bei Normaltemperatur eine <strong>hochviskose (zähe) Flüssigkeit</strong>.</li>
+</ul>
+<h3>Herstellung</h3>
+<p>Rohöl in der Raffinerie vorwärmen → Röhrenofen <strong>350–400 °C</strong> → <strong>atmosphärische Destillation</strong> (Turm bis 50 m; oben Gase, Benzin, Kerosin, Gasöl) → Rückstand nochmals erhitzen → <strong>Vakuumdestillation bei ca. 50 mbar</strong> (niedriger Druck) → Bitumen. Daraus: <strong>Straßenbaubitumen</strong> (+ Sand/Kies = <strong>Asphalt</strong>), <strong>Destillationsbitumen</strong>, <strong>Oxidationsbitumen</strong> (mit Luft in der Oxidationsblase).</p>
+<h3>Teer vs. Bitumen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th>Teer</th>
+<th>Bitumen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Herkunft</td>
+<td>chemisch aus Kohle</td>
+<td>physikalisch aus Erdöl</td>
+</tr>
+<tr>
+<td>Krebserregende PAK (Benzo(a)pyren)</td>
+<td>sehr viel (5000–10 000 ppm)</td>
+<td>sehr wenig (1–5 ppm)</td>
+</tr>
+<tr>
+<td>Gefahrstoff</td>
+<td><strong>ja</strong>, keine Heißverarbeitung</td>
+<td><strong>nein</strong>, Wassergefährdungsklasse 0</td>
+</tr>
+<tr>
+<td>Recycling</td>
+<td>nicht möglich</td>
+<td>möglich</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Verarbeitung</h3>
+<ul>
+<li>Meist <strong>heiß</strong>: <strong>Gieß- und Bürstenstreichverfahren</strong> (heiße Masse) oder <strong>Schweißverfahren</strong> (Deckmasse mit Gasbrenner anschmelzen, Bahn unter leichtem Druck einrollen).</li>
+<li>Bauwerksabdichtung: <strong>vollflächig verkleben</strong>, auf <strong>Anpressdruck</strong> achten, damit kein Wasser dahinterläuft.</li>
+<li><strong>Durchdringungen</strong> mit <strong>Klebeflansch, Dichtungsmanschette oder Klemmflansch</strong> anschließen.</li>
+<li><strong>Oberflächenschutz:</strong> leicht = <strong>Beschieferung</strong>, schwer = <strong>Bekiesung</strong> (Schutz + Auflast). Begehbar z. B. mit Betonplatten. <strong>Dachbegrünung → Durchwurzelungsschutz!</strong></li>
+<li>Lastfälle Bauwerksabdichtung (DIN 18195): <strong>Bodenfeuchte, nicht drückendes Wasser, drückendes Wasser</strong> (von außen/innen).</li>
+</ul>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> DIN 18195 ist im Skript genannt. Ob der Lehrer die neueren Abdichtungsnormen (DIN 18531–18535) erwartet, ist nicht belegt – im Zweifel die Begriffe aus dem Skript verwenden.</p>
+</div>
+<h2>5. Abdichtungsbahnen</h2>
+<h3>Bitumenbahnen – Kurzzeichen lesen</h3>
+<p>Aufbau: <strong>[Trägereinlage] [Gewicht g/m²] [Bahnart]</strong></p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Teil</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R</strong></td>
+<td>Rohfilzpappe</td>
+</tr>
+<tr>
+<td><strong>G</strong></td>
+<td>Glasgewebe</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td>Glasvlies</td>
+</tr>
+<tr>
+<td><strong>PV</strong></td>
+<td>Polyestervlies</td>
+</tr>
+<tr>
+<td>Zahl</td>
+<td>Gewicht der Trägereinlage in g/m² (bei V 13: <strong>1300 g/m² Bitumen + Träger!</strong>)</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+<td>"nackt" (ohne Beschieferung, besandet)</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Dichtungsbahn</td>
+</tr>
+<tr>
+<td><strong>DD</strong></td>
+<td>Dachdichtungsbahn</td>
+</tr>
+<tr>
+<td><strong>S4/S5/S6</strong></td>
+<td>Schweißbahn, Zahl = <strong>Dicke in mm</strong> bei Auslieferung</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Bahn</th>
+<th>Beispiel</th>
+<th>Verwendung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Nackte Bitumenbahn</strong></td>
+<td><strong>R 500 N</strong></td>
+<td>einfache Abdichtung, Feuchtigkeitssperre, <strong>Mauersperrbahn</strong>; geringe Zugfestigkeit</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Bitumen-Dichtungsbahn</strong></td>
+<td><strong>G 200 D</strong>, PV 250 D</td>
+<td><strong>Trennlage</strong>, <strong>untere Lage</strong> mehrlagiger Abdichtung, einfache <strong>Dampfsperre</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Bitumen-Dachdichtungsbahn</strong></td>
+<td><strong>G 220 DD</strong>, PV 200 DD, V 13 DD</td>
+<td>strapazierfähige Dachabdichtung, über Aufenthaltsräumen; meist <strong>Elastomerbitumen</strong> → höhere Zugfestigkeit</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Bitumen-Schweißbahn</strong></td>
+<td><strong>PV 250 S5</strong></td>
+<td>hochwertig, <strong>obere Lage</strong> (beschiefert → <strong>UV-Schutz</strong>), Dampfsperre, <strong>drückendes Wasser → "schwarze Wanne"</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lage und Beanspruchung (neue Bezeichnung)</strong>
+- <strong>DO</strong> = Oberlage, <strong>DZ</strong> = Zwischenlage, <strong>DU</strong> = Unterlage (mehrlagiger Aufbau); <strong>DE</strong> = Einzellage (einlagig).
+- Eigenschaftsklassen: <strong>E1</strong> thermisch hoch + mechanisch hoch · <strong>E2</strong> thermisch mäßig + mechanisch hoch · <strong>E3</strong> thermisch hoch + mechanisch mäßig · <strong>E4</strong> beides mäßig. Thermisch = Sonne (Dach +40 °C bis −10 °C), mechanisch = Druck auf die Bahn über weicher Dämmung.
+- Beispiel <strong>DO/E1 G 300 S6</strong> = Oberlage, hohe thermische und mechanische Belastung, Glasgewebe 300 g/m², Schweißbahn 6 mm.</p>
+<h3>Kunststoffbahnen</h3>
+<ul>
+<li>Aufbau: <strong>Trägermaterial mit Kunststoffumhüllung</strong>. Müssen dem Produktdatenblatt der Dachdecker-Regeln entsprechen.</li>
+<li>Gruppen: <strong>PVC-P</strong> (und EVA/EVAC) · <strong>FPO</strong> (flexible Polyolefine) und ECB · <strong>PIB</strong> · Elastomerbahnen <strong>EPDM</strong>.</li>
+</ul>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>PVC</strong> (Polyvinylchlorid)</th>
+<th><strong>FPO</strong> (flexibles Polyolefin, PP/PE, thermoplastisch)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schweißbar (heiß/kalt)</td>
+<td>ja</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>Preis</td>
+<td><strong>günstig</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>UV</td>
+<td><strong>nicht</strong> UV-beständig</td>
+<td><strong>UV-beständig</strong></td>
+</tr>
+<tr>
+<td>Bei Kälte</td>
+<td><strong>spröde</strong></td>
+<td><strong>schlagzäh</strong></td>
+</tr>
+<tr>
+<td>Brand</td>
+<td>B2 (normal entflammbar)</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>Sonst</td>
+<td><strong>chlorhaltig</strong></td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Kürzel:</strong> DE einlagig · <strong>BV</strong> bitumenverträglich · <strong>NB</strong> nicht bitumenverträglich · V verstärkt · E Einlage · <strong>GV Glasvlies</strong> · GG Glasgewebe · PV Polyestervlies · PPV Polypropylenvlies · PG Polyestergelege · K kaschiert · SK Selbstklebeschicht · Zahl am Ende = <strong>Dicke in mm</strong>.</p>
+<ul>
+<li>Beispiel <strong>DE/E1-FPO-BV-GV-1,5</strong> = einlagige Dachabdichtung, hohe thermische + mechanische Belastung, FPO, bitumenverträglich, Glasvlies, 1,5 mm.</li>
+</ul>
+<h3>Übung Abdichtungsbahnen (zum Selbsttesten)</h3>
+<ul>
+<li>c) <strong>DO/E1 PYE-G 200 S5</strong> → Oberlage, E1, <strong>Polymerbitumen mit Elastomeren (PYE)</strong>, Glasgewebe 200 g/m², Schweißbahn 5 mm → obere Lage, hochwertig. <em>(im Heft noch leer – Lösung abgeleitet aus den Kürzeln im Mitschrieb)</em></li>
+<li>Kunststoffbahn a) <strong>DE/E3-FPO-BV-GV-1,6</strong> → einlagig, thermisch hoch/mechanisch mäßig, FPO, bitumenverträglich, Glasvlies, 1,6 mm → einlagige Dachabdichtung. <em>(im Heft noch leer – abgeleitet)</em></li>
+</ul>
+<blockquote>
+<p>Laut Mitschrieb nicht prüfungsrelevant ("NICHT PR"): PYE KTG KSP 2,8 (kaltselbstklebende Polymerbitumenbahn), Cu 01 (Kupferband, wurzelhemmend), AL (Aluminiumeinlage, dampfdicht).</p>
+</blockquote>
+<h2>6. Glas im Bauwesen (Skript 04.11.2026)</h2>
+<ul>
+<li><strong>Allgemein:</strong> nichtkristallines Gemenge, Struktur wie eine sehr zähe Flüssigkeit, spröde, wieder einschmelzbar, durchsichtig, <strong>nicht brennbar (A1)</strong>.</li>
+<li><strong>Rohstoffe:</strong> Quarzsand SiO₂ (69–74 %), Kalk (bis 12 %), Soda (bis 16 %), Feldspat (bis 3 %), Zusätze.</li>
+<li><strong>Floatglas:</strong> Rohstoffe bei ca. <strong>1550 °C</strong> schmelzen, Schmelze läuft auf ein <strong>flüssiges Zinnbad</strong> (Zinn schmilzt bei ca. 232 °C), dann langsam abkühlen (Kühlkanal ca. 250 m), schneiden (Bandmaß 6,00 × 3,21 m). Früher gezogen/gegossen, dann musste geschliffen werden.</li>
+<li><strong>Flachglas:</strong> Dichte <strong>2,5 kg/dm³</strong>, λ = <strong>0,8 W/(m·K)</strong>, Dicke 2–25 mm. Bruchbilder: Typ A große scharfe Scherben (Normalglas), Typ B Stücke bleiben zusammen (Verbundglas), Typ C viele kleine stumpfe Krümel (ESG).</li>
+<li><strong>Profilbauglas:</strong> U-förmige Glaselemente, für Industriebauten, bis 7 m lang, mit oder ohne Drahteinlage.</li>
+<li><strong>ESG (Einscheibensicherheitsglas):</strong> Floatglas auf <strong>600 °C</strong> erhitzen und schnell abkühlen → Vorspannung. Zerfällt in kleine Krümel. <strong>Kann nicht nachträglich geschnitten werden!</strong> Für Ganzglastüren, Verglasung unter Brüstungshöhe.</li>
+<li><strong>VSG (Verbundsicherheitsglas):</strong> mind. zwei Scheiben mit elastischer <strong>Folie</strong>. Splitter bleiben an der Folie hängen, hohe Schlagfestigkeit, guter Schallschutz. Für <strong>Überkopfverglasung</strong>, Ganzglastüren, Schulen.</li>
+<li><strong>Isolierglas (Wärmeschutz):</strong> mind. 2 Scheiben mit Abstand, Zwischenraum mit Edelgas (Argon, Krypton), innere Scheibe beschichtet. Lichtdurchlässigkeit ca. 70 %. Standard im Wohnungsbau.</li>
+<li><strong>Sonnenschutzglas:</strong> äußere Scheibe innen mit Metall bedampft, reduziert UV und Wärmeeintrag. Für große Glasflächen.</li>
+<li><strong>Glasfasern:</strong> Glas wird zu Fasern gezogen bzw. geschleudert → Wärme- und Schalldämmung (Glaswolle).</li>
+<li><strong>Glasbausteine:</strong> gepresste Hohlsteine, lichtdurchlässig aber nicht durchsichtig, dämmen Wärme und Schall, Feuerwiderstand bis G 120, mit Mörtel vermauert.</li>
+</ul>
+<h2>7. Baumetalle – Eisen und Stahl</h2>
+<p><strong>Allgemein:</strong> chemisches Zeichen <strong>Fe</strong> (Ferrum), Rohdichte <strong>7,86 kg/dm³</strong> (= t/m³). „Werkstoff Eisen“ heißt ≥ 99,8 % rein. Eisen ist chemisch <strong>reaktionsfreudig</strong> (rostet), im Bau sehr nachteilig. Es dehnt sich bei Wärme fast <strong>gleich wie Beton</strong> aus, deshalb funktioniert Stahlbeton.</p>
+<p><strong>Roheisen gewinnen (Hochofen):</strong> Rohstoffe sind eisenhaltige Erze (Fe₂O₃ / Fe₃O₄). Erz wird mit <strong>Koks</strong> gemischt und erhitzt. Der Kohlenstoff nimmt dem Erz den Sauerstoff weg (<strong>Reduktion</strong>, es entsteht CO/CO₂). Flüssiges Eisen wird abgeschöpft → <strong>Roheisen</strong> mit viel Kohlenstoff. Ca. 90 % des Roheisens werden zu Stahl, der Rest zu Gusseisen.
+- <strong>Hochofenschlacke</strong> wird weiterverwertet: langsam erkaltet → Stückschlacke (Schotter, Splitt), schnell mit Wasser abgeschreckt → <strong>Hüttensand</strong> (für Hüttenzement, Mörtel), aufgeschäumt → Hüttenbims (Leichtbeton), zerstäubt → Hüttenwolle (Dämmstoff).</p>
+<p><strong>Gusseisen:</strong> Eisen + viel Kohlenstoff. Schmilzt leichter als reines Eisen, harte Oberfläche, aber <strong>spröde</strong>. Für Gussteile im Maschinen- und Tunnelbau.</p>
+<p><strong>Stahl herstellen („Frischen“):</strong> Kohlenstoff im Eisen wird verringert, indem man <strong>Sauerstoff</strong> in die Schmelze bläst. Stahl hat <strong>höchstens ca. 2 % Kohlenstoff</strong> (DIN EN 10020) – das ist der Unterschied zu Gusseisen. Stahl ist zäh, schmiedbar und meist schweißbar.
+- Verfahren: <strong>Konverter</strong> (Blasstahl, ohne zusätzliche Energie) und <strong>Herdofen</strong> (mit Zusatzenergie: Siemens-Martin mit Gasflamme ca. 1700–1800 °C, <strong>Elektrostahl</strong> mit Lichtbogen bis ca. 3800 °C – teuer, für hochwertige und legierte Stähle).
+- Skizze im Heft: Stahl verliert bei <strong>ca. 700 °C</strong> seine Festigkeit (siehe auch Brandschutz in Kap. 2).</p>
+<p><strong>Unlegierter Stahl (Baustahl), DIN EN 10025-2:</strong>
+- Kohlenstoff als <strong>100-faches</strong> angegeben: <strong>C45 = 0,45 % C</strong>.
+- Festigkeitsklasse nach der <strong>Streckgrenze</strong>: <strong>S235 = 235 N/mm²</strong>, S355 = 355 N/mm².
+- Eigenschaften: gut schweißbar, gut formbar (Walzprodukte), <strong>nicht korrosionsbeständig</strong>. Verwendung: Bewehrungsstahl, Walzprofile (Schneider S. 8.187 ff.).</p>
+<p><strong>Niedriglegierter, wetterfester Stahl (Cor-Ten-Stahl):</strong> Eisen mit wenig Kupfer (bis 0,55 %), Nickel (bis 0,65 %), Chrom (bis 0,65 %). Bildet eine <strong>dichte Rostschicht (Patina)</strong>, die den Stahl darunter schützt. Für Spundwände im Baugrubenverbau, Fassaden ohne extra Korrosionsschutz, Garten- und Landschaftsbau.</p>
+<p><strong>Hochlegierter Stahl (Edelstahl):</strong> Eisen mit reaktionsarmen Metallen: <strong>Chrom bis 25 %</strong> (Grenze für die Schweißbarkeit), Molybdän, Nickel, Titan, Kupfer, Vanadium, Niob. Bezeichnung international über <strong>Werkstoffnummern</strong>.</p>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Im Heft steht „S235 → 235 N/mm² <strong>max. Zugspannung</strong>“. Die Zahl ist genau genommen die <strong>Mindest-Streckgrenze</strong> (ab da verformt sich der Stahl bleibend), nicht die höchste Zugspannung. Außerdem steht dort „S500“. Betonstahl heißt aber <strong>B500</strong> (500 N/mm² Streckgrenze). Bitte mit dem Lehrer klären.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Erze im Heft: „Hämatit / Braungestein, Fe₂O₃ / Fe₃O₄“. Üblich ist: Hämatit = Fe₂O₃, <strong>Magnetit</strong> = Fe₃O₄, <strong>Brauneisenstein</strong> ist ein weiteres Erz.</p>
+</div>
+<h2>Typische Prüfungsfallen</h2>
+<ul>
+<li>Dichte / Rohdichte / Schüttdichte verwechseln → <strong>welche Hohlräume zählen mit?</strong></li>
+<li><strong>Geschlossen = dämmt Wärme, offen = schluckt Schall.</strong></li>
+<li><strong>EPS nicht gegen Erdreich</strong>, dort <strong>XPS oder Schaumglas</strong>.</li>
+<li><strong>Duroplaste nicht schweißbar</strong>, Thermoplaste schon. <strong>Silikon nicht überstreichbar.</strong></li>
+<li><strong>Polykondensation spaltet etwas ab</strong> (Wasser/Ammoniak), Polyaddition nicht.</li>
+<li><strong>Bitumen ≠ Teer</strong> (Teer ist Gefahrstoff).</li>
+<li><strong>B3 ist verboten</strong> (BayBO).</li>
+<li>PVC: günstig, aber <strong>nicht UV-beständig</strong> und spröde bei Kälte; FPO: UV-beständig.</li>
+</ul>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> Wasseranomalie: Im Heft ist das kleinste Volumen bei "~3 °C" skizziert. Lehrbuchwert ist <strong>4 °C</strong>.</p>
+</div>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

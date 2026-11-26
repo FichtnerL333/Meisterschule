@@ -1,5 +1,5 @@
-const VERSION = "v20261125-151926";
-const DATEIEN = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-180.png", "seiten/arbeitsrecht.html", "seiten/baustoffkunde-abfrage.html", "seiten/baustoffkunde-lernkarten.html", "seiten/baustoffkunde-quiz.html", "seiten/bgb-abfrage.html", "seiten/buchungssaetze-steuer.html", "seiten/buchungssaetze.html", "seiten/physik.html", "seiten/pug-lernkarten.html", "seiten/pug-schulaufgabe.html", "seiten/treppe-abfrage.html", "seiten/treppe-lernblatt.html", "seiten/treppe-quiz.html"];
+const VERSION = "v20261126-135803";
+const DATEIEN = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-180.png", "seiten/arbeitsrecht.html", "seiten/baustoffkunde-abfrage.html", "seiten/baustoffkunde-lernkarten.html", "seiten/baustoffkunde-quiz.html", "seiten/bgb-abfrage.html", "seiten/bgb-lernblatt.html", "seiten/buchungssaetze-steuer.html", "seiten/buchungssaetze.html", "seiten/physik.html", "seiten/pug-lernkarten.html", "seiten/pug-schulaufgabe.html", "seiten/treppe-abfrage.html", "seiten/treppe-lernblatt.html", "seiten/treppe-quiz.html", "seiten/baustoffkunde-lernzettel.html", "seiten/physik-lernzettel.html", "seiten/bgb-lernzettel.html", "seiten/rechnungswesen-lernzettel.html", "seiten/kontenplan-skr03.html", "seiten/pug-lernzettel.html", "seiten/arbeitsrecht-lernzettel.html"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(DATEIEN)));
   self.skipWaiting();

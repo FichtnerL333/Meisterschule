@@ -1,0 +1,165 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Werkvertrag, Bauvertrag, Verbraucherbauvertrag</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#6d3fa0;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#BGB">‹ BGB</a>
+  <div class="fach"><i></i>BGB, Lernzettel</div>
+  <h1>Werkvertrag, Bauvertrag, Verbraucherbauvertrag</h1>
+  <p class="lead">Kurze Antworten zur Schulaufgabe aus dem Vorjahr, so knapp, wie man sie in der Prüfung hinschreibt.</p>
+</div></header>
+<main><div class="in">
+<h2>Werkvertrag</h2>
+<p><strong>1. Was ist ein Werkvertrag?</strong>
+Der Unternehmer verpflichtet sich, ein Werk herzustellen (einen <strong>Erfolg</strong>). Der Besteller verpflichtet sich, die vereinbarte <strong>Vergütung</strong> zu zahlen (§ 631).</p>
+<p><strong>2. Wie muss ein Werkvertrag aussehen?</strong>
+Er ist <strong>formfrei</strong>, auch mündlich gültig. Zum Beweis besser <strong>schriftlich</strong>.</p>
+<p><strong>3. Was ist die übliche Vergütung und wer legt diese fest?</strong>
+Wurde kein Preis vereinbart, gilt die <strong>taxmäßige</strong>, sonst die <strong>übliche Vergütung</strong> (§ 632 Abs. 2). Das ist der Preis, der für gleiche Arbeit am Ort üblich ist. Im Streit legen ihn ein <strong>Sachverständiger</strong> bzw. das <strong>Gericht</strong> fest.</p>
+<p><strong>4. Wann ist die Vergütung fällig?</strong>
+Bei der <strong>Abnahme</strong> (§ 641 Abs. 1).</p>
+<p><strong>5. Wem gehört das Werk nach Erbringung der Leistung?</strong>
+Dem <strong>Besteller</strong>. Was fest mit seinem Grundstück verbunden wird, gehört ihm schon mit dem Einbau (§§ 94, 946).</p>
+<p><strong>6. Für was können Sie Abschlagszahlungen verlangen?</strong>
+Für den <strong>Wert der erbrachten</strong>, vertraglich geschuldeten Leistungen. Auch für eigens angefertigte oder bereitgestellte <strong>Stoffe und Bauteile</strong>, wenn der Besteller Eigentum oder Sicherheit dafür erhält (§ 632a Abs. 1).</p>
+<p><strong>7. Wer trägt die Beweislast für die vertragsgerechten Leistungen?</strong>
+Bis zur Abnahme der <strong>Unternehmer</strong> (§ 632a Abs. 1), danach der Besteller.</p>
+<p><strong>8. Wie muss eine Abschlagszahlung aussehen?</strong>
+Mit einer <strong>Aufstellung</strong> der erbrachten Leistungen, die eine <strong>rasche und sichere Beurteilung</strong> ermöglicht (§ 632a Abs. 1), z. B. Aufmaß mit Mengen und Preisen.</p>
+<p><strong>9. Wie sieht ein Vertrag aus?</strong>
+Zwei übereinstimmende Willenserklärungen: <strong>Angebot + Annahme</strong> (§§ 145 ff.). Inhalt: Vertragspartner, Leistungsbeschreibung, Preis, Termine, Zahlungsbedingungen, Abnahme, Gewährleistung, Datum und Unterschriften.</p>
+<p><strong>10. Wie können Sie Ihr Unternehmerrisiko einschränken?</strong>
+- schriftlicher Vertrag mit genauer Leistungsbeschreibung
+- <strong>Abschlagszahlungen</strong> (§ 632a)
+- <strong>Bauhandwerkersicherung</strong> (§ 650f) / Sicherungshypothek (§ 650e)
+- Kostenanschlag als unverbindlich kennzeichnen, Nachträge schriftlich vereinbaren
+- Abnahmeprotokoll, Bedenken schriftlich anmelden</p>
+<p><strong>11. Wann haben Sie vertragsgerecht geleistet?</strong>
+Wenn das Werk <strong>frei von Sach- und Rechtsmängeln</strong> ist (§ 633): Es hat die <strong>vereinbarte Beschaffenheit</strong>, sonst eignet es sich für die gewöhnliche Verwendung und entspricht den <strong>anerkannten Regeln der Technik</strong>.</p>
+<p><strong>12. Welche Möglichkeiten hat der Besteller bei Mängeln?</strong> (§ 634)
+1. <strong>Nacherfüllung</strong> (§ 635) – zuerst
+2. <strong>Selbstvornahme</strong> mit Kostenersatz (§ 637)
+3. <strong>Rücktritt</strong> oder <strong>Minderung</strong> (§§ 636, 323, 638)
+4. <strong>Schadensersatz</strong> (§§ 280, 281, 636) oder Aufwendungsersatz (§ 284)</p>
+<p><strong>13. Wann verfallen die Mängelansprüche des Bestellers?</strong> (§ 634a, ab Abnahme)
+- Bauwerk: <strong>5 Jahre</strong>
+- Herstellung/Wartung/Veränderung einer Sache: <strong>2 Jahre</strong>
+- sonst: 3 Jahre
+(VOB/B: Bauwerk 4 Jahre)</p>
+<p><strong>14. Wie sieht eine Nacherfüllung aus?</strong>
+Der <strong>Unternehmer wählt</strong>: Mangel <strong>beseitigen</strong> oder <strong>neu herstellen</strong> (§ 635 Abs. 1). Er trägt <strong>alle Kosten</strong> (§ 635 Abs. 2).</p>
+<p><strong>15. Wie lautet die Formel zur Minderung der Vergütung?</strong> (§ 638 Abs. 3)
+<strong>geminderte Vergütung = vereinbarte Vergütung × Wert mit Mangel ÷ Wert ohne Mangel</strong></p>
+<p><strong>16. Was ist der Unterschied zwischen Garantie und Gewährleistung?</strong>
+- <strong>Gewährleistung:</strong> gesetzlich, gilt automatisch, für Mängel bei Abnahme, feste Fristen.
+- <strong>Garantie:</strong> freiwilliges Versprechen, Inhalt und Dauer frei vereinbart, gilt zusätzlich.</p>
+<p><strong>17. Was ist ein unwesentlicher Mangel?</strong>
+Ein Mangel, der Wert oder Gebrauch nur <strong>geringfügig</strong> beeinträchtigt (z. B. kleiner Kratzer). Deswegen darf die <strong>Abnahme nicht verweigert</strong> werden (§ 640 Abs. 1).</p>
+<p><strong>18. Welche Formen der Abnahme kennen Sie?</strong>
+- <strong>ausdrücklich / förmlich</strong> (gemeinsamer Termin mit Protokoll)
+- <strong>stillschweigend</strong> (z. B. Einzug, Benutzung, Zahlung ohne Vorbehalt)
+- <strong>fiktiv</strong> (§ 640 Abs. 2): Frist gesetzt, Besteller nennt keinen Mangel
+- <strong>Teilabnahme</strong></p>
+<p><strong>19. Besteller kann jederzeit kündigen – was steht dem Unternehmer zu? Formel?</strong>
+Die vereinbarte Vergütung, abzüglich ersparter Aufwendungen und anderweitigen Verdienstes (§ 648). Vermutung: <strong>5 %</strong> für den nicht erbrachten Teil.
+<strong>Anspruch = Vergütung erbrachter Teil + 5 % × Vergütung nicht erbrachter Teil</strong></p>
+<p><strong>20. Was ist ein abgrenzbarer Teil?</strong>
+Ein Teil des Werks, der sich <strong>klar vom Rest trennen</strong> und für sich beurteilen lässt (z. B. ein eigenes Gewerk). Nur darauf ist eine <strong>Teilkündigung</strong> möglich (§ 648a Abs. 2).</p>
+<p><strong>21. Wann tritt eine wesentliche Überschreitung ein?</strong>
+Wenn der Kostenanschlag deutlich überschritten wird, Faustwert ca. <strong>15–20 %</strong> (keine feste Zahl im Gesetz). Der Unternehmer muss es <strong>unverzüglich anzeigen</strong>, der Besteller darf kündigen (§ 649).</p>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Welchen Prozentwert der Lehrer erwartet, ist noch nicht bekannt.</p>
+</div>
+<h2>Bauvertrag</h2>
+<p><strong>1. Was ist ein Bauvertrag?</strong>
+Ein Werkvertrag über <strong>Herstellung, Wiederherstellung, Beseitigung oder Umbau</strong> eines <strong>Bauwerks</strong>, einer <strong>Außenanlage</strong> oder eines Teils davon (§ 650a).</p>
+<p><strong>2. Wann ist beim Bauvertrag die Vergütung fällig?</strong>
+Wenn <strong>Abnahme</strong> erfolgt ist <strong>und</strong> eine <strong>prüffähige Schlussrechnung</strong> vorliegt (§ 650g Abs. 4).</p>
+<p><strong>3. Wann ist die Schlussrechnung prüffähig?</strong>
+Wenn sie eine <strong>übersichtliche Aufstellung</strong> der erbrachten Leistungen enthält und für den Besteller <strong>nachvollziehbar</strong> ist. Sie gilt als prüffähig, wenn der Besteller nicht <strong>innerhalb von 30 Tagen</strong> begründete Einwände erhebt (§ 650g Abs. 4).</p>
+<p><strong>4. Unterschied Sicherungshypothek und Bauhandwerkersicherung?</strong>
+- <strong>Sicherungshypothek</strong> (§ 650e): Eintrag ins <strong>Grundbuch</strong>, nur für <strong>erbrachte</strong> Leistung, nur wenn der Besteller <strong>Grundstückseigentümer</strong> ist.
+- <strong>Bauhandwerkersicherung</strong> (§ 650f): meist <strong>Bankbürgschaft</strong>, für die <strong>noch nicht bezahlte</strong> Vergütung, schon <strong>vor</strong> Baubeginn.</p>
+<p><strong>5. Was ist der Vorteil der Bauhandwerkersicherung?</strong>
+Sie deckt auch <strong>noch nicht erbrachte</strong> Leistungen ab, ist unabhängig vom Grundstückseigentum, schnell verwertbar und <strong>vertraglich nicht ausschließbar</strong>. Wird sie nicht gestellt, darf der Unternehmer <strong>die Arbeit verweigern oder kündigen</strong> (§ 650f Abs. 5).</p>
+<p><strong>6. Formel für die Bauhandwerkersicherung?</strong> (§ 650f Abs. 1)
+<strong>Sicherheit = (vereinbarte Vergütung inkl. Nachträge − bereits gezahlt) × 1,10</strong></p>
+<p><strong>7. Wann können Sie die Handwerkersicherung fordern, und wie lange?</strong>
+<strong>Jederzeit ab Vertragsschluss</strong>, auch nach der Abnahme, <strong>bis die Vergütung vollständig bezahlt</strong> ist. Nicht gegenüber der öffentlichen Hand und nicht beim Verbraucherbauvertrag (§ 650f Abs. 6).</p>
+<p><strong>8. Kann man einen Bauvertrag kündigen?</strong>
+Ja:
+- Besteller <strong>jederzeit</strong> (§ 648)
+- beide aus <strong>wichtigem Grund</strong> (§ 648a)
+- Unternehmer bei fehlender Bauhandwerkersicherung (§ 650f Abs. 5)</p>
+<p>Die Kündigung muss <strong>schriftlich</strong> erfolgen (§ 650h).</p>
+<h2>Verbraucherbauvertrag</h2>
+<p><strong>1. Was ist ein Verbraucherbauvertrag?</strong>
+Ein Vertrag zwischen <strong>Unternehmer</strong> und <strong>Verbraucher</strong> über den <strong>Bau eines neuen Gebäudes</strong> oder <strong>erhebliche Umbaumaßnahmen</strong> an einem bestehenden Gebäude (§ 650i). Er braucht <strong>Textform</strong>.</p>
+<p><strong>2. Was ist eine Baubeschreibung?</strong>
+Eine Beschreibung der angebotenen Bauleistung, die der Unternehmer dem Verbraucher <strong>rechtzeitig vor Vertragsschluss in Textform</strong> geben muss (§ 650j, Art. 249 EGBGB). Sie wird <strong>Vertragsinhalt</strong> (§ 650k).</p>
+<p><strong>3. Nenne 3 Inhalte der Baubeschreibung.</strong> (Art. 249 § 2 EGBGB)
+- allgemeine Beschreibung des Gebäudes, Art und Umfang der Leistung
+- Pläne mit Raum- und Flächenangaben (Grundrisse, Ansichten, Schnitte)
+- Energie-, Brandschutz- und Schallschutzstandard
+- Baukonstruktion aller wesentlichen Gewerke
+- verbindlicher Fertigstellungstermin</p>
+<p><strong>4. Was ist ein Wertersatz?</strong>
+Widerruft der Verbraucher, obwohl schon gebaut wurde, muss er den <strong>Wert der bis dahin erbrachten Leistung</strong> bezahlen, weil sie nicht zurückgegeben werden kann. Grundlage ist die <strong>vereinbarte Vergütung</strong>, ist sie zu hoch, der Marktwert (§ 357e).</p>
+<p><strong>5. Wann müssen Nachweise ausgehändigt werden?</strong> (§ 650n)
+- <strong>vor Beginn der Ausführung:</strong> Planungsunterlagen für die Behörden
+- <strong>spätestens bei Fertigstellung:</strong> Unterlagen für Behörden und Dritte (z. B. Bank, KfW)</p>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

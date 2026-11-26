@@ -1,0 +1,383 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lernzettel Physik</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#d97706;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Physik">‹ Physik</a>
+  <div class="fach"><i></i>Physik, Lernzettel</div>
+  <h1>Lernzettel Physik</h1>
+  <p class="lead">Kraft, Masse, Dichte, Arbeit, Energie, Leistung und Wärmeschutz mit durchgerechneten Beispielen.</p>
+</div></header>
+<main><div class="in">
+<h2>1. Kraft</h2>
+<ul>
+<li>Eine Kraft <strong>verformt</strong> einen Körper (elastisch = geht zurück, z. B. Feder; plastisch = bleibt verbogen) oder <strong>ändert seine Bewegung</strong> (schneller, bremsen, Richtung).</li>
+<li>Vier Fälle in der Mechanik: Verzögerung (Bremsen), Beschleunigung, Richtungsänderung (Kurve), Verformung (Unfall, Knete).</li>
+<li>Einheit: <strong>1 N</strong> (Newton). 1 kN = 1.000 N, 1 MN = 1.000.000 N.</li>
+<li>1 N = 1 kg·m/s² – rund 100 g Masse wiegen auf der Erde 1 N.</li>
+</ul>
+<h2>2. Masse und Gewichtskraft</h2>
+<ul>
+<li><strong>Masse m</strong> (kg) = wie viel ein Körper "ist" – überall gleich.</li>
+<li><strong>Gewichtskraft F_G</strong> (N) = wie stark er angezogen wird – hängt vom Ort ab (Mond ca. 6-mal weniger).</li>
+<li>Ursache: Massenanziehung (Gravitation). Newtons Merksätze: alle Körper ziehen sich an; je mehr Masse, desto stärker; je weiter weg, desto schwächer.</li>
+</ul>
+<p><strong>F_G = m · g</strong>, mit <strong>g = 9,81 N/kg</strong> (Faustwert 10 N/kg, also 1 kg ≈ 10 N).
+g schwankt leicht: Pole 9,83, Äquator 9,78 N/kg – gerechnet wird mit 9,81.</p>
+<h2>3. Dichte, Wichte, Volumen</h2>
+<ul>
+<li><strong>Dichte ρ = m / V</strong> – Masse pro Volumen. Einheiten: g/cm³ = kg/dm³ = t/m³ (alle gleich groß!).</li>
+<li>Umstellen: <strong>m = ρ · V</strong> und <strong>V = m / ρ</strong>.</li>
+<li><strong>Wichte</strong> = Gewichtskraft pro Volumen, in kN/m³. Faustregel: Dichte in kg/m³ ÷ 100 = Wichte in kN/m³.</li>
+<li><strong>Schüttdichte</strong>: Dichte von losem Material (Sand, Kalk) – ändert sich, wenn es sich setzt.</li>
+</ul>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Baustoff</th>
+<th>Dichte (kg/m³)</th>
+<th>Wichte (kN/m³)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sand/Kiessand trocken</td>
+<td>1.800</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Normalbeton</td>
+<td>2.300</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Stahlbeton</td>
+<td>2.500</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Fichte</td>
+<td>600</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Zement</td>
+<td>1.200</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Mauerwerk</td>
+<td>1.000</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nützliche Formeln fürs Volumen: Quader l·b·h · Zylinder π·r²·h · Kegel ⅓·π·r²·h · Ring = großer Zylinder minus kleiner.</p>
+<h2>4. Arbeit (Stunde vom 23.09.2026)</h2>
+<p>Einheit Joule: <strong>1 J = 1 N·m</strong>, 1 kJ = 1.000 J.</p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Art</th>
+<th>Formel</th>
+<th>Merken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hubarbeit</td>
+<td><strong>W = F · h</strong></td>
+<td>Last hochheben (F = Gewichtskraft)</td>
+</tr>
+<tr>
+<td>Reibungsarbeit</td>
+<td><strong>W = F_N · μ · s</strong></td>
+<td>etwas über den Boden schieben</td>
+</tr>
+<tr>
+<td>Spannarbeit / Spannenergie</td>
+<td><strong>W = ½ · D · s²</strong></td>
+<td>Feder spannen</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Reibung:</strong> Reibungskraft F_R = μ · F_N. F_N = Normalkraft (drückt auf den Boden, meist = Gewichtskraft). μ = <strong>Reibungszahl</strong> (ohne Einheit). Zum Verschieben muss die Schubkraft größer als F_R sein.</li>
+<li><strong>Feder:</strong> Federkonstante <strong>D = F / s</strong> (N/m) – wie hart die Feder ist. Achtung Einheiten: 6 N/mm = 6 kN/m = 6.000 N/m.</li>
+<li>Spannweg zurückrechnen: s = √(W / (0,5 · D)).</li>
+</ul>
+<h2>4b. Weitere Arbeits- und Energieformen</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Art</th>
+<th>Formel</th>
+<th>Merken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beschleunigungsarbeit / kinetische Energie</td>
+<td><strong>W = E_kin = ½ · m · v²</strong></td>
+<td>Bewegung</td>
+</tr>
+<tr>
+<td>Beschleunigen von v₁ auf v₂</td>
+<td><strong>W = ½ · m · (v₂² − v₁²)</strong></td>
+<td>schneller werden</td>
+</tr>
+<tr>
+<td>Lageenergie (potentielle Energie)</td>
+<td><strong>E_pot = m · g · h</strong></td>
+<td>ist dasselbe wie Hubarbeit</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Geschwindigkeit umrechnen: <strong>km/h : 3,6 = m/s</strong> (und m/s · 3,6 = km/h).</li>
+<li>Alle Energie- und Arbeitseinheiten sind gleich groß: <strong>1 J = 1 N·m = 1 kg·m²/s²</strong>.</li>
+</ul>
+<h2>4c. Energie und Energieerhaltungssatz</h2>
+<ul>
+<li><strong>Energie</strong> (griech. "energeia" = wirkende Kraft) ist der "Treibstoff" für jeden Vorgang.</li>
+<li><strong>Energieformen:</strong> mechanisch (kinetisch: fahrendes Auto; potentiell: Wasserfall, Feder, Pendel), innere Energie (thermisch, chemisch: Kohle, Öl, Nahrung; Kernenergie), elektrische Energie, Strahlungsenergie (Sonne).</li>
+<li><strong>Energieerhaltungssatz (EES):</strong> In einem geschlossenen System bleibt die Gesamtenergie gleich. Energie wird weder erzeugt noch vernichtet, sie wird nur <strong>umgewandelt</strong>.</li>
+<li>So rechnet man damit: Die Energie am Anfang ist gleich der Energie am Ende. Beispiel: Spannenergie der Feder → Bewegungsenergie der Kugel → Höhenenergie, also <strong>½·D·s² = ½·m·v² = m·g·h</strong>.</li>
+</ul>
+<h2>4d. Leistung</h2>
+<ul>
+<li><strong>Leistung P = W / t</strong> (Arbeit pro Zeit). Einheit <strong>1 W = 1 J/s</strong>.</li>
+<li><strong>1 kWh = 3,6 · 10⁶ J</strong> (1.000 W · 3.600 s).</li>
+<li><strong>1 PS = 0,735 kW</strong>, umgekehrt <strong>1 kW = 1,36 PS</strong> (kW · 1,36 = PS).</li>
+<li>Veraltet: <strong>1 kcal = 4.186 J</strong> (Brennwert von Lebensmitteln).</li>
+</ul>
+<h2>5. Durchgerechnete Beispiele</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Aufgabe</th>
+<th>Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kran hebt 18 kN um 16 m</td>
+<td>W = 288 kJ</td>
+</tr>
+<tr>
+<td>Rüttelplatte 60 kg, 12 m schieben, μ = 0,38</td>
+<td>F_N = 588,6 N → W ≈ 2,68 kJ</td>
+</tr>
+<tr>
+<td>Feder, 0,6 kN drücken sie 12 mm zusammen</td>
+<td>D = 50 kN/m</td>
+</tr>
+<tr>
+<td>Feder D = 6 N/mm, W = 3.720 J</td>
+<td>s ≈ 1,11 m</td>
+</tr>
+<tr>
+<td>NF-Ziegel 2,15 kg (24 × 11,5 × 7,1 cm)</td>
+<td>ρ ≈ 1,10 kg/dm³</td>
+</tr>
+<tr>
+<td>Betonwürfel 20 cm, 23,2 kg</td>
+<td>ρ = 2,9 kg/dm³</td>
+</tr>
+<tr>
+<td>Ballastkörper 100 kg, 1,20 × 0,30 m, ρ = 2,4 kg/dm³</td>
+<td>Höhe ≈ 1,16 dm (11,6 cm)</td>
+</tr>
+<tr>
+<td>10 kg Styropor, ρ = 0,04 t/m³</td>
+<td>0,25 m³</td>
+</tr>
+<tr>
+<td>Kieskegel Ø 2,50 m, h 1,40 m, ρ = 1,7 t/m³</td>
+<td>V ≈ 2,29 m³, m ≈ 3,9 t → Transporter mit 1,7 t reicht <strong>nicht</strong></td>
+</tr>
+<tr>
+<td>10-l-Eimer, 4 kg Kalk, sackt 6 cm (Ø 26 cm)</td>
+<td>vorher 0,4, nachher ≈ 0,59 kg/dm³ → Mischungen nach <strong>Masse</strong> festlegen, nicht nach Volumen</td>
+</tr>
+<tr>
+<td>Betonring innen Ø 100 cm, Wand 10 cm, h 50 cm</td>
+<td>siehe Hinweis unten</td>
+</tr>
+<tr>
+<td>Stahlbeton-Fertigteil 1,25 × 5,50 × 0,20 m, 6 Löcher Ø 10 cm</td>
+<td>Betonvolumen ≈ 1,116 m³, siehe Hinweis</td>
+</tr>
+<tr>
+<td>EES: Feder D = 50 N/m, 10 cm gespannt</td>
+<td>E_sp = 0,25 J</td>
+</tr>
+<tr>
+<td>… sie schießt eine Kugel mit 20 g ab</td>
+<td>v = √(0,25 / (0,5 · 0,02)) = <strong>5 m/s</strong> (= 18 km/h)</td>
+</tr>
+<tr>
+<td>… wie hoch fliegt die Kugel?</td>
+<td>h = 0,25 / (0,02 · 9,81) ≈ <strong>1,27 m</strong></td>
+</tr>
+<tr>
+<td>Ball 100 g, mit 10 m/s nach oben geworfen</td>
+<td>E_kin = 5 J → h = 5 / (0,1 · 9,81) ≈ <strong>5,10 m</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>Beim Nachrechnen aufgefallen</h3>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> <strong>Betonring:</strong> Im Heft steht 0,57 − 0,39 = 0,18 m³ → 450 kg → 4.414,5 N. Genau gerechnet ist es 0,5655 − 0,3927 ≈ <strong>0,173 m³ → ca. 432 kg → ca. 4,24 kN</strong>. Das Runden vor dem Abziehen verfälscht das Ergebnis. Außerdem: Ergebnis ist in <strong>N</strong>, nicht N/m³.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> <strong>Fertigteil:</strong> Im Heft mit 2.000 kg/m³ gerechnet (→ 2.232 kg, 21,9 kN). Laut eigener Tabelle hat Stahlbeton aber <strong>2.500 kg/m³</strong> → ca. 2.790 kg, ca. <strong>27,4 kN</strong>. Klären, ob der Lehrer 2.000 vorgegeben hat.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> <strong>EES-Feder, Teil c):</strong> Im Heft steht zuerst 4,58 m/s (dann 5 darübergeschrieben). Richtig ist <strong>5 m/s</strong>, denn √25 = 5. Die km/h-Umrechnung im Heft ist durchgestrichen: 5 · 3,6 = <strong>18 km/h</strong>.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> <strong>EES-Feder, Teil d):</strong> Im Heft wurde mit F = 0,20 N gerechnet und 1,25 m herausgebracht. Genau ist F = 0,196 N, also h ≈ <strong>1,27 m</strong>. Teil e) (m = 100 g) ist im Heft nicht fertig.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> <strong>Ball-Aufgabe:</strong> Ergebnis E_kin = 5 J steht im Heft als "5 N/m". Die Einheit muss <strong>J</strong> sein. Die Zeile mit v₁ darunter ist unnötig, weil der Ball ja mit 10 m/s startet.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Auf dem Blatt "Masse und Gewichtskraft" steht "Henry Gavendisch" – gemeint ist Henry <strong>Cavendish</strong>.</p>
+</div>
+<h2>6. Wärmeschutz</h2>
+<p><strong>Formeln</strong>
+| Größe | Formel | Einheit |
+|---|---|---|
+| Wärmedurchlasswiderstand einer Schicht | <strong>R = d / λ</strong> (d in m, λ = Wärmeleitfähigkeit) | m²K/W |
+| ganzes Bauteil (mehrere Schichten) | <strong>ΣR = R₁ + R₂ + …</strong> | m²K/W |
+| Wärmedurchgangswiderstand | <strong>R_T = R_si + ΣR + R_se</strong> | m²K/W |
+| Wärmedurchgangskoeffizient | <strong>U = 1 / R_T</strong> | W/(m²K) |
+| flächenbezogene Masse | <strong>m' = d · ρ</strong> | kg/m² |
+| Wärmeeindringkoeffizient | b = √(λ · ρ · c) | Ws/(m²K s^0,5) |
+| Temperaturleitzahl | a = λ / (ρ · c) | m²/s |
+| Wärmespeicherfähigkeit | Q = m' · c · Δθ | Ws/m² |
+| Temperaturamplitudenverhältnis / -dämpfung | TAV = Δθ_si / Δθ_se · TAD = 1 / TAV | – |
+| Wärmestromdichte | q = U · (θ_i − θ_e) | W/m² |</p>
+<p><strong>Wärmeübergangswiderstände</strong> (DIN EN ISO 6946): Wärmestrom <strong>horizontal</strong> (senkrechte Außenwand): R_si = <strong>0,13</strong>, R_se = <strong>0,04</strong>. Aufwärts: 0,10 / 0,04. Abwärts: 0,17 / 0,04. Dach mit Neigung ≥ 60° zählt als horizontal, &lt; 60° als aufwärts.</p>
+<p><strong>Merksätze</strong>
+- R_si/R_se: Widerstand der dünnen Luftschicht direkt an der Oberfläche. Wind und Richtung des Wärmestroms spielen mit.
+- U-Wert: wie viel Watt pro m² bei 1 K Unterschied durchgehen. <strong>Kleiner = besser gedämmt.</strong> Bei Fenstern wird direkt der U-Wert angegeben.
+- Spezifische Wärmekapazität c: Wärme, um 1 kg um 1 K zu erwärmen (Beton 1000, Holz 2100, Wasser 4200 Ws/kgK).
+- Großes b (Beton) = Boden fühlt sich kalt an. Kleines b (Holz) = fühlt sich warm an.
+- Temperatur wandert in Beton etwa 8-mal schneller als in Holz.
+- Viel Speichermasse dämpft Hitze im Sommer und hält Wärme im Winter. TAV = 0,05 heißt: Innen kommen nur 5 % der Schwankung von außen an.</p>
+<p><strong>Durchgerechnetes Beispiel aus dem Heft</strong> (Außenwand: 1,5 cm Kalkgipsputz λ 0,3 · 30 cm Hochlochziegel λ 0,58 · 2 cm Kalkzementputz λ 1,0)
+1. R = 0,05 + 0,517 + 0,02 = <strong>0,587 m²K/W</strong>
+2. m' ≈ 468 kg/m² (&gt; 100 kg/m²) → laut Schneider Tafel 10.8 gilt <strong>min R = 1,2</strong> → 0,587 &lt; 1,2, <strong>Nachweis nicht erbracht</strong>.
+3. Zusatzdämmung EPS (WLG 036): ΔR = 1,2 − 0,587 ≈ 0,61 → d = ΔR · λ = 0,61 · 0,036 = 0,022 m → <strong>gewählt 3 cm</strong>. Kontrolle: 0,587 + 0,03/0,036 = 1,42 &gt; 1,2 ✓
+4. R_T = 0,13 + 0,587 + 0,04 = <strong>0,757</strong> → U = 1/0,757 = <strong>1,32 W/(m²K)</strong>.
+5. GEG verlangt laut Heft für die Außenwand U_max = 0,24 → nicht eingehalten. Nötig: R_T = 1/0,24 = 4,167 → ΔR_T = 3,41 → d = 3,41 · 0,036 = 0,123 m → <strong>gewählt 14 cm</strong> → R_T neu = 4,646 → <strong>U neu = 0,215 W/(m²K)</strong> ✓</p>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Beim Putz steht oben ρ = 900 kg/m³, gerechnet wurde mit 800. Mit 900 käme m' ≈ 469,5 kg/m² raus. Am Ergebnis (&gt; 100) ändert das nichts.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Der GEG-Höchstwert U_max = 0,24 W/(m²K) stammt aus dem Heft. Bei Bedarf im aktuellen GEG (Anlage 7) nachschauen, der Wert kann sich ändern.</p>
+</div>
+<h3>6b. Temperaturverlauf / Schichtgrenztemperaturen</h3>
+<ul>
+<li><strong>Formel:</strong> θ_neu = θ_vorher − (R_Schicht / R_T) · (θ_i − θ_e). Zuerst θ_si (mit R_si), dann Schicht für Schicht nach außen. Die letzte Rechnung muss wieder θ_e ergeben (Probe).</li>
+<li>R_si = 0,13 und R_se = 0,04 (Wärmestrom waagrecht, Schneider Tafel 10.4).</li>
+<li><strong>Beispiel 1</strong> (Wand aus 6., R_T = 0,757, 20 °C / −5 °C): θ_si 15,707 · θ_1/2 14,056 · θ_2/3 −3,018 · θ_se −3,679 · θ_e −5,000 °C. <strong>Alles nachgerechnet, stimmt.</strong></li>
+<li><strong>Beispiel 2</strong> (zweischalige Wand: 1,5 cm Innenputz λ 0,70 · 17,5 cm Kalksandstein λ 0,99 · 12 cm Dämmung λ 0,035 · 11,5 cm Klinker λ 0,96): ΣR = 3,747, <strong>R_T = 3,917 m²K/W</strong>. θ_si 19,170 · 19,034 · 17,905 · −3,977 · θ_se −4,742 · θ_e −4,997 °C (≈ −5, Rundung). <strong>Stimmt.</strong></li>
+<li>Merke: Fast der ganze Temperatursturz passiert <strong>in der Dämmung</strong>. Innen bleibt die Wand warm.</li>
+</ul>
+<h3>6c. Weiter mit Beispiel 2</h3>
+<ul>
+<li><strong>Mindestwärmeschutz</strong> (Schneider Tafel 10.8, schweres Bauteil): R_min = <strong>1,20 m²K/W</strong>. Vorhanden R = 3,747 &gt; 1,20 → <strong>Nachweis erbracht</strong>. Wichtig: Hier mit <strong>R</strong> rechnen, <strong>ohne</strong> R_si und R_se!</li>
+<li><strong>GEG</strong> (Tafel 10.16): U_max = 0,24. Vorhanden U = 1 / 3,916 = <strong>0,255</strong> &gt; 0,24 → <strong>nicht erbracht</strong>. Nötig R_T = 1 / 0,24 = 4,167 → fehlen 0,251 → d = 0,251 · 0,035 = 0,0088 m → <strong>ca. 1 cm mehr Dämmung</strong>.</li>
+<li><strong>Temperatur bei 2/3 der Dämmung</strong> (Wärmestrombilanz, Schneider S. 10.6): Bis zum Punkt ΣR_zu = 0,13 + 0,015/0,70 + 0,175/0,99 + ⅔ · 0,12/0,035 = <strong>2,614</strong>. Ab dem Punkt bis außen ΣR_ab = 3,916 − 2,614 = <strong>1,303</strong>.</li>
+<li>Formel: <strong>θ = (θ_innen · ΣR_ab + θ_außen · ΣR_zu) / (ΣR_zu + ΣR_ab)</strong></li>
+<li>θ = (20 · 1,303 + (−5) · 2,614) / 3,916 = <strong>3,32 °C</strong>. Zeichnerisch geht es auch: Punkt im Temperaturdiagramm ablesen.</li>
+</ul>
+<h3>6d. Formelsammlung Wärme</h3>
+<ul>
+<li>Wärmestromdichte <strong>q = U · (θ_i − θ_e) = (θ_i − θ_e) / R_T</strong> in W/m²</li>
+<li>Wärmestrom <strong>Φ = q · A</strong> in W · Wärmemenge <strong>Q = q · A · t</strong> in Ws = J (<strong>1 kWh = 3,6 MJ</strong>)</li>
+<li>Schichtgrenztemperaturen: θ_si = θ_i − R_si · q, dann jede Schicht θ_neu = θ_vorher − R_Schicht · q, am Ende θ_e = θ_se − R_se · q (<strong>Kontrolle</strong>).</li>
+</ul>
+<h3>6e. Dach mit Sparren (Physik-Übung A7, Heft)</h3>
+<p>Geneigtes Dach 30°: Gipskarton 12,5 mm (λ 0,25), ruhende Luftschicht 2 cm, Dämmung WLG 040 (18 cm) zwischen Sparren (λ 0,13), Hinterlüftung (Kaltdach).
+- <strong>Dampfsperre und alle Feuchtesperren</strong> werden beim R-Wert <strong>weggelassen</strong>. <strong>Hinterlüftete Schicht (Kaltdach)</strong> zählt auch nicht mit.
+- <strong>Gefach (Dämmung):</strong> R = 0,05 + 0,16 + 0,18/0,04 = 4,71 → R_T = 4,91 → <strong>U = 0,204</strong>
+- <strong>Sparren:</strong> R = 0,05 + 0,16 + 0,18/0,13 = 1,59 → R_T = 1,79 → <strong>U = 0,559</strong>
+- <strong>Mittlerer U-Wert</strong> nach Breiten (Sparren 10 cm, Gefach 65 cm): U = (0,10 · 0,559 + 0,65 · 0,204) / 0,75 = <strong>0,25 W/(m²K)</strong> ✓</p>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Im Heft heißt der Mittelwert „U_min“. Gemeint ist der <strong>mittlere</strong> U-Wert (nach Fläche gewichtet).</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Kleine Schreibfehler: Im Beispiel 2 heißt die erste Zeile „θ_i =“, gemeint ist <strong>θ_si</strong>. Auf dem Aufgabenblatt steht außen „θ_e = 5 °C“, gerechnet wird richtig mit <strong>−5 °C</strong>.</p>
+</div>
+<h2>7. Grundbegriffe Naturlehre</h2>
+<ul>
+<li><strong>Physik</strong> = Naturlehre (griech. <em>physis</em> = Natur). Sie untersucht Vorgänge und Zustände in der <strong>unbelebten</strong> Natur (Biologie: die belebte).</li>
+<li>Vorgänge: Bewegungen, Kraftwirkungen, Kernreaktionen. Zustände: Druck, elektrische Ladungen, magnetische Felder.</li>
+<li><strong>Aggregatzustände:</strong> fest (starke Kohäsionskräfte) · flüssig (geringe) · gasförmig (keine).</li>
+<li><strong>Physikalischer Vorgang:</strong> Der Stoff bleibt derselbe (sägen, schlagen, biegen). <strong>Chemischer Vorgang:</strong> Der Stoff verändert sich (Erhärten von Bindemitteln).</li>
+</ul>
+<h2>Prüfungstipps (aus den Unterlagen abgeleitet)</h2>
+<ul>
+<li>Immer erst "ges. / geg. / Lös." aufschreiben – so steht es im Heft.</li>
+<li><strong>Einheiten vor dem Rechnen gleich machen</strong> (cm → dm → m, N/mm → N/m).</li>
+<li>Zwischenergebnisse nicht zu früh runden.</li>
+</ul>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

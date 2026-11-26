@@ -2,90 +2,186 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Meisterschule Lernen</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Lernen">
 <link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
 <style>
-:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#6b655c;--line:#e2ddd4;--soft:#ece8e1;--accent:#b4532a;
---sa:#b3261e;--ex:#c2410c;--ferien:#1f7a45;--pruefung:#6d3fa0;--schule:#2f5d8a;--sonst:#6b655c}
-@media (prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#171513;--paper:#211f1c;--ink:#ece7df;--muted:#a59d91;--line:#38342e;--soft:#2a2723;--accent:#e98a5f;
---sa:#f28b82;--ex:#fb923c;--ferien:#6fd49a;--pruefung:#c4a5f0;--schule:#8fb6e0;--sonst:#a59d91}}
+/* Layout: dunkles Kopfband mit den nächsten Prüfungen als Datums-Blöcke, darunter Umschalter und Fächer als Karten (2 Spalten, am Handy 1). Linksbündig. */
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --band-2:#2a425a;
+  --signal:#f0b400;
+  --sa:#c0392b; --ex:#c2410c; --ferien:#2e7d4f; --pruefung:#6d3fa0; --schule:#2f5d8a; --sonst:#5b6573;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --band-2:#24384d;
+  --signal:#f2c230; --sa:#ee8a7e; --ex:#fb923c; --ferien:#5cc28a; --pruefung:#c4a5f0; --schule:#8fb6e0; --sonst:#98a2af;
+  color-scheme:dark}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:calc(20px + env(safe-area-inset-top,0px)) 16px calc(40px + env(safe-area-inset-bottom,0px))}
-.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
-h1{font-size:clamp(28px,8vw,40px);line-height:1.05;margin:6px 0 14px;font-weight:800}
-h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px;font-weight:700}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.45 var(--text)}
+.in{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 button,input{font:inherit;color:inherit}
-.naechster{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--sa);border-radius:14px;padding:14px 16px;margin-bottom:14px}
-.naechster .k{font-size:13px;color:var(--muted)}
-.naechster .t{font-size:20px;font-weight:800;margin:2px 0}
-.naechster .d{font-size:15px}
-.naechster .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip{display:inline-block;font-size:14px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:inherit;text-decoration:none;background:var(--bg)}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);background:var(--soft);border-radius:12px;padding:4px;gap:4px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
-.tabs button{border:0;background:transparent;border-radius:9px;padding:9px 4px;font-weight:600;font-size:15px;cursor:pointer;color:var(--muted)}
-.tabs button[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.suche{width:100%;margin-top:12px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
-.fach{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--f);border-radius:14px;padding:12px;margin-bottom:12px;display:grid;gap:8px}
-.fach h3{margin:2px 4px 2px;font-size:19px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.fach h3 small{font-size:13px;font-weight:600;color:var(--sa)}
-.eintrag{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none;background:var(--paper)}
-.eintrag:hover,.eintrag:focus-visible{border-color:var(--f);outline:none}
-.eintrag b{display:block}
-.eintrag .meta{font-size:13px;color:var(--muted)}
-.eintrag .rechts{font-size:13px;color:var(--muted);text-align:right;white-space:nowrap}
-.neu{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;background:var(--accent);color:#fff;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:2px}
-.punkt{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--f);margin-right:6px}
-.liste{display:grid;gap:8px}
-.leer{color:var(--muted);padding:16px 4px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+a{color:inherit}
+
+/* Kopf */
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(22px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:18px}
+.titel{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--head);font-weight:700;font-size:2.3rem;line-height:1;margin:0}
+.titel p{margin:4px 0 0;color:var(--band-muted);font-size:.95rem}
+.heute{color:var(--band-muted);font-size:.9rem}
+.bald{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pr{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;background:var(--band-2);border-radius:8px;padding:12px;min-width:0}
+.pr.erst{background:var(--band-ink);color:var(--band)}
+.kal{text-align:center;border-radius:6px;overflow:hidden;background:var(--sheet);color:var(--ink);line-height:1}
+.kal i{display:block;font-style:normal;font-size:.72rem;font-weight:700;padding:3px 0;background:var(--c);color:var(--sheet)}
+.kal b{display:block;font-family:var(--head);font-size:1.6rem;padding:4px 0 2px}
+.kal span{display:block;font-size:.72rem;color:var(--muted);padding-bottom:4px}
+.pr .was{font-weight:700;line-height:1.25}
+.pr .wann{font-size:.85rem;color:var(--band-muted);margin-top:2px}
+.pr.erst .wann{color:var(--muted)}
+.pr .lern{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px;font-size:.85rem}
+.pr .lern a{text-decoration:underline;text-underline-offset:2px}
+.leerkopf{color:var(--band-muted)}
+
+/* Steuerung */
+main .in{padding-block:20px 40px;display:flex;flex-direction:column;gap:18px}
+.leiste{display:flex;gap:10px;flex-wrap:wrap;align-items:center;position:sticky;top:0;z-index:5;background:var(--paper);padding-block:10px;margin-block:-10px}
+.tabs{display:flex;background:var(--soft);border-radius:8px;padding:3px;gap:2px}
+.tabs button{border:0;background:transparent;border-radius:6px;padding:8px 16px;font-weight:600;cursor:pointer;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--band);color:var(--band-ink)}
+.suche{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+h2{font-family:var(--head);font-weight:600;font-size:1.35rem;margin:6px 0 0}
+
+/* Fächer */
+.raster2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.fach{background:var(--sheet);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.fach header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-left:6px solid var(--f)}
+.fach h3{margin:0;font-family:var(--head);font-weight:600;font-size:1.3rem;line-height:1.1}
+.badge{font-size:.78rem;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap;background:var(--c);color:var(--sheet)}
+.eintrag{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;padding:10px 14px 10px 20px;border-top:1px solid var(--line);text-decoration:none}
+.eintrag:hover{background:var(--paper)}
+.eintrag b{font-weight:600}
+.eintrag .meta{font-size:.85rem;color:var(--muted);grid-column:1}
+.eintrag .dt{grid-row:1/3;grid-column:2;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.neu{display:inline-block;font-size:.72rem;font-weight:700;background:var(--signal);color:#1b2430;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.punkt{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--f);margin-right:7px}
+.liste{background:var(--sheet);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.liste .eintrag:first-child,.liste .termin:first-child{border-top:0}
+.leer{color:var(--muted);padding:12px 2px;margin:0}
+
 /* Kalender */
-.monat{display:flex;justify-content:space-between;align-items:center;margin:14px 0 8px}
-.monat b{font-size:19px}
-.monat button{border:1px solid var(--line);background:var(--paper);border-radius:10px;width:42px;height:38px;cursor:pointer;font-size:18px}
-.raster{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
-.raster .wt{font-size:12px;color:var(--muted);text-align:center;font-weight:700;padding:4px 0}
-.tag{aspect-ratio:1/1;border:0;background:transparent;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;font-size:15px;position:relative;padding:0}
-.tag.aus{color:var(--muted);opacity:.35}
-.tag.heute{outline:2px solid var(--ink);outline-offset:-2px}
-.tag.gewaehlt{background:var(--soft)}
+.kalwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.monat{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.monat b{font-family:var(--head);font-size:1.35rem;font-weight:600}
+.monat button{border:1px solid var(--line);background:var(--sheet);border-radius:6px;width:40px;height:36px;cursor:pointer;font-size:1.1rem}
+.netz{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px}
+.netz .wt{font-size:.75rem;color:var(--muted);text-align:center;font-weight:600;padding:4px 0}
+.tag{aspect-ratio:1/1;border:0;background:transparent;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;font-size:.95rem;padding:0;font-variant-numeric:tabular-nums}
+.tag:hover{background:var(--soft)}
+.tag.aus{opacity:.3}
+.tag.heute{outline:2px solid var(--ink);outline-offset:-2px;font-weight:700}
+.tag.gewaehlt{background:var(--band);color:var(--band-ink)}
 .tag.ferien{background:color-mix(in srgb,var(--ferien) 16%,transparent)}
 .tag .dots{display:flex;gap:2px;height:6px}
 .tag .dots i{width:6px;height:6px;border-radius:50%}
-.legende{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);margin:10px 2px}
+.legende{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.82rem;color:var(--muted);margin-top:8px}
 .legende span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:5px}
-.termin{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:start;padding:11px 13px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px}
+.termin{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:10px 14px;border-top:1px solid var(--line);border-left:5px solid var(--c)}
 .termin.vorbei{opacity:.5}
-.termin .dt{font-weight:800;font-size:15px;line-height:1.2}
-.termin .dt small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.termin .dt{font-weight:700;font-size:.95rem;line-height:1.2;font-variant-numeric:tabular-nums}
+.termin .dt small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
 .termin .wer{font-weight:600}
-.termin .hin{font-size:13px;color:var(--muted)}
-.termin a{font-size:14px}
-.umschalt{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:14px;margin-top:10px}
-.install{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:15px;color:var(--muted);margin-top:22px}
-.install button{font-weight:600;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;margin-top:8px;cursor:pointer}
-footer{color:var(--muted);font-size:13px;margin-top:24px}
-</style></head><body><div class="wrap">
-<div class="eyebrow">Meisterschule Landshut · Maurer</div>
-<h1>Lernen für die Meisterschule</h1>
-<div id="naechster"></div>
-<div class="tabs" role="tablist">
-  <button role="tab" data-v="faecher">Fächer</button>
-  <button role="tab" data-v="neu">Neueste</button>
-  <button role="tab" data-v="kalender">Kalender</button>
-</div>
-<main id="inhalt"></main>
-<div class="install" id="install"><b>App aufs Handy holen:</b><br>
-iPhone: in Safari unten auf <b>Teilen</b> tippen, dann <b>„Zum Home-Bildschirm“</b>.<br>
-Android: im Chrome-Menü (⋮) <b>„App installieren“</b> oder „Zum Startbildschirm hinzufügen“.
-<div><button id="installBtn" hidden>Jetzt installieren</button></div></div>
-<footer>Selbst erstellt aus Unterrichtsmitschriften. Nicht vom Lehrer, ohne Gewähr. Lernseiten Stand 25.11.2026.<br><span id="terminquelle"></span></footer>
-</div>
+.termin .lern{font-size:.85rem;display:flex;flex-wrap:wrap;gap:2px 10px}
+.umschalt{border:1px solid var(--line);background:var(--sheet);border-radius:6px;padding:7px 14px;cursor:pointer;font-size:.9rem;font-weight:600;justify-self:start;margin-top:10px}
+.spalte{display:flex;flex-direction:column;gap:8px;min-width:0}
+
+/* Fächerliste und Fachseite */
+.faecher{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fk{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;text-align:left;background:var(--sheet);border:1px solid var(--line);border-left:6px solid var(--f);border-radius:8px;padding:14px 16px;cursor:pointer;text-decoration:none}
+.fk:hover{border-color:var(--ink);border-left-color:var(--f)}
+.fk b{font-family:var(--head);font-weight:600;font-size:1.35rem;line-height:1.1}
+.fk .meta{font-size:.85rem;color:var(--muted);grid-column:1}
+.fk .pfeil{grid-row:1/3;grid-column:2;display:flex;flex-direction:column;align-items:flex-end;gap:6px;color:var(--muted);font-size:1.4rem;line-height:1}
+.fachkopf{display:flex;flex-direction:column;gap:10px;border-left:6px solid var(--f);padding:4px 0 4px 14px}
+.zurueck{align-self:flex-start;border:1px solid var(--line);background:var(--sheet);border-radius:6px;padding:7px 14px;cursor:pointer;font-weight:600}
+.fachkopf h2{font-size:2rem;margin:0;line-height:1}
+.fachkopf p{margin:0;color:var(--muted)}
+.liste .eintrag{padding-left:16px}
+@media (max-width:760px){.faecher{grid-template-columns:1fr}}
+
+/* Themen und Lernarten */
+.themen{background:var(--sheet);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.th{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;padding:14px 16px;border-top:1px solid var(--line);text-decoration:none}
+.th:first-child{border-top:0}
+.th:hover{background:var(--paper)}
+.th b{font-weight:700;font-size:1.05rem}
+.th .arten{display:flex;flex-wrap:wrap;gap:5px;grid-column:1}
+.th .arten span{font-size:.78rem;font-weight:600;padding:2px 8px;border-radius:4px;background:var(--soft);color:var(--muted)}
+.th .dt{grid-row:1/3;grid-column:2;font-size:.85rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.th .dt::after{content:" ›";font-size:1.3rem;vertical-align:-2px}
+.lernarten{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.la{display:flex;flex-direction:column;gap:4px;text-decoration:none;background:var(--sheet);border:1px solid var(--line);border-top:5px solid var(--f);border-radius:8px;padding:16px}
+.la:hover{border-color:var(--ink);border-top-color:var(--f)}
+.la .name{font-family:var(--head);font-weight:700;font-size:1.6rem;line-height:1}
+.la .tit{font-weight:600}
+.la .meta{font-size:.88rem;color:var(--muted)}
+.pfad{font-size:.9rem;color:var(--muted)}
+
+/* Fuß */
+.install{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:.92rem;color:var(--muted)}
+.install b{color:var(--ink)}
+.install button{font-weight:600;background:var(--band);color:var(--band-ink);border:0;border-radius:6px;padding:9px 16px;margin-top:8px;cursor:pointer}
+footer{color:var(--muted);font-size:.82rem}
+
+@media (max-width:760px){
+  .bald{grid-template-columns:1fr}
+  .bald .pr:not(.erst){padding:8px 12px}
+  .bald{gap:6px}
+  .bald .pr:not(.erst){grid-template-columns:44px 1fr;align-items:center}
+  .bald .pr:not(.erst) .kal b{font-size:1.15rem;padding:2px 0 3px}
+  .bald .pr:not(.erst) .kal span{display:none}
+  .bald .pr:not(.erst) .lern{display:none}
+  .bald .pr:not(.erst) .was{font-size:.95rem}
+  .raster2,.kalwrap{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  .tabs{width:100%} .tabs button{flex:1;padding:8px 4px}
+}
+</style></head><body>
+<header class="band"><div class="in">
+  <div class="titel"><div><h1>Meisterschule Lernen</h1><p>Maurer, Meisterschule Landshut</p></div><div class="heute" id="heute"></div></div>
+  <div class="bald" id="bald" aria-label="Nächste Prüfungen"></div>
+</div></header>
+<main><div class="in">
+  <div class="leiste">
+    <div class="tabs" role="tablist">
+      <button role="tab" data-v="faecher">Fächer</button>
+      <button role="tab" data-v="neu">Neueste</button>
+      <button role="tab" data-v="kalender">Kalender</button>
+    </div>
+    <input class="suche" id="suche" type="search" placeholder="Suchen, z. B. Quiz oder Treppe" aria-label="Lernseiten suchen">
+  </div>
+  <div id="inhalt"></div>
+  <div class="install" id="install"><b>App aufs Handy holen:</b><br>
+  iPhone: in Safari unten auf <b>Teilen</b> tippen, dann <b>„Zum Home-Bildschirm“</b>.<br>
+  Android: im Chrome-Menü (⋮) <b>„App installieren“</b> oder „Zum Startbildschirm hinzufügen“.
+  <div><button id="installBtn" hidden>Jetzt installieren</button></div></div>
+  <footer>Selbst erstellt aus Unterrichtsmitschriften. Nicht vom Lehrer, ohne Gewähr. Lernseiten Stand 25.11.2026.<br><span id="terminquelle"></span></footer>
+</div></main>
 <script>
-const D = {"bereiche": [{"name": "Bautechnik", "faecher": [{"name": "Treppe", "farbe": "#b4532a"}, {"name": "Baustoffkunde", "farbe": "#2f4fb5"}, {"name": "Physik", "farbe": "#d97706"}]}, {"name": "Recht und Wirtschaft", "faecher": [{"name": "BGB", "farbe": "#6d3fa0"}, {"name": "Politik und Gesellschaft", "farbe": "#a3342a"}, {"name": "Rechnungswesen", "farbe": "#0f766e"}]}], "seiten": [{"fach": "Treppe", "datei": "treppe-lernblatt.html", "titel": "Lernblatt", "art": "Zum Lesen", "datum": "2026-10-26"}, {"fach": "Treppe", "datei": "treppe-quiz.html", "titel": "Quiz (39 Fragen)", "art": "Ankreuzen", "datum": "2026-10-26"}, {"fach": "Treppe", "datei": "treppe-abfrage.html", "titel": "Abfrage ohne Antworten", "art": "Selbst abfragen", "datum": "2026-10-27"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-quiz.html", "titel": "Quiz (55 Fragen)", "art": "Ankreuzen", "datum": "2026-10-26"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-lernkarten.html", "titel": "Lernkarten", "art": "Karteikarten", "datum": "2026-10-26"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-abfrage.html", "titel": "Abfrage ohne Antworten", "art": "Selbst abfragen", "datum": "2026-10-27"}, {"fach": "Physik", "datei": "physik.html", "titel": "18 gemischte Aufgaben", "art": "Rechnen", "datum": "2026-09-30"}, {"fach": "BGB", "datei": "bgb-abfrage.html", "titel": "Abfrage (59 Fragen)", "art": "Selbst abfragen", "datum": "2026-11-25"}, {"fach": "Politik und Gesellschaft", "datei": "pug-lernkarten.html", "titel": "Lernkarten (60 Fragen)", "art": "Ankreuzen", "datum": "2026-10-15"}, {"fach": "Politik und Gesellschaft", "datei": "pug-schulaufgabe.html", "titel": "Schulaufgabe-Übung (46 Fragen)", "art": "Ankreuzen", "datum": "2026-10-27"}, {"fach": "Politik und Gesellschaft", "datei": "arbeitsrecht.html", "titel": "Arbeitsrecht im Baubetrieb", "art": "Übung", "datum": "2026-11-23"}, {"fach": "Rechnungswesen", "datei": "buchungssaetze.html", "titel": "Buchungssatz-Training", "art": "Konten wählen", "datum": "2026-10-15"}, {"fach": "Rechnungswesen", "datei": "buchungssaetze-steuer.html", "titel": "Buchungssätze mit Umsatzsteuer", "art": "25 Aufgaben", "datum": "2026-11-12"}], "termine": {"stand": "25.11.2026", "quelle": "Klassenkalender und Terminplan der Schule", "termine": [{"von": "2026-10-07", "was": "SA Darstellende Geometrie", "art": "SA"}, {"von": "2026-10-15", "was": "SA Baustatik", "art": "SA"}, {"von": "2026-10-21", "was": "SA Physik (Bauphysik)", "art": "SA", "fach": "Physik"}, {"von": "2026-10-28", "was": "SA Baustoffkunde", "art": "SA", "fach": "Baustoffkunde"}, {"von": "2026-10-29", "was": "SA Politik und Gesellschaft", "art": "SA", "fach": "Politik und Gesellschaft"}, {"von": "2026-10-30", "was": "SA CAD", "art": "SA"}, {"von": "2026-11-12", "was": "SA EDV (Excel)", "art": "SA"}, {"von": "2026-11-30", "was": "SA Kalkulation", "art": "SA"}, {"von": "2026-12-01", "was": "Deutsch (SA oder Ex, im Kalender „SA/Ex De…“)", "art": "SA"}, {"von": "2026-12-01", "was": "Ex Rechnungswesen", "art": "Ex", "fach": "Rechnungswesen"}, {"von": "2026-12-02", "was": "SA BGB", "art": "SA", "fach": "BGB"}, {"von": "2026-12-03", "was": "Ex EDV (Excel)", "art": "Ex"}, {"von": "2026-12-08", "was": "SA Treppe", "art": "SA", "fach": "Treppe"}, {"von": "2026-12-09", "was": "SA Mathematik", "art": "SA"}, {"von": "2026-12-10", "was": "SA Physik", "art": "SA", "fach": "Physik"}, {"von": "2026-12-11", "was": "SA Vermessung", "art": "SA"}, {"von": "2026-12-17", "was": "„Weihnac…“ (Text im Kalender abgeschnitten)", "art": "Sonstiges"}, {"von": "2026-12-19", "bis": "2027-01-03", "was": "Weihnachtsferien", "art": "Ferien"}, {"von": "2027-01-08", "was": "Ende 1. Ausbildungsabschnitt", "art": "Schule"}, {"von": "2027-01-11", "bis": "2027-01-22", "was": "Kurs Teil IV (Ausbildereignung)", "art": "Prüfung"}, {"von": "2027-01-26", "was": "Prüfung Teil IV", "art": "Prüfung"}, {"von": "2027-02-02", "bis": "2027-03-25", "was": "Kurs Teil III (kaufmännisch)", "art": "Prüfung"}, {"von": "2027-03-30", "bis": "2027-03-31", "was": "Prüfung Teil III", "art": "Prüfung"}, {"von": "2027-04-05", "was": "Schulstart 2. Ausbildungsabschnitt", "art": "Schule"}, {"von": "2027-08-30", "was": "Beginn 3. Ausbildungsabschnitt", "art": "Schule"}, {"von": "2027-10-27", "bis": "2027-10-29", "was": "Meisterprüfung Herbst (voraussichtlich)", "art": "Prüfung"}, {"von": "2028-02-25", "was": "Letzter Schultag", "art": "Schule"}, {"von": "2028-03-01", "bis": "2028-03-08", "was": "Meisterprüfung", "art": "Prüfung"}]}};
+const D = {"bereiche": [{"name": "Bautechnik", "faecher": [{"name": "Treppe", "farbe": "#b4532a"}, {"name": "Baustoffkunde", "farbe": "#2f4fb5"}, {"name": "Physik", "farbe": "#d97706"}]}, {"name": "Recht und Wirtschaft", "faecher": [{"name": "BGB", "farbe": "#6d3fa0"}, {"name": "Politik und Gesellschaft", "farbe": "#a3342a"}, {"name": "Rechnungswesen", "farbe": "#0f766e"}]}], "seiten": [{"fach": "Treppe", "datei": "treppe-lernblatt.html", "titel": "Lernblatt", "art": "Zum Lesen", "datum": "2026-10-26"}, {"fach": "Treppe", "datei": "treppe-quiz.html", "titel": "Quiz (39 Fragen)", "art": "Ankreuzen", "datum": "2026-10-26"}, {"fach": "Treppe", "datei": "treppe-abfrage.html", "titel": "Abfrage ohne Antworten", "art": "Selbst abfragen", "datum": "2026-10-27"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-quiz.html", "titel": "Quiz (55 Fragen)", "art": "Ankreuzen", "datum": "2026-10-26"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-lernkarten.html", "titel": "Lernkarten", "art": "Karteikarten", "datum": "2026-10-26"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-abfrage.html", "titel": "Abfrage ohne Antworten", "art": "Selbst abfragen", "datum": "2026-10-27"}, {"fach": "Physik", "datei": "physik.html", "titel": "18 gemischte Aufgaben", "art": "Rechnen", "datum": "2026-09-30"}, {"fach": "BGB", "datei": "bgb-lernblatt.html", "titel": "Lernblatt", "art": "Zum Lesen", "datum": "2026-11-26"}, {"fach": "BGB", "datei": "bgb-abfrage.html", "titel": "Abfrage (59 Fragen)", "art": "Selbst abfragen", "datum": "2026-11-25"}, {"fach": "Politik und Gesellschaft", "datei": "pug-lernkarten.html", "titel": "Lernkarten (60 Fragen)", "art": "Ankreuzen", "datum": "2026-10-15"}, {"fach": "Politik und Gesellschaft", "datei": "pug-schulaufgabe.html", "titel": "Schulaufgabe-Übung (46 Fragen)", "art": "Ankreuzen", "datum": "2026-10-27"}, {"fach": "Politik und Gesellschaft", "datei": "arbeitsrecht.html", "titel": "Arbeitsrecht im Baubetrieb", "art": "Übung", "datum": "2026-11-23"}, {"fach": "Rechnungswesen", "datei": "buchungssaetze.html", "titel": "Buchungssatz-Training", "art": "Konten wählen", "datum": "2026-10-15"}, {"fach": "Rechnungswesen", "datei": "buchungssaetze-steuer.html", "titel": "Buchungssätze mit Umsatzsteuer", "art": "25 Aufgaben", "datum": "2026-11-12"}, {"fach": "Baustoffkunde", "datei": "baustoffkunde-lernzettel.html", "titel": "Lernzettel Baustoffkunde", "art": "Zum Lesen", "datum": "2026-11-26"}, {"fach": "Physik", "datei": "physik-lernzettel.html", "titel": "Lernzettel Physik", "art": "Zum Lesen", "datum": "2026-11-26"}, {"fach": "BGB", "datei": "bgb-lernzettel.html", "titel": "Werkvertrag, Bauvertrag, Verbraucherbauvertrag", "art": "Zum Lesen", "datum": "2026-11-26"}, {"fach": "Rechnungswesen", "datei": "rechnungswesen-lernzettel.html", "titel": "Lernzettel Rechnungswesen", "art": "Zum Lesen", "datum": "2026-11-26"}, {"fach": "Rechnungswesen", "datei": "kontenplan-skr03.html", "titel": "Kontenplan SKR 03", "art": "Nachschlagen", "datum": "2026-11-26"}, {"fach": "Politik und Gesellschaft", "datei": "pug-lernzettel.html", "titel": "Gewerbe-, Handels- und Wettbewerbsrecht", "art": "Zum Lesen", "datum": "2026-11-26"}, {"fach": "Politik und Gesellschaft", "datei": "arbeitsrecht-lernzettel.html", "titel": "Arbeitsrecht auf einen Blick", "art": "Zum Lesen", "datum": "2026-11-26"}], "termine": {"stand": "25.11.2026", "quelle": "Klassenkalender und Terminplan der Schule", "termine": [{"von": "2026-10-07", "was": "SA Darstellende Geometrie", "art": "SA"}, {"von": "2026-10-15", "was": "SA Baustatik", "art": "SA"}, {"von": "2026-10-21", "was": "SA Physik (Bauphysik)", "art": "SA", "fach": "Physik"}, {"von": "2026-10-28", "was": "SA Baustoffkunde", "art": "SA", "fach": "Baustoffkunde"}, {"von": "2026-10-29", "was": "SA Politik und Gesellschaft", "art": "SA", "fach": "Politik und Gesellschaft"}, {"von": "2026-10-30", "was": "SA CAD", "art": "SA"}, {"von": "2026-11-12", "was": "SA EDV (Excel)", "art": "SA"}, {"von": "2026-11-30", "was": "SA Kalkulation", "art": "SA"}, {"von": "2026-12-01", "was": "Deutsch (SA oder Ex, im Kalender „SA/Ex De…“)", "art": "SA"}, {"von": "2026-12-01", "was": "Ex Rechnungswesen", "art": "Ex", "fach": "Rechnungswesen"}, {"von": "2026-12-02", "was": "SA BGB", "art": "SA", "fach": "BGB"}, {"von": "2026-12-03", "was": "Ex EDV (Excel)", "art": "Ex"}, {"von": "2026-12-08", "was": "SA Treppe", "art": "SA", "fach": "Treppe"}, {"von": "2026-12-09", "was": "SA Mathematik", "art": "SA"}, {"von": "2026-12-10", "was": "SA Physik", "art": "SA", "fach": "Physik"}, {"von": "2026-12-11", "was": "SA Vermessung", "art": "SA"}, {"von": "2026-12-17", "was": "„Weihnac…“ (Text im Kalender abgeschnitten)", "art": "Sonstiges"}, {"von": "2026-12-19", "bis": "2027-01-03", "was": "Weihnachtsferien", "art": "Ferien"}, {"von": "2027-01-08", "was": "Ende 1. Ausbildungsabschnitt", "art": "Schule"}, {"von": "2027-01-11", "bis": "2027-01-22", "was": "Kurs Teil IV (Ausbildereignung)", "art": "Prüfung"}, {"von": "2027-01-26", "was": "Prüfung Teil IV", "art": "Prüfung"}, {"von": "2027-02-02", "bis": "2027-03-25", "was": "Kurs Teil III (kaufmännisch)", "art": "Prüfung"}, {"von": "2027-03-30", "bis": "2027-03-31", "was": "Prüfung Teil III", "art": "Prüfung"}, {"von": "2027-04-05", "was": "Schulstart 2. Ausbildungsabschnitt", "art": "Schule"}, {"von": "2027-08-30", "was": "Beginn 3. Ausbildungsabschnitt", "art": "Schule"}, {"von": "2027-10-27", "bis": "2027-10-29", "was": "Meisterprüfung Herbst (voraussichtlich)", "art": "Prüfung"}, {"von": "2028-02-25", "was": "Letzter Schultag", "art": "Schule"}, {"von": "2028-03-01", "bis": "2028-03-08", "was": "Meisterprüfung", "art": "Prüfung"}]}};
 const FARBE = {}, BEREICH = {};
 D.bereiche.forEach(b => b.faecher.forEach(f => { FARBE[f.name] = f.farbe; BEREICH[f.name] = b.name; }));
 const ART = {SA:"--sa", Ex:"--ex", Ferien:"--ferien", "Prüfung":"--pruefung", Schule:"--schule", Sonstiges:"--sonst"};
+const ARTNAME = {SA:"Schulaufgabe", Ex:"Ex", Ferien:"Ferien", "Prüfung":"Prüfung", Schule:"Schule", Sonstiges:"Sonstiges"};
 const MON = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
 const WT = ["So","Mo","Di","Mi","Do","Fr","Sa"];
 const $ = s => document.querySelector(s);
@@ -99,53 +195,115 @@ const tageBis = s => Math.round((datum(s) - datum(HEUTE)) / 864e5);
 const ende = t => t.bis || t.von;
 const kommend = D.termine.termine.filter(t => ende(t) >= HEUTE).sort((a,b) => a.von.localeCompare(b.von));
 const merk = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e) { return null; } };
+const wannText = n => n <= 0 ? "heute" : n === 1 ? "morgen" : `in ${n} Tagen`;
+const lernLinks = fach => fach ? D.seiten.filter(s => s.fach === fach) : [];
+
+function bald(){
+  const ts = kommend.filter(t => t.art === "SA" || t.art === "Ex" || t.art === "Prüfung").slice(0, 3);
+  $("#heute").textContent = "Heute: " + lang(HEUTE);
+  if (!ts.length) { $("#bald").innerHTML = '<p class="leerkopf">Keine Prüfungen eingetragen.</p>'; return; }
+  $("#bald").innerHTML = ts.map((t, i) => {
+    const d = datum(t.von), l = lernLinks(t.fach);
+    return `<div class="pr${i === 0 ? " erst" : ""}">
+      <div class="kal" style="--c:var(${ART[t.art]})"><i>${WT[d.getDay()]}</i><b>${d.getDate()}</b><span>${MON[d.getMonth()].slice(0,3)}</span></div>
+      <div style="min-width:0"><div class="was">${esc(t.was)}</div><div class="wann">${ARTNAME[t.art]}, ${wannText(tageBis(t.von))}</div>
+      ${l.length ? `<div class="lern"><a href="${fachHash(t.fach)}">Zum Lernen: ${esc(t.fach)} ›</a></div>` : ""}</div></div>`;
+  }).join("");
+}
 
 function eintrag(s, mitFach){
   const neu = tageBis(s.datum) >= -7;
   return `<a class="eintrag" style="--f:${FARBE[s.fach]}" href="seiten/${s.datei}">
-    <span><b>${mitFach ? `<span class="punkt"></span>${esc(s.fach)}: ` : ""}${esc(s.titel)}${neu ? '<span class="neu">NEU</span>' : ""}</b>
-    <span class="meta">${esc(s.art)}</span></span>
-    <span class="rechts">erstellt<br>${kurz(s.datum)}${datum(s.datum).getFullYear()}</span></a>`;
+    <b>${mitFach ? `<span class="punkt"></span>${esc(s.fach)}: ` : ""}${esc(s.titel)}${neu ? '<span class="neu">neu</span>' : ""}</b>
+    <span class="meta">${esc(s.art)}</span>
+    <span class="dt">${kurz(s.datum)}${String(datum(s.datum).getFullYear()).slice(2)}</span></a>`;
 }
 function passt(s, q){ return !q || (s.fach+" "+s.titel+" "+s.art+" "+BEREICH[s.fach]).toLowerCase().includes(q); }
 
-function naechster(){
-  const t = kommend.find(t => t.art === "SA" || t.art === "Ex" || t.art === "Prüfung");
-  if (!t) { $("#naechster").innerHTML = ""; return; }
-  const n = tageBis(t.von);
-  const wann = n <= 0 ? "heute" : n === 1 ? "morgen" : `in ${n} Tagen`;
-  const seiten = t.fach ? D.seiten.filter(s => s.fach === t.fach) : [];
-  $("#naechster").innerHTML = `<div class="naechster" style="border-left-color:var(${ART[t.art]})">
-    <div class="k">Nächste Prüfung · ${wann}</div><div class="t">${esc(t.was)}</div><div class="d">${lang(t.von)}</div>
-    ${seiten.length ? `<div class="links">${seiten.map(s => `<a class="chip" href="seiten/${s.datei}">${esc(s.titel)}</a>`).join("")}</div>` : ""}</div>`;
-}
-
 function zeigeFaecher(q){
+  if (q) {
+    const s = D.seiten.filter(x => passt(x, q)).sort((a,b) => b.datum.localeCompare(a.datum));
+    return s.length ? `<h2>Gefunden: ${s.length}</h2><div class="liste">${s.map(x => eintrag(x, true)).join("")}</div>` : `<p class="leer">Nichts gefunden. Probier ein anderes Wort, z. B. „Quiz“.</p>`;
+  }
   let h = "";
   D.bereiche.forEach(b => {
-    const teile = b.faecher.map(f => {
-      const s = D.seiten.filter(x => x.fach === f.name && passt(x, q)).sort((a,b) => b.datum.localeCompare(a.datum));
-      if (!s.length) return "";
+    h += `<h2>${esc(b.name)}</h2><div class="faecher">` + b.faecher.map(f => {
+      const s = D.seiten.filter(x => x.fach === f.name).sort((a,b) => b.datum.localeCompare(a.datum));
       const p = kommend.find(t => t.fach === f.name && (t.art === "SA" || t.art === "Ex"));
-      return `<section class="fach" style="--f:${f.farbe}"><h3>${esc(f.name)}${p ? `<small>${p.art} am ${kurz(p.von)}</small>` : ""}</h3>${s.map(x => eintrag(x)).join("")}</section>`;
-    }).join("");
-    if (teile) h += `<h2>${esc(b.name)}</h2>${teile}`;
+      const neu = s.some(x => tageBis(x.datum) >= -7);
+      const nt = themenVonFach(f.name).length;
+      const info = s.length ? `${nt} ${nt === 1 ? "Thema" : "Themen"}, zuletzt am ${kurz(s[0].datum)}` : "Noch keine Lernseiten";
+      return `<a class="fk" style="--f:${f.farbe}" href="${fachHash(f.name)}"><b>${esc(f.name)}${neu ? '<span class="neu">neu</span>' : ""}</b><span class="meta">${info}</span>
+        <span class="pfeil">${p ? `<span class="badge" style="--c:var(${ART[p.art]})">${p.art} am ${kurz(p.von)}</span>` : ""}›</span></a>`;
+    }).join("") + `</div>`;
   });
-  return h || `<p class="leer">Nichts gefunden.</p>`;
+  return h;
+}
+const THEMA = {
+  "baustoffkunde-lernzettel.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen","physik-lernzettel.html":"Kraft, Arbeit, Energie und Wärmeschutz","bgb-lernzettel.html":"Werkvertrag und Bauvertrag","pug-lernzettel.html":"Gewerbe-, Handels- und Wettbewerbsrecht","arbeitsrecht-lernzettel.html":"Arbeitsrecht",
+  "treppe-lernblatt.html":"Treppe nach DIN 18065","treppe-quiz.html":"Treppe nach DIN 18065","treppe-abfrage.html":"Treppe nach DIN 18065",
+  "baustoffkunde-quiz.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen","baustoffkunde-lernkarten.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen","baustoffkunde-abfrage.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen",
+  "physik.html":"Kraft, Arbeit, Energie und Wärmeschutz","bgb-abfrage.html":"Werkvertrag und Bauvertrag","bgb-lernblatt.html":"Werkvertrag und Bauvertrag",
+  "pug-lernkarten.html":"Gewerbe-, Handels- und Wettbewerbsrecht","pug-schulaufgabe.html":"Gewerbe-, Handels- und Wettbewerbsrecht","arbeitsrecht.html":"Arbeitsrecht",
+  "buchungssaetze.html":"Buchführung und Buchungssätze","buchungssaetze-steuer.html":"Umsatzsteuer",
+  "rechnungswesen-lernzettel.html":["Buchführung und Buchungssätze","Umsatzsteuer"],"kontenplan-skr03.html":["Buchführung und Buchungssätze","Umsatzsteuer"]
+};
+const themenVon = s => { const t = THEMA[s.datei] || s.thema || s.titel; return Array.isArray(t) ? t : [t]; };
+const LERNART = {
+  "Zum Lesen": ["Lernzettel", "Durchlesen und wiederholen", 0],
+  "Ankreuzen": ["Quiz", "Antwort antippen, sofort sehen ob sie stimmt", 1],
+  "Übung": ["Quiz", "Antwort antippen, mit Erklärung", 1],
+  "Selbst abfragen": ["Abfrage", "Frage lesen, selbst antworten, dann aufdecken", 2],
+  "Karteikarten": ["Lernkarten", "Karte lesen und umdrehen", 3],
+  "Rechnen": ["Rechenaufgaben", "Selbst rechnen, dann Lösung ansehen", 4],
+  "Konten wählen": ["Buchungssätze", "Soll und Haben selbst wählen", 4],
+  "25 Aufgaben": ["Buchungssätze", "Aufgaben mit Umsatzsteuer buchen", 4],
+  "Nachschlagen": ["Nachschlagen", "Zum Nachsehen beim Lernen und Üben", 5]
+};
+const lernart = s => LERNART[s.art] || [s.art, "", 9];
+const fachHash = (f, t) => "#" + encodeURIComponent(f) + (t ? "/" + encodeURIComponent(t) : "");
+function themenVonFach(name){
+  const m = new Map();
+  D.seiten.filter(x => x.fach === name).forEach(s => themenVon(s).forEach(t => { if (!m.has(t)) m.set(t, []); m.get(t).push(s); }));
+  return [...m.entries()].map(([t, s]) => ({name: t, seiten: s, datum: s.map(x => x.datum).sort().pop()}))
+    .sort((a, b) => b.datum.localeCompare(a.datum) || a.name.localeCompare(b.name));
+}
+function zeigeFach(name, thema){
+  const f = D.bereiche.flatMap(b => b.faecher).find(x => x.name === name);
+  if (!f) return zeigeFaecher("");
+  const th = themenVonFach(name);
+  const p = kommend.find(t => t.fach === name && (t.art === "SA" || t.art === "Ex"));
+  const info = p ? `${ARTNAME[p.art]} am ${lang(p.von)}, ${wannText(tageBis(p.von))}` : "Keine kommende Schulaufgabe eingetragen";
+  const t = thema && th.find(x => x.name === thema);
+  if (t) {
+    const s = t.seiten.slice().sort((a, b) => lernart(a)[2] - lernart(b)[2] || b.datum.localeCompare(a.datum));
+    return `<div class="fachkopf" style="--f:${f.farbe}"><button class="zurueck" id="hoch">‹ ${esc(name)}</button>
+      <h2>${esc(t.name)}</h2><p>Wie willst du lernen?</p></div>
+      <div class="lernarten">${s.map(x => { const l = lernart(x), neu = tageBis(x.datum) >= -7;
+        return `<a class="la" style="--f:${f.farbe}" href="seiten/${x.datei}"><span class="name">${esc(l[0])}</span>
+          <span class="tit">${esc(x.titel)}${neu ? '<span class="neu">neu</span>' : ""}</span><span class="meta">${esc(l[1])}</span></a>`; }).join("")}</div>`;
+  }
+  return `<div class="fachkopf" style="--f:${f.farbe}"><button class="zurueck" id="hoch">‹ Alle Fächer</button><h2>${esc(name)}</h2><p>${info}</p></div>
+    <div class="themen">${th.map(t => {
+      const arten = [...new Set(t.seiten.slice().sort((a, b) => lernart(a)[2] - lernart(b)[2]).map(x => lernart(x)[0]))];
+      const neu = t.seiten.some(x => tageBis(x.datum) >= -7);
+      return `<a class="th" href="${fachHash(name, t.name)}"><b>${esc(t.name)}${neu ? '<span class="neu">neu</span>' : ""}</b>
+        <span class="arten">${arten.map(a => `<span>${esc(a)}</span>`).join("")}</span><span class="dt">${kurz(t.datum)}</span></a>`; }).join("")}</div>
+    <p class="leer">Neueste Themen oben.</p>`;
 }
 function zeigeNeueste(q){
   const s = D.seiten.filter(x => passt(x, q)).sort((a,b) => b.datum.localeCompare(a.datum) || a.fach.localeCompare(b.fach));
-  return s.length ? `<h2>Neueste zuerst</h2><div class="liste">${s.map(x => eintrag(x, true)).join("")}</div>` : `<p class="leer">Nichts gefunden.</p>`;
+  return s.length ? `<div class="liste">${s.map(x => eintrag(x, true)).join("")}</div>` : `<p class="leer">Nichts gefunden. Probier ein anderes Wort, z. B. „Quiz“.</p>`;
 }
 
 let monat = null, gewaehlt = null, alteZeigen = false;
 function amTag(tag){ return D.termine.termine.filter(t => t.von <= tag && ende(t) >= tag); }
 function terminHtml(t){
-  const seiten = t.fach ? D.seiten.filter(s => s.fach === t.fach) : [];
-  const wann = t.bis ? `${kurz(t.von)}–<br>${kurz(t.bis)}` : `${kurz(t.von)}<small>${WT[datum(t.von).getDay()]}</small>`;
+  const l = lernLinks(t.fach);
+  const wann = t.bis ? `${kurz(t.von)} bis<br>${kurz(t.bis)}` : `${kurz(t.von)}<small>${WT[datum(t.von).getDay()]}</small>`;
   return `<div class="termin${ende(t) < HEUTE ? " vorbei" : ""}" style="--c:var(${ART[t.art]})"><div class="dt">${wann}</div>
-    <div><div class="wer">${esc(t.was)}</div>${t.hinweis ? `<div class="hin">${esc(t.hinweis)}</div>` : ""}
-    ${seiten.length ? `<div>${seiten.map(s => `<a href="seiten/${s.datei}">${esc(s.titel)}</a>`).join(" · ")}</div>` : ""}</div></div>`;
+    <div><div class="wer">${esc(t.was)}</div>${t.hinweis ? `<div class="meta">${esc(t.hinweis)}</div>` : ""}
+    ${l.length ? `<div class="lern">${l.map(s => `<a href="seiten/${s.datei}">${esc(s.titel)}</a>`).join("")}</div>` : ""}</div></div>`;
 }
 function zeigeKalender(){
   if (!monat) { const n = kommend[0] ? datum(kommend[0].von) : new Date(); monat = new Date(n.getFullYear(), n.getMonth(), 1); }
@@ -161,25 +319,26 @@ function zeigeKalender(){
     const cls = ["tag", d.getMonth() !== m ? "aus" : "", k === HEUTE ? "heute" : "", k === gewaehlt ? "gewaehlt" : "", fer ? "ferien" : ""].join(" ");
     r += `<button class="${cls}" data-tag="${k}" aria-label="${lang(k)}${ts.length ? ", " + ts.length + " Termin(e)" : ""}">${d.getDate()}<span class="dots">${dots}</span></button>`;
   }
-  const legende = Object.entries(ART).map(([a, v]) => `<span style="--c:var(${v})">${a}</span>`).join("");
+  const legende = Object.entries(ART).map(([a, v]) => `<span style="--c:var(${v})">${ARTNAME[a]}</span>`).join("");
   let liste;
   if (gewaehlt) {
     const ts = amTag(gewaehlt);
     liste = `<h2>${lang(gewaehlt)}</h2>${ts.length ? `<div class="liste">${ts.map(terminHtml).join("")}</div>` : `<p class="leer">Kein Termin an diesem Tag.</p>`}
-      <button class="umschalt" id="alleTermine">Alle kommenden Termine</button>`;
+      <button class="umschalt" id="alleTermine">Alle kommenden Termine zeigen</button>`;
   } else {
     const vergangen = D.termine.termine.filter(t => ende(t) < HEUTE).sort((a,b) => b.von.localeCompare(a.von));
     liste = `<h2>Kommende Termine</h2><div class="liste">${kommend.map(terminHtml).join("")}</div>
       <button class="umschalt" id="alte">${alteZeigen ? "Vergangene ausblenden" : `Vergangene zeigen (${vergangen.length})`}</button>
       ${alteZeigen ? `<h2>Schon vorbei</h2><div class="liste">${vergangen.map(terminHtml).join("")}</div>` : ""}`;
   }
-  return `<div class="monat"><button id="zurueck" aria-label="Monat zurück">‹</button><b>${MON[m]} ${y}</b><button id="vor" aria-label="Monat vor">›</button></div>
-    <div class="raster">${r}</div><div class="legende">${legende}</div>${liste}`;
+  return `<div class="kalwrap"><div><div class="monat"><button id="zurueck" aria-label="Monat zurück">‹</button><b>${MON[m]} ${y}</b><button id="vor" aria-label="Monat vor">›</button></div>
+    <div class="netz">${r}</div><div class="legende">${legende}</div></div><div class="spalte">${liste}</div></div>`;
 }
 
 let ansicht = merk("la-ansicht") || "faecher", suche = "";
 function render(){
   document.querySelectorAll(".tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === ansicht));
+  $("#suche").hidden = ansicht === "kalender";
   const el = $("#inhalt");
   if (ansicht === "kalender") {
     el.innerHTML = zeigeKalender();
@@ -189,15 +348,19 @@ function render(){
     const a = $("#alte"); if (a) a.onclick = () => { alteZeigen = !alteZeigen; render(); };
     const g = $("#alleTermine"); if (g) g.onclick = () => { gewaehlt = null; render(); };
   } else {
-    el.innerHTML = `<input class="suche" id="suche" type="search" placeholder="Suchen, z. B. Quiz oder Treppe" value="${esc(suche)}"><div id="treffer"></div>`;
-    const zeichne = () => { const q = suche.trim().toLowerCase(); $("#treffer").innerHTML = ansicht === "neu" ? zeigeNeueste(q) : zeigeFaecher(q); };
-    $("#suche").oninput = e => { suche = e.target.value; zeichne(); };
-    zeichne();
+    const q = suche.trim().toLowerCase();
+    const [fach, ordner] = location.hash.slice(1).split("/").map(decodeURIComponent);
+    $("#suche").hidden = ansicht === "faecher" && !!fach;
+    el.innerHTML = ansicht === "neu" ? zeigeNeueste(q) : fach ? zeigeFach(fach, ordner) : zeigeFaecher(q);
+    const z = $("#hoch"); if (z) z.onclick = () => { location.hash = ordner ? fachHash(fach) : ""; };
   }
 }
-document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { ansicht = b.dataset.v; merk("la-ansicht", ansicht); render(); });
+window.addEventListener("hashchange", () => { ansicht = "faecher"; render(); $("main").scrollIntoView(); });
+$("#suche").oninput = e => { suche = e.target.value; render(); };
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { ansicht = b.dataset.v; merk("la-ansicht", ansicht); if (location.hash) history.replaceState(null, "", location.pathname); render(); });
+if (location.hash) ansicht = "faecher";
 $("#terminquelle").textContent = `Termine Stand ${D.termine.stand} (${D.termine.quelle}). Im Zweifel im Klassenkalender nachsehen.`;
-naechster(); render();
+bald(); render();
 
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
 if (window.matchMedia("(display-mode: standalone)").matches || navigator.standalone) $("#install").hidden = true;

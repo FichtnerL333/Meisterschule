@@ -1,0 +1,443 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lernzettel Rechnungswesen</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#0f766e;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Rechnungswesen">‹ Rechnungswesen</a>
+  <div class="fach"><i></i>Rechnungswesen, Lernzettel</div>
+  <h1>Lernzettel Rechnungswesen</h1>
+  <p class="lead">Buchführung von Inventur und Bilanz über Buchungssätze bis Umsatzsteuer und Privatkonto.</p>
+</div></header>
+<main><div class="in">
+<h2>1. Aufgaben und Pflicht der Buchführung</h2>
+<ul>
+<li><strong>Wozu:</strong> alle Geschäftsvorfälle, Vermögen und Schulden erfassen. Gewinn oder Verlust ermitteln (Aufwendungen und Erträge). Grundlage für Steuern, Preiskalkulation, Kontrolle und Betriebsvergleich. Beweismittel gegenüber Finanzamt, Gläubigern und Gericht.</li>
+<li><strong>Wer schaut rein:</strong> Geschäftsführung, Gesellschafter, Banken (Kredit), Finanzamt.</li>
+<li><strong>Pflicht nach Handelsrecht:</strong> Jeder Kaufmann (§ 1 HGB, siehe auch Politik und Gesellschaft).</li>
+<li><strong>Pflicht nach Steuerrecht (§ 141 AO):</strong> ab einem Umsatz von mehr als <strong>800.000 €</strong> oder einem Gewinn von mehr als <strong>80.000 €</strong> im Jahr. <em>(Grenzwerte laut Arbeitsblatt, Stand Oktober 2026. Sie können sich ändern, aktueller Wert in § 141 AO auf gesetze-im-internet.de.)</em></li>
+</ul>
+<h2>2. GoB, Belege, Aufbewahrung</h2>
+<ul>
+<li><strong>Grundsätze ordnungsgemäßer Buchführung (GoB)</strong>, gesetzliche Grundlage HGB und AO. Aufzeichnungen müssen in einer lebenden Sprache, eindeutig, vollständig, richtig, zeitgerecht und nachweisbar sein.</li>
+<li><strong>Keine Buchung ohne Beleg!</strong> Der Beleg ist Beweismittel und das Bindeglied zwischen Geschäftsvorfall und Buchung.</li>
+<li><strong>Fremdbelege</strong> (kommen von außen): Eingangsrechnungen, Quittungen, Kontoauszüge, Gutschriften.</li>
+<li><strong>Eigenbelege</strong> (selbst erstellt): Kopien von Ausgangsrechnungen, Lohnlisten, Belege über Privat- und Materialentnahmen.</li>
+<li>Nicht erlaubt sind Bleistift (radierbar) und freie Zeilen für spätere Änderungen.</li>
+<li><strong>Aufbewahrungsfristen</strong> (laut Heft, Stand Oktober 2026): <strong>6 Jahre</strong> Handelsbriefe, <strong>8 Jahre</strong> Belege, <strong>10 Jahre</strong> Inventare, Bilanzen und Jahresabschlüsse. Die Frist beginnt am <strong>Ende des Kalenderjahres</strong>, in dem die Unterlage entstanden ist.</li>
+</ul>
+<h2>3. Inventur</h2>
+<ul>
+<li><strong>Inventur</strong> = Vermögen und Schulden ermitteln (§ 240 HGB, § 140 AO).</li>
+<li><strong>Pflicht:</strong> bei Eröffnung oder Übernahme, am Ende jedes Geschäftsjahres, bei Auflösung oder Verkauf. Das ist wichtig für die Übernahme des Betriebs des Vaters.</li>
+<li><strong>Körperlich:</strong> zählen, messen, wiegen, schätzen, bewerten (zum Einkaufspreis). <strong>Buchmäßig:</strong> Forderungen, Verbindlichkeiten, Bankguthaben anhand der Unterlagen.</li>
+<li><strong>Arten:</strong></li>
+<li><strong>Stichtagsinventur</strong>, zeitnah ± 10 Tage um den Bilanzstichtag</li>
+<li><strong>permanente Inventur</strong>: laufend über Lagerkartei, mindestens 1× pro Jahr zusätzlich körperlich</li>
+<li><strong>zeitlich verlegte Inventur</strong>: bis 3 Monate vor oder 2 Monate nach dem Stichtag, dann wertmäßig fortschreiben oder zurückrechnen</li>
+<li><strong>Stichprobeninventur</strong>: Teil erfassen und hochrechnen</li>
+<li>Die Inventurprotokolle sind zu unterschreiben und 10 Jahre aufzubewahren.</li>
+</ul>
+<h2>4. Inventar</h2>
+<ul>
+<li><strong>Inventar</strong> = ausführliches Verzeichnis aller Vermögensteile und Schulden, <strong>untereinander</strong> aufgestellt.</li>
+<li>Gliederung: <strong>A. Vermögen</strong> (I. Anlagevermögen, II. Umlaufvermögen) → <strong>B. Schulden</strong> (I. langfristig, II. kurzfristig) → <strong>C. Reinvermögen = Vermögen − Schulden</strong>.</li>
+<li>Reihenfolge: das Vermögen nach <strong>Liquidität</strong> (Grundstücke, Gebäude, Maschinen, Fuhrpark, BGA, Rohstoffe, Waren, Forderungen, Bank, Kasse), die Schulden nach <strong>Fristigkeit</strong> (Hypothek, Darlehen, Kontokorrent, Verbindlichkeiten).</li>
+<li><strong>Anlagevermögen</strong> bleibt lange im Betrieb, <strong>Umlaufvermögen</strong> soll umgesetzt werden.</li>
+</ul>
+<h2>5. Bilanz</h2>
+<ul>
+<li><strong>Bilanz</strong> = kurz gefasste Gegenüberstellung von Vermögen und Kapital in <strong>Kontenform</strong> (nebeneinander). Pflicht nach § 242 HGB.</li>
+<li><strong>Aktiva</strong> (links) = Vermögen = <strong>Mittelverwendung</strong>. <strong>Passiva</strong> (rechts) = Eigenkapital und Fremdkapital = <strong>Mittelherkunft</strong>.</li>
+<li><strong>Bilanzgleichung:</strong> Summe Aktiva = Summe Passiva; <strong>Vermögen − Schulden = Eigenkapital</strong>.</li>
+<li>Unterschied zum Inventar: Die Bilanz ist kurz, übersichtlich und steht nebeneinander, sie wird teilweise veröffentlicht. Das Inventar ist ausführlich und steht untereinander, es bleibt im Betrieb.</li>
+<li>Achtung: <strong>Eigenkapital steht auf der Passivseite</strong> (im Arbeitsblatt "Vom Inventar zur Bilanz" falsch bei Aktiv einsortiert).</li>
+</ul>
+<h3>Die 4 Werteveränderungen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Fall</th>
+<th>Was passiert</th>
+<th>Bilanzsumme</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aktivtausch</strong></td>
+<td>Aktivposten +, anderer Aktivposten −</td>
+<td>bleibt</td>
+<td>Kunde zahlt bar</td>
+</tr>
+<tr>
+<td><strong>Passivtausch</strong></td>
+<td>Passivposten +, anderer Passivposten −</td>
+<td>bleibt</td>
+<td>Liefererschuld wird zu Darlehen</td>
+</tr>
+<tr>
+<td><strong>Aktiv-Passiv-Mehrung</strong></td>
+<td>Aktiv + und Passiv +</td>
+<td>steigt</td>
+<td>Waren auf Ziel kaufen</td>
+</tr>
+<tr>
+<td><strong>Aktiv-Passiv-Minderung</strong></td>
+<td>Aktiv − und Passiv −</td>
+<td>sinkt</td>
+<td>Rechnung per Bank zahlen</td>
+</tr>
+</tbody>
+</table></div>
+<h2>6. Bestandskonten</h2>
+<ul>
+<li>Die Bilanz wird in <strong>Konten</strong> aufgelöst (T-Konto: links Soll, rechts Haben).</li>
+<li><strong>Aktivkonto:</strong> Anfangsbestand (AB) und Zugänge im <strong>Soll</strong>, Abgänge und Schlussbestand (SB) im <strong>Haben</strong>.</li>
+<li><strong>Passivkonto:</strong> AB und Zugänge im <strong>Haben</strong>, Abgänge und SB im <strong>Soll</strong>.</li>
+<li><strong>SB = AB + Mehrungen − Minderungen.</strong> Beide Seiten eines Kontos müssen gleich groß sein.</li>
+<li><strong>Überlegungsschema (4 Schritte):</strong> 1. Welche Konten? 2. Aktiv oder passiv? 3. Mehrung oder Minderung? 4. Daraus Soll oder Haben.</li>
+<li>Abschluss: Alle Bestandskonten gehen ins <strong>Schlussbilanzkonto (SBK)</strong>.</li>
+</ul>
+<h2>7. Buchungssatz</h2>
+<ul>
+<li><strong>Soll an Haben</strong>, z. B. "Kasse an FLL 500 €" (Kunde zahlt bar).</li>
+<li>Ein <strong>zusammengesetzter Buchungssatz</strong> hat mehrere Konten auf einer Seite. Die Summen links und rechts müssen gleich sein.</li>
+</ul>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Kürzel</th>
+<th>Konto</th>
+<th>Art</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ka</td>
+<td>Kasse</td>
+<td>aktiv</td>
+</tr>
+<tr>
+<td>BGA</td>
+<td>Betriebs- und Geschäftsausstattung</td>
+<td>aktiv</td>
+</tr>
+<tr>
+<td>Fuhr</td>
+<td>Fuhrpark</td>
+<td>aktiv</td>
+</tr>
+<tr>
+<td>FLL</td>
+<td>Forderungen a. LL, d. h. ein <strong>Kunde schuldet uns</strong> etwas</td>
+<td>aktiv</td>
+</tr>
+<tr>
+<td>VLL</td>
+<td>Verbindlichkeiten a. LL, d. h. <strong>wir schulden dem Lieferer</strong> etwas</td>
+<td>passiv</td>
+</tr>
+<tr>
+<td>Dar</td>
+<td>Darlehen bzw. Hypothek</td>
+<td>passiv</td>
+</tr>
+<tr>
+<td>Bankverbindlichkeiten</td>
+<td>Bankkredit</td>
+<td>passiv</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Merksatz:</strong> Kaufen wir "auf Ziel", ist es <strong>VLL</strong>. Verkaufen wir "auf Ziel", ist es <strong>FLL</strong>.</p>
+<h2>8. Erfolgskonten und GuV</h2>
+<ul>
+<li><strong>Aufwandskonten</strong> (Büromaterial, Postgebühren, Löhne/Gehälter, Miete …) werden im <strong>Soll</strong> gebucht. <strong>Ertragskonten</strong> (Zinserträge, Mieterträge, Umsatzerlöse …) werden im <strong>Haben</strong> gebucht.</li>
+<li>Die Erfolgskonten werden über das <strong>GuV-Konto</strong> abgeschlossen. Erträge minus Aufwendungen ergeben den <strong>Gewinn</strong>. Der Gewinn geht ins <strong>Eigenkapital</strong> (Buchung: GuV an EK).</li>
+<li>Danach werden die Bestandskonten und das EK über das SBK abgeschlossen.</li>
+</ul>
+<h2>9. Finanzierungsregeln</h2>
+<ul>
+<li><strong>Kapitalstrukturregel (Stabilität):</strong> EK : FK möglichst <strong>1 : 1</strong>.</li>
+<li><strong>Goldene Bilanzregel (Liquidität):</strong> Anlagevermögen und "eiserner Bestand" an Waren werden durch EK und <strong>langfristiges</strong> FK finanziert, Umlaufvermögen durch mittel- und kurzfristiges FK.</li>
+<li><strong>Goldene Finanzierungsregel:</strong> Die Kapitalbindungsdauer muss der Fristigkeit des Kapitals entsprechen (Kapitalentleihungsfrist = Kapitalbindungsfrist).</li>
+</ul>
+<h2>10. Bilanzkennzahlen</h2>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Formel (× 100 = %)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anlageintensität</td>
+<td>AV : Gesamtvermögen</td>
+</tr>
+<tr>
+<td>Umlaufintensität</td>
+<td>UV : Gesamtvermögen</td>
+</tr>
+<tr>
+<td>Vorratsintensität</td>
+<td>Vorräte : UV</td>
+</tr>
+<tr>
+<td>Forderungsintensität</td>
+<td>FLL : UV</td>
+</tr>
+<tr>
+<td>Intensität flüssige Mittel</td>
+<td>Geldmittel : UV</td>
+</tr>
+<tr>
+<td>Eigenkapitalquote</td>
+<td>EK : Gesamtkapital</td>
+</tr>
+<tr>
+<td>Fremdkapitalquote</td>
+<td>FK : Gesamtkapital</td>
+</tr>
+<tr>
+<td>Anlagendeckung</td>
+<td>EK : AV</td>
+</tr>
+<tr>
+<td>Eigenkapitalrentabilität</td>
+<td>Gewinn : EK</td>
+</tr>
+<tr>
+<td>Gesamtkapitalrentabilität</td>
+<td>(Gewinn + FK-Zinsen) : Gesamtkapital</td>
+</tr>
+</tbody>
+</table></div>
+<h2>11. Umsatzsteuer und Vorsteuer</h2>
+<ul>
+<li><strong>Umsatzsteuerpflichtig:</strong> entgeltliche Leistungen im Inland, Eigenverbrauch, entgeltliche Leistungen innerhalb der EU. Sätze laut Heft: 19 %, ermäßigt 7 % (Lebensmittel, Bücher).</li>
+<li><strong>Umsatzsteuer (1775)</strong> aus Verkäufen = Schuld beim Finanzamt → Haben. <strong>Vorsteuer (1575)</strong> aus Einkäufen = Forderung ans Finanzamt → Soll.</li>
+<li><strong>Zahllast</strong> = Umsatzsteuer − Vorsteuer. Am Monatsende: <strong>Umbuchung 1775 an 1575</strong> (Vorsteuer auf das USt-Konto), dann <strong>1775 an Bank</strong> für die Zahllast.</li>
+<li>Einkauf: Aufwand/Anlage + 1575 an 1600/Bank/Kasse. Verkauf: 1400/Bank/Kasse an Erlöse (8000) + 1775.</li>
+</ul>
+<h2>12. Bezugskosten, Rücksendungen, Preisnachlässe</h2>
+<ul>
+<li><strong>Bezugskosten</strong> (Fracht, Transportversicherung) kommen auf eigene Unterkonten: Rohstoffe <strong>4001</strong>, Hilfs-/Betriebsstoffe <strong>4021</strong>, Handelswaren <strong>4051</strong>. Beispiel: 4000 1.000 + 4001 100 + 1575 209 an 1600 1.309.</li>
+<li><strong>Rücksendung an den Lieferanten:</strong> mindert die Einkaufskonten (4000/4020/4050) und die Verbindlichkeit. Die Vorsteuer wird im <strong>Haben</strong> korrigiert. Beispiel: 1600 1.190 an 4000 1.000 + 1575 190.</li>
+<li><strong>Sofortrabatt</strong> (Mengen-, Treue-, Personalrabatt) wird nicht gebucht, sondern gleich vom Preis abgezogen.</li>
+<li><strong>Nachträgliche Nachlässe</strong> (Skonto, Bonus) kommen auf eigene Konten: Rohstoffe <strong>4002</strong>, Hilfs-/Betriebsstoffe <strong>4022</strong>, Handelswaren <strong>4052</strong>. Die Vorsteuer wird anteilig im Haben korrigiert.</li>
+<li><strong>Skonto-Schema:</strong> 1600 (brutto) an Bank (brutto − Skonto) + 4002 (Skonto ÷ 1,19) + 1575 (Skonto ÷ 1,19 × 0,19). Beispiel: 3.570 brutto, 3 % → Bank 3.462,90 · 4002 90,00 · 1575 17,10.</li>
+</ul>
+<h2>12b. Buchungen beim Verkauf</h2>
+<ul>
+<li><strong>Signalwörter:</strong> Kunde → <strong>1400</strong> (Haben beim Zahlen) + <strong>1775</strong>. Wir zahlen → <strong>1600</strong> (Soll) + <strong>1575</strong>. Skonto beim Einkauf → 4002/4022/4052 + 1575. Skonto beim Verkauf → <strong>8720 Erlösschmälerungen</strong> + 1775.</li>
+<li><strong>Rücksendung vom Kunden:</strong> Stornobuchung auf 8000 (Soll), Umsatzsteuer im Soll korrigieren. Beispiel 1.000 netto: 8000 1.000 + 1775 190 an 1400 1.190.</li>
+<li><strong>Skonto/Bonus an Kunden:</strong> mindert die Erlöse → <strong>8720</strong> (Soll), USt anteilig (1775 Soll). Beispiel 595 € brutto, 3 % Skonto per Sparkasse: 1210 577,15 + 8720 15,00 + 1775 2,85 an 1400 595,00.</li>
+<li>Allgemein: 8720 (Skonto ÷ 1,19) + 1775 (Skonto ÷ 1,19 × 0,19) + Bank/Kasse (brutto − Skonto) an 1400 (brutto).</li>
+</ul>
+<p><strong>Übungen zum Warenverkehr – Auswertung:</strong>
+- 1, 2, 5, 6 ✓ (Preisnachlass Kunde, Kunde zahlt mit Skonto, Rücksendung an Lieferer, Bonus vom Lieferanten).</p>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> <strong>Nr. 3 (Kunde sendet Ware zurück):</strong> Gegenbuchung ist <strong>1400 Forderungen</strong>, nicht 1701 (Sonstige Verbindlichkeiten).</p>
+</div>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> <strong>Nr. 4 (Hilfs-/Betriebsstoffe 6.000 + Fracht 200):</strong> Vorsteuer = 6.200 × 19 % = <strong>1.178,00</strong>, Summe an 1600 = <strong>7.378,00</strong> (im Blatt 7.189,92).</p>
+</div>
+<div class="kasten widerspruch">
+<p><strong>Achtung, widersprüchlich:</strong> <strong>Nr. 7 (Hilfs-/Betriebsstoffe 700 + Fracht 30):</strong> Konto für den Einkauf ist <strong>4020</strong>, nicht 4002 (das ist „Nachlässe Rohstoffe“). Beträge stimmen.</p>
+</div>
+<h2>12c. Abschluss der Unterkonten und der Bestandskonten Klasse 3</h2>
+<p><strong>Unterkonten</strong> (Bezugskosten, Nachlässe) werden zuerst über ihr <strong>Hauptkonto</strong> abgeschlossen:</p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Unterkonto</th>
+<th>Hauptkonto</th>
+<th>Buchungssatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezugskosten Rohstoffe 4001</td>
+<td>4000 Rohstoffverbrauch</td>
+<td><strong>4000 an 4001</strong></td>
+</tr>
+<tr>
+<td>Nachlässe Rohstoffe 4002</td>
+<td>4000</td>
+<td><strong>4002 an 4000</strong></td>
+</tr>
+<tr>
+<td>Bezugskosten HBst 4021</td>
+<td>4020 HBst-Verbrauch</td>
+<td><strong>4020 an 4021</strong></td>
+</tr>
+<tr>
+<td>Nachlässe HBst 4022</td>
+<td>4020</td>
+<td><strong>4022 an 4020</strong></td>
+</tr>
+<tr>
+<td>Bezugskosten HW 4051</td>
+<td>4050 Handelswareneingang</td>
+<td><strong>4050 an 4051</strong></td>
+</tr>
+<tr>
+<td>Nachlässe HW 4052</td>
+<td>4050</td>
+<td><strong>4052 an 4050</strong></td>
+</tr>
+<tr>
+<td>Erlösschmälerungen 8720</td>
+<td>8000 Erlöse</td>
+<td><strong>8000 an 8720</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Merke: Bezugskosten <strong>erhöhen</strong> den Einkauf (Hauptkonto im Soll), Nachlässe <strong>mindern</strong> ihn (Hauptkonto im Haben).</p>
+<p><strong>Bestandskonten Klasse 3:</strong> 3970 Rohstoffe · 3971 Hilfs- und Betriebsstoffe · 3980 Handelswaren.
+- Schlussbestand laut <strong>Inventur</strong> ermitteln. Den <strong>Unterschied</strong> zum Anfangsbestand über das Einkaufskonto (4000, 4020, 4050) abschließen.
+- <strong>Bestand gesunken</strong> (Minderung = Mehrverbrauch): Rohstoffe AB 8.000, SB 5.000 → <strong>4000 an 3970 3.000 €</strong>.
+- <strong>Bestand gestiegen</strong> (Mehrung = weniger verbraucht als gekauft): Handelswaren AB 2.000, SB 6.000 → <strong>3980 an 4050 4.000 €</strong>.</p>
+<p><strong>Übungsblatt „Geschäftsfälle (aufwandsorientierte Materialbeschaffung)“</strong> – im Heft noch ohne Lösung. <em>Lösung von Claude (25.11.2026), Bank = 1210, bitte mit dem Unterricht vergleichen:</em></p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Fall</th>
+<th>Buchungssatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ER Rohstoffe 30.000 + Hilfsstoffe 10.000 + USt 7.600</td>
+<td>4000 30.000 · 4020 10.000 · 1575 7.600 <strong>an</strong> 1600 47.600</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bar: Bezugskosten Rst 1.200 + HBst 800 + USt 380</td>
+<td>4001 1.200 · 4021 800 · 1575 380 <strong>an</strong> 1000 2.380</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kunde zahlt 5.950 − 2 % Skonto (119)</td>
+<td>1210 5.831 · 8720 100 · 1775 19 <strong>an</strong> 1400 5.950</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gutschrift Rücksendung Rohstoffe 952 brutto</td>
+<td>1600 952 <strong>an</strong> 4000 800 · 1575 152</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Wir zahlen Rohstofflieferer 11.900 − 2 % Skonto (238)</td>
+<td>1600 11.900 <strong>an</strong> 1210 11.662 · 4002 200 · 1575 38</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gutschrift Hilfsstofflieferer (Mängelrüge) 1.785 brutto</td>
+<td>1600 1.785 <strong>an</strong> 4022 1.500 · 1575 285</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Privatentnahme Erzeugnisse 700 + 133 USt</td>
+<td>1800 833 <strong>an</strong> 8900 700 · 1775 133</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zinsgutschrift der Bank 600</td>
+<td>1210 <strong>an</strong> 2650 600</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Löhne per Bank 6.300</td>
+<td>4100 <strong>an</strong> 1210 6.300</td>
+</tr>
+<tr>
+<td>10</td>
+<td>AR Erzeugnisse 65.000 + 12.350 USt</td>
+<td>1400 77.350 <strong>an</strong> 8000 65.000 · 1775 12.350</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Bonus vom Rohstofflieferanten 1.190 brutto</td>
+<td>1600 1.190 <strong>an</strong> 4002 1.000 · 1575 190</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Miete Betriebsstätte per Bank 8.000</td>
+<td>4210 <strong>an</strong> 1210 8.000</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Darlehenstilgung per Bank 4.000</td>
+<td>0640 <strong>an</strong> 1210 4.000</td>
+</tr>
+</tbody>
+</table></div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Fall 13: Welches Darlehenskonto im Unterricht genommen wird (0640 = 1 bis 5 Jahre), steht nicht auf dem Blatt.</p>
+</div>
+<h2>13. Privatkonto (1800) und Eigenverbrauch</h2>
+<ul>
+<li>Auf dem Privatkonto stehen <strong>Entnahmen (Soll)</strong> und <strong>Einlagen (Haben)</strong>. Abschluss über das <strong>Eigenkapital (0800)</strong>. Entnahmen mindern das EK, Einlagen mehren es.</li>
+<li>Saldo im Soll (mehr Einlagen) → <strong>1800 an 0800</strong>. Saldo im Haben (mehr Entnahmen) → <strong>0800 an 1800</strong>.</li>
+<li>Private Ausgaben über das Geschäftskonto (Lebensversicherung, private Miete, Einkommensteuer, Arzt, Urlaub, Spende, Haushaltshilfe) → <strong>1800 an Bank/Kasse</strong>. Gemischte Zahlungen aufteilen, z. B. Miete: 4210 (Geschäft) + 1800 (Wohnung) an 1210.</li>
+<li><strong>Eigenverbrauch ist umsatzsteuerpflichtig.</strong> Er wird laut Kontenplan auf <strong>8900 Eigenverbrauch (unentgeltliche Wertabgaben) im Haben</strong> gebucht. Warenentnahme 300 netto: 1800 357 an 8900 300 + 1775 57. Private Kfz-Nutzung 30 % von 12.000: 1800 4.284 an 8900 3.600 + 1775 684.</li>
+</ul>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

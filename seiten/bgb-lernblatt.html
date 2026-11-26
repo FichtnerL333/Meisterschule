@@ -1,0 +1,195 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+<title>BGB Lernblatt</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#6b655c;--line:#e2ddd4;--accent:#6d3fa0;--accent-soft:#ece4f6;--blue:#2f5d8a;--blue-soft:#e3ecf5;--warn:#8a5a00;--warn-soft:#fbf0d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#171513;--paper:#211f1c;--ink:#ece7df;--muted:#a59d91;--line:#38342e;--accent:#b79ae6;--accent-soft:#2c2238;--blue:#8fb6e0;--blue-soft:#1d2a38;--warn:#f0c46a;--warn-soft:#3a2f17}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#171513;--paper:#211f1c;--ink:#ece7df;--muted:#a59d91;--line:#38342e;--accent:#b79ae6;--accent-soft:#2c2238;--blue:#8fb6e0;--blue-soft:#1d2a38;--warn:#f0c46a;--warn-soft:#3a2f17}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+.eyebrow{font:600 12px "Source Sans 3",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(30px,7vw,44px)/1.05 Archivo,sans-serif;margin:6px 0 8px}
+.lead{color:var(--muted);margin:0 0 24px;max-width:60ch}
+h2{font:700 21px Archivo,sans-serif;margin:36px 0 12px;display:flex;gap:10px;align-items:center}
+h2 .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-size:15px;flex:none}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.term{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.term b{display:block;color:var(--accent);font-size:16px}
+.term span{color:var(--ink);font-size:15.5px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair .term b{color:var(--blue)}
+.big{font:800 clamp(26px,6vw,34px) Archivo,sans-serif;color:var(--accent);margin:4px 0}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums}
+th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-soft);font-weight:700;font-size:15px}
+td:not(:first-child),th:not(:first-child){text-align:center}
+td strong{font-size:18px}
+tr:last-child td{border-bottom:0}
+.merk{background:var(--blue-soft);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 16px;margin-top:12px}
+.merk b{color:var(--blue)}
+.warn{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:0 10px 10px 0;padding:12px 16px;margin-top:14px;font-size:15.5px}
+ul{margin:0;padding-left:20px}
+li{margin:4px 0}
+.measure{display:grid;gap:8px}
+.measure div{display:grid;grid-template-columns:150px 1fr;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.measure b{color:var(--accent)}
+@media (max-width:520px){.pair{grid-template-columns:1fr}.measure div{grid-template-columns:1fr;gap:2px}}
+footer{margin-top:40px;color:var(--muted);font-size:14px}
+h3{font:700 17px Archivo,sans-serif;margin:20px 0 8px;color:var(--muted)}.formel{font:700 16px/1.4 "Source Sans 3",sans-serif;background:var(--accent-soft);border-radius:8px;padding:8px 12px;margin-top:4px}td:not(:first-child),th:not(:first-child){text-align:left}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · BGB</div>
+  <h1>BGB – Lernblatt</h1>
+  <p class="lead">Alles Wichtige für die Schulaufgabe auf einer Seite: Vertrag, Verbraucher, Werkvertrag, Bauvertrag, Verbraucherbauvertrag. Am Ende die Formeln und die Zahlen zum Auswendiglernen. Die Paragrafen stehen dabei, damit du im BGB nachschlagen kannst.</p>
+
+  <h2><span class="num">1</span>Was ist ein Vertrag?</h2>
+  <div class="merk"><b>Vertrag = Angebot + Annahme</b> – zwei Willenserklärungen, die zusammenpassen (§§ 145 ff.).</div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="term"><b>Annahmefrist</b><span>Anwesend/Telefon: <strong>sofort</strong>. Brief/E-Mail: bis man normal mit Antwort rechnen kann. Mit Frist: bis Fristende (§§ 147, 148).</span></div>
+    <div class="term"><b>Zu spät / mit Änderung angenommen</b><span>= <strong>neues Angebot</strong> (§ 150)</span></div>
+    <div class="term"><b>Schweigen</b><span>ist grundsätzlich <strong>keine</strong> Annahme</span></div>
+    <div class="term"><b>Geschäftsfähigkeit</b><span>unter 7: geschäftsunfähig · 7–17: beschränkt (Eltern müssen zustimmen, Ausnahme Taschengeld) · ab 18: voll (§§ 104–110)</span></div>
+    <div class="term"><b>Form</b><span>Grundsätzlich <strong>formfrei</strong>. Vorgeschriebene Form nicht eingehalten → <strong>nichtig</strong> (§ 125)</span></div>
+    <div class="term"><b>Nichtig</b><span>Gesetzesverstoß, z. B. <strong>Schwarzarbeit</strong> → kein Lohn, keine Gewährleistung (§ 134) · Wucher (§ 138)</span></div>
+    <div class="term"><b>Anfechtung</b><span>Irrtum: unverzüglich (§§ 119, 121) · Täuschung/Drohung: 1 Jahr (§§ 123, 124). <strong>Kalkulationsfehler</strong> = kein Anfechtungsgrund.</span></div>
+    <div class="term"><b>Vertragsarten</b><span>Kauf (§ 433) · Werk = <strong>Erfolg</strong> (§ 631) · Dienst = nur Tätigkeit (§ 611) · Miete (§ 535)</span></div>
+  </div>
+
+  <h2><span class="num">2</span>Verbraucher und Widerruf</h2>
+  <div class="pair">
+    <div class="term"><b>Verbraucher (§ 13)</b><span>Privatperson, nicht für Gewerbe oder Beruf</span></div>
+    <div class="term"><b>Unternehmer (§ 14)</b><span>handelt gewerblich oder beruflich (auch Firma, Bauträger)</span></div>
+  </div>
+  <div class="grid2" style="margin-top:10px">
+    <div class="term"><b>Widerrufsrecht wann?</b><span>Vertrag <strong>außerhalb der Geschäftsräume</strong> (Küchentisch, Baustelle, § 312b) oder <strong>Fernabsatz</strong> (nur Telefon/E-Mail, § 312c)</span></div>
+    <div class="term"><b>Frist</b><span><strong>14 Tage</strong> ab Belehrung (§ 355). Ohne Belehrung: <strong>12 Monate + 14 Tage</strong> (§ 356)</span></div>
+    <div class="term"><b>Wie widerrufen?</b><span>Eindeutige Erklärung (z. B. E-Mail), <strong>ohne Begründung</strong></span></div>
+    <div class="term"><b>Vorher anfangen?</b><span>Nur wenn der Kunde es <strong>ausdrücklich verlangt</strong> und weiß, dass er bei Widerruf <strong>Wertersatz</strong> zahlt</span></div>
+    <div class="term"><b>Kein Widerruf</b><span>bei <strong>dringender Reparatur</strong>, zu der der Kunde dich gerufen hat (§ 312g Abs. 2 Nr. 11)</span></div>
+    <div class="term"><b>Vorher informieren</b><span>Firma, Leistung, Gesamtpreis, Termin, Widerrufsbelehrung + Musterformular, Gewährleistung</span></div>
+  </div>
+
+  <h2><span class="num">3</span>Werkvertrag (§§ 631–650)</h2>
+  <div class="merk"><b>Unternehmer</b> schuldet den fertigen <b>Erfolg</b>, <b>Besteller</b> zahlt die Vergütung und nimmt ab. Formfrei, aber schriftlich ist besser zum Beweis.</div>
+  <h3>Geld</h3>
+  <div class="grid2">
+    <div class="term"><b>Kein Preis vereinbart</b><span>→ <strong>übliche Vergütung</strong> (§ 632); im Streit: Sachverständiger / Gericht</span></div>
+    <div class="term"><b>Kostenanschlag</b><span>im Zweifel <strong>kostenlos</strong> (§ 632 Abs. 3). Wesentlich überschritten (Faustwert 15–20 %) → <strong>sofort anzeigen</strong>, Besteller darf kündigen (§ 649)</span></div>
+    <div class="term"><b>Abschlagszahlung</b><span>für den <strong>Wert der erbrachten Leistung</strong> und bereitgestellte Bauteile, mit <strong>Aufstellung</strong> (Aufmaß) nachweisen (§ 632a)</span></div>
+    <div class="term"><b>Fälligkeit</b><span>bei der <strong>Abnahme</strong> (§ 641)</span></div>
+    <div class="term"><b>Einbehalt bei Mangel</b><span>in der Regel das <strong>Doppelte</strong> der Beseitigungskosten (§ 641 Abs. 3)</span></div>
+    <div class="term"><b>Eigentum</b><span>Was eingebaut ist, gehört dem <strong>Grundstückseigentümer</strong> (§§ 94, 946) → Eigentumsvorbehalt hilft nicht</span></div>
+  </div>
+  <h3>Abnahme</h3>
+  <div class="pair">
+    <div class="term"><b>Formen</b><span><strong>förmlich</strong> (Protokoll) · <strong>stillschweigend</strong> (Einzug, Nutzung, Zahlung) · <strong>fiktiv</strong> (Frist gesetzt, kein Mangel genannt; Verbraucher vorher in Textform warnen, § 640 Abs. 2) · Teilabnahme</span></div>
+    <div class="term"><b>Wirkungen</b><span>1. Geld <strong>fällig</strong> · 2. <strong>Verjährung</strong> beginnt · 3. <strong>Gefahr</strong> geht auf Besteller über (§ 644) · 4. <strong>Beweislast</strong> wechselt zum Besteller</span></div>
+  </div>
+  <div class="warn">Wegen eines <b>unwesentlichen Mangels</b> (kleiner Kratzer) darf die Abnahme <b>nicht verweigert</b> werden. Kennt der Besteller einen Mangel, muss er ihn sich bei der Abnahme <b>vorbehalten</b> (§ 640).</div>
+  <h3>Mängel</h3>
+  <div class="card">
+    <p style="margin:0 0 8px"><b>Mangelfrei</b> = vereinbarte Beschaffenheit, sonst gewöhnliche Verwendung + anerkannte Regeln der Technik (§ 633).</p>
+    <p style="margin:0 0 6px"><b>Rechte des Bestellers in dieser Reihenfolge (§ 634):</b></p>
+    <ol style="margin:0;padding-left:22px">
+      <li><b>Nacherfüllung</b> – der <b>Unternehmer wählt</b>: ausbessern oder neu bauen, er trägt alle Kosten (§ 635)</li>
+      <li>nach Fristablauf: <b>Selbstvornahme</b> mit Kostenersatz, auch Vorschuss (§ 637) – <b>ohne Frist kein Geld</b></li>
+      <li><b>Rücktritt</b> (nicht bei unerheblichem Mangel) oder <b>Minderung</b> (§§ 323, 638)</li>
+      <li><b>Schadensersatz</b> (§§ 280, 281, 636)</li>
+    </ol>
+  </div>
+  <div class="tablewrap" style="margin-top:12px"><table>
+    <tr><th>Verjährung ab Abnahme (§ 634a)</th><th>Frist</th></tr>
+    <tr><td>Bauwerk (BGB)</td><td><strong>5 Jahre</strong></td></tr>
+    <tr><td>Bauwerk nach VOB/B</td><td><strong>4 Jahre</strong></td></tr>
+    <tr><td>Sache herstellen, warten, verändern</td><td><strong>2 Jahre</strong></td></tr>
+    <tr><td>Mangel arglistig verschwiegen</td><td>3 Jahre ab Kenntnis, aber nicht vor 5 Jahren</td></tr>
+  </table></div>
+  <h3>Kündigung</h3>
+  <div class="grid2">
+    <div class="term"><b>Freie Kündigung (§ 648)</b><span>Besteller <strong>jederzeit</strong>. Unternehmer bekommt erbrachten Teil + <strong>5 %</strong> vom Rest (Vermutung)</span></div>
+    <div class="term"><b>Wichtiger Grund (§ 648a)</b><span>beide Seiten, auch nur für einen <strong>abgrenzbaren Teil</strong> (z. B. eigenes Gewerk). Danach Leistungsstand gemeinsam feststellen</span></div>
+  </div>
+  <div class="pair" style="margin-top:10px">
+    <div class="term"><b>Gewährleistung</b><span>Gesetz, gilt automatisch, feste Fristen</span></div>
+    <div class="term"><b>Garantie</b><span>freiwillig, Inhalt und Dauer frei vereinbart, zusätzlich</span></div>
+  </div>
+
+  <h2><span class="num">4</span>Bauvertrag (§§ 650a–650h)</h2>
+  <div class="merk"><b>Bauvertrag</b> = Werkvertrag über <b>Herstellung, Wiederherstellung, Beseitigung oder Umbau</b> eines Bauwerks oder einer Außenanlage. Instandhaltung nur, wenn wesentlich (§ 650a).</div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="term"><b>Änderungen (§ 650b)</b><span>Besteller wünscht → Unternehmer macht Angebot → <strong>30 Tage</strong> einigen → sonst Anordnung in <strong>Textform</strong></span></div>
+    <div class="term"><b>Nachtrag bezahlen (§ 650c)</b><span>tatsächliche Kosten + Zuschläge (oder Urkalkulation). Ohne Einigung <strong>80 %</strong> des Angebots als Abschlag</span></div>
+    <div class="term"><b>Fälligkeit (§ 650g Abs. 4)</b><span><strong>Abnahme + prüffähige Schlussrechnung</strong></span></div>
+    <div class="term"><b>Prüffähig</b><span>übersichtliche, nachvollziehbare Aufstellung. Gilt als prüffähig, wenn nach <strong>30 Tagen</strong> kein begründeter Einwand kommt</span></div>
+    <div class="term"><b>Zustandsfeststellung (§ 650g)</b><span>Abnahme verweigert → Zustand <strong>gemeinsam</strong> festhalten. Kommt der Besteller nicht: Unternehmer <strong>allein</strong> + Kopie schicken</span></div>
+    <div class="term"><b>Kündigung (§ 650h)</b><span>nur <strong>schriftlich</strong> mit Unterschrift – keine E-Mail, kein WhatsApp</span></div>
+  </div>
+  <h3>Sicherheiten für den Unternehmer</h3>
+  <div class="pair">
+    <div class="term"><b>Sicherungshypothek (§ 650e)</b><span>Eintrag ins <strong>Grundbuch</strong> · nur für <strong>schon erbrachte</strong> Leistung · nur wenn Besteller <strong>Grundstückseigentümer</strong> · steht oft hinter der Bank</span></div>
+    <div class="term"><b>Bauhandwerkersicherung (§ 650f)</b><span>meist <strong>Bankbürgschaft</strong> · für die <strong>noch offene</strong> Vergütung · <strong>jederzeit</strong>, auch vor Baubeginn und nach Abnahme · <strong>nicht ausschließbar</strong> · Kosten trägt Unternehmer bis 2 %/Jahr</span></div>
+  </div>
+  <div class="warn">Stellt der Besteller die Bauhandwerkersicherung nicht → nach Frist <b>Arbeit einstellen oder kündigen</b>. <b>Nicht</b> gegenüber öffentlicher Hand und Verbraucher beim Verbraucherbauvertrag (§ 650f Abs. 6).</div>
+
+  <h2><span class="num">5</span>Verbraucherbauvertrag (§§ 650i–650o)</h2>
+  <div class="merk"><b>Verbraucher</b> beauftragt einen <b>Neubau eines Gebäudes</b> oder <b>erheblichen Umbau</b>. Braucht <b>Textform</b> (§ 650i).</div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="term"><b>Baubeschreibung (§ 650j)</b><span><strong>vor</strong> Vertragsschluss, in Textform. Wird <strong>Vertragsinhalt</strong>. Unklar → <strong>zulasten Unternehmer</strong> (§ 650k)</span></div>
+    <div class="term"><b>Inhalt (Art. 249 EGBGB)</b><span>Gebäude allgemein, Pläne mit Flächen, Energie-/Brand-/Schallschutz, Baukonstruktion der Gewerke, Haustechnik, <strong>verbindlicher Fertigstellungstermin</strong></span></div>
+    <div class="term"><b>Widerruf (§ 650l)</b><span><strong>14 Tage</strong>, egal wo unterschrieben (auch im Büro). Nicht bei Notar. Ohne Belehrung max. 12 Monate + 14 Tage</span></div>
+    <div class="term"><b>Wertersatz (§ 357e)</b><span>Nach Widerruf zahlt der Verbraucher den <strong>Wert des schon Gebauten</strong> (vereinbarter Preis, bei zu hoch: Marktwert)</span></div>
+    <div class="term"><b>Abschläge (§ 650m)</b><span>höchstens <strong>90 %</strong>. Bei 1. Abschlag <strong>5 %</strong> Sicherheit für den Verbraucher</span></div>
+    <div class="term"><b>Sicherheit vom Verbraucher</b><span>höchstens nächster Abschlag und höchstens <strong>20 %</strong> – keine Bauhandwerkersicherung</span></div>
+    <div class="term"><b>Unterlagen (§ 650n)</b><span><strong>vor Baubeginn</strong>: Pläne für Behörden · <strong>spätestens bei Fertigstellung</strong>: Nachweise für Behörden und Bank/KfW</span></div>
+    <div class="term"><b>Nicht abänderbar (§ 650o)</b><span>Nichts zum Nachteil des Verbrauchers, z. B. „kein Widerrufsrecht“ = unwirksam</span></div>
+  </div>
+
+  <h2><span class="num">6</span>Formeln</h2>
+  <div class="card" style="display:grid;gap:12px">
+    <div><b>Minderung (§ 638)</b><div class="formel">neuer Preis = Preis × Wert mit Mangel ÷ Wert ohne Mangel</div></div>
+    <div><b>Freie Kündigung (§ 648)</b><div class="formel">Anspruch = erbrachter Teil + 5 % × nicht erbrachter Teil</div></div>
+    <div><b>Bauhandwerkersicherung (§ 650f)</b><div class="formel">Sicherheit = (Preis + Nachträge − gezahlt) × 1,10</div></div>
+    <div><b>Einbehalt bei Mangel (§ 641)</b><div class="formel">Einbehalt = 2 × Mangelbeseitigungskosten</div></div>
+    <div><b>Verbraucherbauvertrag (§ 650m)</b><div class="formel">Abschläge max. = 90 % × Gesamtpreis · Sicherheit = 5 % × Gesamtpreis</div></div>
+  </div>
+
+  <h2><span class="num">7</span>Zahlen zum Auswendiglernen</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Was</th><th>Zahl</th></tr>
+    <tr><td>Widerrufsfrist</td><td><strong>14 Tage</strong></td></tr>
+    <tr><td>Widerruf ohne Belehrung, spätestens</td><td><strong>12 Monate + 14 Tage</strong></td></tr>
+    <tr><td>Verjährung Bauwerk BGB / VOB</td><td><strong>5 / 4 Jahre</strong></td></tr>
+    <tr><td>Kündigung: Anteil für nicht erbrachten Teil</td><td><strong>5 %</strong></td></tr>
+    <tr><td>Bauhandwerkersicherung: Zuschlag</td><td><strong>10 %</strong></td></tr>
+    <tr><td>Kosten der Bürgschaft (Unternehmer)</td><td><strong>bis 2 % pro Jahr</strong></td></tr>
+    <tr><td>Einbehalt bei Mangel</td><td><strong>2-fach</strong></td></tr>
+    <tr><td>Einigung über Änderung</td><td><strong>30 Tage</strong></td></tr>
+    <tr><td>Abschlag auf Nachtrag ohne Einigung</td><td><strong>80 %</strong></td></tr>
+    <tr><td>Schlussrechnung gilt als prüffähig nach</td><td><strong>30 Tagen</strong></td></tr>
+    <tr><td>Verbraucherbau: Abschläge max.</td><td><strong>90 %</strong></td></tr>
+    <tr><td>Verbraucherbau: Sicherheit für Verbraucher</td><td><strong>5 %</strong></td></tr>
+    <tr><td>Verbraucherbau: Sicherheit vom Verbraucher max.</td><td><strong>20 %</strong></td></tr>
+    <tr><td>Wesentliche Überschreitung Kostenanschlag</td><td><strong>ca. 15–20 %</strong> (Faustwert)</td></tr>
+  </table></div>
+
+  <h2><span class="num">8</span>Nicht verwechseln</h2>
+  <div class="grid2">
+    <div class="term"><b>Schriftform ↔ Textform</b><span>Unterschrift auf Papier (Kündigung Bauvertrag) ↔ E-Mail reicht (Verbraucherbauvertrag, Anordnung, Baubeschreibung)</span></div>
+    <div class="term"><b>Rücktritt ↔ Minderung</b><span>Vertrag rückgängig ↔ Preis runter. Bei kleinem Mangel nur Minderung</span></div>
+    <div class="term"><b>Werkvertrag ↔ Kaufrecht</b><span>Fertigteile einbauen = Werkvertrag · nur liefern = Kaufrecht (§ 650)</span></div>
+    <div class="term"><b>Vor ↔ nach der Abnahme</b><span>Vorher trägt der Unternehmer Gefahr und Beweislast, danach der Besteller</span></div>
+  </div>
+
+  <footer>Selbst erstellt nach dem Gesetzestext (BGB/EGBGB), Stand 11/2026. Ohne Gewähr – im eigenen BGB nachschlagen. Was im Unterricht anders erklärt wurde, gilt.</footer>
+</div>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>
