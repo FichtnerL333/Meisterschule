@@ -1,0 +1,90 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lageplan</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#8a5a1f;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Baurecht">← Baurecht</a>
+  <div class="fach"><i></i>Baurecht, Lernzettel</div>
+  <h1>Lageplan</h1>
+  <p class="lead">Was in den Lageplan gehört (aus CAD, Hefteintrag 05.11.2026).</p>
+</div></header>
+<main><div class="in">
+<h2>Grundlagen</h2>
+<ul>
+<li><strong>Zweck:</strong> Er legt fest, wo das Gebäude auf dem Grundstück steht.</li>
+<li><strong>Grundlage:</strong> beglaubigter Auszug aus der amtlichen <strong>Flurkarte</strong> vom Vermessungsamt, <strong>höchstens 6 Monate alt</strong>. Das Original ist eine Urkunde. Eingetragen wird nur auf einer <strong>Kopie</strong>.</li>
+<li><strong>Maßstab:</strong> Bauvorhaben nur in <strong>1:1000 oder 1:500</strong>. 1:5000 nur zur Übersicht (Außenbereich).</li>
+</ul>
+
+<h2>Das gehört hinein</h2>
+<ol>
+<li><strong>Nordpfeil</strong>, Norden oben</li>
+<li><strong>Umgriff:</strong> Nachbarbebauung im Umkreis von <strong>mind. 50 m</strong></li>
+<li><strong>Eigentümer</strong> mit Flurnummer und Grundstücksgröße</li>
+<li><strong>Nachbarn</strong> als Angrenzer, Straßen mit Straßenklasse (Kreis-, Staats-, Gemeindestraße)</li>
+<li>Geplantes Gebäude mit <strong>Kreuzschraffur unter 45°</strong></li>
+<li><strong>Abstandsflächen:</strong> dünn (0,25 mm), <strong>gestrichelt</strong>, beschriftet mit H, H/2 oder 0,4 H, <strong>nicht vermaßt</strong></li>
+<li><strong>Außenmaße</strong> mit Anbindemaßen an <strong>mind. 2 verschiedene Grenzsteine</strong></li>
+<li><strong>Firstrichtung</strong></li>
+<li>Nutzung und Geschosse, z. B. <strong>WH E+1</strong>, WH E+D, GA</li>
+<li><strong>Außenanlagen</strong> (Bäume, Zuwege, Terrasse)</li>
+<li><strong>Zugänge und Zufahrten</strong> mit Pfeil und punktierter Linie</li>
+<li><strong>Stellplätze</strong> (ST)</li>
+<li><strong>Festsetzungen</strong> aus dem Bebauungsplan (Baulinien, Baugrenzen)</li>
+</ol>
+<div class="kasten"><p><strong>Achtung:</strong> Die Abstandsflächen-Werte (z. B. 0,4 H) können sich mit der BayBO ändern. Vor einem echten Bauantrag im aktuellen Art. 6 BayBO nachsehen.</p></div>
+<footer>Selbst zusammengestellt aus deinem Baurecht-Heft (Hefteinträge ab 07.10.2026, Übung 01 und 02), dem Skript „Überblick Baurecht“ und dem CAD-Hefteintrag „Lageplan“ (05.11.2026). Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>
