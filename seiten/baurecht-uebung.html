@@ -1,0 +1,307 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
+<title>Baurecht – Übungen zum Eintippen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f4f2ee;--paper:#fff;--ink:#1f1d1a;--muted:#5f5a52;--line:#ddd7cc;--accent:#8a5a1f;--accent-soft:#f3e8d8;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161513;--paper:#211f1c;--ink:#ece8e1;--muted:#a59e92;--line:#38342e;--accent:#e0a45c;--accent-soft:#3a2c1a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:28px 90px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.merk{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:15px}
+.merk summary{font-weight:600;cursor:pointer}
+.merk ul{margin:8px 0 2px;padding-left:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+button{font:600 15px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:8px 13px;cursor:pointer;min-height:40px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#1a140c}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:12px}
+.card.ok{border-color:var(--ok)}.card.bad{border-color:var(--bad)}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.card h3 .t{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.feld{display:grid;gap:6px}
+.feld>label,.feld>.lab{font-size:15px;color:var(--muted)}
+.zeile{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input[type=text],textarea{font:500 17px "JetBrains Mono",monospace;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;width:11em;max-width:100%}
+input.lang{width:100%;font-family:"Source Sans 3",sans-serif}
+textarea{width:100%;min-height:90px;font:16px/1.45 "Source Sans 3",sans-serif}
+.einheit{color:var(--muted);font-size:15px}
+.wahl{display:flex;flex-wrap:wrap;gap:6px}
+.wahl button{font-weight:400;text-align:left}
+.wahl button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.feld.ok input,.feld.ok textarea{border-color:var(--ok);background:var(--ok-soft)}
+.feld.bad input,.feld.bad textarea{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button.ok{border-color:var(--ok);background:var(--ok-soft)}
+.wahl button.bad{border-color:var(--bad);background:var(--bad-soft)}
+.wahl button[disabled]{cursor:default;color:var(--ink)}
+.richtig{font-size:15px;color:var(--ok);font-weight:600}
+.knoepfe{display:flex;gap:8px;flex-wrap:wrap}
+.pruefen{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pruefen{color:#1a140c}}
+.expl{border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.expl.gut{border-left-color:var(--ok)}
+.hinweis{color:var(--bad);font-size:14px}
+.hinweis:empty{display:none}
+.empty{color:var(--muted);padding:20px 0}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Baurecht</div>
+  <h1>Baurecht: Übungen zum Eintippen</h1>
+  <p class="intro">Antwort direkt eintippen oder antippen, dann <b>Prüfen</b>. Kommazahlen gehen mit Komma oder Punkt. Bei Rechnungen reicht das Ergebnis, gerundet auf 2 Stellen. Dein Stand bleibt in diesem Browser gespeichert.</p>
+  <details class="merk"><summary>Formeln zum Nachschauen</summary><ul>
+    <li>GRZ = Grundfläche Gebäude ÷ Grundstücksfläche</li>
+    <li>GFZ = Fläche aller Vollgeschosse ÷ Grundstücksfläche</li>
+    <li>BMZ = Baumasse in m³ ÷ Grundstücksfläche</li>
+    <li>GRZ mit Garage, Zufahrt, Nebenanlagen: bis 50 % mehr, aber höchstens 0,8</li>
+    <li>Vollgeschoss: 2/3 der Fläche · 2,30 m hoch · Keller: Decke im Mittel über 1,20 m</li>
+  </ul></details>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar">
+    <div class="progress" aria-hidden="true"><i id="fill"></i></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tools">
+    <button id="onlyWrong" type="button" aria-pressed="false">Nur falsche zeigen</button>
+    <button id="reset" type="button">Diesen Teil zurücksetzen</button>
+  </div>
+  <div id="list"></div>
+  <footer>Stoff aus deinem Baurecht-Heft und dem CAD-Hefteintrag „Lageplan“. Aufgaben neu erstellt am 26.11.2026 für die SA am 04.12.2026.</footer>
+</div>
+<script>
+const JN=["ja","nein"], PO=["privat","öffentlich"], VG=["Vollgeschoss","kein Vollgeschoss"], ZU=["zulässig","nicht zulässig"];
+const Q=[
+// ---------- Überblick ----------
+{t:"Überblick",q:"Privates oder öffentliches Baurecht?",f:[
+ {l:"BGB",w:PO,a:0},{l:"BauGB",w:PO,a:1},{l:"VOB",w:PO,a:0},{l:"BayBO",w:PO,a:1},{l:"BauNVO",w:PO,a:1}],
+ e:"Privat: <b>BGB, VOB</b> (Verträge zwischen Leuten). Öffentlich: <b>BauGB, BauNVO, BayBO</b> (Regeln vom Staat)."},
+{t:"Überblick",q:"Das öffentliche Baurecht hat zwei Teile. Wohin gehört was?",f:[
+ {l:"BauGB und BauNVO (Was darf wo gebaut werden?)",w:["Bauplanungsrecht","Bauordnungsrecht"],a:0},
+ {l:"BayBO (Wie muss das einzelne Gebäude sein?)",w:["Bauplanungsrecht","Bauordnungsrecht"],a:1}],
+ e:"<b>Bauplanungsrecht</b> = BauGB + BauNVO. <b>Bauordnungsrecht</b> = BayBO."},
+{t:"Überblick",q:"Welcher Fall gehört wohin?",f:[
+ {l:"Ein Kunde zahlt deine Rechnung nicht.",w:PO,a:0},
+ {l:"Der Nachbar sagt, das neue Haus steht zu nah an seiner Grenze.",w:PO,a:1}],
+ e:"Rechnung = Vertrag zwischen dir und dem Kunden → <b>privat</b> (BGB/VOB). Grenzabstand = Abstandsflächen in der BayBO → <b>öffentlich</b>."},
+{t:"Überblick",q:"Wofür steht die Abkürzung <b>PlanZV</b>?",f:[
+ {l:"Ausgeschrieben",k:[["planzeichen"]],ph:"…"}],
+ m:"Planzeichenverordnung",
+ e:"<b>Planzeichenverordnung.</b> Dort steht, was die Zeichen im Flächennutzungs- und Bebauungsplan bedeuten (z. B. MK = Anlage 1.2.5)."},
+// ---------- Baugebiete ----------
+...["WS|Kleinsiedlungsgebiet|kleinsiedlung|0.2|0.4","WR|reines Wohngebiet|rein|0.4|1.2","WA|allgemeines Wohngebiet|allgemein|0.4|1.2","MI|Mischgebiet|misch|0.6|1.2","MK|Kerngebiet|kern|1.0|3.0","SO|Sondergebiet|sonder|0.8|2.4"].map(s=>{
+ const [k,n,kw,grz,gfz]=s.split("|");
+ return {t:"Baugebiete",q:`Was heißt <b>${k}</b>, und welche Obergrenzen gelten?`,f:[
+  {l:"Name des Gebiets",k:[[kw]],ph:"…gebiet"},{l:"GRZ höchstens",z:+grz},{l:"GFZ höchstens",z:+gfz}],
+  m:n,e:`<b>${k} = ${n}</b>, GRZ ${grz.replace(".",",")}, GFZ ${gfz.replace(".",",")}${k==="SO"?", BMZ 10,0":""} (§ 17 BauNVO, Obergrenzen).`};}),
+{t:"Baugebiete",q:"Ist das im <b>allgemeinen Wohngebiet (WA)</b> erlaubt?",f:[
+ {l:"Bäckerei mit Laden für die Leute im Viertel",w:["ja","nur ausnahmsweise"],a:0},
+ {l:"Wirtshaus",w:["ja","nur ausnahmsweise"],a:0},
+ {l:"Tankstelle",w:["ja","nur ausnahmsweise"],a:1},
+ {l:"Kleine Schreinerei, die nicht stört und das Viertel versorgt",w:["ja","nur ausnahmsweise"],a:0},
+ {l:"Kleines Hotel",w:["ja","nur ausnahmsweise"],a:1}],
+ e:"Erlaubt: Läden, Schank- und Speisewirtschaften, nicht störende Handwerksbetriebe zur Versorgung des Gebiets. <b>Nur ausnahmsweise:</b> Beherbergungsbetriebe, sonstige nicht störende Gewerbebetriebe, Gartenbaubetriebe, Tankstellen (§ 4 BauNVO)."},
+{t:"Baugebiete",q:"Im <b>Kerngebiet (MK)</b> will jemand normale Mietwohnungen bauen. Geht das?",f:[
+ {l:"Antwort",w:["ja, ganz normal","nur ausnahmsweise","nein, nie"],a:1}],
+ e:"Im MK sind Geschäfte, Büros, Einzelhandel und Wohnungen für Betriebsinhaber erlaubt. <b>Sonstige Wohnungen nur ausnahmsweise</b> (§ 7 BauNVO)."},
+{t:"Baugebiete",q:"In welchen Gebieten wird die <b>BMZ</b> (Baumassenzahl) verwendet?",f:[
+ {l:"Antwort",w:["Wohn-, Misch- und Kerngebiete","Gewerbe-, Industrie- und Sondergebiete","in allen Baugebieten"],a:1}],
+ e:"Die BMZ gibt es nur für <b>Gewerbe-, Industrie- und Sondergebiete</b> (§ 21 BauNVO)."},
+// ---------- Rechnen ----------
+{t:"Rechnen",q:"WA, Grundstück <b>800 m²</b>, Wohnhaus <b>160 m²</b> Grundfläche.",f:[
+ {l:"GRZ",z:0.2},{l:"Ergebnis",w:ZU,a:0}],
+ e:"160 ÷ 800 = <b>0,2</b> ≤ 0,4 → zulässig."},
+{t:"Rechnen",q:"WA, Grundstück <b>750 m²</b>. Wohnhaus 180 m², Garage 36 m², befestigte Zufahrt 60 m².",f:[
+ {l:"GRZ nur mit dem Haus",z:0.24},{l:"GRZ mit Garage und Zufahrt",z:0.368,s:"0,37"},{l:"Grenze mit Nebenanlagen (0,4 + 50 %)",z:0.6},{l:"Ergebnis",w:ZU,a:0}],
+ e:"180 ÷ 750 = <b>0,24</b>. (180 + 36 + 60) ÷ 750 = 276 ÷ 750 = <b>0,37</b>. Grenze 0,4 × 1,5 = <b>0,6</b>. 0,37 ≤ 0,6 → zulässig."},
+{t:"Rechnen",q:"WR, Grundstück <b>900 m²</b>.",f:[
+ {l:"Haus höchstens (Grundfläche)",z:360,u:"m²"},{l:"Haus + Garage + Zufahrt höchstens",z:540,u:"m²"},{l:"Bleibt für Garage und Zufahrt",z:180,u:"m²"}],
+ e:"0,4 × 900 = <b>360 m²</b>. 0,6 × 900 = <b>540 m²</b>. 540 − 360 = <b>180 m²</b>."},
+{t:"Rechnen",q:"<b>Achtung, Falle!</b> MI, Grundstück <b>1200 m²</b>. Wie viel m² dürfen Gebäude <b>plus</b> Garagen, Stellplätze und Zufahrten zusammen höchstens bedecken?",f:[
+ {l:"Fläche höchstens",z:960,u:"m²"}],
+ e:"GRZ im MI ist 0,6. Plus 50 % wären 0,9, aber es gilt <b>höchstens 0,8</b>. 0,8 × 1200 = <b>960 m²</b>. (1080 m² wäre falsch.)"},
+{t:"Rechnen",q:"WA, Grundstück <b>600 m²</b>. Haus mit <b>140 m²</b> Grundfläche. EG und OG sind Vollgeschosse, das Dachgeschoss nicht.",f:[
+ {l:"Geschossfläche",z:280,u:"m²"},{l:"GFZ",z:0.4667,s:"0,47"},{l:"Höchstens erlaubte Geschossfläche",z:720,u:"m²"}],
+ e:"140 + 140 = <b>280 m²</b> (Dachgeschoss zählt nicht). 280 ÷ 600 = <b>0,47</b> ≤ 1,2 → zulässig. Höchstens 1,2 × 600 = <b>720 m²</b>."},
+{t:"Rechnen",q:"Sondergebiet (SO), Grundstück <b>2500 m²</b>, BMZ 10,0. Halle <b>40 m × 30 m</b>, <b>12 m</b> hoch.",f:[
+ {l:"Erlaubte Baumasse",z:25000,u:"m³"},{l:"Baumasse der Halle",z:14400,u:"m³"},{l:"GRZ der Halle",z:0.48},{l:"Ergebnis",w:ZU,a:0}],
+ e:"10,0 × 2500 = <b>25.000 m³</b>. 40 × 30 × 12 = <b>14.400 m³</b>. GRZ = 1200 ÷ 2500 = <b>0,48</b> ≤ 0,8. Alles eingehalten → zulässig."},
+{t:"Rechnen",q:"Ein Mitschüler rechnet: „Grundstück 1000 m², Haus 120 m². GRZ = 1000 ÷ 120 = 8,3. Nicht zulässig.“",f:[
+ {l:"Was ist falsch?",w:["Er hat die Zahlen vertauscht","Er hätte mal 1,5 rechnen müssen","Nichts, das stimmt"],a:0},{l:"Richtige GRZ",z:0.12}],
+ e:"Immer <b>Gebäude ÷ Grundstück</b>: 120 ÷ 1000 = <b>0,12</b>. Eine GRZ ist fast immer kleiner als 1."},
+{t:"Rechnen",q:"WR, Grundstück <b>1000 m²</b>. Haus mit 2 Vollgeschossen, je <b>350 m²</b>. Garage und Zufahrt zusammen <b>300 m²</b>.",f:[
+ {l:"GRZ nur mit dem Haus",z:0.35},{l:"GRZ mit Garage und Zufahrt",z:0.65},{l:"Ist das zulässig?",w:ZU,a:1},{l:"GFZ (ohne Garage)",z:0.7},{l:"Um wie viel m² müssen Garage und Zufahrt kleiner werden?",z:50,u:"m²"}],
+ e:"350 ÷ 1000 = <b>0,35</b> ✓. (350 + 300) ÷ 1000 = <b>0,65 > 0,6</b> → nicht zulässig. GFZ 700 ÷ 1000 = <b>0,70</b> ✓. Erlaubt sind 600 m² gesamt, also 250 m² für Garage und Zufahrt → <b>50 m² weniger</b>. Andere Lösung: geringfügige Überschreitung genehmigen lassen."},
+// ---------- Vollgeschoss ----------
+{t:"Vollgeschoss",q:"Keller: Die Unterkante der Kellerdecke liegt im Mittel <b>1,40 m</b> über dem Gelände.",f:[{l:"Antwort",w:VG,a:0}],
+ e:"1,40 m ist mehr als 1,20 m → <b>Vollgeschoss</b>."},
+{t:"Vollgeschoss",q:"Keller: Die Unterkante der Kellerdecke liegt im Mittel <b>1,10 m</b> über dem Gelände.",f:[{l:"Antwort",w:VG,a:1}],
+ e:"1,10 m ist nicht mehr als 1,20 m → <b>kein Vollgeschoss</b>."},
+{t:"Vollgeschoss",q:"Dachgeschoss mit <b>90 m²</b>. Davon sind <b>55 m²</b> mindestens 2,30 m hoch.",f:[{l:"2/3 von 90 m² sind",z:60,u:"m²"},{l:"Antwort",w:VG,a:1}],
+ e:"2/3 von 90 = <b>60 m²</b>. 55 m² ist weniger → <b>kein Vollgeschoss</b>."},
+{t:"Vollgeschoss",q:"Dachgeschoss mit <b>90 m²</b>. Davon sind <b>65 m²</b> mindestens 2,30 m hoch.",f:[{l:"Antwort",w:VG,a:0}],
+ e:"65 m² ist mehr als 2/3 (60 m²) → <b>Vollgeschoss</b>."},
+{t:"Vollgeschoss",q:"Erdgeschoss, ganz über dem Gelände. Höhe von Fertigfußboden zu Fertigfußboden überall <b>2,25 m</b>.",f:[{l:"Antwort",w:VG,a:1}],
+ e:"2,25 m ist weniger als 2,30 m → <b>kein Vollgeschoss</b>."},
+{t:"Vollgeschoss",q:"Ab welcher Höhe zählt ein Geschoss als Vollgeschoss (auf mind. 2/3 der Fläche)?",f:[{l:"Mindesthöhe",z:2.3,u:"m"}],
+ e:"<b>2,30 m</b>, gemessen von Oberkante Fertigfußboden bis Oberkante Fertigfußboden darüber."},
+// ---------- Bebauungsplan ----------
+{t:"Bebauungsplan",q:"Im Bebauungsplan steht „<b>GR 150</b>“ und „<b>GF 300</b>“. Was heißt das?",f:[
+ {l:"Antwort",w:["GRZ 0,15 und GFZ 0,3","höchstens 150 m² Grundfläche und 300 m² Geschossfläche","150 m² Grundstück und 300 m² Garten"],a:1}],
+ e:"GR und GF sind <b>feste Höchstmaße in m²</b>, kein Verhältnis wie GRZ/GFZ."},
+{t:"Bebauungsplan",q:"GR 150, GF 300. Das geplante Haus misst <b>12 m × 11 m</b>.",f:[
+ {l:"Grundfläche des Hauses",z:132,u:"m²"},{l:"Passt die Grundfläche?",w:JN,a:0},{l:"Geschossfläche bei 2 Vollgeschossen",z:264,u:"m²"},{l:"Passt es mit 3 Vollgeschossen?",w:JN,a:1}],
+ e:"12 × 11 = <b>132 m²</b> ≤ 150 ✓. 2 × 132 = <b>264 m²</b> ≤ 300 ✓. 3 × 132 = 396 m² > 300 ✗."},
+{t:"Bebauungsplan",q:"Baulinie oder Baugrenze?",f:[
+ {l:"Auf dieser Linie <b>muss</b> gebaut werden.",w:["Baulinie","Baugrenze"],a:0},
+ {l:"Diese Linie darf <b>nicht überschritten</b> werden, man darf aber dahinter bleiben.",w:["Baulinie","Baugrenze"],a:1}],
+ e:"<b>Baulinie</b>: muss drauf gebaut werden (§ 23 Abs. 2 BauNVO). <b>Baugrenze</b>: darf nicht überschritten werden (§ 23 Abs. 3 BauNVO)."},
+{t:"Bebauungsplan",q:"Nenne zwei Festsetzungen aus einem Bebauungsplan, die den Bau <b>teurer</b> machen können.",f:[{l:"Deine Antwort",frei:1}],
+ m:"z. B. <b>Lärmschutz</b> an einer Straße (besondere Fenster und Wände) und <b>Altlasten</b>, also umweltgefährdende Stoffe im Boden (Boden untersuchen oder entsorgen).",
+ e:"Aus deiner Übung 02: Gebäude an der Grenze zum „Marienweg“ mit Lärmschutz, Flächen mit umweltgefährdenden Stoffen im Boden."},
+// ---------- Lageplan ----------
+{t:"Lageplan",q:"Wie alt darf der Auszug aus der Flurkarte höchstens sein?",f:[{l:"Höchstens",z:6,u:"Monate"}],
+ e:"<b>6 Monate.</b> Das Original ist eine Urkunde, eingetragen wird nur auf einer Kopie."},
+{t:"Lageplan",q:"In welchem Maßstab wird das Bauvorhaben eingetragen?",f:[{l:"Antwort",w:["1:100 oder 1:50","1:1000 oder 1:500","nur 1:5000"],a:1}],
+ e:"<b>1:1000 oder 1:500.</b> 1:5000 ist nur für die Übersicht."},
+{t:"Lageplan",q:"Wie wird gezeichnet?",f:[
+ {l:"Das geplante Gebäude bekommt …",w:["eine Kreuzschraffur unter 45°","eine einfache Schraffur unter 30°","keine Schraffur"],a:0},
+ {l:"Abstandsflächen werden …",w:["dick und durchgezogen, mit Maßen","dünn und gestrichelt, ohne Maße"],a:1}],
+ e:"Gebäude: <b>Kreuzschraffur unter 45°</b>. Abstandsflächen: <b>dünn (0,25 mm), gestrichelt</b>, beschriftet mit H, H/2 oder 0,4 H, <b>nicht vermaßt</b>."},
+{t:"Lageplan",q:"Wie viel Meter Umgriff (Nachbarbebauung) müssen mindestens drauf sein, und an wie viele Grenzsteine wird das Gebäude angebunden?",f:[{l:"Umgriff mindestens",z:50,u:"m"},{l:"Grenzsteine mindestens",z:2}],
+ e:"Umgriff <b>mind. 50 m</b>. Das Gebäude wird an <b>mind. 2 verschiedene Grenzsteine</b> angebunden."},
+{t:"Lageplan",q:"Nenne fünf Dinge, die in einen Lageplan gehören.",f:[{l:"Deine Antwort",frei:1}],
+ m:"z. B. Nordpfeil · Umgriff mind. 50 m · Eigentümer mit Flurnummer und Grundstücksgröße · Nachbarn · Straßen mit Straßenklasse · Außenmaße mit Anbindemaßen · Firstrichtung · Nutzung und Geschosse (z. B. WH E+1) · Außenanlagen · Zufahrten · Stellplätze · Baulinien und Baugrenzen.",
+ e:"Zähl selbst nach: Hast du mindestens fünf davon?"}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const TEILE=["Überblick","Baugebiete","Rechnen","Vollgeschoss","Bebauungsplan","Lageplan"];
+const AKTIV=(window.__TEIL&&__TEIL.length)?TEILE.filter(t=>__TEIL.includes(t)):TEILE;
+const SECS=AKTIV.length>1?["Alle",...AKTIV]:AKTIV;
+const KEY="baurecht-uebung-v1";
+let st={};try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const eintrag=id=>st[id]||(st[id]={v:[]});
+let sec=0,onlyWrong=false;
+const deZahl=x=>x.toLocaleString("de-DE",{maximumFractionDigits:2});
+const norm=s=>String(s||"").toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]/g,"");
+function zahl(s){
+  s=String(s||"").replace(/\s|m²|m³|m2|m3/gi,"");
+  if(/,/.test(s)) s=s.replace(/\./g,"").replace(",",".");
+  else if(/^[1-9]\d{0,2}(\.\d{3})+$/.test(s)) s=s.replace(/\./g,"");
+  const m=s.match(/-?\d+(\.\d+)?/); return m?parseFloat(m[0]):NaN;
+}
+function feldOk(f,v){
+  if(f.frei) return null;
+  if("z" in f){const n=zahl(v); if(isNaN(n))return false; const tol=f.tol!=null?f.tol:(Math.abs(f.z)<10?0.006:0.5); return Math.abs(n-f.z)<=tol;}
+  if(f.w) return v===f.a;
+  if(f.k){const n=norm(v); return f.k.every(g=>g.some(a=>n.includes(norm(a))));}
+}
+const richtigText=f=>"z" in f?(f.s||deZahl(f.z))+(f.u?" "+f.u:""):f.w?f.w[f.a]:"";
+function ergebnis(q){const s=st[q.id]; if(!s||!s.done) return undefined; if(q.f.some(f=>f.frei)) return s.selbst; return s.r.every(Boolean);}
+
+const tabs=document.getElementById("tabs"), list=document.getElementById("list");
+SECS.forEach((n,i)=>{const b=document.createElement("button");b.type="button";b.textContent=n;b.addEventListener("click",()=>{sec=i;render()});tabs.appendChild(b)});
+if(SECS.length===1)tabs.style.display="none";
+document.getElementById("onlyWrong").addEventListener("click",e=>{onlyWrong=!onlyWrong;e.currentTarget.setAttribute("aria-pressed",onlyWrong);e.currentTarget.textContent=onlyWrong?"Alle zeigen":"Nur falsche zeigen";render()});
+document.getElementById("reset").addEventListener("click",()=>{if(!confirm("Alle Antworten in diesem Teil löschen?"))return;fragen().forEach(q=>delete st[q.id]);save();render()});
+const fragen=()=>{const n=SECS[sec];return Q.filter(q=>AKTIV.includes(q.t)&&(n==="Alle"||q.t===n));};
+
+function pruefe(q,card){
+  const s=eintrag(q.id);
+  const leer=q.f.some((f,j)=>!f.frei&&(s.v[j]===undefined||s.v[j]===null||String(s.v[j]).trim()===""));
+  if(leer){card.querySelector(".hinweis").textContent="Bitte erst alles ausfüllen.";return;}
+  s.r=q.f.map((f,j)=>feldOk(f,s.v[j])); s.done=true; delete s.selbst; save(); render(q.id);
+}
+
+function karte(q,nr){
+  const s=st[q.id]||{v:[]}, done=!!s.done, res=ergebnis(q);
+  const c=document.createElement("section");c.className="card"+(res===true?" ok":res===false?" bad":"");c.id="q"+q.id;
+  c.innerHTML=`<h3><span class="t">${q.t}</span><span class="n">${nr}</span>${q.q}</h3>`;
+  q.f.forEach((f,j)=>{
+    const d=document.createElement("div");d.className="feld";
+    const ok=done?s.r[j]:null; if(ok===true)d.classList.add("ok"); if(ok===false)d.classList.add("bad");
+    const fid=`q${q.id}f${j}`;
+    if(f.w){
+      d.innerHTML=`<div class="lab">${f.l}</div>`;
+      const w=document.createElement("div");w.className="wahl";w.setAttribute("role","group");
+      f.w.forEach((o,k)=>{const b=document.createElement("button");b.type="button";b.textContent=o;
+        b.setAttribute("aria-pressed",s.v[j]===k);
+        if(done){b.disabled=true;if(k===f.a&&(s.v[j]===k||!ok))b.classList.add("ok");if(k===s.v[j]&&k!==f.a)b.classList.add("bad");}
+        b.addEventListener("click",()=>{eintrag(q.id).v[j]=k;save();render(q.id);});
+        w.appendChild(b);});
+      d.appendChild(w);
+    } else {
+      d.innerHTML=`<label for="${fid}">${f.l}</label>`;
+      const z=document.createElement("div");z.className="zeile";
+      const el=f.frei?document.createElement("textarea"):document.createElement("input");
+      if(!f.frei){el.type="text";el.autocomplete="off";el.spellcheck=false;if("z" in f)el.inputMode="decimal";if(f.k)el.className="lang";if(f.ph)el.placeholder=f.ph;}
+      el.id=fid;el.value=s.v[j]||"";el.disabled=done;
+      el.addEventListener("input",()=>{eintrag(q.id).v[j]=el.value;save();c.querySelector(".hinweis").textContent="";});
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"&&!f.frei){e.preventDefault();pruefe(q,c);}});
+      z.appendChild(el);
+      if(f.u){const u=document.createElement("span");u.className="einheit";u.textContent=f.u;z.appendChild(u);}
+      d.appendChild(z);
+    }
+    if(done&&ok===false){const r=document.createElement("div");r.className="richtig";r.textContent="Richtig: "+(f.k?q.m:richtigText(f));d.appendChild(r);}
+    c.appendChild(d);
+  });
+  const h=document.createElement("div");h.className="hinweis";h.setAttribute("aria-live","polite");c.appendChild(h);
+  const k=document.createElement("div");k.className="knoepfe";
+  if(!done){
+    const p=document.createElement("button");p.type="button";p.className="pruefen";p.textContent="Prüfen";p.addEventListener("click",()=>pruefe(q,c));k.appendChild(p);
+  } else {
+    const frei=q.f.some(f=>f.frei);
+    const e=document.createElement("div");e.className="expl"+(res?" gut":"");
+    if(frei){
+      e.innerHTML="<b>Musterlösung:</b> "+q.m+"<br>"+q.e;
+      c.insertBefore(e,h);
+      if(s.selbst===undefined){
+        const a=document.createElement("button");a.type="button";a.textContent="Hatte ich richtig";a.addEventListener("click",()=>{st[q.id].selbst=true;save();render(q.id)});
+        const b=document.createElement("button");b.type="button";b.textContent="Hatte ich nicht";b.addEventListener("click",()=>{st[q.id].selbst=false;save();render(q.id)});
+        k.append(a,b);
+      }
+    } else {
+      e.innerHTML=(res?"<b>Richtig!</b> ":"<b>Noch nicht ganz.</b> ")+q.e; c.insertBefore(e,h);
+    }
+    const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.addEventListener("click",()=>{delete st[q.id];save();render(q.id)});k.appendChild(r);
+  }
+  c.appendChild(k);
+  return c;
+}
+
+function render(fokus){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  const fs=fragen(); list.innerHTML=""; let shown=0;
+  fs.forEach((q,i)=>{ if(onlyWrong&&ergebnis(q)!==false) return; shown++; list.appendChild(karte(q,i+1)); });
+  if(!shown){const p=document.createElement("p");p.className="empty";p.textContent=onlyWrong?"Keine falschen Aufgaben in diesem Teil.":"Keine Aufgaben.";list.appendChild(p);}
+  const done=fs.filter(q=>ergebnis(q)!==undefined).length, right=fs.filter(q=>ergebnis(q)===true).length;
+  document.getElementById("count").textContent=`${right} richtig · ${done}/${fs.length} geprüft`;
+  document.getElementById("fill").style.width=(fs.length?right/fs.length*100:0)+"%";
+  if(fokus!==undefined){const el=document.getElementById("q"+fokus);if(el){const r=el.getBoundingClientRect();if(r.top<60||r.bottom>innerHeight)el.scrollIntoView({block:"nearest"});}}
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>

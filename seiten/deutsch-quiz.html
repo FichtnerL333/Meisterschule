@@ -1,0 +1,116 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><!--lernapp--><link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1f1d1a"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
+font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
+<title>Deutsch-Quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f2f3f6;--paper:#fff;--ink:#1b1f2a;--muted:#5b6274;--line:#d8dbe3;--accent:#2f4fb5;--accent-soft:#e3e8f8;--ok:#1f7a45;--ok-soft:#dcf1e3;--bad:#b3261e;--bad-soft:#f8dcd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#14161c;--paper:#1d2029;--ink:#e6e8ee;--muted:#9ba2b3;--line:#323747;--accent:#8ea6ff;--accent-soft:#252d4a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#14161c;--paper:#1d2029;--ink:#e6e8ee;--muted:#9ba2b3;--line:#323747;--accent:#8ea6ff;--accent-soft:#252d4a;--ok:#6fd49a;--ok-soft:#1d3a28;--bad:#f28b82;--bad-soft:#4a2320}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(26px,6vw,38px)/1.1 Archivo,sans-serif;margin:8px 0 10px;text-wrap:balance}
+.intro{color:var(--muted);margin:0 0 18px;max-width:62ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+button{font:600 14px "Source Sans 3",sans-serif;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .tabs button[aria-pressed="true"]{color:#10131c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#10131c}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.progress{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.count{font:500 14px "JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:12px;display:grid;gap:10px}
+.card h3{margin:0;font:600 16px/1.45 "Source Sans 3",sans-serif}
+.card h3 .n{font:500 13px "JetBrains Mono",monospace;color:var(--accent);margin-right:6px}
+.opts{display:grid;gap:6px}
+.opt{text-align:left;font-weight:400;display:flex;gap:10px;align-items:flex-start;padding:9px 12px;line-height:1.4}
+.opt b{font-family:"JetBrains Mono",monospace;font-weight:500;color:var(--muted)}
+.opt.ok{background:var(--ok-soft);border-color:var(--ok)}
+.opt.bad{background:var(--bad-soft);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+.expl{border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.empty{color:var(--muted);padding:20px 0}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Meisterschule Landshut · Deutsch</div>
+  <h1>Deutsch-Quiz: 61 Fragen</h1>
+  <p class="intro">Groß- und Kleinschreibung, s-Schreibung, Fremdwörter, Worttrennung, Zusammen- oder Getrenntschreibung. Antippen, und du siehst sofort, ob es stimmt, mit kurzer Begründung. Dein Fortschritt bleibt in diesem Browser gespeichert.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="bar">
+    <div class="progress" aria-hidden="true"><i id="fill"></i></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tools">
+    <button id="onlyWrong" type="button" aria-pressed="false">Nur falsche zeigen</button>
+    <button id="shuffle" type="button">Mischen</button>
+    <button id="reset" type="button">Diesen Teil zurücksetzen</button>
+  </div>
+  <main id="list"></main>
+  <footer>Selbst erstellt nach deinen Arbeitsblättern Deutsch (Stand 26.11.2026). Nicht von der Lehrkraft, ohne Gewähr. Der das/dass-Trick ist ergänzt.</footer>
+</div>
+<script>
+const DATA = [{"t": "Groß/klein", "q": [{"q": "Wir treffen uns heute ___ auf der Baustelle.", "o": ["abend", "Abend"], "a": 1, "e": "Tageszeit nach heute, gestern oder morgen schreibt man groß: heute Abend."}, {"q": "___ muss man auf das Wetter achten.", "o": ["Beim betonieren", "Beim Betonieren"], "a": 1, "e": "beim + Verb = Hauptwort (Substantivierung), also groß."}, {"q": "Brief an Frau Huber: „Vielen Dank für ___ Anfrage.“", "o": ["ihre", "Ihre"], "a": 1, "e": "Die höfliche Anrede Sie, Ihnen, Ihre schreibt man immer groß."}, {"q": "Brief an einen Freund: „Danke für ___ Hilfe.“", "o": ["nur dein", "nur Dein", "dein oder Dein, beides geht"], "a": 2, "e": "Bei du/dein ist groß und klein erlaubt."}, {"q": "Der Polier hat etwas ___ vergessen.", "o": ["wichtiges", "Wichtiges"], "a": 1, "e": "etwas + Adjektiv wird zum Hauptwort: etwas Wichtiges."}, {"q": "Diese Wand ist am ___.", "o": ["stabilsten", "Stabilsten"], "a": 0, "e": "Superlativ mit am, Frage „wie?“, also klein."}, {"q": "Das ist das ___, was wir anbieten können.", "o": ["beste", "Beste"], "a": 1, "e": "das + Adjektiv = Hauptwort: das Beste."}, {"q": "Wir fangen ___ um sieben an.", "o": ["morgens", "Morgens"], "a": 0, "e": "morgens ist ein Adverb (Zeit), also klein."}, {"q": "Der neue Lehrling spricht gut ___.", "o": ["englisch", "Englisch"], "a": 1, "e": "Sprachen als Hauptwort schreibt man groß, wie „Ihr Französisch“."}, {"q": "Die Feier findet im ___ statt.", "o": ["freien", "Freien"], "a": 1, "e": "im = in dem, also versteckter Artikel. Dann ist es ein Hauptwort: im Freien."}, {"q": "Wir brauchen noch ___ Paletten.", "o": ["zwei", "Zwei"], "a": 0, "e": "Zahlwörter schreibt man klein."}, {"q": "Was hängt im Lehrerzimmer?", "o": ["das schwarze Brett", "das Schwarze Brett"], "a": 1, "e": "Feste Namen (Eigennamen) schreibt man groß: das Schwarze Brett."}]}, {"t": "s-Schreibung", "q": [{"q": "Stra_e", "o": ["ss", "ß", "s"], "a": 1, "e": "Langes a, deshalb ß."}, {"q": "Flu_", "o": ["ss", "ß", "s"], "a": 0, "e": "Kurzes u, deshalb ss."}, {"q": "Gerü_t", "o": ["ss", "ß", "s"], "a": 2, "e": "s vor t: Gerüst."}, {"q": "wei_ (die Farbe)", "o": ["ss", "ß", "s"], "a": 1, "e": "Nach ei (Doppellaut) kommt ß: weiß."}, {"q": "Ein Ri_ in der Wand", "o": ["ss", "ß", "s"], "a": 0, "e": "Kurzes i, deshalb ss: Riss."}, {"q": "au_en", "o": ["ss", "ß", "s"], "a": 1, "e": "Nach au (Doppellaut) kommt ß: außen."}, {"q": "Schlo_", "o": ["ss", "ß", "s"], "a": 0, "e": "Kurzes o, deshalb ss: Schloss."}, {"q": "flie_en", "o": ["ss", "ß", "s"], "a": 1, "e": "ie ist lang, deshalb ß: fließen."}, {"q": "Ki_te", "o": ["ss", "ß", "s"], "a": 2, "e": "s vor t: Kiste."}, {"q": "Wann schreibt man ss?", "o": ["nach kurzem Vokal", "nach langem Vokal", "nach au, ei, eu"], "a": 0, "e": "ss nach kurzem Vokal (Fluss), ß nach langem Vokal oder Doppellaut (Gruß, außen)."}, {"q": "Ich hoffe, ___ das Gerüst bis Montag steht.", "o": ["das", "dass"], "a": 1, "e": "Man kann nicht „dieses“ oder „welches“ einsetzen, also dass. (Dieser Trick steht nicht auf deinen Blättern.)"}, {"q": "Das Material, ___ gestern kam, ist falsch.", "o": ["das", "dass"], "a": 0, "e": "Man kann „welches“ einsetzen, also das."}]}, {"t": "Fremdwörter", "q": [{"q": "Korrektur heißt …", "o": ["Verbesserung", "Unterschrift", "Bestand", "Zerlegung"], "a": 0, "e": "Korrektur = Verbesserung."}, {"q": "Inventar heißt …", "o": ["Erfindung", "Bestand", "Einladung", "Gehsteig"], "a": 1, "e": "Inventar = Bestand."}, {"q": "Konflikt heißt …", "o": ["Zusammenstoß", "Vertrag", "Bezirk", "Verbindung"], "a": 0, "e": "Konflikt = Zusammenstoß."}, {"q": "Saison heißt …", "o": ["Vergütung", "Jahreszeit", "Lied", "Fluggast"], "a": 1, "e": "Saison = Jahreszeit."}, {"q": "Courage heißt …", "o": ["Angst", "Mut", "Höflichkeit", "Eile"], "a": 1, "e": "Courage = Mut."}, {"q": "transparent heißt …", "o": ["durchsichtig", "dauerhaft", "beweglich", "einheitlich"], "a": 0, "e": "transparent = durchsichtig."}, {"q": "manuell heißt …", "o": ["mit der Maschine", "mit der Hand", "jeden Monat", "männlich"], "a": 1, "e": "manuell = mit der Hand."}, {"q": "chronisch heißt …", "o": ["plötzlich", "langwierig", "ansteckend", "keimfrei"], "a": 1, "e": "chronisch = langwierig."}, {"q": "steril heißt …", "o": ["keimfrei", "starr", "schwankend", "gewöhnlich"], "a": 0, "e": "steril = keimfrei."}, {"q": "homogen heißt …", "o": ["gemischt", "einheitlich", "möglich", "steif"], "a": 1, "e": "homogen = einheitlich."}, {"q": "Substitution heißt …", "o": ["Ersetzung", "Verteilung", "Verbrauch", "Ausdruck"], "a": 0, "e": "Substitution = Ersetzung."}, {"q": "pauschal heißt …", "o": ["genau berechnet", "rund gerechnet", "steuerfrei", "einmalig"], "a": 1, "e": "pauschal = rund gerechnet."}, {"q": "Was bedeutet die Vorsilbe anti-?", "o": ["für", "gegen", "wieder", "selbst"], "a": 1, "e": "anti- = gegen (Antiraucher)."}, {"q": "Was bedeutet die Vorsilbe re-?", "o": ["wieder", "zwei", "nicht", "für"], "a": 0, "e": "re- = wieder (restaurieren)."}, {"q": "Was bedeutet die Vorsilbe bi-?", "o": ["selbst", "zwei", "gegen", "un-"], "a": 1, "e": "bi- = zwei (Biathlon)."}, {"q": "Zwei Spieler nennen sich „starkes Trio“. Richtig wäre …", "o": ["Duo", "Team", "Quartett", "Trio passt"], "a": 0, "e": "Trio = drei, bei zwei Leuten heißt es Duo."}, {"q": "„Das war rein physisch, im Kopf war ich nicht da.“ Gemeint ist …", "o": ["physisch", "psychisch", "physikalisch", "praktisch"], "a": 1, "e": "physisch = körperlich, psychisch = seelisch/geistig."}]}, {"t": "Worttrennung", "q": [{"q": "Fenster", "o": ["Fen-ster", "Fens-ter", "Fenst-er"], "a": 1, "e": "Bei mehreren Mitlauten kommt nur der letzte auf die neue Zeile, auch st wird getrennt."}, {"q": "Zucker", "o": ["Zuc-ker", "Zu-cker", "Zuck-er"], "a": 1, "e": "ck bleibt zusammen."}, {"q": "Ofen", "o": ["O-fen", "Of-en", "nicht trennbar"], "a": 2, "e": "Ein einzelner Vokal am Wortanfang wird nicht abgetrennt."}, {"q": "Wäsche", "o": ["Wäs-che", "Wä-sche", "Wäsch-e"], "a": 1, "e": "sch bleibt zusammen."}, {"q": "Bagger", "o": ["Ba-gger", "Bag-ger", "Bagg-er"], "a": 1, "e": "Bei zwei Mitlauten kommt nur der letzte auf die neue Zeile."}, {"q": "Kiste", "o": ["Ki-ste", "Kis-te", "nicht trennbar"], "a": 1, "e": "st wird getrennt: Kis-te."}, {"q": "Ecke", "o": ["E-cke", "Ec-ke", "nicht trennbar"], "a": 2, "e": "E steht allein am Anfang, ck bleibt zusammen. Also nicht trennbar."}, {"q": "Bodenplatte", "o": ["Bo-den-plat-te", "Bod-en-pla-tte", "Bo-denp-lat-te"], "a": 0, "e": "Erst nach den Wortteilen (Boden, Platte), dann nach Silben."}, {"q": "Betonmischer", "o": ["Be-ton-mi-scher", "Be-ton-mis-cher", "Bet-on-misch-er"], "a": 0, "e": "sch bleibt zusammen."}]}, {"t": "Zusammen/getrennt", "q": [{"q": "Hat ___ den Schlüssel gesehen?", "o": ["irgendwer", "irgend wer"], "a": 0, "e": "Alles mit „irgend“ schreibt man zusammen."}, {"q": "Wir müssen den Termin noch ___.", "o": ["festlegen", "fest legen"], "a": 0, "e": "Adjektiv + Verb, wenn das Adjektiv nicht steigerbar ist: zusammen (Beispiel vom Blatt)."}, {"q": "Nach Feierabend will ich ___.", "o": ["Rad fahren", "radfahren"], "a": 0, "e": "Hauptwort + Verb: getrennt."}, {"q": "___ trage ich einen Helm.", "o": ["Beim Rad fahren", "Beim Radfahren"], "a": 1, "e": "Mit „beim“ wird es ein Hauptwort, dann zusammen und groß."}, {"q": "Der neue Kollege muss erst ___.", "o": ["Fuß fassen", "fußfassen"], "a": 0, "e": "Hauptwort + Verb: getrennt."}, {"q": "Ich will die Kunden ___.", "o": ["nur kennenlernen", "nur kennen lernen", "beides geht"], "a": 2, "e": "Laut Blatt ist bei kennenlernen beides erlaubt."}, {"q": "Die Baustelle ruht ___ des Frosts.", "o": ["nur aufgrund", "nur auf Grund", "beides geht"], "a": 2, "e": "Feste Verbindung aus Präposition und Hauptwort: beides geht."}, {"q": "Am Sonntag wollen wir ___.", "o": ["spazieren gehen", "spazierengehen"], "a": 0, "e": "Verb + Verb: getrennt."}, {"q": "Der Lehrling kann bei der Präsentation ___ (ohne Zettel).", "o": ["frei sprechen", "freisprechen"], "a": 0, "e": "Wörtliche Bedeutung: getrennt."}, {"q": "Das Gericht wird den Angeklagten ___.", "o": ["frei sprechen", "freisprechen"], "a": 1, "e": "Übertragene Bedeutung (für unschuldig erklären): zusammen."}, {"q": "Der Schüler ist ___ (nicht versetzt).", "o": ["sitzen geblieben", "sitzengeblieben"], "a": 1, "e": "Übertragene Bedeutung: zusammen."}]}];
+if(window.__TEIL&&__TEIL.length){const __k=x=>x.t;DATA.splice(0,DATA.length,...DATA.filter(x=>__TEIL.includes(__k(x))));}
+const KEY="deutsch-quiz-v1";
+let st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){st={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+let sec=0, onlyWrong=false, order=null;
+const tabs=document.getElementById("tabs"), list=document.getElementById("list");
+DATA.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.textContent=s.t;b.addEventListener("click",()=>{sec=i;order=null;render()});tabs.appendChild(b)});
+document.getElementById("onlyWrong").addEventListener("click",e=>{onlyWrong=!onlyWrong;e.currentTarget.setAttribute("aria-pressed",onlyWrong);e.currentTarget.textContent=onlyWrong?"Alle zeigen":"Nur falsche zeigen";render()});
+document.getElementById("shuffle").addEventListener("click",()=>{order=DATA[sec].q.map((_,i)=>i).sort(()=>Math.random()-.5);render()});
+document.getElementById("reset").addEventListener("click",()=>{DATA[sec].q.forEach((_,i)=>delete st[sec+"-"+i]);save();render()});
+function render(){
+  [...tabs.children].forEach((b,i)=>b.setAttribute("aria-pressed",i===sec));
+  const s=DATA[sec]; list.innerHTML="";
+  const idx=order||s.q.map((_,i)=>i);
+  let shown=0;
+  idx.forEach(i=>{
+    const q=s.q[i], k=sec+"-"+i, pick=st[k];
+    if(onlyWrong && !(pick!==undefined && pick!==q.a)) return;
+    shown++;
+    const c=document.createElement("section");c.className="card";
+    c.innerHTML=`<h3><span class="n">${i+1}</span>${q.q}</h3>`;
+    const opts=document.createElement("div");opts.className="opts";
+    q.o.forEach((o,j)=>{
+      const b=document.createElement("button");b.type="button";b.className="opt";
+      b.innerHTML=`<b>${"abcd"[j]})</b><span>${o}</span>`;
+      if(pick!==undefined){b.disabled=true; if(j===q.a)b.classList.add("ok"); else if(j===pick)b.classList.add("bad");}
+      b.addEventListener("click",()=>{st[k]=j;save();render()});
+      opts.appendChild(b);
+    });
+    c.appendChild(opts);
+    if(pick!==undefined){
+      const e=document.createElement("div");e.className="expl";
+      e.innerHTML=(pick===q.a?"<b>Richtig.</b> ":"<b>Falsch, richtig ist "+"abcd"[q.a]+").</b> ")+q.e;
+      c.appendChild(e);
+      const r=document.createElement("button");r.type="button";r.textContent="Nochmal versuchen";r.style.justifySelf="start";
+      r.addEventListener("click",()=>{delete st[k];save();render()});c.appendChild(r);
+    }
+    list.appendChild(c);
+  });
+  if(!shown){const p=document.createElement("p");p.className="empty";p.textContent=onlyWrong?"Keine falsch beantworteten Fragen in diesem Teil.":"Keine Fragen.";list.appendChild(p)}
+  const done=s.q.filter((_,i)=>st[sec+"-"+i]!==undefined).length, right=s.q.filter((q,i)=>st[sec+"-"+i]===q.a).length;
+  document.getElementById("count").textContent=`${right} richtig · ${done}/${s.q.length} beantwortet`;
+  document.getElementById("fill").style.width=(right/s.q.length*100)+"%";
+}
+render();
+</script>
+
+<a class="la-zurueck" href="../index.html">← Übersicht</a>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script></body></html>
