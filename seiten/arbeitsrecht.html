@@ -3,7 +3,11 @@
 <link rel="apple-touch-icon" href="../icon-180.png">
 <style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
 font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
-text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
 <title>Arbeitsrecht-Training</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,6 +192,7 @@ const Q=[
 [6,"Was gilt für Urlaubsgeld nach dem BUrlG?",["Es ist immer gesetzlich vorgeschrieben","Ein allgemeiner gesetzlicher Anspruch besteht nicht","Es wird ausschließlich von der Krankenkasse gezahlt","Es ersetzt den Mindesturlaub","Es wird nur nach 20 Jahren Betriebszugehörigkeit gezahlt"],1,"Urlaubsgeld kommt aus Tarif- oder Arbeitsvertrag, nicht aus dem Gesetz. Nicht verwechseln mit Urlaubsentgelt (normaler Lohn im Urlaub).","§ 11 BUrlG"],
 [6,"Wann kann eine unterschiedliche Behandlung nach dem AGG zulässig sein?",["Immer, wenn der Arbeitgeber dies wünscht","Nur bei Beschäftigten in Teilzeit","Wenn eine wesentliche berufliche Anforderung oder eine andere gesetzliche Rechtfertigung vorliegt","Ausschließlich bei einer Betriebsgröße unter zehn Personen","Nur nach Zustimmung der Berufsschule"],2,"Erlaubt, wenn die Arbeit es wirklich verlangt oder das Gesetz es erlaubt, z. B. Jugendschutz beim Alter.","§§ 8–10 AGG"]
 ];
+if(window.__TEIL&&__TEIL.length){const __k=x=>String(x[0]);Q.splice(0,Q.length,...Q.filter(x=>__TEIL.includes(__k(x))));}
 const L="ABCDE";
 const KEY="arbeitsrecht-uebung-v1";
 let st={ans:{},topics:T.map((_,i)=>i),order:null,pos:0,retry:null};

@@ -1,0 +1,128 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Stufen verziehen</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#b4532a;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Treppe">‹ Treppe</a>
+  <div class="fach"><i></i>Treppe, Lernzettel</div>
+  <h1>Stufen verziehen</h1>
+  <p class="lead">Fluchtlinien-, Proportions- und Kreisbogenmethode, rechnerisch und Spickelstufe.</p>
+</div></header>
+<main><div class="in">
+<h2>5. Stufen verziehen – Verziehungsmethoden</h2>
+<p>Arbeitsblätter Darstellende Geometrie „Grundlagen Treppe: Verziehungsmethoden“, M 1:10. Immer dasselbe Beispiel: viertelgewendelte Treppe, <strong>11 Steigungen, 17,5/28,0</strong>, Spickelstufe symmetrisch, Laufbreite 90, Lichtwangen-Radius r = 15 cm, Lauflinie 45 cm von der Lichtwange (R = 45 + 15 = 60 cm).</p>
+<p><strong>Grundidee:</strong> Die Auftritte auf der <strong>Lauflinie</strong> bleiben 28 cm. An der <strong>Lichtwange</strong> (innen) werden die Stufen schmaler, damit die Spickelstufe innen nicht unter das Mindestmaß fällt (10 cm, Wohngebäude bis 3 WE 5 cm – siehe Abschnitt 4). Alle Methoden liefern Punkte auf der Lichtwange, die man mit den Punkten auf der Lauflinie verbindet.</p>
+<h3>5.1 Fluchtlinienmethode (x-y-Methode)</h3>
+<ol>
+<li><strong>Spickelstufe festlegen</strong> (hier mittig).</li>
+<li><strong>Letzte gerade Stufe verlängern.</strong></li>
+<li><strong>Spickelstufe verlängern</strong> bis zur (Verlängerung der) geraden Stufe.</li>
+<li>Die Verlängerungen der Spickelstufe schneiden aus dem Stufenstrahl die Abschnitte <strong>x</strong> und <strong>y</strong> heraus.</li>
+<li><strong>Fluchtlinienabschnitte x und y nach außen antragen</strong> (mehrfach hintereinander) und mit den Schnittpunkten auf der <strong>Lauflinie</strong> verbinden.</li>
+</ol>
+<h3>5.2 Proportionsmethode</h3>
+<ol>
+<li>Spickelstufe festlegen.</li>
+<li>Spickelstufe bis zum Schnittpunkt verlängern.</li>
+<li><strong>Lichtwange durch den Schnittpunkt parallel verschieben</strong> bis zur letzten geraden Stufe.</li>
+<li><strong>Proportionsstrahl</strong> zwischen Schnittpunkt und letzter gerader Stufe. Die Länge hängt von der Anzahl der zu verziehenden Auftritte (A) ab:
+   - 3 A: 1T + 2T + 3T = <strong>6 Teile</strong>
+   - 4 A: 1T + 2T + 3T + 4T = <strong>10 Teile</strong></li>
+<li>Teilungspunkte <strong>parallel zur letzten geraden Stufe</strong> auf die Parallele zur Lichtwange (LW) schieben.</li>
+<li>Diese Punkte mit den Schnittpunkten auf der Lauflinie verbinden.
+- Entsteht eine <strong>rückläufige Stufe</strong>, wird sie als <strong>gerade Stufe</strong> eingezeichnet.</li>
+</ol>
+<h3>5.3 Kreisbogenmethode</h3>
+<ol>
+<li>Spickelstufe festlegen und bis zum Schnittpunkt <strong>S</strong> verlängern.</li>
+<li>Parallele zur Lichtwange durch S bis zur Verlängerung der letzten geraden Stufe → ergibt Punkt <strong>M</strong>.</li>
+<li><strong>Viertelkreis um M mit Radius MS.</strong></li>
+<li>Viertelkreis in die Anzahl der zu verziehenden Auftritte teilen (Beispiel: 3 Auftritte → 3 × <strong>30°</strong>, 4 Auftritte → 4 × <strong>22,5°</strong>).</li>
+<li>Kreisteilungspunkte <strong>im rechten Winkel auf MS</strong> projizieren.</li>
+<li>Diese Punkte auf MS mit den Schnittpunkten auf der Lauflinie verbinden.</li>
+</ol>
+<h3>5.4 Rechnerisch – parabolisch</h3>
+<p>Länge der Lichtwange, die verzogen werden muss, ausrechnen und auf die Stufen verteilen. Die Stufen werden zur Spickelstufe hin um <strong>x, 2x, 3x …</strong> schmaler (Spickelstufe 10 cm, je Seite die Hälfte = 5 cm).</p>
+<p><strong>Rechts (3½ Auftritte):</strong> 3,5 · A − 2 · R · π / 8 + 2 · r · π / 8 = 3,5 · 28 − 47,12 + 11,78 = <strong>62,66 cm</strong>
+5 + (10 + x) + (10 + 2x) + (10 + 3x) = 35 + 6x = 62,66 → <strong>x = 4,61 cm</strong> → Stufen an der Lichtwange: 5 / 14,61 / 19,22 / 23,83 cm.</p>
+<p><strong>Links (4½ Auftritte):</strong> 4,5 · 28 − 47,12 + 11,78 = <strong>90,66 cm</strong>
+5 + (10 + x) + … + (10 + 4x) = 45 + 10x = 90,66 → <strong>x = 4,57 cm</strong> → 5 / 14,57 / 19,14 / 23,71 / 28,28 cm.</p>
+<p><em>Nachgerechnet (Claude, 25.11.2026): alle Werte stimmen.</em></p>
+<h3>5.5 Rechnerisch – linear (Bogendifferenz)</h3>
+<p>Bogendifferenz zwischen Lauflinie (R) und Lichtwange (r) im Viertelkreis:
+<strong>Δ = 2 · (45 + 15) · π / 4 − 2 · 15 · π / 4 = 70,6858 cm</strong>
+Die Stufen werden von 28 cm aus gleichmäßig abgezogen: 28 − x, 28 − 2x, 28 − 3x, <strong>28 − 4x (Spickelstufe)</strong>, 28 − 3x, 28 − 2x, 28 − x.
+Summe der Abzüge: <strong>16x = 70,6858 → x = 4,4179 cm</strong> → 23,58 / 19,16 / 14,75 / <strong>10,33</strong> / 14,75 / 19,16 / 23,58 cm.
+- Kontrolle: Spickelstufe 10,33 cm <strong>≥ 10 cm</strong> ✓
+<em>Nachgerechnet (Claude, 25.11.2026): stimmt.</em></p>
+<h3>5.6 Spickelstufe asymmetrisch (Arbeitsblatt M 1:5)</h3>
+<ol>
+<li><strong>Strahl</strong> zwischen den Stoßpunkten der Spickelstufe auf der Lauflinie und einem <strong>frei gewählten Punkt auf der Winkelhalbierenden</strong>.</li>
+<li>Größe der Spickelstufe (hier <strong>10 cm</strong>) <strong>im rechten Winkel zur Winkelhalbierenden</strong> antragen und parallel dazu auf den Strahl bringen.</li>
+<li><strong>Lot</strong> durch den Schnittpunkt auf die Winkelhalbierende (Länge 10 cm).</li>
+<li>Durch den entstandenen Schnittpunkt eine <strong>Parallele zum linken Strahl</strong> auf den rechten Strahl.</li>
+<li>Lot auf die Winkelhalbierende zum linken Strahl.</li>
+<li>Die Schnittpunkte mit dem Strahl auf die <strong>Lichtwange projizieren</strong> (parallel zur Winkelhalbierenden).</li>
+<li>Schnittpunkte auf der Lichtwange mit den Schnittpunkten auf der Lauflinie verbinden.</li>
+</ol>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Beim parabolischen Verfahren links wird die letzte verzogene Stufe an der Lichtwange <strong>28,28 cm</strong> breit, also etwas breiter als der normale Auftritt (28 cm). Im Heft steht dazu nichts – beim Lehrer nachfragen, ob das so gewollt ist.</p>
+</div>
+<div class="kasten offen">
+<p><strong>Noch offen:</strong> Nicht im Heft, aber oft gefragt: lichte Durchgangshöhe ≥ 2,00 m; Unterschneidung ≥ 3 cm bei Auftritt &lt; 26 cm; höhere Geländer bei großer Absturzhöhe (BayBO). Werte vor der Ex in den Bautabellen prüfen.</p>
+</div>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

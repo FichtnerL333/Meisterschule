@@ -1,0 +1,213 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Abdichtungsbahnen</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#2f4fb5;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Baustoffkunde">‹ Baustoffkunde</a>
+  <div class="fach"><i></i>Baustoffkunde, Lernzettel</div>
+  <h1>Abdichtungsbahnen</h1>
+  <p class="lead">Bitumenbahnen und Kunststoffbahnen, Kurzzeichen lesen.</p>
+</div></header>
+<main><div class="in">
+<h2>5. Abdichtungsbahnen</h2>
+<h3>Bitumenbahnen – Kurzzeichen lesen</h3>
+<p>Aufbau: <strong>[Trägereinlage] [Gewicht g/m²] [Bahnart]</strong></p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Teil</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R</strong></td>
+<td>Rohfilzpappe</td>
+</tr>
+<tr>
+<td><strong>G</strong></td>
+<td>Glasgewebe</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td>Glasvlies</td>
+</tr>
+<tr>
+<td><strong>PV</strong></td>
+<td>Polyestervlies</td>
+</tr>
+<tr>
+<td>Zahl</td>
+<td>Gewicht der Trägereinlage in g/m² (bei V 13: <strong>1300 g/m² Bitumen + Träger!</strong>)</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+<td>"nackt" (ohne Beschieferung, besandet)</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Dichtungsbahn</td>
+</tr>
+<tr>
+<td><strong>DD</strong></td>
+<td>Dachdichtungsbahn</td>
+</tr>
+<tr>
+<td><strong>S4/S5/S6</strong></td>
+<td>Schweißbahn, Zahl = <strong>Dicke in mm</strong> bei Auslieferung</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Bahn</th>
+<th>Beispiel</th>
+<th>Verwendung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Nackte Bitumenbahn</strong></td>
+<td><strong>R 500 N</strong></td>
+<td>einfache Abdichtung, Feuchtigkeitssperre, <strong>Mauersperrbahn</strong>; geringe Zugfestigkeit</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Bitumen-Dichtungsbahn</strong></td>
+<td><strong>G 200 D</strong>, PV 250 D</td>
+<td><strong>Trennlage</strong>, <strong>untere Lage</strong> mehrlagiger Abdichtung, einfache <strong>Dampfsperre</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Bitumen-Dachdichtungsbahn</strong></td>
+<td><strong>G 220 DD</strong>, PV 200 DD, V 13 DD</td>
+<td>strapazierfähige Dachabdichtung, über Aufenthaltsräumen; meist <strong>Elastomerbitumen</strong> → höhere Zugfestigkeit</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Bitumen-Schweißbahn</strong></td>
+<td><strong>PV 250 S5</strong></td>
+<td>hochwertig, <strong>obere Lage</strong> (beschiefert → <strong>UV-Schutz</strong>), Dampfsperre, <strong>drückendes Wasser → "schwarze Wanne"</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lage und Beanspruchung (neue Bezeichnung)</strong>
+- <strong>DO</strong> = Oberlage, <strong>DZ</strong> = Zwischenlage, <strong>DU</strong> = Unterlage (mehrlagiger Aufbau); <strong>DE</strong> = Einzellage (einlagig).
+- Eigenschaftsklassen: <strong>E1</strong> thermisch hoch + mechanisch hoch · <strong>E2</strong> thermisch mäßig + mechanisch hoch · <strong>E3</strong> thermisch hoch + mechanisch mäßig · <strong>E4</strong> beides mäßig. Thermisch = Sonne (Dach +40 °C bis −10 °C), mechanisch = Druck auf die Bahn über weicher Dämmung.
+- Beispiel <strong>DO/E1 G 300 S6</strong> = Oberlage, hohe thermische und mechanische Belastung, Glasgewebe 300 g/m², Schweißbahn 6 mm.</p>
+<h3>Kunststoffbahnen</h3>
+<ul>
+<li>Aufbau: <strong>Trägermaterial mit Kunststoffumhüllung</strong>. Müssen dem Produktdatenblatt der Dachdecker-Regeln entsprechen.</li>
+<li>Gruppen: <strong>PVC-P</strong> (und EVA/EVAC) · <strong>FPO</strong> (flexible Polyolefine) und ECB · <strong>PIB</strong> · Elastomerbahnen <strong>EPDM</strong>.</li>
+</ul>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>PVC</strong> (Polyvinylchlorid)</th>
+<th><strong>FPO</strong> (flexibles Polyolefin, PP/PE, thermoplastisch)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schweißbar (heiß/kalt)</td>
+<td>ja</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>Preis</td>
+<td><strong>günstig</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>UV</td>
+<td><strong>nicht</strong> UV-beständig</td>
+<td><strong>UV-beständig</strong></td>
+</tr>
+<tr>
+<td>Bei Kälte</td>
+<td><strong>spröde</strong></td>
+<td><strong>schlagzäh</strong></td>
+</tr>
+<tr>
+<td>Brand</td>
+<td>B2 (normal entflammbar)</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>Sonst</td>
+<td><strong>chlorhaltig</strong></td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Kürzel:</strong> DE einlagig · <strong>BV</strong> bitumenverträglich · <strong>NB</strong> nicht bitumenverträglich · V verstärkt · E Einlage · <strong>GV Glasvlies</strong> · GG Glasgewebe · PV Polyestervlies · PPV Polypropylenvlies · PG Polyestergelege · K kaschiert · SK Selbstklebeschicht · Zahl am Ende = <strong>Dicke in mm</strong>.</p>
+<ul>
+<li>Beispiel <strong>DE/E1-FPO-BV-GV-1,5</strong> = einlagige Dachabdichtung, hohe thermische + mechanische Belastung, FPO, bitumenverträglich, Glasvlies, 1,5 mm.</li>
+</ul>
+<h3>Übung Abdichtungsbahnen (zum Selbsttesten)</h3>
+<ul>
+<li>c) <strong>DO/E1 PYE-G 200 S5</strong> → Oberlage, E1, <strong>Polymerbitumen mit Elastomeren (PYE)</strong>, Glasgewebe 200 g/m², Schweißbahn 5 mm → obere Lage, hochwertig. <em>(im Heft noch leer – Lösung abgeleitet aus den Kürzeln im Mitschrieb)</em></li>
+<li>Kunststoffbahn a) <strong>DE/E3-FPO-BV-GV-1,6</strong> → einlagig, thermisch hoch/mechanisch mäßig, FPO, bitumenverträglich, Glasvlies, 1,6 mm → einlagige Dachabdichtung. <em>(im Heft noch leer – abgeleitet)</em></li>
+</ul>
+<blockquote>
+<p>Laut Mitschrieb nicht prüfungsrelevant ("NICHT PR"): PYE KTG KSP 2,8 (kaltselbstklebende Polymerbitumenbahn), Cu 01 (Kupferband, wurzelhemmend), AL (Aluminiumeinlage, dampfdicht).</p>
+</blockquote>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

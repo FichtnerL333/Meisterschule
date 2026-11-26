@@ -3,7 +3,11 @@
 <link rel="apple-touch-icon" href="../icon-180.png">
 <style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
 font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
-text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
 <title>PuG Schulaufgabe Übung</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap">
@@ -116,6 +120,7 @@ const Q=[
 ["pv","Was gehört zur Baustellen-, Qualitäts- und Sicherheitskompetenz?",["Gefährdungen und Mängel rechtzeitig erkennen und Abläufe vorausschauend planen","Schutzmaßnahmen nur nach einem Unfall einsetzen","Qualitätskontrollen vollständig den Kundinnen und Kunden überlassen","Arbeitsabläufe unabhängig von den Bedingungen vor Ort festlegen"],0,"Vorausschauend: Gefahren und Mängel erkennen, bevor etwas passiert."],
 ["pv","Was sollte ein Betrieb tun, wenn er bestimmte Leistungen fachlich nicht sicher abdecken kann?",["Den Auftrag trotzdem ohne weitere Prüfung übernehmen","Zusätzliche Qualifikation erwerben, eine geeignete Fachkraft einbinden oder den Auftrag ablehnen","Die Verantwortung vollständig der Kundschaft übertragen","Auf eine klare Leistungsbeschreibung verzichten"],1,"Fachliche Selbstbegrenzung: nur anbieten, was man kann."]
 ];
+if(window.__TEIL&&__TEIL.length){const __k=x=>x[0];Q.splice(0,Q.length,...Q.filter(x=>__TEIL.includes(__k(x))));}
 const L="ABCD";
 let order=[],i=0,right=0,wrong=[];
 const $=id=>document.getElementById(id);

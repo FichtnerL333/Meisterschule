@@ -127,7 +127,8 @@ h2{font-family:var(--head);font-weight:600;font-size:1.35rem;margin:6px 0 0}
 .th .arten{display:flex;flex-wrap:wrap;gap:5px;grid-column:1}
 .th .arten span{font-size:.78rem;font-weight:600;padding:2px 8px;border-radius:4px;background:var(--soft);color:var(--muted)}
 .th .dt{grid-row:1/3;grid-column:2;font-size:.85rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
-.th .dt::after{content:" ›";font-size:1.3rem;vertical-align:-2px}
+.th.misch{background:var(--soft)}
+.th .dt::after{content:"›";font-size:1.3rem;vertical-align:-2px}
 .lernarten{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
 .la{display:flex;flex-direction:column;gap:4px;text-decoration:none;background:var(--sheet);border:1px solid var(--line);border-top:5px solid var(--f);border-radius:8px;padding:16px}
 .la:hover{border-color:var(--ink);border-top-color:var(--f)}
@@ -231,7 +232,7 @@ function zeigeFaecher(q){
       const s = D.seiten.filter(x => x.fach === f.name).sort((a,b) => b.datum.localeCompare(a.datum));
       const p = kommend.find(t => t.fach === f.name && (t.art === "SA" || t.art === "Ex"));
       const neu = s.some(x => tageBis(x.datum) >= -7);
-      const nt = themenVonFach(f.name).length;
+      const nt = (THEMEN[f.name] || []).length;
       const info = s.length ? `${nt} ${nt === 1 ? "Thema" : "Themen"}, zuletzt am ${kurz(s[0].datum)}` : "Noch keine Lernseiten";
       return `<a class="fk" style="--f:${f.farbe}" href="${fachHash(f.name)}"><b>${esc(f.name)}${neu ? '<span class="neu">neu</span>' : ""}</b><span class="meta">${info}</span>
         <span class="pfeil">${p ? `<span class="badge" style="--c:var(${ART[p.art]})">${p.art} am ${kurz(p.von)}</span>` : ""}›</span></a>`;
@@ -239,16 +240,7 @@ function zeigeFaecher(q){
   });
   return h;
 }
-const THEMA = {
-  "baustoffkunde-lernzettel.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen","physik-lernzettel.html":"Kraft, Arbeit, Energie und Wärmeschutz","bgb-lernzettel.html":"Werkvertrag und Bauvertrag","pug-lernzettel.html":"Gewerbe-, Handels- und Wettbewerbsrecht","arbeitsrecht-lernzettel.html":"Arbeitsrecht",
-  "treppe-lernblatt.html":"Treppe nach DIN 18065","treppe-quiz.html":"Treppe nach DIN 18065","treppe-abfrage.html":"Treppe nach DIN 18065",
-  "baustoffkunde-quiz.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen","baustoffkunde-lernkarten.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen","baustoffkunde-abfrage.html":"Kennwerte, Dämmstoffe, Kunststoffe, Bitumen",
-  "physik.html":"Kraft, Arbeit, Energie und Wärmeschutz","bgb-abfrage.html":"Werkvertrag und Bauvertrag","bgb-lernblatt.html":"Werkvertrag und Bauvertrag",
-  "pug-lernkarten.html":"Gewerbe-, Handels- und Wettbewerbsrecht","pug-schulaufgabe.html":"Gewerbe-, Handels- und Wettbewerbsrecht","arbeitsrecht.html":"Arbeitsrecht",
-  "buchungssaetze.html":"Buchführung und Buchungssätze","buchungssaetze-steuer.html":"Umsatzsteuer",
-  "rechnungswesen-lernzettel.html":["Buchführung und Buchungssätze","Umsatzsteuer"],"kontenplan-skr03.html":["Buchführung und Buchungssätze","Umsatzsteuer"]
-};
-const themenVon = s => { const t = THEMA[s.datei] || s.thema || s.titel; return Array.isArray(t) ? t : [t]; };
+const THEMEN = {"Treppe": [{"n": "Stufen verziehen", "l": [["treppe-verziehen.html"]]}, {"n": "Messen und Grenzwerte", "l": [["treppe-messen.html"], ["treppe-quiz.html", "Messen|Zahlen"], ["treppe-abfrage.html", "Messen|Zahlen"]]}, {"n": "Treppenarten und Begriffe", "l": [["treppe-begriffe.html"], ["treppe-quiz.html", "Treppenarten & Begriffe|Bauteile"], ["treppe-abfrage.html", "Treppenarten & Begriffe|Bauteile"]]}], "Baustoffkunde": [{"n": "Baumetalle: Eisen und Stahl", "l": [["bstk-metalle.html"]]}, {"n": "Glas im Bauwesen", "l": [["bstk-glas.html"]]}, {"n": "Abdichtungsbahnen", "l": [["bstk-abdichtung.html"], ["baustoffkunde-quiz.html", "Abdichtungsbahnen"], ["baustoffkunde-abfrage.html", "Abdichtungsbahnen"], ["baustoffkunde-lernkarten.html", "ab"]]}, {"n": "Kunststoffe und Bitumen", "l": [["bstk-kunststoffe.html"], ["baustoffkunde-quiz.html", "Kunststoffe & Bitumen"], ["baustoffkunde-abfrage.html", "Kunststoffe & Bitumen"], ["baustoffkunde-lernkarten.html", "ks|bi"]]}, {"n": "Dämmstoffe", "l": [["bstk-daemmstoffe.html"], ["baustoffkunde-quiz.html", "Dämmstoffe"], ["baustoffkunde-abfrage.html", "Dämmstoffe"], ["baustoffkunde-lernkarten.html", "dm"]]}, {"n": "Stoffkennwerte", "l": [["bstk-kennwerte.html"], ["baustoffkunde-quiz.html", "Stoffkennwerte"], ["baustoffkunde-abfrage.html", "Stoffkennwerte"], ["baustoffkunde-lernkarten.html", "sk"]]}], "Physik": [{"n": "Wärmeschutz", "l": [["physik-waermeschutz.html"]]}, {"n": "Arbeit, Energie und Leistung", "l": [["physik-arbeit.html"], ["physik.html", "C"]]}, {"n": "Masse, Dichte und Gewichtskraft", "l": [["physik-dichte.html"], ["physik.html", "B"]]}, {"n": "Kraft und Grundbegriffe", "l": [["physik-kraft.html"], ["physik.html", "A"]]}], "BGB": [{"n": "Formeln und Rechnen", "l": [["bgb-lernblatt.html"], ["bgb-abfrage.html", "Formeln & Rechnen"]]}, {"n": "Verbraucherbauvertrag", "l": [["bgb-lernblatt.html"], ["bgb-verbraucherbauvertrag.html"], ["bgb-abfrage.html", "Verbraucherbauvertrag"]]}, {"n": "Bauvertrag", "l": [["bgb-lernblatt.html"], ["bgb-bauvertrag.html"], ["bgb-abfrage.html", "Bauvertrag"]]}, {"n": "Werkvertrag", "l": [["bgb-lernblatt.html"], ["bgb-werkvertrag.html"], ["bgb-abfrage.html", "Werkvertrag"]]}, {"n": "Vertrag und Verbraucher", "l": [["bgb-lernblatt.html"], ["bgb-abfrage.html", "Vertrag & Verbraucher"]]}], "Politik und Gesellschaft": [{"n": "Arbeitsrecht: Urlaub und Gleichbehandlung", "l": [["arbeitsrecht-lernzettel.html"], ["arbeitsrecht.html", "6"]]}, {"n": "Arbeitsrecht: Lohnfortzahlung und Mutterschutz", "l": [["arbeitsrecht-lernzettel.html"], ["arbeitsrecht.html", "5"]]}, {"n": "Arbeitsrecht: Kündigung und Betriebsrat", "l": [["arbeitsrecht-lernzettel.html"], ["arbeitsrecht.html", "3|4"]]}, {"n": "Arbeitsrecht: Arbeitszeit", "l": [["arbeitsrecht-lernzettel.html"], ["arbeitsrecht.html", "2"]]}, {"n": "Arbeitsrecht: Ausbildung und Jugendschutz", "l": [["arbeitsrecht-lernzettel.html"], ["arbeitsrecht.html", "0|1"]]}, {"n": "Handwerksorganisationen", "l": [["pug-organisationen.html"], ["pug-lernkarten.html", "Handwerk und Handwerksorganisationen"]]}, {"n": "Gründung: persönliche Voraussetzungen", "l": [["pug-gruendung.html"], ["pug-schulaufgabe.html", "pv"], ["pug-lernkarten.html", "Persönliche Voraussetzungen für die Selbstständigkeit"]]}, {"n": "Datenschutz", "l": [["pug-datenschutz.html"], ["pug-schulaufgabe.html", "ds"], ["pug-lernkarten.html", "Datenschutz im Handwerk"]]}, {"n": "Wettbewerbsrecht und Werbung", "l": [["pug-wettbewerb.html"], ["pug-schulaufgabe.html", "wb|kw|pa|uw"]]}, {"n": "Handelsrecht und Rechtsform", "l": [["pug-handelsrecht.html"], ["pug-schulaufgabe.html", "hr"]]}, {"n": "Handwerks- und Gewerberecht", "l": [["pug-handwerksrecht.html"], ["pug-schulaufgabe.html", "hw"]]}], "Rechnungswesen": [{"n": "Abschluss der Konten", "l": [["rw-abschluss.html"], ["buchungssaetze-steuer.html", "F"], ["kontenplan-skr03.html"]]}, {"n": "Privatkonto und Eigenverbrauch", "l": [["rw-privat.html"], ["buchungssaetze-steuer.html", "E"], ["kontenplan-skr03.html"]]}, {"n": "Buchen mit Umsatzsteuer", "l": [["rw-umsatzsteuer.html"], ["buchungssaetze-steuer.html", "A|B|C|D"], ["kontenplan-skr03.html"]]}, {"n": "Erfolgskonten, GuV und Kennzahlen", "l": [["rw-erfolg.html"], ["kontenplan-skr03.html"]]}, {"n": "Konten und Buchungssatz", "l": [["rw-buchungssatz.html"], ["buchungssaetze.html"], ["kontenplan-skr03.html"]]}, {"n": "Buchführung, Inventur und Bilanz", "l": [["rw-grundlagen.html"]]}]};
 const LERNART = {
   "Zum Lesen": ["Lernzettel", "Durchlesen und wiederholen", 0],
   "Ankreuzen": ["Quiz", "Antwort antippen, sofort sehen ob sie stimmt", 1],
@@ -262,11 +254,18 @@ const LERNART = {
 };
 const lernart = s => LERNART[s.art] || [s.art, "", 9];
 const fachHash = (f, t) => "#" + encodeURIComponent(f) + (t ? "/" + encodeURIComponent(t) : "");
+function seiteInfo(l, thema){
+  const [datei, teil] = l, s = D.seiten.find(x => x.datei === datei);
+  const href = "seiten/" + datei + (teil ? `?teil=${encodeURIComponent(teil)}&th=${encodeURIComponent(thema)}` : "");
+  if (!s) return {datei, href, art: "Zum Lesen", titel: "Lernzettel zum Thema", datum: "2026-11-26"};
+  const ganz = s.art === "Zum Lesen" && !teil;
+  return {...s, href, titel: teil ? s.titel.replace(/\s*\(\d+[^)]*\)/, "") + ", nur dieses Thema" : ganz ? s.titel + " (ganzes Fach)" : s.titel};
+}
 function themenVonFach(name){
-  const m = new Map();
-  D.seiten.filter(x => x.fach === name).forEach(s => themenVon(s).forEach(t => { if (!m.has(t)) m.set(t, []); m.get(t).push(s); }));
-  return [...m.entries()].map(([t, s]) => ({name: t, seiten: s, datum: s.map(x => x.datum).sort().pop()}))
-    .sort((a, b) => b.datum.localeCompare(a.datum) || a.name.localeCompare(b.name));
+  const liste = (THEMEN[name] || []).map(t => ({name: t.n, seiten: t.l.map(l => seiteInfo(l, t.n))}));
+  const alle = D.seiten.filter(x => x.fach === name).map(s => ({...s, href: "seiten/" + s.datei}));
+  if (alle.length) liste.push({name: "Alles zusammen", seiten: alle, gemischt: true});
+  return liste;
 }
 function zeigeFach(name, thema){
   const f = D.bereiche.flatMap(b => b.faecher).find(x => x.name === name);
@@ -276,20 +275,19 @@ function zeigeFach(name, thema){
   const info = p ? `${ARTNAME[p.art]} am ${lang(p.von)}, ${wannText(tageBis(p.von))}` : "Keine kommende Schulaufgabe eingetragen";
   const t = thema && th.find(x => x.name === thema);
   if (t) {
-    const s = t.seiten.slice().sort((a, b) => lernart(a)[2] - lernart(b)[2] || b.datum.localeCompare(a.datum));
+    const s = t.seiten.slice().sort((a, b) => lernart(a)[2] - lernart(b)[2]);
     return `<div class="fachkopf" style="--f:${f.farbe}"><button class="zurueck" id="hoch">‹ ${esc(name)}</button>
-      <h2>${esc(t.name)}</h2><p>Wie willst du lernen?</p></div>
+      <h2>${esc(t.name)}</h2><p>${t.gemischt ? "Alle Lernseiten des Fachs, ungefiltert. Wie willst du lernen?" : "Wie willst du lernen?"}</p></div>
       <div class="lernarten">${s.map(x => { const l = lernart(x), neu = tageBis(x.datum) >= -7;
-        return `<a class="la" style="--f:${f.farbe}" href="seiten/${x.datei}"><span class="name">${esc(l[0])}</span>
+        return `<a class="la" style="--f:${f.farbe}" href="${x.href}"><span class="name">${esc(l[0])}</span>
           <span class="tit">${esc(x.titel)}${neu ? '<span class="neu">neu</span>' : ""}</span><span class="meta">${esc(l[1])}</span></a>`; }).join("")}</div>`;
   }
   return `<div class="fachkopf" style="--f:${f.farbe}"><button class="zurueck" id="hoch">‹ Alle Fächer</button><h2>${esc(name)}</h2><p>${info}</p></div>
     <div class="themen">${th.map(t => {
       const arten = [...new Set(t.seiten.slice().sort((a, b) => lernart(a)[2] - lernart(b)[2]).map(x => lernart(x)[0]))];
-      const neu = t.seiten.some(x => tageBis(x.datum) >= -7);
-      return `<a class="th" href="${fachHash(name, t.name)}"><b>${esc(t.name)}${neu ? '<span class="neu">neu</span>' : ""}</b>
-        <span class="arten">${arten.map(a => `<span>${esc(a)}</span>`).join("")}</span><span class="dt">${kurz(t.datum)}</span></a>`; }).join("")}</div>
-    <p class="leer">Neueste Themen oben.</p>`;
+      return `<a class="th${t.gemischt ? " misch" : ""}" href="${fachHash(name, t.name)}"><b>${esc(t.name)}</b>
+        <span class="arten">${arten.map(a => `<span>${esc(a)}</span>`).join("")}</span><span class="dt"></span></a>`; }).join("")}</div>
+    <p class="leer">Neueste Kapitel oben. Ganz unten: alles zusammen.</p>`;
 }
 function zeigeNeueste(q){
   const s = D.seiten.filter(x => passt(x, q)).sort((a,b) => b.datum.localeCompare(a.datum) || a.fach.localeCompare(b.fach));

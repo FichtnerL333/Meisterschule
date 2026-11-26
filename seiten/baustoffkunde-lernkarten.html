@@ -3,7 +3,11 @@
 <link rel="apple-touch-icon" href="../icon-180.png">
 <style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
 font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
-text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
 <title>Baustoffkunde Lernkarten</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
@@ -209,6 +213,7 @@ const CARDS = [
 ["ab","DE/E1-FPO-BV-GV-1,5?","<b>Einlagige</b> Dachabdichtung, <b>E1</b>, <b>FPO</b>, <b>bitumenverträglich</b>, <b>Glasvlies</b>, <b>1,5 mm</b> dick"],
 ["ab","DE/E3-FPO-BV-GV-1,6?","Einlagig, <b>E3</b> (thermisch hoch / mechanisch mäßig), FPO, bitumenverträglich, Glasvlies, 1,6 mm."]
 ];
+if(window.__TEIL&&__TEIL.length){const __k=x=>x[0];CARDS.splice(0,CARDS.length,...CARDS.filter(x=>__TEIL.includes(__k(x))));}
 
 const KEY="bsk-lernkarten-v1";
 let known=new Set(), again=new Set(), active=new Set(Object.keys(T)), deck=[], pos=0, flipped=false;

@@ -1,0 +1,262 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Stoffkennwerte</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#2f4fb5;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Baustoffkunde">‹ Baustoffkunde</a>
+  <div class="fach"><i></i>Baustoffkunde, Lernzettel</div>
+  <h1>Stoffkennwerte</h1>
+  <p class="lead">Dichten, Poren, Formänderung, λ, μ und c.</p>
+</div></header>
+<main><div class="in">
+<h2>1. Stoffkennwerte</h2>
+<h3>Einteilung der Baustoffe</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Gruppe</th>
+<th>Art</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baumetalle</td>
+<td><strong>metallisch</strong></td>
+<td>Stahl, Eisen, Aluminium, Zink, Blei, Kupfer</td>
+</tr>
+<tr>
+<td>Mineralische Baustoffe</td>
+<td><strong>nichtmetallisch-anorganisch</strong> ("unbelebte Natur")</td>
+<td>Naturstein, Ziegel, Fliesen, Kalksandstein, Glas, Zement, Kalk, Gips</td>
+</tr>
+<tr>
+<td>Natürliche und künstliche Polymere</td>
+<td><strong>organisch</strong> ("belebte Natur + Kunststoffe")</td>
+<td>Bitumen, Cellulosefasern, Kunststoffe, <strong>Holz</strong></td>
+</tr>
+<tr>
+<td><strong>Verbundbaustoffe</strong></td>
+<td>Mischung aus den drei</td>
+<td>Mörtel, Beton, Stahl-/Spannbeton, Mauerwerk, faserverstärkte Kunststoffe, Holz (natürlicher Verbundbaustoff)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Anforderungen an Baustoffe</h3>
+<ul>
+<li><strong>Technische Einsetzbarkeit:</strong> mechanisch (Festigkeit, Härte, Elastizität, Zähigkeit, Temperaturbeständigkeit, Verschleiß), <strong>Feuerwiderstand</strong> (Entflammbarkeit, Brennbarkeit, Giftigkeit, Hochtemperaturverhalten), physikalisch-chemisch (Dichte, Wärme-/Feuchte-/Schall-/Lichtverhalten, Korrosion).</li>
+<li><strong>Form- und Fügbarkeit:</strong> gießen, formen, verarbeiten, schweißen, kleben.</li>
+<li><strong>Wirtschaftlichkeit:</strong> günstig zu gewinnen und herzustellen, <strong>Wiederverwertbarkeit (!)</strong>, geringe Umweltbelastung.</li>
+</ul>
+<h3>Bauregelliste (BayBO)</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Liste</th>
+<th>Was</th>
+<th>Kennzeichen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B</strong></td>
+<td>Europäisch geregelte Produkte (Teil 1 Verwendungsbeschränkungen, Teil 2 zusätzliche Nachweise)</td>
+<td><strong>CE-Zeichen</strong></td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>National geregelt (Teil 1 technische Regeln, Teil 2 allg. bauaufsichtliche Zulassung/Prüfzeugnis, Teil 3 nicht geregelte Bauarten)</td>
+<td><strong>Ü-Zeichen</strong></td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>Untergeordnete Produkte ohne Regeln</td>
+<td><strong>kein</strong> Nachweis, <strong>kein</strong> Ü-Zeichen</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Masse und Dichten</h3>
+<ul>
+<li>1 kg wirkt auf der Erde mit ≈ <strong>10 N</strong>.</li>
+<li>Einheiten: g/cm³ = kg/dm³ = t/m³ = 1000 kg/m³; <strong>1 L = 1 dm³</strong>.</li>
+</ul>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Formel</th>
+<th>Welches Volumen?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(Rein-)Dichte</strong> ρ</td>
+<td>m / V</td>
+<td>nur der feste Stoff, <strong>ohne Poren</strong> (Stoff zermahlen)</td>
+</tr>
+<tr>
+<td><strong>Rohdichte</strong> ρR</td>
+<td>m / (V + Vh)</td>
+<td>Korn <strong>mit seinen eigenen Poren</strong></td>
+</tr>
+<tr>
+<td><strong>Schüttdichte</strong> ρS</td>
+<td>m / (V + Vh + Vz)</td>
+<td>Korn + Poren + <strong>Hohlräume zwischen den Körnern</strong> (Messgefäß A·h)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Merksatz: Dichte ≥ Rohdichte ≥ Schüttdichte. Feuchter Sand liegt lockerer → kleinere Schüttdichte.</p>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Baustoff (kg/dm³)</th>
+<th>Dichte</th>
+<th>Rohdichte</th>
+<th>Schüttdichte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zement</td>
+<td>2,85–3,20</td>
+<td>–</td>
+<td>0,9–1,9</td>
+</tr>
+<tr>
+<td>Normale Gesteinskörnung</td>
+<td>2,6–3,1</td>
+<td>2,0–3,1</td>
+<td>1,1–1,6</td>
+</tr>
+<tr>
+<td>Normalbeton</td>
+<td>2,5–3,0</td>
+<td>2,0–2,8</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Stahl</td>
+<td>7,8–7,9</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Holz</td>
+<td>1,5–1,6</td>
+<td>0,10–1,23</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Porosität</h3>
+<ul>
+<li>Der Porengehalt beeinflusst Roh-/Schüttdichte und <strong>das Verhalten gegenüber Flüssigkeiten und Gasen</strong>. Wichtig sind <strong>Art, Form, Größe und Verteilung</strong> der Poren.</li>
+<li><strong>Geschlossene</strong> Poren (nicht füllbar, z. B. <strong>XPS</strong>), <strong>Kapillarporen</strong> (offen, z. B. EPS), Haufwerksporen. Offene Porenformen: Sackpore, Flaschenhalspore, durchgehende Pore.</li>
+<li>Größen: Mikroporen &lt; 10⁻⁷ m, Kapillarporen 10⁻⁷ bis 10⁻³ m, Makroporen ≥ 10⁻³ m.</li>
+<li>Porosität beeinflusst <strong>Rohdichte, Festigkeit</strong>, E-Modul, <strong>Eindringen von Wasser/Gasen (kapillares Saugen)</strong>, Frost/Korrosion, <strong>Wärmeleitfähigkeit, Volumenstabilität</strong>.</li>
+<li><strong>Geschlossene Poren → bessere Wärmedämmung. Offene/kapillare Poren → besserer Schallschutz (Schallschlucken).</strong></li>
+</ul>
+<h3>Formänderungen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th></th>
+<th>sofort</th>
+<th>zeitabhängig</th>
+<th>ohne Last</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>umkehrbar</strong></td>
+<td><strong>elastisch</strong></td>
+<td>verzögert elastisch</td>
+<td>Wärmedehnung, Feuchtedehnung (Schwinden/Quellen)</td>
+</tr>
+<tr>
+<td><strong>nicht umkehrbar</strong></td>
+<td><strong>plastisch</strong></td>
+<td><strong>viskos</strong> (z. B. Glas, Bitumen)</td>
+<td>chemisch (Schrumpfen, Treiben)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Wärmedehnung:</strong> εT = αT · ΔT, αT in 1/K (meist 10⁻⁶/K). Stahl 12 und Beton 10 (Rechenwerte) – fast gleich, deshalb funktioniert Stahlbeton. Aluminium 23–24, Kunststoffe 10–230, Holz quer zur Faser 15–60.</li>
+<li><strong>Wasseranomalie:</strong> Wasser hat bei etwa 4 °C das kleinste Volumen, beim Gefrieren dehnt es sich aus → Frostschäden.</li>
+<li><strong>Feuchtedehnung:</strong> <strong>Schwinden</strong> = kleiner beim Austrocknen, <strong>Quellen</strong> = größer bei Nässe. Vor allem Holz ("Arbeiten") und mineralische Baustoffe, meist umkehrbar. Endschwindmaß: Beton 0,1–1,0 mm/m, Mauerwerk 0–0,6 mm/m, Holz tangential bis 130 mm/m.</li>
+</ul>
+<h3>Dampfdiffusionswiderstand</h3>
+<ul>
+<li>Kennzahl <strong>μ</strong> (ohne Einheit) nach DIN V 4108-4; <strong>sd = μ · s</strong> (s = Dicke in m) = "wie viele Meter Luft".</li>
+<li>Beispiel aus dem Skript: Putz 15 mm → 15 · 0,015 = <strong>0,225 m</strong>; PVC-Folie 0,1 mm → 20 000 · 0,0001 = <strong>2 m</strong>. Die dünne Folie bremst also viel stärker.</li>
+<li>Richtwerte μ: Mineralwolle 1, pflanzliche Dämmstoffe 2–10, Schaumkunststoffe 20–250, Normalbeton 70/150, Vollholz 40, Bitumendachbahn bis 80 000, <strong>Schaumglas und Alufolie praktisch dampfdicht</strong>.</li>
+</ul>
+<h3>Wärmeleitfähigkeit λ</h3>
+<ul>
+<li>Wie schnell sich Wärme durch einen Stoff ausbreitet, Einheit <strong>W/(m·K)</strong>, hängt von der Temperatur ab.</li>
+<li>Beton 2,1 · Kalkzementputz 1,0 · Vollziegel 0,5–1,4 · Holz 0,13–0,18 · Porenbeton 0,08–0,25 · Mineralwolle/Polystyrol ~0,035–0,05 · PUR 0,024–0,035 · <strong>stehende Luft ~0,025</strong> · Vakuumdämmplatte 0,004–0,006 · Stahl 48–58 · Kupfer 393.</li>
+</ul>
+<h3>Wärmespeicherkapazität c</h3>
+<ul>
+<li>Energie, um 1 kg um <strong>1 K</strong> zu erwärmen, in <strong>kJ/(kg·K)</strong>. Je höher, desto besser speichert der Stoff Wärme.</li>
+<li>Wasser 4,18 · <strong>Holzfaser/Zellulose 2,1</strong> · Holz ~1,7 · Polystyrol 1,4 · Beton 0,88 · Mineralfaser 0,8.</li>
+</ul>
+<h3>Beständigkeit</h3>
+<p>Forderung an Form, Festigkeit, Formänderung, Aussehen → Witterungsbeständigkeit, Frostbeständigkeit, Zerstörung durch Kristallisationsdruck, chemische Beständigkeit (Korrosion), Alterung.</p>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>

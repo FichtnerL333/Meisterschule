@@ -3,7 +3,11 @@
 <link rel="apple-touch-icon" href="../icon-180.png">
 <style>.la-zurueck{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;
 font:600 15px system-ui,sans-serif;background:#1f1d1a;color:#fff;border-radius:999px;padding:10px 16px;
-text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style></head><body>
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}</style><script>/*teilfilter*/(function(){var p=new URLSearchParams(location.search);window.__TEIL=(p.get("teil")||"").split("|").filter(Boolean);
+if(!__TEIL.length)return;var k="|"+__TEIL.join("|"),g=Storage.prototype.getItem,s=Storage.prototype.setItem,r=Storage.prototype.removeItem;
+Storage.prototype.getItem=function(a){return g.call(this,a+k)};Storage.prototype.setItem=function(a,b){return s.call(this,a+k,b)};Storage.prototype.removeItem=function(a){return r.call(this,a+k)};
+document.addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.style.cssText="position:sticky;top:0;z-index:999;background:#1e3348;color:#f4f5f2;font:600 14px system-ui,sans-serif;padding:8px 14px;border-bottom:4px solid #f0b400";
+d.textContent="Nur Thema: "+(p.get("th")||__TEIL.join(", "))+" ";var a=document.createElement("a");a.href=location.pathname;a.textContent="Alle Fragen zeigen";a.style.color="#f0b400";d.appendChild(a);document.body.prepend(d)})})();</script></head><body>
 <title>Physik-Training Meisterschule</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -153,6 +157,7 @@ const SECTIONS = [
    sol:"<code>F_G = 600 · 9,81 = 5.886 N</code><br>Heben: <code>5.886 · 1,50 ≈ 8.829 J</code><br>Schieben: <code>5.886 · 0,3 · 5 ≈ 8.829 J</code><br>→ <b>Beide gleich viel</b> (≈ 8,8 kJ). Beim Schieben ist die Kraft aber viel kleiner (1.766 N statt 5.886 N)."}
  ]}
 ];
+if(window.__TEIL&&__TEIL.length){const __k=x=>x.title.split(" ")[1];SECTIONS.splice(0,SECTIONS.length,...SECTIONS.filter(x=>__TEIL.includes(__k(x))));}
 
 const KEY = "physik-training-v1";
 let saved = {};

@@ -1,0 +1,146 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Buchführung, Inventur und Bilanz</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#1e3348"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4f5f2; --sheet:#fff; --ink:#1b2430; --muted:#5b6573; --line:#d8dcd5; --soft:#e9ece6;
+  --band:#1e3348; --band-ink:#f4f5f2; --band-muted:#a9b6c4; --signal:#f0b400; --f:#0f766e;
+  --offen:#8a5a00; --offen-soft:#fbf0d6; --wid:#c0392b; --wid-soft:#f9e4e1;
+  --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --text:"Barlow","Segoe UI",Roboto,Arial,sans-serif; color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#12171d; --sheet:#1a2028; --ink:#e7eaee; --muted:#98a2af; --line:#2c343e; --soft:#222a33;
+  --band:#17283a; --band-ink:#eef1f4; --band-muted:#8fa0b2; --signal:#f2c230;
+  --offen:#f0c46a; --offen-soft:#3a2f17; --wid:#ee8a7e; --wid-soft:#3a2020; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text)}
+.in{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.band{background:var(--band);color:var(--band-ink);border-bottom:6px solid var(--signal)}
+.band .in{padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:22px;display:flex;flex-direction:column;gap:10px}
+.zurueck{align-self:flex-start;color:var(--band-ink);text-decoration:none;border:1px solid #3a5470;border-radius:6px;padding:6px 12px;font-weight:600;font-size:.95rem}
+.fach{display:flex;align-items:center;gap:8px;color:var(--band-muted);font-size:.95rem}
+.fach i{width:10px;height:10px;border-radius:2px;background:var(--f)}
+h1{font-family:var(--head);font-weight:700;font-size:2.4rem;line-height:1.05;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--band-muted);max-width:62ch}
+main .in{padding-block:8px 56px}
+h2{font-family:var(--head);font-weight:600;font-size:1.6rem;line-height:1.15;margin:34px 0 10px;padding-left:12px;border-left:5px solid var(--f);text-wrap:balance}
+h3{font-family:var(--head);font-weight:600;font-size:1.3rem;margin:24px 0 8px}
+h4{font-size:1.05rem;margin:18px 0 6px}
+p,ul,ol{margin:0 0 12px;max-width:68ch}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:700}
+code{font-size:.92em;background:var(--soft);border-radius:4px;padding:1px 5px}
+.tab{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-weight:700}
+tr:last-child td{border-bottom:0}
+blockquote{margin:12px 0;padding:10px 14px;border-left:4px solid var(--f);background:var(--sheet);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+.kasten{margin:12px 0;padding:10px 14px;border-radius:0 8px 8px 0;border-left:4px solid var(--offen);background:var(--offen-soft);font-size:.95rem}
+.kasten.widerspruch{border-color:var(--wid);background:var(--wid-soft)}
+.kasten p{margin:0}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){body{font-size:16px} h1{font-size:2rem} h2{font-size:1.4rem}}
+@media print{.band{background:none;color:#000;border:0}.zurueck{display:none}}
+</style></head><body>
+<header class="band"><div class="in">
+  <a class="zurueck" href="../index.html#Rechnungswesen">‹ Rechnungswesen</a>
+  <div class="fach"><i></i>Rechnungswesen, Lernzettel</div>
+  <h1>Buchführung, Inventur und Bilanz</h1>
+  <p class="lead">Aufgaben der Buchführung, GoB, Inventur, Inventar und Bilanz.</p>
+</div></header>
+<main><div class="in">
+<h2>1. Aufgaben und Pflicht der Buchführung</h2>
+<ul>
+<li><strong>Wozu:</strong> alle Geschäftsvorfälle, Vermögen und Schulden erfassen. Gewinn oder Verlust ermitteln (Aufwendungen und Erträge). Grundlage für Steuern, Preiskalkulation, Kontrolle und Betriebsvergleich. Beweismittel gegenüber Finanzamt, Gläubigern und Gericht.</li>
+<li><strong>Wer schaut rein:</strong> Geschäftsführung, Gesellschafter, Banken (Kredit), Finanzamt.</li>
+<li><strong>Pflicht nach Handelsrecht:</strong> Jeder Kaufmann (§ 1 HGB, siehe auch Politik und Gesellschaft).</li>
+<li><strong>Pflicht nach Steuerrecht (§ 141 AO):</strong> ab einem Umsatz von mehr als <strong>800.000 €</strong> oder einem Gewinn von mehr als <strong>80.000 €</strong> im Jahr. <em>(Grenzwerte laut Arbeitsblatt, Stand Oktober 2026. Sie können sich ändern, aktueller Wert in § 141 AO auf gesetze-im-internet.de.)</em></li>
+</ul>
+<h2>2. GoB, Belege, Aufbewahrung</h2>
+<ul>
+<li><strong>Grundsätze ordnungsgemäßer Buchführung (GoB)</strong>, gesetzliche Grundlage HGB und AO. Aufzeichnungen müssen in einer lebenden Sprache, eindeutig, vollständig, richtig, zeitgerecht und nachweisbar sein.</li>
+<li><strong>Keine Buchung ohne Beleg!</strong> Der Beleg ist Beweismittel und das Bindeglied zwischen Geschäftsvorfall und Buchung.</li>
+<li><strong>Fremdbelege</strong> (kommen von außen): Eingangsrechnungen, Quittungen, Kontoauszüge, Gutschriften.</li>
+<li><strong>Eigenbelege</strong> (selbst erstellt): Kopien von Ausgangsrechnungen, Lohnlisten, Belege über Privat- und Materialentnahmen.</li>
+<li>Nicht erlaubt sind Bleistift (radierbar) und freie Zeilen für spätere Änderungen.</li>
+<li><strong>Aufbewahrungsfristen</strong> (laut Heft, Stand Oktober 2026): <strong>6 Jahre</strong> Handelsbriefe, <strong>8 Jahre</strong> Belege, <strong>10 Jahre</strong> Inventare, Bilanzen und Jahresabschlüsse. Die Frist beginnt am <strong>Ende des Kalenderjahres</strong>, in dem die Unterlage entstanden ist.</li>
+</ul>
+<h2>3. Inventur</h2>
+<ul>
+<li><strong>Inventur</strong> = Vermögen und Schulden ermitteln (§ 240 HGB, § 140 AO).</li>
+<li><strong>Pflicht:</strong> bei Eröffnung oder Übernahme, am Ende jedes Geschäftsjahres, bei Auflösung oder Verkauf. Das ist wichtig für die Übernahme des Betriebs des Vaters.</li>
+<li><strong>Körperlich:</strong> zählen, messen, wiegen, schätzen, bewerten (zum Einkaufspreis). <strong>Buchmäßig:</strong> Forderungen, Verbindlichkeiten, Bankguthaben anhand der Unterlagen.</li>
+<li><strong>Arten:</strong></li>
+<li><strong>Stichtagsinventur</strong>, zeitnah ± 10 Tage um den Bilanzstichtag</li>
+<li><strong>permanente Inventur</strong>: laufend über Lagerkartei, mindestens 1× pro Jahr zusätzlich körperlich</li>
+<li><strong>zeitlich verlegte Inventur</strong>: bis 3 Monate vor oder 2 Monate nach dem Stichtag, dann wertmäßig fortschreiben oder zurückrechnen</li>
+<li><strong>Stichprobeninventur</strong>: Teil erfassen und hochrechnen</li>
+<li>Die Inventurprotokolle sind zu unterschreiben und 10 Jahre aufzubewahren.</li>
+</ul>
+<h2>4. Inventar</h2>
+<ul>
+<li><strong>Inventar</strong> = ausführliches Verzeichnis aller Vermögensteile und Schulden, <strong>untereinander</strong> aufgestellt.</li>
+<li>Gliederung: <strong>A. Vermögen</strong> (I. Anlagevermögen, II. Umlaufvermögen) → <strong>B. Schulden</strong> (I. langfristig, II. kurzfristig) → <strong>C. Reinvermögen = Vermögen − Schulden</strong>.</li>
+<li>Reihenfolge: das Vermögen nach <strong>Liquidität</strong> (Grundstücke, Gebäude, Maschinen, Fuhrpark, BGA, Rohstoffe, Waren, Forderungen, Bank, Kasse), die Schulden nach <strong>Fristigkeit</strong> (Hypothek, Darlehen, Kontokorrent, Verbindlichkeiten).</li>
+<li><strong>Anlagevermögen</strong> bleibt lange im Betrieb, <strong>Umlaufvermögen</strong> soll umgesetzt werden.</li>
+</ul>
+<h2>5. Bilanz</h2>
+<ul>
+<li><strong>Bilanz</strong> = kurz gefasste Gegenüberstellung von Vermögen und Kapital in <strong>Kontenform</strong> (nebeneinander). Pflicht nach § 242 HGB.</li>
+<li><strong>Aktiva</strong> (links) = Vermögen = <strong>Mittelverwendung</strong>. <strong>Passiva</strong> (rechts) = Eigenkapital und Fremdkapital = <strong>Mittelherkunft</strong>.</li>
+<li><strong>Bilanzgleichung:</strong> Summe Aktiva = Summe Passiva; <strong>Vermögen − Schulden = Eigenkapital</strong>.</li>
+<li>Unterschied zum Inventar: Die Bilanz ist kurz, übersichtlich und steht nebeneinander, sie wird teilweise veröffentlicht. Das Inventar ist ausführlich und steht untereinander, es bleibt im Betrieb.</li>
+<li>Achtung: <strong>Eigenkapital steht auf der Passivseite</strong> (im Arbeitsblatt "Vom Inventar zur Bilanz" falsch bei Aktiv einsortiert).</li>
+</ul>
+<h3>Die 4 Werteveränderungen</h3>
+<div class="tab"><table>
+<thead>
+<tr>
+<th>Fall</th>
+<th>Was passiert</th>
+<th>Bilanzsumme</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aktivtausch</strong></td>
+<td>Aktivposten +, anderer Aktivposten −</td>
+<td>bleibt</td>
+<td>Kunde zahlt bar</td>
+</tr>
+<tr>
+<td><strong>Passivtausch</strong></td>
+<td>Passivposten +, anderer Passivposten −</td>
+<td>bleibt</td>
+<td>Liefererschuld wird zu Darlehen</td>
+</tr>
+<tr>
+<td><strong>Aktiv-Passiv-Mehrung</strong></td>
+<td>Aktiv + und Passiv +</td>
+<td>steigt</td>
+<td>Waren auf Ziel kaufen</td>
+</tr>
+<tr>
+<td><strong>Aktiv-Passiv-Minderung</strong></td>
+<td>Aktiv − und Passiv −</td>
+<td>sinkt</td>
+<td>Rechnung per Bank zahlen</td>
+</tr>
+</tbody>
+</table></div>
+<footer>Selbst zusammengestellt aus Hefteinträgen und Arbeitsblättern der Meisterschule. Nicht vom Lehrer, ohne Gewähr. Stand 26.11.2026.</footer>
+</div></main>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("../sw.js");</script>
+</body></html>
